@@ -1,0 +1,155 @@
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Hexo version: \u001b[35m3.2.0\u001b[39m","time":"2016-03-07T09:25:48.243Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Working directory: \u001b[35m/Users/jucongyuan/Documents/hexo/blog/\u001b[39m","time":"2016-03-07T09:25:48.247Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Config loaded: \u001b[35m/Users/jucongyuan/Documents/hexo/blog/_config.yml\u001b[39m","time":"2016-03-07T09:25:48.358Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge-configs.js\u001b[39m","time":"2016-03-07T09:25:48.372Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/center-quote.js\u001b[39m","time":"2016-03-07T09:25:48.373Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/full-image.js\u001b[39m","time":"2016-03-07T09:25:48.373Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/group-pictures.js\u001b[39m","time":"2016-03-07T09:25:48.374Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2016-03-07T09:25:48.630Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2016-03-07T09:25:48.633Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2016-03-07T09:25:48.635Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2016-03-07T09:25:48.638Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2016-03-07T09:25:48.642Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2016-03-07T09:25:48.645Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2016-03-07T09:25:48.750Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2016-03-07T09:25:48.751Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2016-03-07T09:25:48.884Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Loading database.","time":"2016-03-07T09:25:48.900Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":30,"msg":"Start processing","time":"2016-03-07T09:25:48.961Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mtags/debug.log\u001b[39m","time":"2016-03-07T09:25:49.069Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35m_posts/hello-world.md\u001b[39m","time":"2016-03-07T09:25:49.091Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mtags/index.md\u001b[39m","time":"2016-03-07T09:25:49.091Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Theme config loaded.","time":"2016-03-07T09:25:49.158Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35m_config.yml\u001b[39m","time":"2016-03-07T09:25:49.163Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mimages/avatar.jpg\u001b[39m","time":"2016-03-07T09:25:49.163Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/css/main.styl\u001b[39m","time":"2016-03-07T09:25:49.166Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nc-nd.svg\u001b[39m","time":"2016-03-07T09:25:49.170Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nc-sa.svg\u001b[39m","time":"2016-03-07T09:25:49.171Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nc.svg\u001b[39m","time":"2016-03-07T09:25:49.175Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nd.svg\u001b[39m","time":"2016-03-07T09:25:49.175Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-sa.svg\u001b[39m","time":"2016-03-07T09:25:49.176Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by.svg\u001b[39m","time":"2016-03-07T09:25:49.176Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/cc-zero.svg\u001b[39m","time":"2016-03-07T09:25:49.178Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/loading.gif\u001b[39m","time":"2016-03-07T09:25:49.178Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/placeholder.gif\u001b[39m","time":"2016-03-07T09:25:49.180Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/quote-l.svg\u001b[39m","time":"2016-03-07T09:25:49.180Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/quote-r.svg\u001b[39m","time":"2016-03-07T09:25:49.181Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/images/searchicon.png\u001b[39m","time":"2016-03-07T09:25:49.182Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_layout.swig\u001b[39m","time":"2016-03-07T09:25:49.375Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/archive.swig\u001b[39m","time":"2016-03-07T09:25:49.376Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/category.swig\u001b[39m","time":"2016-03-07T09:25:49.376Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/index.swig\u001b[39m","time":"2016-03-07T09:25:49.377Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/page.swig\u001b[39m","time":"2016-03-07T09:25:49.377Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/post.swig\u001b[39m","time":"2016-03-07T09:25:49.377Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/tag.swig\u001b[39m","time":"2016-03-07T09:25:49.377Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/default.yml\u001b[39m","time":"2016-03-07T09:25:49.383Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/en.yml\u001b[39m","time":"2016-03-07T09:25:49.383Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/de.yml\u001b[39m","time":"2016-03-07T09:25:49.383Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/fr-FR.yml\u001b[39m","time":"2016-03-07T09:25:49.383Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/pt.yml\u001b[39m","time":"2016-03-07T09:25:49.384Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/ru.yml\u001b[39m","time":"2016-03-07T09:25:49.384Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-Hans.yml\u001b[39m","time":"2016-03-07T09:25:49.384Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-hk.yml\u001b[39m","time":"2016-03-07T09:25:49.384Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-tw.yml\u001b[39m","time":"2016-03-07T09:25:49.384Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/affix.js\u001b[39m","time":"2016-03-07T09:25:49.384Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/bootstrap.js\u001b[39m","time":"2016-03-07T09:25:49.385Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/hook-duoshuo.js\u001b[39m","time":"2016-03-07T09:25:49.385Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/motion.js\u001b[39m","time":"2016-03-07T09:25:49.385Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/scrollspy.js\u001b[39m","time":"2016-03-07T09:25:49.386Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/utils.js\u001b[39m","time":"2016-03-07T09:25:49.386Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/LICENSE\u001b[39m","time":"2016-03-07T09:25:49.406Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/README.md\u001b[39m","time":"2016-03-07T09:25:49.406Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/bower.json\u001b[39m","time":"2016-03-07T09:25:49.407Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/HELP-US-OUT.txt\u001b[39m","time":"2016-03-07T09:25:49.407Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/bower.json\u001b[39m","time":"2016-03-07T09:25:49.408Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/CONTRIBUTING.md\u001b[39m","time":"2016-03-07T09:25:49.409Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/README.md\u001b[39m","time":"2016-03-07T09:25:49.409Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/bower.json\u001b[39m","time":"2016-03-07T09:25:49.410Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/jquery.lazyload.js\u001b[39m","time":"2016-03-07T09:25:49.410Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/jquery.scrollstop.js\u001b[39m","time":"2016-03-07T09:25:49.411Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/bower.json\u001b[39m","time":"2016-03-07T09:25:49.412Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.min.js\u001b[39m","time":"2016-03-07T09:25:49.413Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.ui.min.js\u001b[39m","time":"2016-03-07T09:25:49.414Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.ui.js\u001b[39m","time":"2016-03-07T09:25:49.414Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/post-collapse.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/reward.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/post.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/sidebar.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/comments.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/duoshuo-hot-articles.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/footer.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/head.swig\u001b[39m","time":"2016-03-07T09:25:49.465Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/header.swig\u001b[39m","time":"2016-03-07T09:25:49.466Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/pagination.swig\u001b[39m","time":"2016-03-07T09:25:49.466Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search.swig\u001b[39m","time":"2016-03-07T09:25:49.466Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/boostrap.swig\u001b[39m","time":"2016-03-07T09:25:49.466Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/commons.swig\u001b[39m","time":"2016-03-07T09:25:49.466Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/vendors.swig\u001b[39m","time":"2016-03-07T09:25:49.466Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery/index.js\u001b[39m","time":"2016-03-07T09:25:49.471Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/js/src/schemes/pisces.js\u001b[39m","time":"2016-03-07T09:25:49.472Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/schemes/mist.swig\u001b[39m","time":"2016-03-07T09:25:49.480Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/schemes/muse.swig\u001b[39m","time":"2016-03-07T09:25:49.480Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/blank.gif\u001b[39m","time":"2016-03-07T09:25:49.484Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_loading.gif\u001b[39m","time":"2016-03-07T09:25:49.485Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_loading@2x.gif\u001b[39m","time":"2016-03-07T09:25:49.485Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_overlay.png\u001b[39m","time":"2016-03-07T09:25:49.486Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_sprite.png\u001b[39m","time":"2016-03-07T09:25:49.486Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_sprite@2x.png\u001b[39m","time":"2016-03-07T09:25:49.486Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/jquery.fancybox.css\u001b[39m","time":"2016-03-07T09:25:49.486Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/jquery.fancybox.js\u001b[39m","time":"2016-03-07T09:25:49.487Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/jquery.fancybox.pack.js\u001b[39m","time":"2016-03-07T09:25:49.487Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/lib/fastclick.js\u001b[39m","time":"2016-03-07T09:25:49.487Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/lib/fastclick.min.js\u001b[39m","time":"2016-03-07T09:25:49.487Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/css/font-awesome.css\u001b[39m","time":"2016-03-07T09:25:49.488Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/css/font-awesome.css.map\u001b[39m","time":"2016-03-07T09:25:49.488Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/css/font-awesome.min.css\u001b[39m","time":"2016-03-07T09:25:49.488Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.woff2\u001b[39m","time":"2016-03-07T09:25:49.488Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/ua-parser-js/dist/ua-parser.min.js\u001b[39m","time":"2016-03-07T09:25:49.488Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/ua-parser-js/dist/ua-parser.pack.js\u001b[39m","time":"2016-03-07T09:25:49.489Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search/localsearch.swig\u001b[39m","time":"2016-03-07T09:25:49.503Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search/swiftype.swig\u001b[39m","time":"2016-03-07T09:25:49.503Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search/tinysou.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/add-this.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/baidushare.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/duoshuo_share.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/jiathis.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/pages/post-details.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/schemes/pisces.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/comments.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/lean-analytics.swig\u001b[39m","time":"2016-03-07T09:25:49.504Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/localsearch.swig\u001b[39m","time":"2016-03-07T09:25:49.515Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/mathjax.swig\u001b[39m","time":"2016-03-07T09:25:49.515Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/tinysou.swig\u001b[39m","time":"2016-03-07T09:25:49.515Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/FontAwesome.otf\u001b[39m","time":"2016-03-07T09:25:49.518Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.eot\u001b[39m","time":"2016-03-07T09:25:49.518Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.woff\u001b[39m","time":"2016-03-07T09:25:49.519Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.js\u001b[39m","time":"2016-03-07T09:25:49.519Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/fancybox_buttons.png\u001b[39m","time":"2016-03-07T09:25:49.524Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-buttons.css\u001b[39m","time":"2016-03-07T09:25:49.525Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-buttons.js\u001b[39m","time":"2016-03-07T09:25:49.526Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-media.js\u001b[39m","time":"2016-03-07T09:25:49.527Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css\u001b[39m","time":"2016-03-07T09:25:49.529Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js\u001b[39m","time":"2016-03-07T09:25:49.531Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.ttf\u001b[39m","time":"2016-03-07T09:25:49.532Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/baidu-analytics.swig\u001b[39m","time":"2016-03-07T09:25:49.537Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/facebook-sdk.swig\u001b[39m","time":"2016-03-07T09:25:49.538Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/google-analytics.swig\u001b[39m","time":"2016-03-07T09:25:49.538Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/tencent-analytics.swig\u001b[39m","time":"2016-03-07T09:25:49.538Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/comments/disqus.swig\u001b[39m","time":"2016-03-07T09:25:49.538Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/comments/duoshuo.swig\u001b[39m","time":"2016-03-07T09:25:49.538Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.svg\u001b[39m","time":"2016-03-07T09:25:49.540Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2016-03-07T09:25:49.672Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2016-03-07T09:25:49.672Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2016-03-07T09:25:49.673Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2016-03-07T09:25:49.673Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-03-07T09:25:49.673Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-03-07T09:25:49.673Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-03-07T09:25:49.675Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-03-07T09:25:49.683Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Database saved","time":"2016-03-07T09:25:49.698Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Rendering page: \u001b[35mtags/index.html\u001b[39m","time":"2016-03-07T09:25:53.087Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Rendering page: \u001b[35mtags/index.html\u001b[39m","time":"2016-03-07T09:25:56.345Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-03-07T09:25:59.613Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":30,"msg":"Have a nice day","time":"2016-03-07T09:26:46.998Z","v":0}
+{"name":"hexo","hostname":"JucongyuandeMac-mini.local","pid":40672,"level":20,"msg":"Database saved","time":"2016-03-07T09:26:47.011Z","v":0}
