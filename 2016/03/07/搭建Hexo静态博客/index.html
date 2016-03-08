@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo,博客," />
 
 
 
@@ -57,16 +57,18 @@
 
 
 
-<meta name="description" content="概述开源项目Hexo是有Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。">
+<meta name="description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建Hexo静态博客">
 <meta property="og:url" content="http://yoursite.com/2016/03/07/搭建Hexo静态博客/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="概述开源项目Hexo是有Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。">
-<meta property="og:updated_time" content="2016-03-07T12:14:44.000Z">
+<meta property="og:description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-0.png">
+<meta property="og:updated_time" content="2016-03-08T02:02:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建Hexo静态博客">
-<meta name="twitter:description" content="概述开源项目Hexo是有Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。">
+<meta name="twitter:description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-0.png">
 
 
 
@@ -242,8 +244,34 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/07/搭建Hexo静态博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/07/搭建Hexo静态博客/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -263,23 +291,22 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>开源项目Hexo是有Node.js完成，所有源码位于<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">GitHib</a>上，可以使用它搭建自己的静态博客网页。<br><a id="more"></a></p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>开源项目Hexo是由Node.js完成，所有源码位于<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">GitHib</a>上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言<a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown</a>编辑文章，可参考<a href="http://sspai.com/25137" target="_blank" rel="external">Markdown入门资料</a><br><a id="more"></a></p>
 <h2 id="环境搭建-OS-X"><a href="#环境搭建-OS-X" class="headerlink" title="环境搭建(OS X)"></a>环境搭建(OS X)</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>访问<a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>官网下载对应版本并安装</p>
 <h3 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h3><p>安装方式</p>
-<pre><code>$ npm install -g cnpm</code></pre>
-### Hexo
-<pre><code>$ cnpm install hexo-cli -g</code></pre>
-### Git
-安装Xcode后会默认安装git，如还未安装git，可自行搜索安装，这里就不再赘述。
-## 初始化Hexo
-进入你想存放文件的目录，如我是在``` /Document/hexo/blog ```下，命令进入到相应目录下，执行：
-<pre><code>1 $ hexo init
-2 $ npm install
-</code></pre>
-
-
-
-
+<p><pre><code>$ npm install -g cnpm</code></pre></p>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p><pre><code>$ cnpm install hexo-cli -g</code></pre></p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>安装Xcode后会默认安装git，如还未安装git，可自行搜索安装，这里就不再赘述。</p>
+<h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>进入你想存放文件的目录，如我是在<code>/Document/hexo/blog</code>下，命令进入到相应目录下，执行：</p>
+<p><pre><code>1 $ hexo init<br>2 $ npm install<br></code></pre><br>启动本地服务器</p>
+<p><pre><code>$ hexo s</code></pre><br>浏览器打开<code>http://localhost:4000</code>，至此本地的静态网页博客已经搭建成功，那么如何让其他人也能够访问到呢，我们需要将他部署到GitHub上</p>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>申请GitHub社区账号，并新建新的Repository，注意Repository的名字一定要遵守<code>用户名.github.io</code>，如图是我的<br><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-0.png" alt="New"></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在本地的静态博客根目录下，找到<code>_config.yml</code>文件，找到<code>deploy</code>关键字，根据自己新建的Repository修改为如以下配置</p>
+<p><pre><code>deploy:<br>  type: git<br>  repo: git@github.com:Jucongyuan/Jucongyuan.github.io.git<br>  branch: master<br></code></pre><br>部署到GitHub，在博客根目录下执行以下命令</p>
+<p><pre><code>1 $ hexo clean<br>2 $ hexo generate<br>3 $ hexo deploy<br></code></pre></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于采用的SSH，所以需要在本地生成SSH Key，可参照<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">GitHub官网</a></p>
+<p>访问你的<code>http://用户名.github.io</code>，至此完成整个搭建过程</p>
+<p>Hexo可以配置不同的主题，如本博客采用的是国内的一个主题NexT，在该主题上可以在博客中增加其他如分享、搜索、评论等其他第三方功能和自定义样式主题，更多请访问<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a></p>
 
       
     </div>
@@ -291,6 +318,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/博客/" rel="tag">#博客</a>
+          
+        </div>
       
 
       
@@ -304,28 +339,24 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+        <div class="ds-share flat" data-thread-key="2016/03/07/搭建Hexo静态博客/"
+     data-title="搭建Hexo静态博客"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/07/搭建Hexo静态博客/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
   </div>
@@ -337,6 +368,10 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/07/搭建Hexo静态博客/"
+           data-title="搭建Hexo静态博客" data-url="http://yoursite.com/2016/03/07/搭建Hexo静态博客/">
+      </div>
     
   </div>
 
@@ -386,7 +421,21 @@
           </div>
           
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -434,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建-OS-X"><span class="nav-number">2.</span> <span class="nav-text">环境搭建(OS X)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cnpm"><span class="nav-number">2.2.</span> <span class="nav-text">cnpm</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建-OS-X"><span class="nav-number">2.</span> <span class="nav-text">环境搭建(OS X)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cnpm"><span class="nav-number">2.2.</span> <span class="nav-text">cnpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">2.4.</span> <span class="nav-text">Git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化Hexo"><span class="nav-number">3.</span> <span class="nav-text">初始化Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">4.</span> <span class="nav-text">部署到GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">4.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">4.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -696,9 +745,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jucongyuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 
