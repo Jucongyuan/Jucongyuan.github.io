@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,博客," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
+<meta name="description" content="简要各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索happy，却不小心按到了y旁边的u，这时我们依然达到了我们想要的目的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建Hexo静态博客">
-<meta property="og:url" content="http://yoursite.com/2016/03/07/搭建Hexo静态博客/index.html">
+<meta property="og:title" content="编辑距离及算法实现">
+<meta property="og:url" content="http://yoursite.com/2016/03/08/编辑距离及算法实现/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-0.png">
-<meta property="og:updated_time" content="2016-03-08T08:16:52.000Z">
+<meta property="og:description" content="简要各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索happy，却不小心按到了y旁边的u，这时我们依然达到了我们想要的目的">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-1.png">
+<meta property="og:updated_time" content="2016-03-08T08:14:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建Hexo静态博客">
-<meta name="twitter:description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-0.png">
+<meta name="twitter:title" content="编辑距离及算法实现">
+<meta name="twitter:description" content="简要各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索happy，却不小心按到了y旁边的u，这时我们依然达到了我们想要的目的">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-1.png">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> 搭建Hexo静态博客 | Jucongyuan's Blog </title>
+  <title> 编辑距离及算法实现 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -226,7 +226,7 @@
             
             
               
-                搭建Hexo静态博客
+                编辑距离及算法实现
               
             
           </h1>
@@ -238,8 +238,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-07T19:14:34+08:00" content="2016-03-07">
-              2016-03-07
+            <time itemprop="dateCreated" datetime="2016-03-08T13:51:16+08:00" content="2016-03-08">
+              2016-03-08
             </time>
           </span>
 
@@ -252,8 +252,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -268,8 +268,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/07/搭建Hexo静态博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/07/搭建Hexo静态博客/" itemprop="commentsCount"></span>
+                <a href="/2016/03/08/编辑距离及算法实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/08/编辑距离及算法实现/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -291,22 +291,173 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>开源项目Hexo是由Node.js完成，所有源码位于<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">GitHib</a>上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言<a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown</a>编辑文章，可参考<a href="http://sspai.com/25137" target="_blank" rel="external">Markdown入门资料</a><br><a id="more"></a></p>
-<h2 id="环境搭建-OS-X"><a href="#环境搭建-OS-X" class="headerlink" title="环境搭建(OS X)"></a>环境搭建(OS X)</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>访问<a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>官网下载对应版本并安装</p>
-<h3 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h3><p>安装方式</p>
-<p><pre><code>$ npm install -g cnpm</code></pre></p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p><pre><code>$ cnpm install hexo-cli -g</code></pre></p>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>安装Xcode后会默认安装git，如还未安装git，可自行搜索安装，这里就不再赘述。</p>
-<h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>进入你想存放文件的目录，如我是在<code>/Document/hexo/blog</code>下，命令进入到相应目录下，执行：</p>
-<p><pre><code>1 $ hexo init<br>2 $ npm install<br></code></pre><br>启动本地服务器</p>
-<p><pre><code>$ hexo s</code></pre><br>浏览器打开<code>http://localhost:4000</code>，至此本地的静态网页博客已经搭建成功，那么如何让其他人也能够访问到呢，我们需要将他部署到GitHub上</p>
-<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>申请GitHub社区账号，并新建新的Repository，注意Repository的名字一定要遵守<code>用户名.github.io</code>，如图是我的<br><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-0.png" alt="New"></p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在本地的静态博客根目录下，找到<code>_config.yml</code>文件，找到<code>deploy</code>关键字，根据自己新建的Repository修改为如以下配置</p>
-<p><pre><code>deploy:<br>  type: git<br>  repo: git@github.com:Jucongyuan/Jucongyuan.github.io.git<br>  branch: master<br></code></pre><br>部署到GitHub，在博客根目录下执行以下命令</p>
-<p><pre><code>1 $ hexo clean<br>2 $ hexo generate<br>3 $ hexo deploy<br></code></pre></p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于采用的SSH，所以需要在本地生成SSH Key，可参照<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">GitHub官网</a></p>
-<p>访问你的<code>http://用户名.github.io</code>，至此完成整个搭建过程</p>
-<p>Hexo可以配置不同的主题，如本博客采用的是国内的一个主题NexT，在该主题上可以在博客中增加其他如分享、搜索、评论等其他第三方功能和自定义样式主题，更多请访问<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a></p>
+        <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索<code>happy</code>，却不小心按到了<code>y</code>旁边的<code>u</code>，这时我们依然达到了我们想要的目的</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160308-1.png" alt="Happy"></p>
+<a id="more"></a>
+<p>那么这个是怎么实现的呢，先不考虑这个功能整体使用到的技术，先解决一个问题，它是怎么知道从<code>happu</code>到<code>happy</code>的，这就是我们今天要讲的编辑距离</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="编辑距离（Edit-Distance）"><a href="#编辑距离（Edit-Distance）" class="headerlink" title="编辑距离（Edit Distance）"></a>编辑距离（Edit Distance）</h3><p>又称Levenshtein距离，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。一般来说，编辑距离越小，两个串的相似度越大。</p>
+<p>从<code>happu</code>到<code>happy</code>只是把<code>u</code>替换成了<code>y</code>，操作次数为一次，所以编辑距离为<code>1</code></p>
+<h3 id="运用"><a href="#运用" class="headerlink" title="运用"></a>运用</h3><p>因此，有了这个概念，当我们知道一个词是错误的时候（怎么知道它错了，后面讨论），就只需从正确的词中找出和它编辑距离最小的一个或多个，就可以帮助用户纠错了</p>
+<h3 id="如何计算编辑距离"><a href="#如何计算编辑距离" class="headerlink" title="如何计算编辑距离"></a>如何计算编辑距离</h3><p>比如要计算<code>cafe</code>到<code>coffee</code>的编辑距离</p>
+<p>先创建一个6x8的表（cafe长度为4，coffee长度为6，各加2）,先在表中如下位置填入相应数字</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>0</th>
+<th>c</th>
+<th>o</th>
+<th>f</th>
+<th>f</th>
+<th>e</th>
+<th>e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6 </td>
+</tr>
+<tr>
+<td>c</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>o</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>f</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>e</td>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>再从<code>c</code>到<code>c</code>对应的表格，也就是表格的（3，3）位置开始，按照以下规则填充数字</p>
+<ul>
+<li>如果最上方的字符等于最左方的字符，则为左上方的数字。否则为左上方的数字+1。（对于3,3来说为0）</li>
+<li>左方数字+1（对于3,3格来说为2）</li>
+<li>上方数字+1（对于3,3格来说为2）</li>
+</ul>
+<p>取上面得出的三个数字中最小数字填入（3，3）位置，以此类推，完成所有空格的填充，如下</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>0</th>
+<th>c</th>
+<th>o</th>
+<th>f</th>
+<th>f</th>
+<th>e</th>
+<th>e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6 </td>
+</tr>
+<tr>
+<td>c</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>o</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>f</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>e</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>取得表中右下角数字，既为<code>cafe</code>和<code>coffee</code>的最小编辑距离，为<code>3</code></p>
+<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><pre><code> 
+public static double ld(String s, String t) {  
+        int d[][];  
+        int sLen = s.length();  
+        int tLen = t.length();  
+        int si;   
+        int ti;   
+        char ch1;  
+        char ch2;  
+        int cost;  
+        if(sLen == 0) {  
+            return tLen;  
+        }  
+        if(tLen == 0) {  
+            return sLen;  
+        }  
+        d = new int[sLen+1][tLen+1];  
+        for(si=0; si<=slen; 1="" si++)="" {="" d[si][0]="si;" }="" for(ti="0;" ti<="tLen;" ti++)="" d[0][ti]="ti;" for(si="1;" si<="sLen;" ch1="s.charAt(si-1);" ch2="t.charAt(ti-1);" if(ch1="=" ch2)="" cost="0;" else="" d[si][ti]="Math.min(Math.min(d[si-1][ti]+1," d[si][ti-1]+1),d[si-1][ti-1]+cost);="" return="" -="" (double)="" d[slen][tlen]="" math.max(src.length(),="" tar.length());="" <="" code=""></=slen;></code></pre>
 
       
     </div>
@@ -321,9 +472,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
-          
-            <a href="/tags/博客/" rel="tag">#博客</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
         </div>
       
@@ -332,13 +481,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/03/07/搭建Hexo静态博客/" rel="next" title="搭建Hexo静态博客">
+                <i class="fa fa-chevron-left"></i> 搭建Hexo静态博客
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/08/编辑距离及算法实现/" rel="prev" title="编辑距离及算法实现">
-                编辑距离及算法实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -353,10 +502,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/07/搭建Hexo静态博客/"
-     data-title="搭建Hexo静态博客"
+        <div class="ds-share flat" data-thread-key="2016/03/08/编辑距离及算法实现/"
+     data-title="编辑距离及算法实现"
      data-content=""
-     data-url="http://yoursite.com/2016/03/07/搭建Hexo静态博客/">
+     data-url="http://yoursite.com/2016/03/08/编辑距离及算法实现/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -383,8 +532,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/07/搭建Hexo静态博客/"
-           data-title="搭建Hexo静态博客" data-url="http://yoursite.com/2016/03/07/搭建Hexo静态博客/">
+      <div class="ds-thread" data-thread-key="2016/03/08/编辑距离及算法实现/"
+           data-title="编辑距离及算法实现" data-url="http://yoursite.com/2016/03/08/编辑距离及算法实现/">
       </div>
     
   </div>
@@ -497,7 +646,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建-OS-X"><span class="nav-number">2.</span> <span class="nav-text">环境搭建(OS X)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cnpm"><span class="nav-number">2.2.</span> <span class="nav-text">cnpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">2.4.</span> <span class="nav-text">Git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化Hexo"><span class="nav-number">3.</span> <span class="nav-text">初始化Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">4.</span> <span class="nav-text">部署到GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">4.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">4.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要"><span class="nav-number">1.</span> <span class="nav-text">简要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑距离（Edit-Distance）"><span class="nav-number">2.1.</span> <span class="nav-text">编辑距离（Edit Distance）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用"><span class="nav-number">2.2.</span> <span class="nav-text">运用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何计算编辑距离"><span class="nav-number">2.3.</span> <span class="nav-text">如何计算编辑距离</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java代码"><span class="nav-number">3.</span> <span class="nav-text">Java代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
