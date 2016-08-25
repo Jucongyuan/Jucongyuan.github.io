@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,设计模式,类的关系," />
+  <meta name="keywords" content="Java,算法," />
 
 
 
@@ -80,23 +80,19 @@
 
 
 
-<meta name="description" content="概述在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。">
+<meta name="description" content="解决的问题马拉车算法主要是为了解决求一个字符串的最长回文串，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java设计模式中类的关系总结">
-<meta property="og:url" content="http://yoursite.com/2016/08/08/设计模式中类的关系总结/index.html">
+<meta property="og:title" content="马拉车(Manacher)算法">
+<meta property="og:url" content="http://yoursite.com/2016/08/25/马拉车(Manacher)算法/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="概述在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-0.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-7.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-6.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-3.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-4.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-5.png">
-<meta property="og:updated_time" content="2016-08-08T11:26:19.000Z">
+<meta property="og:description" content="解决的问题马拉车算法主要是为了解决求一个字符串的最长回文串，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-0.png">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-1.png">
+<meta property="og:updated_time" content="2016-08-25T10:04:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java设计模式中类的关系总结">
-<meta name="twitter:description" content="概述在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-0.png">
+<meta name="twitter:title" content="马拉车(Manacher)算法">
+<meta name="twitter:description" content="解决的问题马拉车算法主要是为了解决求一个字符串的最长回文串，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-0.png">
 
 
 
@@ -114,7 +110,7 @@
   };
 </script>
 
-  <title> Java设计模式中类的关系总结 | Jucongyuan's Blog </title>
+  <title> 马拉车(Manacher)算法 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +262,7 @@
             
             
               
-                Java设计模式中类的关系总结
+                马拉车(Manacher)算法
               
             
           </h1>
@@ -278,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T19:26:19+08:00" content="2016-08-08">
-              2016-08-08
+            <time itemprop="dateCreated" datetime="2016-08-25T18:04:18+08:00" content="2016-08-25">
+              2016-08-25
             </time>
           </span>
 
@@ -292,8 +288,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -308,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/08/设计模式中类的关系总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/设计模式中类的关系总结/" itemprop="commentsCount"></span>
+                <a href="/2016/08/25/马拉车(Manacher)算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/马拉车(Manacher)算法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,7 +315,7 @@
 
           
           
-             <span id="/2016/08/08/设计模式中类的关系总结/" class="leancloud_visitors" data-flag-title="Java设计模式中类的关系总结">
+             <span id="/2016/08/25/马拉车(Manacher)算法/" class="leancloud_visitors" data-flag-title="马拉车(Manacher)算法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -341,65 +337,60 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。</p>
+        <h2 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h2><p>马拉车算法主要是为了解决求一个字符串的最长<a href="http://baike.baidu.com/link?url=rQ1b6JenDIUpjoqQweTXI6IKwEyy3amKk0CPIZeijmZuW5u4wWddySj1vN275_9iHmYovrOmlI4zywR82-wrL_" target="_blank" rel="external">回文串</a>，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。</p>
 <a id="more"></a>
-<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><table>
-<thead>
-<tr>
-<th>关系</th>
-<th>定义</th>
-<th>UML图例表示</th>
-<th>赋值方式</th>
-<th>例子 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>依赖（Dependence）</td>
-<td>类A中使用了类B，其中类B作为类A中方法的参数、方法中的局部变量或者静态方法的调用</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-0.png" alt="依赖"></td>
-<td>无</td>
-<td>无 </td>
-</tr>
-<tr>
-<td>关联（Association）</td>
-<td>单向：类A中使用了类B作为成员变量。双向：类A当中使用了类B作为成员变量；同时类B中也使用了类A作为成员变量。类A类B无任何关系</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-7.png" alt="关联"></td>
-<td>类中赋值</td>
-<td>车和房 </td>
-</tr>
-<tr>
-<td>聚合（Aggregation）</td>
-<td>关联的一种，类A和类B存在包容关系，但相互是可以独立的（整体-个体）</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-6.png" alt="聚合"></td>
-<td>set方法</td>
-<td>人（车和房） </td>
-</tr>
-<tr>
-<td>组合（Composition）</td>
-<td>关联的一种，类B是类A的一部分，类B不能单独存在（整体-部分）</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-3.png" alt="组合"></td>
-<td>构造方法中</td>
-<td>人（灵魂和肉体） </td>
-</tr>
-<tr>
-<td>继承（Generalization）</td>
-<td>子类和父类的关系，子类是具有父类的属性和行为，并且扩展了新的能力</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-4.png" alt="继承"></td>
-<td>无</td>
-<td>无  </td>
-</tr>
-<tr>
-<td>实现（Implementation）</td>
-<td>实现一个或多个接口方法的类</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-5.png" alt="实现"></td>
-<td>无</td>
-<td>无 </td>
-</tr>
-</tbody>
-</table>
-<p>注意：UML图例的箭头指向。</p>
+<h2 id="原理与实现"><a href="#原理与实现" class="headerlink" title="原理与实现"></a>原理与实现</h2><p>###原理<br>利用已知的对称信息和回文串的对称性得出其他位置的对称信息，并且不用考虑字符串长度是计数还是偶数的，因为首先我们对字符串进行处理：在字符串的首尾和字符间加上<code>&quot;#&quot;</code>，如<code>&quot;nbbn&quot;</code>改变后为<code>&quot;#n#b#b#n#&quot;</code>，再在首位加上<code>&quot;&amp;&quot;</code>，所以最终经过处理的字符串为<code>&quot;&amp;#n#b#b#n#&quot;</code>。另外我们还需要辅助一个和处理后长度一致的int数组，该数组用来存字符串对应位置的最长回文长度加上本身（就是最长回文数+1），如下：</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-0.png" alt="Happy"></p>
+<p>如字符串第二个<code>b</code>两边对称的长度为1，所以它对应的int数组内的值为2。有了这个表格，我们就知道，只要求出字符串对应位置上int数组的值，那么回文串自然就出来了，那int[]数组怎么求出来呢？也就是怎么利用利用已知的对称信息和回文串的对称性得出其他位置的对称信息呢？首先假设最长回文所在位置为id，到最长回文长度的位置为idMax,如果我们要求i位置上的最长回文长度（也就是int[i]的值），可以根据int[j]的值，前提条件是(0&lt;=j&lt;i,所以int[j]是已知的)，那么是什么原理呢？分为两种情况：</p>
+<h4 id="i-lt-idMax，通过id的位置找到和i位置对称的j点"><a href="#i-lt-idMax，通过id的位置找到和i位置对称的j点" class="headerlink" title="i &lt;= idMax，通过id的位置找到和i位置对称的j点"></a>i &lt;= idMax，通过id的位置找到和i位置对称的j点</h4><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-1.png" alt="Happy"></p>
+<h5 id="如过int-j-lt-idMax-i，那么int-i-就等于int-j-。"><a href="#如过int-j-lt-idMax-i，那么int-i-就等于int-j-。" class="headerlink" title="如过int[j] &lt; idMax - i，那么int[i]就等于int[j]。"></a>如过int[j] &lt; idMax - i，那么int[i]就等于int[j]。</h5><h5 id="如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。"><a href="#如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。" class="headerlink" title="如果int[j] &gt;= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。"></a>如果int[j] &gt;= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。</h5><h4 id="i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"><a href="#i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。" class="headerlink" title="i &gt; idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"></a>i &gt; idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。</h4><p>##实现<br>这里就直接用Java代码实现了，每一次算出当前位置的回文长度后，要更新相关信息：<br><!-- lang:java --><br>        public static String longestPalindrome(String s) {<br>        if (s.length() &lt;= 1)<br>            return s;</p>
+<pre><code>    // 处理字符串
+    StringBuilder stringBuilder = new StringBuilder(&quot;$&quot;);
+    for (char c : s.toCharArray()) {
+        stringBuilder.append(&quot;#&quot;);
+        stringBuilder.append(c);
+    }
+    stringBuilder.append(&quot;#&quot;);
+    String str = stringBuilder.toString();
 
+    int id = 0;
+    int idMax = 0;
+    int index = 0;
+    int maxLength = 0;
+
+    int p[] = new int[str.length()];
+
+    for (int curr = 1; curr &lt; str.length(); curr++) {
+        int j = 2 * id - curr;
+
+        // p[curr] = idMax &gt; curr ? Math.min(p[symmetryId], idMax - curr) : 1;
+        // 更容易理解的写法
+        if (idMax &gt; curr) {
+            if (p[j] &lt; idMax - curr)
+                p[curr] = p[j];
+            else
+                p[curr] = idMax - curr;
+        } else {
+            p[curr] = 1;
+        }
+
+        while (curr + p[curr] &lt; str.length() &amp;&amp; str.charAt(curr + p[curr]) == str.charAt(curr - p[curr])) {
+            p[curr]++;
+        }
+
+        if (curr + p[curr] &gt; idMax) {
+            id = curr;
+            idMax = curr + p[curr];
+        }
+
+        if (p[curr] &gt; maxLength) {
+            maxLength = p[curr];
+            index = curr;
+        }
+    }
+    return s.substring((index - maxLength) / 2, (index + maxLength) / 2 - 1);
+}
+</code></pre>
       
     </div>
     
@@ -442,9 +433,7 @@
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
-            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
-          
-            <a href="/tags/类的关系/" rel="tag">#类的关系</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
         </div>
       
@@ -453,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/Java异常详解/" rel="next" title="Java异常详解">
-                <i class="fa fa-chevron-left"></i> Java异常详解
+              <a href="/2016/08/08/Java设计模式中类的关系总结/" rel="next" title="Java设计模式中类的关系总结">
+                <i class="fa fa-chevron-left"></i> Java设计模式中类的关系总结
               </a>
             
           </div>
@@ -474,10 +463,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/08/设计模式中类的关系总结/"
-     data-title="Java设计模式中类的关系总结"
+        <div class="ds-share flat" data-thread-key="2016/08/25/马拉车(Manacher)算法/"
+     data-title="马拉车(Manacher)算法"
      data-content=""
-     data-url="http://yoursite.com/2016/08/08/设计模式中类的关系总结/">
+     data-url="http://yoursite.com/2016/08/25/马拉车(Manacher)算法/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -504,8 +493,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/08/设计模式中类的关系总结/"
-           data-title="Java设计模式中类的关系总结" data-url="http://yoursite.com/2016/08/08/设计模式中类的关系总结/">
+      <div class="ds-thread" data-thread-key="2016/08/25/马拉车(Manacher)算法/"
+           data-title="马拉车(Manacher)算法" data-url="http://yoursite.com/2016/08/25/马拉车(Manacher)算法/">
       </div>
     
   </div>
@@ -550,7 +539,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -634,7 +623,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇总"><span class="nav-number">2.</span> <span class="nav-text">汇总</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决的问题"><span class="nav-number">1.</span> <span class="nav-text">解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理与实现"><span class="nav-number">2.</span> <span class="nav-text">原理与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#i-lt-idMax，通过id的位置找到和i位置对称的j点"><span class="nav-number">2.0.1.</span> <span class="nav-text">i <= idMax，通过id的位置找到和i位置对称的j点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如过int-j-lt-idMax-i，那么int-i-就等于int-j-。"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">如过int[j] < idMax - i，那么int[i]就等于int[j]。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">如果int[j] >= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"><span class="nav-number">2.0.2.</span> <span class="nav-text">i > idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
