@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/08/leetcode 394.Decode String/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="leetcode新题leetcode最近好像又更新了，之前Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
-<meta property="og:updated_time" content="2016-09-08T10:28:39.000Z">
+<meta property="og:updated_time" content="2016-09-08T10:39:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode 394.Decode String">
 <meta name="twitter:description" content="leetcode新题leetcode最近好像又更新了，之前Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
@@ -339,8 +339,47 @@
 <h2 id="题意和解法"><a href="#题意和解法" class="headerlink" title="题意和解法"></a>题意和解法</h2><p>这道题的题意其实很简单，就不过多解释了，看到此类表达式的计算，我们第一个想到的数据结构就是<code>栈</code>，利用栈的先进后出性质进行计算。</p>
 <h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>遍历字符串，遇到数字、字母和<code>[</code>直接进栈，遇到<code>]</code>，然后出栈，先找出所有字母，直到<code>[</code>(也要出栈)，然后再继续出栈找出数字，这里注意数字可能是多位的，比如<code>123[a]</code>，所以出栈的终止条件是栈空或者遇到非数字的字符，通过上面出栈的字符串和数字，组成新的字符串，如字符串<code>2[ab]</code>，新的字符串应该为<code>abab</code>，这些新的字符也必须再重新进栈。就这么简单~</p>
 <!-- more -->
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>第一版代码，后面如果优化了会再更新：<br><!-- lang:java --><br>    public static String decodeString(String s) {<br>        if (s == null || s.length() == 0)<br>            return s;<br>        Stack<character> stack = new Stack&lt;&gt;();<br>        for (char c : s.toCharArray()) {<br>            if (c == ‘]’) {<br>                StringBuilder sb = new StringBuilder();<br>                while (!stack.isEmpty() &amp;&amp; ((stack.peek() &gt;= ‘a’ &amp;&amp; stack.peek() &lt;= ‘z’) || stack.peek() == ‘[‘)) {<br>                    char ccc = stack.pop();<br>                    if (ccc == ‘[‘)<br>                        break;<br>                    sb.insert(0, ccc);<br>                }<br>                if (stack.isEmpty()) {<br>                    return sb.toString();<br>                } else {<br>                    int count = 0;<br>                    int w = 1;<br>                    while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= ‘0’ &amp;&amp; stack.peek() &lt;= ‘9’) {<br>                        int val = stack.pop() - ‘0’;<br>                        count += val <em> w;<br>                        w </em>= 10;<br>                    }<br>                    char[] chars = sb.toString().toCharArray();<br>                    while (count &gt; 0) {<br>                        for (char cc : chars)<br>                            stack.push(cc);<br>                        count–;<br>                    }<br>                }<br>            } else<br>                stack.push(c);<br>        }<br>        StringBuilder sb = new StringBuilder();<br>        while (!stack.isEmpty())<br>            sb.insert(0, stack.pop());<br>        return sb.toString();<br>    }</character></p>
-
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>第一版代码，后面如果优化了会再更新</p>
+<!-- lang:java -->
+<pre><code>public static String decodeString(String s) {
+    if (s == null || s.length() == 0)
+        return s;
+    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
+    for (char c : s.toCharArray()) {
+        if (c == &apos;]&apos;) {
+            StringBuilder sb = new StringBuilder();
+            while (!stack.isEmpty() &amp;&amp; ((stack.peek() &gt;= &apos;a&apos; &amp;&amp; stack.peek() &lt;= &apos;z&apos;) || stack.peek() == &apos;[&apos;)) {
+                char ccc = stack.pop();
+                if (ccc == &apos;[&apos;)
+                    break;
+                sb.insert(0, ccc);
+            }
+            if (stack.isEmpty()) {
+                return sb.toString();
+            } else {
+                int count = 0;
+                int w = 1;
+                while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= &apos;0&apos; &amp;&amp; stack.peek() &lt;= &apos;9&apos;) {
+                    int val = stack.pop() - &apos;0&apos;;
+                    count += val * w;
+                    w *= 10;
+                }
+                char[] chars = sb.toString().toCharArray();
+                while (count &gt; 0) {
+                    for (char cc : chars)
+                        stack.push(cc);
+                    count--;
+                }
+            }
+        } else
+            stack.push(c);
+    }
+    StringBuilder sb = new StringBuilder();
+    while (!stack.isEmpty())
+        sb.insert(0, stack.pop());
+    return sb.toString();
+}
+</code></pre>
       
     </div>
     
