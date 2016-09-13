@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,算法," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -80,16 +80,18 @@
 
 
 
-<meta name="description" content="leetcode新题leetcode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
+<meta name="description" content="前言为什么是简介呢？因为自己也是在不敢用详解两字，不过希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以希望还是希望大家可以多看书，然后总结为自己的知识体系。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 394.Decode String">
-<meta property="og:url" content="http://yoursite.com/2016/09/08/leetcode 394.Decode String/index.html">
+<meta property="og:title" content="Java内存区域简介">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/Java内存区域简介/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="leetcode新题leetcode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
-<meta property="og:updated_time" content="2016-09-13T01:58:27.000Z">
+<meta property="og:description" content="前言为什么是简介呢？因为自己也是在不敢用详解两字，不过希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以希望还是希望大家可以多看书，然后总结为自己的知识体系。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
+<meta property="og:updated_time" content="2016-09-12T14:03:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode 394.Decode String">
-<meta name="twitter:description" content="leetcode新题leetcode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
+<meta name="twitter:title" content="Java内存区域简介">
+<meta name="twitter:description" content="前言为什么是简介呢？因为自己也是在不敢用详解两字，不过希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以希望还是希望大家可以多看书，然后总结为自己的知识体系。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
 
 
 
@@ -107,7 +109,7 @@
   };
 </script>
 
-  <title> leetcode 394.Decode String | Jucongyuan's Blog </title>
+  <title> Java内存区域简介 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +261,7 @@
             
             
               
-                leetcode 394.Decode String
+                Java内存区域简介
               
             
           </h1>
@@ -271,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T18:28:39+08:00" content="2016-09-08">
-              2016-09-08
+            <time itemprop="dateCreated" datetime="2016-09-12T19:58:40+08:00" content="2016-09-12">
+              2016-09-12
             </time>
           </span>
 
@@ -285,8 +287,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -301,8 +303,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/08/leetcode 394.Decode String/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/leetcode 394.Decode String/" itemprop="commentsCount"></span>
+                <a href="/2016/09/12/Java内存区域简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Java内存区域简介/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -312,7 +314,7 @@
 
           
           
-             <span id="/2016/09/08/leetcode 394.Decode String/" class="leancloud_visitors" data-flag-title="leetcode 394.Decode String">
+             <span id="/2016/09/12/Java内存区域简介/" class="leancloud_visitors" data-flag-title="Java内存区域简介">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,52 +336,26 @@
       
 
       
-        <h2 id="leetcode新题"><a href="#leetcode新题" class="headerlink" title="leetcode新题"></a>leetcode新题</h2><p>leetcode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为什么是简介呢？因为自己也是在不敢用<code>详解</code>两字，不过希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以希望还是希望大家可以多看书，然后总结为自己的知识体系。</p>
 <a id="more"></a>
-<h2 id="题意和解法"><a href="#题意和解法" class="headerlink" title="题意和解法"></a>题意和解法</h2><p>这道题的题意其实很简单，就不过多解释了，看到此类表达式的计算，我们第一个想到的数据结构就是<code>栈</code>，利用栈的先进后出性质进行计算。</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>遍历字符串，遇到数字、字母和<code>[</code>直接进栈，遇到<code>]</code>，然后出栈，先找出所有字母，直到<code>[</code>(也要出栈)，然后再继续出栈找出数字，这里注意数字可能是多位的，比如<code>123[a]</code>，所以出栈的终止条件是栈空或者遇到非数字的字符，通过上面出栈的字符串和数字，组成新的字符串，如字符串<code>2[ab]</code>，新的字符串应该为<code>abab</code>，这些新的字符也必须再重新进栈。就这么简单~</p>
-<!-- more -->
-<h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><p>第一版代码，后面如果优化了会再更新</p>
-<!-- lang:java -->
-<pre><code>public static String decodeString(String s) {
-    if (s == null || s.length() == 0)
-        return s;
-    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
-    for (char c : s.toCharArray()) {
-        if (c == &apos;]&apos;) {
-            StringBuilder sb = new StringBuilder();
-            while (!stack.isEmpty() &amp;&amp; ((stack.peek() &gt;= &apos;a&apos; &amp;&amp; stack.peek() &lt;= &apos;z&apos;) || stack.peek() == &apos;[&apos;)) {
-                char ccc = stack.pop();
-                if (ccc == &apos;[&apos;)
-                    break;
-                sb.insert(0, ccc);
-            }
-            if (stack.isEmpty()) {
-                return sb.toString();
-            } else {
-                int count = 0;
-                int w = 1;
-                while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= &apos;0&apos; &amp;&amp; stack.peek() &lt;= &apos;9&apos;) {
-                    int val = stack.pop() - &apos;0&apos;;
-                    count += val * w;
-                    w *= 10;
-                }
-                char[] chars = sb.toString().toCharArray();
-                while (count &gt; 0) {
-                    for (char cc : chars)
-                        stack.push(cc);
-                    count--;
-                }
-            }
-        } else
-            stack.push(c);
-    }
-    StringBuilder sb = new StringBuilder();
-    while (!stack.isEmpty())
-        sb.insert(0, stack.pop());
-    return sb.toString();
-}
-</code></pre>
+<h2 id="线程和进程"><a href="#线程和进程" class="headerlink" title="线程和进程"></a>线程和进程</h2><p>为什么会提到这两个老生常谈的东西呢？因为Java的内存区域是分为共享和非共享的，那么直接就和线程和进程相关了，线程和进程的区别在这里我就不详细介绍了，不太了解的同学可以看看这篇文章<a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="external">进程与线程的一个简单解释</a>，比较形象和生动。</p>
+<h2 id="单核可以多线程吗"><a href="#单核可以多线程吗" class="headerlink" title="单核可以多线程吗"></a>单核可以多线程吗</h2><p>我们从这个问题入手，看看Java虚拟机是如何实现多线程的。首先，这个问题的答案是肯定的（可以），多个线程会被CPU分配不同的时间，CPU快速的切换（一般在几十毫秒）不同的线程来实现多线程，我们把分配给线程的时间叫着<code>时间片</code>，不停的切换时间片就是<code>上下文切换</code>，在一秒时间里，上下文切换的次数可以达到数千次（2000次左右）。所以接下来第一块我们需要介绍到的，就是在切换中起着很大作用的<code>程序计数器</code>。</p>
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/14B1A10413DF45E69167EF20EFF9F713.jpg" alt="运行时数据区"></p>
+<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>程序计数器是一块很小的内存，它是线程私有的，它记录着当前线程Java方法虚拟机字节码指令的地址（如果为Native方法，计数器值为空），为什么需要记录这个东西呢？因为再上下文不断切换时，我们需要保存将被切换线程执行到哪里了，然后再恢复时，可以根据保存的信息进行恢复。在这个内存区域中，是不会出现OutOfMemoryError的，也是内存区域中唯一个。</p>
+<h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><p>Java虚拟机栈也是线程私有的，它的生命周期和线程相同。一个线程中有多个方法，每一个方法都会创建一个栈帧，这个栈帧里面保存了局部变量表、操作数栈、动态链接、方法出口等信息。很多个栈帧不断的在虚拟机栈中入栈和出栈，就是这个线程不断的执行，同时随着入栈和出栈，一个方法的调用也执行完成了。</p>
+<h3 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h3><p>一个方法有一个局部变量表，它存放了方法中各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，对象引用不是对象本身，而是指向对象起始地址的引用指针、一个代表对象的句柄或者其他对象的相关位置）、returnAddress类型（指向了一条字节码指令的地址）。虚拟机栈中局部变量表的大小在运行期间是不会变化的，进入一个方法时，这个大小就已经确定了。</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>在虚拟机栈中，可能会发生两种异常：StackOverflowError和OutOfMemoryError。发生这两种异常的情况分别是：</p>
+<p>1）线程所请求的栈深度大于虚拟机所允许的深度。</p>
+<p>2）如果虚拟机扩展无法申请足够的内存。</p>
+<p>这两个描述还是比较模糊的，那么实际情况中，什么情形下会产生这两种不同的异常呢？有一个同一的结论，大家可以实际去证明，那就是：<code>在单个线程下，无论是由于栈帧太大还是栈容量太小（大小是可配置的），但内存无法分配时，都抛出StackOverflowError。在多线程中，线程越多，供每个线程瓜分的虚拟机栈空间越少，当把最后能被瓜分的内存耗尽时，就会抛出OutOfMemoryError</code>。</p>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p>本地方法栈和Java虚拟机栈作用是非常相似的，Java虚拟机栈是服务于Java方法（也就是字节码），二本地方法栈是服务于Native方法的。甚至有的虚拟机（如HotSpot，目前最新版本JDK使用的虚拟机）直接将这两部分合二为一，所以同样的，本地方法栈也会抛出StackOverflowError和OutOfMemoryError。</p>
+<h3 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h3><p>Java堆一般来说是Java虚拟机所管理的内存中最大的一块。它是一块被线程共享的内存区域。他存放的就是对象的实例和数组，如上面提到局部变量中对象引用就可能指向这里。这一块的内容主要就是内存回收相关的东西，这里不再深入，后面单独对内存回收做介绍。无论这块内存有多大，还是会出现无法再扩展的情况，就会抛出OutOfMemoryError异常。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>这个区域和堆一样，是线程共享的，它用来存储已被虚拟机加载的类信息（类名、访问修饰符等）、常量、静态变量、即时编译器编译后的代码等数据，因此它是堆得一个逻辑区域。不过大家容易被这个名字所误导，所以需要特别注意。</p>
+<h3 id="运行时常量区"><a href="#运行时常量区" class="headerlink" title="运行时常量区"></a>运行时常量区</h3><p>此区域属于方法区的一部分，在编译时，会产生一些类的常量信息，就存放在此区域中，当然在运行时，也可以产生一些常量，如调用String的intern方法，就会将该常量放入常量池中。在方法区中，如果无法满足内存分配时，将抛出OutOfMemoryError异常。</p>
+<h3 id="延伸知识"><a href="#延伸知识" class="headerlink" title="延伸知识"></a>延伸知识</h3><p>刚才提到，使用String的intern方法，会把常量放入方法区的运行时常量区中，不过JDK 1.6和JDK 1.7有一些区别：</p>
+<p>1）1.6intern方法会把首次遇到的字符串实例复制到永久代中，并返回实例的引用。</p>
+<p>2）1.7不会复制实例，而是在常量池中记录首次出现的实例引用。</p>
+
       
     </div>
     
@@ -422,8 +398,6 @@
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
-          
         </div>
       
 
@@ -431,17 +405,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/25/马拉车(Manacher)算法/" rel="next" title="马拉车(Manacher)算法">
-                <i class="fa fa-chevron-left"></i> 马拉车(Manacher)算法
+              <a href="/2016/09/12/Java内存回收简介/" rel="next" title="Java内存回收简介">
+                <i class="fa fa-chevron-left"></i> Java内存回收简介
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/Java内存回收简介/" rel="prev" title="Java内存回收简介">
-                Java内存回收简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,10 +426,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/08/leetcode 394.Decode String/"
-     data-title="leetcode 394.Decode String"
+        <div class="ds-share flat" data-thread-key="2016/09/12/Java内存区域简介/"
+     data-title="Java内存区域简介"
      data-content=""
-     data-url="http://yoursite.com/2016/09/08/leetcode 394.Decode String/">
+     data-url="http://yoursite.com/2016/09/12/Java内存区域简介/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -486,8 +456,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/08/leetcode 394.Decode String/"
-           data-title="leetcode 394.Decode String" data-url="http://yoursite.com/2016/09/08/leetcode 394.Decode String/">
+      <div class="ds-thread" data-thread-key="2016/09/12/Java内存区域简介/"
+           data-title="Java内存区域简介" data-url="http://yoursite.com/2016/09/12/Java内存区域简介/">
       </div>
     
   </div>
@@ -616,7 +586,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode新题"><span class="nav-number">1.</span> <span class="nav-text">leetcode新题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意和解法"><span class="nav-number">2.</span> <span class="nav-text">题意和解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过程"><span class="nav-number">2.1.</span> <span class="nav-text">过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码"><span class="nav-number">3.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程和进程"><span class="nav-number">2.</span> <span class="nav-text">线程和进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单核可以多线程吗"><span class="nav-number">3.</span> <span class="nav-text">单核可以多线程吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区"><span class="nav-number">4.</span> <span class="nav-text">运行时数据区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器"><span class="nav-number">5.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java虚拟机栈"><span class="nav-number">6.</span> <span class="nav-text">Java虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量表"><span class="nav-number">6.1.</span> <span class="nav-text">局部变量表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-number">6.2.</span> <span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法栈"><span class="nav-number">7.</span> <span class="nav-text">本地方法栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java堆"><span class="nav-number">7.1.</span> <span class="nav-text">Java堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">7.2.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量区"><span class="nav-number">7.3.</span> <span class="nav-text">运行时常量区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延伸知识"><span class="nav-number">7.4.</span> <span class="nav-text">延伸知识</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
