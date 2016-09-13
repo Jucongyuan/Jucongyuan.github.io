@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png">
-<meta property="og:updated_time" content="2016-09-13T02:26:05.000Z">
+<meta property="og:updated_time" content="2016-09-13T02:28:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存回收简介">
 <meta name="twitter:description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
@@ -376,7 +376,7 @@
 <h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>标记-整理算法和标记-清除算法的前面步骤是一样的，只是在标记后，并不马上清理，而是让所有存货的对象向一端移动，然后清理掉另一端的边界以外的对象。这种算法和上面的标记-清除算法用于虚拟机中老年代的回收算法。</p>
 <p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png" alt="标记-整理"></p>
 <h3 id="分代收集法"><a href="#分代收集法" class="headerlink" title="分代收集法"></a>分代收集法</h3><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png" alt="分代收集"></p>
-<p>分代收集法就是根据对象的存活周期将内存划分为两块：新生代和老年代，然后不同的区域采用不同的垃圾回收算法，如上面介绍到的：新生代采用复制算法，老年代采用标记-清除或者标记整理-算法。在实际情况中，当新生代中另一块Survivor区域无法存放下存活下来的对象时，这些对象将进入老年代，那么有哪些情况，新生代的对象会进入老年代呢？</p>
+<p>分代收集法就是根据对象的存活周期将内存划分为两块：新生代和老年代，然后不同的区域采用不同的垃圾回收算法，如上面介绍到的：新生代采用复制算法，老年代采用标记-清除或者标记-整理算法。在实际情况中，当新生代中另一块Survivor区域无法存放下存活下来的对象时，这些对象将进入老年代，那么有哪些情况，新生代的对象会进入老年代呢？</p>
 <p>1）大对象</p>
 <p>2）每次Eden进行MinorGC后对象年龄加1进入survivor，对象年龄达到15时进入老年代</p>
 <p>3）如果Survivor空间中相同年龄所有对象大小的总和大于survivor空间的一半，年龄大于等于该年龄的对象就直接进入老年代</p>
