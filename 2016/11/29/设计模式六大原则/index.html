@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -80,31 +80,19 @@
 
 
 
-<meta name="description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
-1）那些内存需要回收？
-2）什么时候回收？
-3）如何回收？">
+<meta name="description" content="开闭原则定义：对扩展开放，对修改关闭在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的开闭原则。
+单一职责原则定义：一个类只负责一项职责（同样适用于方法和接口）当在设计一个类时，我们应该注意">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内存回收简介">
-<meta property="og:url" content="http://yoursite.com/2016/09/12/Java内存回收简介/index.html">
+<meta property="og:title" content="设计模式六大原则">
+<meta property="og:url" content="http://yoursite.com/2016/11/29/设计模式六大原则/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
-1）那些内存需要回收？
-2）什么时候回收？
-3）如何回收？">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_101.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png">
-<meta property="og:updated_time" content="2016-09-13T02:28:44.000Z">
+<meta property="og:description" content="开闭原则定义：对扩展开放，对修改关闭在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的开闭原则。
+单一职责原则定义：一个类只负责一项职责（同样适用于方法和接口）当在设计一个类时，我们应该注意">
+<meta property="og:updated_time" content="2016-11-29T08:24:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存回收简介">
-<meta name="twitter:description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
-1）那些内存需要回收？
-2）什么时候回收？
-3）如何回收？">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg">
+<meta name="twitter:title" content="设计模式六大原则">
+<meta name="twitter:description" content="开闭原则定义：对扩展开放，对修改关闭在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的开闭原则。
+单一职责原则定义：一个类只负责一项职责（同样适用于方法和接口）当在设计一个类时，我们应该注意">
 
 
 
@@ -122,7 +110,7 @@
   };
 </script>
 
-  <title> Java内存回收简介 | Jucongyuan's Blog </title>
+  <title> 设计模式六大原则 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +262,7 @@
             
             
               
-                Java内存回收简介
+                设计模式六大原则
               
             
           </h1>
@@ -286,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-12T19:58:40+08:00" content="2016-09-12">
-              2016-09-12
+            <time itemprop="dateCreated" datetime="2016-11-29T15:16:45+08:00" content="2016-11-29">
+              2016-11-29
             </time>
           </span>
 
@@ -300,8 +288,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -316,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/12/Java内存回收简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Java内存回收简介/" itemprop="commentsCount"></span>
+                <a href="/2016/11/29/设计模式六大原则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/设计模式六大原则/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -327,7 +315,7 @@
 
           
           
-             <span id="/2016/09/12/Java内存回收简介/" class="leancloud_visitors" data-flag-title="Java内存回收简介">
+             <span id="/2016/11/29/设计模式六大原则/" class="leancloud_visitors" data-flag-title="设计模式六大原则">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,38 +337,16 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：</p>
-<p>1）那些内存需要回收？</p>
-<p>2）什么时候回收？</p>
-<p>3）如何回收？</p>
-<a id="more"></a>
-<h2 id="那些内存需要回收和什么时候回收"><a href="#那些内存需要回收和什么时候回收" class="headerlink" title="那些内存需要回收和什么时候回收"></a>那些内存需要回收和什么时候回收</h2><p>要确认那些对象可以回收，就需要确认该对象实例是否已经不再被使用了，那么常见的实现由哪些呢？</p>
-<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>此方法的实现为：给每一个对象实例添加一个引用计数器，每当有一个地方引用它了，该计数器就加一。当对象引用计数器为零的时候，说明没有再引用它的地方了，所以该对象实例“死了”，可以被回收了。那么是不是这种算法就可以了呢？但是实际情况中，主流的一些Java虚拟机并没有采用此算法，原因是因为，当遇到循环引用的情况时，就不好处理了。</p>
-<h3 id="Java采用的算法：可达性分析算法"><a href="#Java采用的算法：可达性分析算法" class="headerlink" title="Java采用的算法：可达性分析算法"></a>Java采用的算法：可达性分析算法</h3><p>该算法通过一些列可以作为“GC Roots”的对象作为起始点，从这些节点向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连时，说明该对象已死（不过不一定就被回收，可以自救，但是实际情况中不会这么做）。在Java中，可以作为GC Roots对象的对象包括：</p>
-<p>1）栈帧中的局部变量引用的对象</p>
-<p>2）方法区静态变量引用的对象</p>
-<p>3）方法区中常量引用的对象</p>
-<p>4）本地方法栈中Native方法里应用的对象</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg" alt="可达性分析"></p>
-<h3 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h3><p>上面讲的是堆中的垃圾回收，在Java中，除了堆中会有垃圾回收，还有其他内存区域有内存回收吗？是有的，那就是方法区，方法区中存放的是和类相关的一些信息，那么如果确定那些类可以被回收呢：</p>
-<p>1）该类的所有实例都被回收，在堆中已经不存在该类的实例</p>
-<p>2）加载该类的ClassLoader已经被回收</p>
-<p>3）该类对应的Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</p>
-<h2 id="如何回收"><a href="#如何回收" class="headerlink" title="如何回收"></a>如何回收</h2><p>如何回收已经成为垃圾对象实例，也有很多不同的算法，每种算法有它的优势和劣势。</p>
-<h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>这种算法是最容易理解的，它就是通过上面可达性分析算法后，标记出已死的对象实例，然后将这些区域的内存进行回收。不过它有两个明显的不足：</p>
-<p>1）标记和清除两个步骤的效率很低</p>
-<p>2）由于被回收的区域可能是不连续的，所以当需要连续内存时，必须提前触发一次垃圾收集动作</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_101.png" alt="标记-清除"></p>
-<h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><p>复制的具体实现原理就是将内存分为两块，每次只使用其中一块，当这一块快使用完了的时候，就将这块中还存活的对象复制到另一块中，然后清理掉前一块中的内存空间。这种算法用于商业虚拟机回收新生代，因为新生代的对象98%都是“朝生夕死”，就将这块区域分为一块大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中一块Survivor，当回收时，将较少存活对象复制到另一块Survivor中，清理掉之前使用的Eden和其中一块Survivor。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png" alt="复制"></p>
-<h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>标记-整理算法和标记-清除算法的前面步骤是一样的，只是在标记后，并不马上清理，而是让所有存货的对象向一端移动，然后清理掉另一端的边界以外的对象。这种算法和上面的标记-清除算法用于虚拟机中老年代的回收算法。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png" alt="标记-整理"></p>
-<h3 id="分代收集法"><a href="#分代收集法" class="headerlink" title="分代收集法"></a>分代收集法</h3><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png" alt="分代收集"></p>
-<p>分代收集法就是根据对象的存活周期将内存划分为两块：新生代和老年代，然后不同的区域采用不同的垃圾回收算法，如上面介绍到的：新生代采用复制算法，老年代采用标记-清除或者标记-整理算法。在实际情况中，当新生代中另一块Survivor区域无法存放下存活下来的对象时，这些对象将进入老年代，那么有哪些情况，新生代的对象会进入老年代呢？</p>
-<p>1）大对象</p>
-<p>2）每次Eden进行MinorGC后对象年龄加1进入survivor，对象年龄达到15时进入老年代</p>
-<p>3）如果Survivor空间中相同年龄所有对象大小的总和大于survivor空间的一半，年龄大于等于该年龄的对象就直接进入老年代</p>
-<p>4）如果survivor空间不能容纳Eden中存活的对象。由于担保机制会进入老年代。如果survivor中的对象存活很多，担保失败，那么会进行一次Full GC</p>
+        <h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2><h3 id="定义：对扩展开放，对修改关闭"><a href="#定义：对扩展开放，对修改关闭" class="headerlink" title="定义：对扩展开放，对修改关闭"></a>定义：对扩展开放，对修改关闭</h3><p>在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的<code>开闭原则</code>。</p>
+<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><h3 id="定义：一个类只负责一项职责（同样适用于方法和接口）"><a href="#定义：一个类只负责一项职责（同样适用于方法和接口）" class="headerlink" title="定义：一个类只负责一项职责（同样适用于方法和接口）"></a>定义：一个类只负责一项职责（同样适用于方法和接口）</h3><p>当在设计一个类时，我们应该注意一个类应该只能具有某一种功能，而不能有多个。同样在重构时，如果发现某一个同时负责着多个功能，应该将它的功能进行拆分。此原则是为了防止我们一个类有多个职责时，我们在修改它的其中一个职责时，可能会对另外的职责功能造成影响。</p>
+<h2 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h2><h3 id="定义：在程序中，子类可以完整的替换父类完成父类的功能"><a href="#定义：在程序中，子类可以完整的替换父类完成父类的功能" class="headerlink" title="定义：在程序中，子类可以完整的替换父类完成父类的功能"></a>定义：在程序中，子类可以完整的替换父类完成父类的功能</h3><p>通俗的说，当使用继承时，子类可以可以扩展父类的功能，但不能改变父类的功能。主要有四层含义：</p>
+<p>1）子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法</p>
+<p>2）子类中可以增加自己特有的方法</p>
+<p>3）当子类的方法重载父类的方法时，方法的前置条件（即方法的形参）要比父类方法的输入参数更宽松</p>
+<p>4）当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格</p>
+<h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><h3 id="定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象"><a href="#定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象" class="headerlink" title="定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象"></a>定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象</h3><p>从定义看，有两层意思，分别解释，首先，高层模块不应该依赖底层模块：类A与类B存在依赖关系（<a href="http://jucongyuan.github.io/2016/08/08/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%AD%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB%E6%80%BB%E7%BB%93/" target="_blank" rel="external">何为依赖</a>），当我们需要将类A修改为依赖于类C，这个时候，我们就需要修改类A。这种情况中，类B类C属于底层模块，类A属于高层模块，我们要做到不修改类A，那么我们的类A就不能依赖类B和类C(底层模块)，所以，我们需要将类A依赖改为类B类C的抽象，也就是类B类C实现同一接口，无论之后类需要依赖哪个类，我们都不再需要修改类A了。抽象不应该依赖细节，细节应该依赖抽象：在进行抽象时，不关注具体的细节，也就是具体的实现，而在具体实现时，要依赖抽象，有点不好理解。通俗的说，我们在设计一个框架时，首先要通过抽象的方式搭建，在Java中就是通过抽象类和接口的方式，而具体的实现通过抽象类和接口来实现实现类。<code>依赖原则的中心思想就是面向接口编程</code>。</p>
+<h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><h3 id="定义：实现类不应该依赖它不需要实现接口具体方法的接口"><a href="#定义：实现类不应该依赖它不需要实现接口具体方法的接口" class="headerlink" title="定义：实现类不应该依赖它不需要实现接口具体方法的接口"></a>定义：实现类不应该依赖它不需要实现接口具体方法的接口</h3><p>接口I需要实现方法a、b、c，具体实现类A实现方法a、b，实现类B实现a、c。A,B都需要实现它们不需要的方法，就违背了这个原则，解决方法其实很简单，就是对接口I进行拆分，然后A和B取分别实现它需要的接口。</p>
+<h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><h3 id="定义：一个对象应该对其他对象保持最少的了解"><a href="#定义：一个对象应该对其他对象保持最少的了解" class="headerlink" title="定义：一个对象应该对其他对象保持最少的了解"></a>定义：一个对象应该对其他对象保持最少的了解</h3><p>迪米特法则又可以叫最少知道原则，就是一个类依赖另一个类时，应该对它的依赖类知道得越少越好，也就是降低类和类的耦合。违背这个原则带来的问题是显而易见的：类和类的之间的耦合过高，修改一个类时，会影响其他的类，所以我们要做到低耦合，高内聚。</p>
 
       
     </div>
@@ -422,7 +388,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -431,17 +397,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/08/leetcode 394.Decode String/" rel="next" title="leetcode 394.Decode String">
-                <i class="fa fa-chevron-left"></i> leetcode 394.Decode String
+              <a href="/2016/09/12/Java内存区域简介/" rel="next" title="Java内存区域简介">
+                <i class="fa fa-chevron-left"></i> Java内存区域简介
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/Java内存区域简介/" rel="prev" title="Java内存区域简介">
-                Java内存区域简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,10 +418,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/12/Java内存回收简介/"
-     data-title="Java内存回收简介"
+        <div class="ds-share flat" data-thread-key="2016/11/29/设计模式六大原则/"
+     data-title="设计模式六大原则"
      data-content=""
-     data-url="http://yoursite.com/2016/09/12/Java内存回收简介/">
+     data-url="http://yoursite.com/2016/11/29/设计模式六大原则/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -486,8 +448,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/12/Java内存回收简介/"
-           data-title="Java内存回收简介" data-url="http://yoursite.com/2016/09/12/Java内存回收简介/">
+      <div class="ds-thread" data-thread-key="2016/11/29/设计模式六大原则/"
+           data-title="设计模式六大原则" data-url="http://yoursite.com/2016/11/29/设计模式六大原则/">
       </div>
     
   </div>
@@ -616,7 +578,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#那些内存需要回收和什么时候回收"><span class="nav-number">2.</span> <span class="nav-text">那些内存需要回收和什么时候回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数法"><span class="nav-number">2.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java采用的算法：可达性分析算法"><span class="nav-number">2.2.</span> <span class="nav-text">Java采用的算法：可达性分析算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延伸"><span class="nav-number">2.3.</span> <span class="nav-text">延伸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何回收"><span class="nav-number">3.</span> <span class="nav-text">如何回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-清除算法"><span class="nav-number">3.1.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制算法"><span class="nav-number">3.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">3.3.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代收集法"><span class="nav-number">3.4.</span> <span class="nav-text">分代收集法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开闭原则"><span class="nav-number">1.</span> <span class="nav-text">开闭原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：对扩展开放，对修改关闭"><span class="nav-number">1.1.</span> <span class="nav-text">定义：对扩展开放，对修改关闭</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.</span> <span class="nav-text">单一职责原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：一个类只负责一项职责（同样适用于方法和接口）"><span class="nav-number">2.1.</span> <span class="nav-text">定义：一个类只负责一项职责（同样适用于方法和接口）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#里氏替换原则"><span class="nav-number">3.</span> <span class="nav-text">里氏替换原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：在程序中，子类可以完整的替换父类完成父类的功能"><span class="nav-number">3.1.</span> <span class="nav-text">定义：在程序中，子类可以完整的替换父类完成父类的功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖倒置原则"><span class="nav-number">4.</span> <span class="nav-text">依赖倒置原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象"><span class="nav-number">4.1.</span> <span class="nav-text">定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口隔离原则"><span class="nav-number">5.</span> <span class="nav-text">接口隔离原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：实现类不应该依赖它不需要实现接口具体方法的接口"><span class="nav-number">5.1.</span> <span class="nav-text">定义：实现类不应该依赖它不需要实现接口具体方法的接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迪米特法则"><span class="nav-number">6.</span> <span class="nav-text">迪米特法则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：一个对象应该对其他对象保持最少的了解"><span class="nav-number">6.1.</span> <span class="nav-text">定义：一个对象应该对其他对象保持最少的了解</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
