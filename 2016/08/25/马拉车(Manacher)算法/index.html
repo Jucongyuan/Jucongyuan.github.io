@@ -88,7 +88,7 @@
 <meta property="og:description" content="解决的问题马拉车算法主要是为了解决求一个字符串的最长回文串，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-0.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-1.png">
-<meta property="og:updated_time" content="2016-11-11T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-11-30T01:38:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="马拉车(Manacher)算法">
 <meta name="twitter:description" content="解决的问题马拉车算法主要是为了解决求一个字符串的最长回文串，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。">
@@ -339,12 +339,16 @@
       
         <h2 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h2><p>马拉车算法主要是为了解决求一个字符串的最长<a href="http://baike.baidu.com/link?url=rQ1b6JenDIUpjoqQweTXI6IKwEyy3amKk0CPIZeijmZuW5u4wWddySj1vN275_9iHmYovrOmlI4zywR82-wrL_" target="_blank" rel="external">回文串</a>，当然求解这个问题的算法很多，比如穷举法（轮询所有子串得出最长的是回文串子串），但是时间复杂度太高（复杂度为O(n^3)）。马拉车算法可以有效的降低时间复杂度（复杂度为O(n)）。</p>
 <a id="more"></a>
-<h2 id="原理与实现"><a href="#原理与实现" class="headerlink" title="原理与实现"></a>原理与实现</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>利用已知的对称信息和回文串的对称性得出其他位置的对称信息，并且不用考虑字符串长度是计数还是偶数的，因为首先我们对字符串进行处理：在字符串的首尾和字符间加上<code>&quot;#&quot;</code>，如<code>&quot;nbbn&quot;</code>改变后为<code>&quot;#n#b#b#n#&quot;</code>，再在首位加上<code>&quot;&amp;&quot;</code>，所以最终经过处理的字符串为<code>&quot;&amp;#n#b#b#n#&quot;</code>。另外我们还需要辅助一个和处理后长度一致的int数组，该数组用来存字符串对应位置的最长回文长度加上本身（就是最长回文数+1），如下：</p>
+<h2 id="原理与实现"><a href="#原理与实现" class="headerlink" title="原理与实现"></a>原理与实现</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>利用已知的对称信息和回文串的对称性得出其他位置的对称信息，并且不用考虑字符串长度是奇数还是偶数的，因为首先我们对字符串进行处理：在字符串的首尾和字符间加上<code>&quot;#&quot;</code>，如<code>&quot;nbbn&quot;</code>改变后为<code>&quot;#n#b#b#n#&quot;</code>，再在首位加上<code>&quot;&amp;&quot;</code>，所以最终经过处理的字符串为<code>&quot;&amp;#n#b#b#n#&quot;</code>。另外我们还需要辅助一个和处理后长度一致的int数组，该数组用来存字符串对应位置的最长回文长度加上本身（就是最长回文数+1），如下：</p>
 <p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-0.png" alt="Happy"></p>
-<p>如字符串第二个<code>b</code>两边对称的长度为1，所以它对应的int数组内的值为2。有了这个表格，我们就知道，只要求出字符串对应位置上int数组的值，那么回文串自然就出来了，那int[]数组怎么求出来呢？也就是怎么利用利用已知的对称信息和回文串的对称性得出其他位置的对称信息呢？首先假设最长回文所在位置为id，到最长回文长度的位置为idMax,如果我们要求i位置上的最长回文长度（也就是int[i]的值），可以根据int[j]的值，前提条件是(0&lt;=j&lt;i,所以int[j]是已知的)，那么是什么原理呢？分为两种情况：</p>
+<p>如字符串第二个<code>b</code>两边对称的长度为1，所以它对应的int数组内的值为2。有了这个表格，我们就知道，只要求出字符串对应位置上int数组的值，那么回文串自然就出来了，那int[]数组怎么求出来呢？也就是怎么利用已知的对称信息和回文串的对称性得出其他位置的对称信息呢？首先假设最长回文所在位置为id，到最长回文长度的位置为idMax,如果我们要求i位置上的最长回文长度（也就是int[i]的值），可以根据int[j]的值，前提条件是(0&lt;=j&lt;i,所以int[j]是已知的)，那么是什么原理呢？分为两种情况：</p>
 <h4 id="i-lt-idMax，通过id的位置找到和i位置对称的j点"><a href="#i-lt-idMax，通过id的位置找到和i位置对称的j点" class="headerlink" title="i &lt;= idMax，通过id的位置找到和i位置对称的j点"></a>i &lt;= idMax，通过id的位置找到和i位置对称的j点</h4><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160825-1.png" alt="Happy"></p>
-<h5 id="如过int-j-lt-idMax-i，那么int-i-就等于int-j-。"><a href="#如过int-j-lt-idMax-i，那么int-i-就等于int-j-。" class="headerlink" title="如过int[j] &lt; idMax - i，那么int[i]就等于int[j]。"></a>如过int[j] &lt; idMax - i，那么int[i]就等于int[j]。</h5><h5 id="如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。"><a href="#如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。" class="headerlink" title="如果int[j] &gt;= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。"></a>如果int[j] &gt;= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。</h5><h4 id="i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"><a href="#i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。" class="headerlink" title="i &gt; idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"></a>i &gt; idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。</h4><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>这里就直接用Java代码实现了，每一次算出当前位置的回文长度后，要更新相关信息：<br><!-- lang:java --><br>        public static String longestPalindrome(String s) {<br>        if (s.length() &lt;= 1)<br>            return s;</p>
-<pre><code>    // 处理字符串
+<h5 id="如过int-j-lt-idMax-i，那么int-i-就等于int-j-。"><a href="#如过int-j-lt-idMax-i，那么int-i-就等于int-j-。" class="headerlink" title="如过int[j] &lt; idMax - i，那么int[i]就等于int[j]。"></a>如过int[j] &lt; idMax - i，那么int[i]就等于int[j]。</h5><h5 id="如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。"><a href="#如果int-j-gt-idMax-i，那么int-i-的值大于或者等于int-j-。然后再在这个位置继续向左右延伸判断是否还有回文长度。" class="headerlink" title="如果int[j] &gt;= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。"></a>如果int[j] &gt;= idMax - i，那么int[i]的值大于或者等于int[j]。然后再在这个位置继续向左右延伸判断是否还有回文长度。</h5><h4 id="i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"><a href="#i-gt-idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。" class="headerlink" title="i &gt; idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。"></a>i &gt; idMax时，所以中心点为i的回文还没有匹配，只有通过循环去匹配了。</h4><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>这里就直接用Java代码实现了，每一次算出当前位置的回文长度后，要更新相关信息：</p>
+<!-- lang:java -->
+<pre><code>public static String longestPalindrome(String s) {
+    if (s.length() &lt;= 1){
+        return s;    
+    } 
     StringBuilder stringBuilder = new StringBuilder(&quot;$&quot;);
     for (char c : s.toCharArray()) {
         stringBuilder.append(&quot;#&quot;);
