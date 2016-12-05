@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decoratetwo.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/io.png">
-<meta property="og:updated_time" content="2016-12-04T17:19:18.000Z">
+<meta property="og:updated_time" content="2016-12-05T01:46:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之装饰器模式">
 <meta name="twitter:description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
@@ -355,7 +355,9 @@
 <p>这是Java I/O中字节输入流的类图结构，我们发现和咖啡厅的设计几乎是一样的，不同的是InputStream是通过抽象类实现，而非接口。我们把左边的三个类（FileInputStream、 StringBufferInputStream、ByteArrayInputStream，不止这是三个）在装饰者模式中称为组件，而把继承至FilterInputStream的类称之为装饰者，装饰者就是用来装饰组件的。看看I/O内部BufferedInputStream是怎么修饰的呢？我们可以用BufferedInputStream来修饰FileInputStream，如果不用BufferedInputStream修饰，直接使用FileInputStream，在调用read()方法时，我们每读出一个字节，就需要做处理，使用了BufferedInputStream，它会给我们提供一个缓冲区，这个缓冲区可以我们自定义大小，也可以使用BufferedInputStream的默认8兆的大小，缓冲区都作用就是将读取出来的数据缓存起来供我们使用，而不是读取一个字节就要使用。</p>
 <h2 id="装饰者模式的优缺点和体现的原则"><a href="#装饰者模式的优缺点和体现的原则" class="headerlink" title="装饰者模式的优缺点和体现的原则"></a>装饰者模式的优缺点和体现的原则</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
 <li>不用继承扩展了类的功能</li>
-<li>装饰者可以叠加使用，创造不同的功能，体现了不针对实现的编程<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3></li>
+<li>装饰者可以叠加使用，创造不同的功能，体现了不针对实现的编程</li>
+</ol>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ol>
 <li>程序复杂性会增加</li>
 <li>会出现很多小类</li>
 <li>针对抽象组件编程，而非具体组件</li>
