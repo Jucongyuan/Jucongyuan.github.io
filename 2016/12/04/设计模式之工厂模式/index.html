@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="设计模式," />
+  <meta name="keywords" content="Java,设计模式,工程模式," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="开闭原则定义：对扩展开放，对修改关闭在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的开闭原则。">
+<meta name="description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式六大原则">
-<meta property="og:url" content="http://yoursite.com/2016/11/29/设计模式六大原则/index.html">
+<meta property="og:title" content="设计模式之工厂模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/04/设计模式之工厂模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="开闭原则定义：对扩展开放，对修改关闭在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的开闭原则。">
-<meta property="og:updated_time" content="2016-11-29T08:26:22.000Z">
+<meta property="og:description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
+<meta property="og:updated_time" content="2016-12-05T01:41:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式六大原则">
-<meta name="twitter:description" content="开闭原则定义：对扩展开放，对修改关闭在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的开闭原则。">
+<meta name="twitter:title" content="设计模式之工厂模式">
+<meta name="twitter:description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> 设计模式六大原则 | Jucongyuan's Blog </title>
+  <title> 设计模式之工厂模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +259,7 @@
             
             
               
-                设计模式六大原则
+                设计模式之工厂模式
               
             
           </h1>
@@ -271,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T15:16:45+08:00" content="2016-11-29">
-              2016-11-29
+            <time itemprop="dateCreated" datetime="2016-12-04T23:45:09+08:00" content="2016-12-04">
+              2016-12-04
             </time>
           </span>
 
@@ -301,8 +301,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/29/设计模式六大原则/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/设计模式六大原则/" itemprop="commentsCount"></span>
+                <a href="/2016/12/04/设计模式之工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/设计模式之工厂模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -312,7 +312,7 @@
 
           
           
-             <span id="/2016/11/29/设计模式六大原则/" class="leancloud_visitors" data-flag-title="设计模式六大原则">
+             <span id="/2016/12/04/设计模式之工厂模式/" class="leancloud_visitors" data-flag-title="设计模式之工厂模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,17 +334,169 @@
       
 
       
-        <h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2><h3 id="定义：对扩展开放，对修改关闭"><a href="#定义：对扩展开放，对修改关闭" class="headerlink" title="定义：对扩展开放，对修改关闭"></a>定义：对扩展开放，对修改关闭</h3><p>在平时我们程序迭代更新的过程当中，往往会对现有的功能进行修改，但是这样又往往会对我们的程序造成破坏甚至带来致命的错误，所以在对程序进行修改时，尽量不要修改原有的功能，而是通过扩展的方式增加新功能。开闭原则算是六大原则中的一个总原则，之后的五大原则都遵循这个总的<code>开闭原则</code>。</p>
+        <h2 id="又来了新的项目"><a href="#又来了新的项目" class="headerlink" title="又来了新的项目"></a>又来了新的项目</h2><p>这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。</p>
 <a id="more"></a>
-<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><h3 id="定义：一个类只负责一项职责（同样适用于方法和接口）"><a href="#定义：一个类只负责一项职责（同样适用于方法和接口）" class="headerlink" title="定义：一个类只负责一项职责（同样适用于方法和接口）"></a>定义：一个类只负责一项职责（同样适用于方法和接口）</h3><p>当在设计一个类时，我们应该注意一个类应该只能具有某一种功能，而不能有多个。同样在重构时，如果发现某一个同时负责着多个功能，应该将它的功能进行拆分。此原则是为了防止我们一个类有多个职责时，我们在修改它的其中一个职责时，可能会对另外的职责功能造成影响。</p>
-<h2 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h2><h3 id="定义：在程序中，子类可以完整的替换父类完成父类的功能"><a href="#定义：在程序中，子类可以完整的替换父类完成父类的功能" class="headerlink" title="定义：在程序中，子类可以完整的替换父类完成父类的功能"></a>定义：在程序中，子类可以完整的替换父类完成父类的功能</h3><p>通俗的说，当使用继承时，子类可以可以扩展父类的功能，但不能改变父类的功能。主要有四层含义：</p>
-<p>1）子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法</p>
-<p>2）子类中可以增加自己特有的方法</p>
-<p>3）当子类的方法重载父类的方法时，方法的前置条件（即方法的形参）要比父类方法的输入参数更宽松</p>
-<p>4）当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格</p>
-<h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><h3 id="定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象"><a href="#定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象" class="headerlink" title="定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象"></a>定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象</h3><p>从定义看，有两层意思，分别解释，首先，高层模块不应该依赖底层模块：类A与类B存在依赖关系（<a href="http://jucongyuan.github.io/2016/08/08/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%AD%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB%E6%80%BB%E7%BB%93/" target="_blank" rel="external">何为依赖</a>），当我们需要将类A修改为依赖于类C，这个时候，我们就需要修改类A。这种情况中，类B类C属于底层模块，类A属于高层模块，我们要做到不修改类A，那么我们的类A就不能依赖类B和类C(底层模块)，所以，我们需要将类A依赖改为类B类C的抽象，也就是类B类C实现同一接口，无论之后类需要依赖哪个类，我们都不再需要修改类A了。抽象不应该依赖细节，细节应该依赖抽象：在进行抽象时，不关注具体的细节，也就是具体的实现，而在具体实现时，要依赖抽象，有点不好理解。通俗的说，我们在设计一个框架时，首先要通过抽象的方式搭建，在Java中就是通过抽象类和接口的方式，而具体的实现通过抽象类和接口来实现实现类。<code>依赖原则的中心思想就是面向接口编程</code>。</p>
-<h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><h3 id="定义：实现类不应该依赖它不需要实现接口具体方法的接口"><a href="#定义：实现类不应该依赖它不需要实现接口具体方法的接口" class="headerlink" title="定义：实现类不应该依赖它不需要实现接口具体方法的接口"></a>定义：实现类不应该依赖它不需要实现接口具体方法的接口</h3><p>接口I需要实现方法a、b、c，具体实现类A实现方法a、b，实现类B实现a、c。A,B都需要实现它们不需要的方法，就违背了这个原则，解决方法其实很简单，就是对接口I进行拆分，然后A和B取分别实现它需要的接口。</p>
-<h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><h3 id="定义：一个对象应该对其他对象保持最少的了解"><a href="#定义：一个对象应该对其他对象保持最少的了解" class="headerlink" title="定义：一个对象应该对其他对象保持最少的了解"></a>定义：一个对象应该对其他对象保持最少的了解</h3><p>迪米特法则又可以叫最少知道原则，就是一个类依赖另一个类时，应该对它的依赖类知道得越少越好，也就是降低类和类的耦合。违背这个原则带来的问题是显而易见的：类和类的之间的耦合过高，修改一个类时，会影响其他的类，所以我们要做到低耦合，高内聚。</p>
+<p>小明很快做了一个版本出来：</p>
+<!-- lang:java -->
+<pre><code>Pizza orderPizza(String type) {
+    Pizza pizza;
+    if(type.equals(&quot;cheese&quot;)){
+        pizza = new CheesePizza();
+    }else if(type.equals(&quot;greek&quot;)){
+        pizza = new GreekPizza();
+    }else if(type.equals(&quot;durian&quot;)){
+        pizza = new DurianPizza();
+    }
+    pizza.prepare();
+    pizza.make();
+    pizza.cut();
+    pizza.box();
+    return pizza;   
+} 
+</code></pre><p>主管对小明说：如果我现在有新种类的Pizza，你的程序会犯了什么问题？小明一下发觉了问题所在，代码里面除了make()方法以外，上面的都是变化的，我应该把它们独立出来：</p>
+<!-- lang:java -->
+<pre><code>public class SimplePizzaFactory{
+    public Pizza createPizza(String type) {
+        Pizza pizza;
+        if(type.equals(&quot;cheese&quot;)){
+            pizza = new CheesePizza();
+        }else if(type.equals(&quot;greek&quot;)){
+            pizza = new GreekPizza();
+        }else if(type.equals(&quot;durian&quot;)){
+            pizza = new DurianPizza();
+        }
+        return pizza;   
+    } 
+}
+</code></pre><!-- lang:java -->
+<pre><code>public class PizzaStore{
+
+    SimplePizzaFactory factory;
+
+    public PizzaStore(SimplePizzaFactory factory){
+        this.factory = factory;
+    }
+
+    public Pizza orderPizza(String type) {
+        Pizza pizza = factory.createPizza(type);
+        pizza.prepare();
+        pizza.make();
+        pizza.cut();
+        pizza.box();
+        return pizza;   
+    } 
+} 
+</code></pre><p>主管继续对小明说，嗯，不错，已经慢慢走上正轨了，你现在使用的就是不算是一种设计模式的模式—<code>简单工厂</code>：将对象的创建放在另外的类中去解决，这样能够简单的将变化的部分独立出来，我们再有新的Pizza或者其中一种Pizza不在制作时，可以不用去修改PizzaStore的代码，因为PizzaStore是不应该被经常修改的。但是，简单工厂还不是我们想要的，如果出现了其他加盟店，我们需要将其他加盟店的整个流程都管理起来，那么仅仅只有生成Pizza的工厂是不够的，从准备到装盒的整个流程我们都需要规范其起来（prepare()、make()、cut()、box()方法），不然其他的加盟店只利用我们提供的工厂生产Pizza，而这些流程有自己的方式，那Pizza店的服务就不能统一标准了。那小明问那我们应该怎么改进呢？主管说，很简单，我们使用<code>工厂方法模式</code>：</p>
+<!-- lang:java -->
+<pre><code>public abstract class PizzaStore{
+
+    public Pizza orderPizza(String type) {
+        Pizza pizza = createPizza(type);
+        pizza.prepare();
+        pizza.make();
+        pizza.cut();
+        pizza.box();
+        return pizza;   
+    }
+
+    abstract Pizza createPizza(String type); 
+} 
+</code></pre><!-- lang:java -->
+<pre><code>public class ChengDuPizzaStore extends PizzaStore{    
+    Pizza createPizza(String type){
+        if(type.equals(&quot;cheese&quot;)){
+            return new CheesePizza();
+        }else if(type.equals(&quot;greek&quot;)){
+            return new GreekPizza();
+        }else if(type.equals(&quot;durian&quot;)){
+            return new DurianPizza();
+        }else {
+            return null;
+        }
+    }
+} 
+</code></pre><p>小明说，等等，这种模式怎么又出现了可能会改变的部分啊？而且这和简单工厂的方式区别就是新的创建对象类成了PizzaStore的子类。主管说，你说到关键了，这和简单工厂的方式很相似，但是仅仅只是相似，它和简单工厂的区别很大：<code>简单工厂仅仅只是把对象的创建封装到另一个类中，而工厂方法模式提供了一个框架，所有子类都依靠这个框架（prepare()、make()、cut()、box()），然后把对象的创建交给了子类，因为在Pizza店和其他的一些实际的需求中，子类可能只需要决定产生什么要的东西，而其他的流程都是统一规范的。</code>这里面体现了一个很重要的原则：<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">依赖倒置原则</a>，披萨店在使用Pizza时，没有具体依赖某一种披萨实现自己的流程（prepare()、make()、cut()、box()），而是一个通过依赖于一个Pizza接口。</p>
+<h2 id="工厂方法模式定义"><a href="#工厂方法模式定义" class="headerlink" title="工厂方法模式定义"></a>工厂方法模式定义</h2><p>定义了一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让类的实例化推迟到子类。</p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象产品</li>
+<li>产品实现</li>
+<li>抽象工厂</li>
+<li>具体工厂</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>在工厂方法中，用户只需要知道所要产品的具体工厂，无须关系具体的创建过程，甚至不需要具体产品类的类名</li>
+<li>在系统增加新的产品时，我们只需要添加一个具体产品类和对应的实现工厂，无需对原工厂进行任何修改，很好地符合了“开闭原则”</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
+<li>每次增加一个产品时，都需要增加一个具体类和对象实现工厂，是的系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事</li>
+</ol>
+<h2 id="披萨店的新问题"><a href="#披萨店的新问题" class="headerlink" title="披萨店的新问题"></a>披萨店的新问题</h2><p>没过多久，主管找到小明说，披萨店在使用我们的程序时，出现了一个问题，披萨店的出售流程是规范了，但是有一些加盟店开始在原料上偷工减料，造成披萨在顾客中的口碑褒贬不一，所以我们需要改进一下，让每个店使用的原料是可以被监控的。小明很快想到了办法，我们将披萨生成（new的时候）统一为一个简单工厂，那么就可以统一知道披萨的生成了。主管说这样表面是解决了问题，但其实这样会使每个店生成的都是一样的，我们的目的是为了监控原料，而非统一原料。所以我们真正需要使用的是抽象工厂模式：</p>
+<!-- lang:java -->
+<pre><code>public interface PizzaIngredientFactory{    
+    public Dough createDough();
+    public Sauce createSauce();
+    public Cheese createCheese();
+    public Veggies[] createVeggies();
+    public Clams createClams();
+}
+</code></pre><!-- lang:java -->
+<pre><code>public abstract class Pizza{
+
+    String name;
+    Dough dough;
+    Sauce sauce;
+    Cheese cheese;
+    Veggies[] veggies;
+    Clams clams;
+
+    public void make(){
+
+    }
+    public void cut(){
+
+    }
+    public void box(){
+
+    }
+
+    abstract void prepare();
+
+}
+</code></pre><!-- lang:java -->
+<pre><code>public class CheesePizza extends Pizza{
+
+    PizzaIngredientFactory factory;
+
+    public CheesePizza(PizzaIngredientFactory factory){
+        this.factory = factory;
+    }
+
+    void prepare(){
+        dough = factory.createDough();
+        sauce = factory.createSauce();
+        cheese = factory.createCheese();
+        veggies = factory.createVeggies();
+        clams = factory.createClams();
+    }
+}
+</code></pre><p>这样一来，我们的披萨名字是一样的，但是不同的地方制作相同披萨的原料可以不一样（自己实现PizzaIngredientFactory），这就是抽象工厂模式。</p>
+<h2 id="抽象工厂模式定义"><a href="#抽象工厂模式定义" class="headerlink" title="抽象工厂模式定义"></a>抽象工厂模式定义</h2><p>提供一个接口，用于创建相关或依赖对象的家族，而不需要明确指定具体类。</p>
+<h3 id="角色-1"><a href="#角色-1" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象工厂</li>
+<li>实现工厂</li>
+<li>抽象产品</li>
+<li>具体产品</li>
+</ul>
+<h3 id="产品族"><a href="#产品族" class="headerlink" title="产品族"></a>产品族</h3><p>不同的产品等级结构，功能相关联的产品组成的家族。抽象工厂就是创建出分属于不同产品等级机构的对象组成产品族。</p>
+<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>抽象工厂模式隔离了具体类的生产，使得客户并不需要知道什么被创建</li>
+<li>当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象</li>
+<li>增加新的具体工厂和产品族很方便，无须修改已有系统，符合“开闭原则”</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li>增加新的产品等级结构很复杂，需要修改抽象工厂和所有的具体工厂类，对“开闭原则”的支持呈现倾斜性</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所有的工厂都是用来封装对象的创建，简单工厂虽然不算是一种设计模式，但是也是一种比较好的解耦方式；工厂方法模式使用继承，将对象的创建推迟到子类；抽象工厂使用对象组合，对象的创建被实现在工厂接口所暴露出来的方法里；所有工厂模式都通过减少应用程序和具体类之间的依赖促进送耦合。</p>
 
       
     </div>
@@ -386,7 +538,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
             <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/工程模式/" rel="tag">#工程模式</a>
           
         </div>
       
@@ -395,17 +551,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/12/Java内存回收简介/" rel="next" title="Java内存回收简介">
-                <i class="fa fa-chevron-left"></i> Java内存回收简介
+              <a href="/2016/12/03/设计模式之装饰者模式/" rel="next" title="设计模式之装饰器模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之装饰器模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/01/设计模式之策略模式/" rel="prev" title="设计模式之策略模式">
-                设计模式之策略模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -420,10 +572,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/29/设计模式六大原则/"
-     data-title="设计模式六大原则"
+        <div class="ds-share flat" data-thread-key="2016/12/04/设计模式之工厂模式/"
+     data-title="设计模式之工厂模式"
      data-content=""
-     data-url="http://yoursite.com/2016/11/29/设计模式六大原则/">
+     data-url="http://yoursite.com/2016/12/04/设计模式之工厂模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -450,8 +602,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/29/设计模式六大原则/"
-           data-title="设计模式六大原则" data-url="http://yoursite.com/2016/11/29/设计模式六大原则/">
+      <div class="ds-thread" data-thread-key="2016/12/04/设计模式之工厂模式/"
+           data-title="设计模式之工厂模式" data-url="http://yoursite.com/2016/12/04/设计模式之工厂模式/">
       </div>
     
   </div>
@@ -580,7 +732,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开闭原则"><span class="nav-number">1.</span> <span class="nav-text">开闭原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：对扩展开放，对修改关闭"><span class="nav-number">1.1.</span> <span class="nav-text">定义：对扩展开放，对修改关闭</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.</span> <span class="nav-text">单一职责原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：一个类只负责一项职责（同样适用于方法和接口）"><span class="nav-number">2.1.</span> <span class="nav-text">定义：一个类只负责一项职责（同样适用于方法和接口）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#里氏替换原则"><span class="nav-number">3.</span> <span class="nav-text">里氏替换原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：在程序中，子类可以完整的替换父类完成父类的功能"><span class="nav-number">3.1.</span> <span class="nav-text">定义：在程序中，子类可以完整的替换父类完成父类的功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖倒置原则"><span class="nav-number">4.</span> <span class="nav-text">依赖倒置原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象"><span class="nav-number">4.1.</span> <span class="nav-text">定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口隔离原则"><span class="nav-number">5.</span> <span class="nav-text">接口隔离原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：实现类不应该依赖它不需要实现接口具体方法的接口"><span class="nav-number">5.1.</span> <span class="nav-text">定义：实现类不应该依赖它不需要实现接口具体方法的接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迪米特法则"><span class="nav-number">6.</span> <span class="nav-text">迪米特法则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：一个对象应该对其他对象保持最少的了解"><span class="nav-number">6.1.</span> <span class="nav-text">定义：一个对象应该对其他对象保持最少的了解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#又来了新的项目"><span class="nav-number">1.</span> <span class="nav-text">又来了新的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式定义"><span class="nav-number">2.</span> <span class="nav-text">工厂方法模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#披萨店的新问题"><span class="nav-number">3.</span> <span class="nav-text">披萨店的新问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂模式定义"><span class="nav-number">4.</span> <span class="nav-text">抽象工厂模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色-1"><span class="nav-number">4.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品族"><span class="nav-number">4.2.</span> <span class="nav-text">产品族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">4.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">4.3.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">4.3.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

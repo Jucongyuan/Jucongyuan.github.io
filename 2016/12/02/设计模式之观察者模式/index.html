@@ -88,7 +88,7 @@
 <meta property="og:description" content="论坛每日精选项目小明的公司又接到了新的项目，这次的项目是一个论坛管理员给他们的论坛做的，论坛每天会选出优秀的文章发给读者，读者需要订阅这个推送，小明不太明白从何入手，于是请教了他的主管……">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/observer.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/observer%20two.png">
-<meta property="og:updated_time" content="2016-12-02T09:26:02.000Z">
+<meta property="og:updated_time" content="2016-12-05T01:32:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之观察者模式">
 <meta name="twitter:description" content="论坛每日精选项目小明的公司又接到了新的项目，这次的项目是一个论坛管理员给他们的论坛做的，论坛每天会选出优秀的文章发给读者，读者需要订阅这个推送，小明不太明白从何入手，于是请教了他的主管……">
@@ -349,7 +349,17 @@
 <p>主管补充了一条：</p>
 <p>4）JDK中的Observable在调用notifyObservers()时，依赖与setChanged()中的changed(boolean)，可能不是我们需要的</p>
 <p>还有一个需要注意的地方：<code>注意Observable中的存放Observer的Vector是倒序遍历的，所以要注意调用Observer update()方法的顺序和我们注册时的顺序是相反的</code>。另外一个值得我们关注的地方，对于更新，我们可以有两种方式：被观察者主动<code>推</code>和观察者自己取<code>拉</code>。JDK中Observable的notifyObservers(Object)和notifyObservers()体现了这两种不同的方式。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。"><a href="#在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。" class="headerlink" title="在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。"></a>在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。</h3><h2 id="观察者模式中体现的原则"><a href="#观察者模式中体现的原则" class="headerlink" title="观察者模式中体现的原则"></a>观察者模式中体现的原则</h2><h3 id="找出变化的部分，和不变的地方分离"><a href="#找出变化的部分，和不变的地方分离" class="headerlink" title="找出变化的部分，和不变的地方分离"></a>找出变化的部分，和不变的地方分离</h3><p>改变的是关注者的数量和类型，所以观察者被分离出来了</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。"><a href="#在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。" class="headerlink" title="在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。"></a>在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。</h3><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>观察者模式在被观察者和观察者之间建立一个抽象的耦合。被观察者角色所知道的只是一个具体现察者聚集，每一个具体现察者都符合一个抽象观察者的接口。被观察者并不认识任何一个具体观察者，它只知道它们都有一个共同的接口。由于被观察者和观察者没有紧密地耦合在一起，因此它们可以属于不同的抽象化层次</li>
+<li>观察者模式支持广播通信。被观察者会向所有的登记过的观察者发出通知</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li>如果一个被观察者对象有很多直接和间接的观察者的话，将所有的观察者都通知到会花费很多时间</li>
+<li>如果在被观察者之间有循环依赖的话，被观察者会触发它们之间进行循环调用，导致系统崩溃。在使用观察考模式时要特别注意这一点</li>
+<li>如果对观察者的通知是通过另外的线程进行异步投递的话，系统必须保证投递是以自恰的方式进行的</li>
+<li>虽然观察者模式可以随时使观察者知道所观察的对象发生了变化，但是观察者模式没有相应的机制使观察者知道所观察的对象是怎么发生变化的</li>
+</ol>
+<h2 id="观察者模式中体现的原则"><a href="#观察者模式中体现的原则" class="headerlink" title="观察者模式中体现的原则"></a>观察者模式中体现的原则</h2><h3 id="找出变化的部分，和不变的地方分离"><a href="#找出变化的部分，和不变的地方分离" class="headerlink" title="找出变化的部分，和不变的地方分离"></a>找出变化的部分，和不变的地方分离</h3><p>改变的是关注者的数量和类型，所以观察者被分离出来了</p>
 <h3 id="针对接口编程，不针对实现编程"><a href="#针对接口编程，不针对实现编程" class="headerlink" title="针对接口编程，不针对实现编程"></a>针对接口编程，不针对实现编程</h3><p>被观察者和观察者都使用接口，观察者利用被观察者接口注册、取消注册，被观察者利用观察者的更新接口通知观察者。这样让两者之间独立运作，具有松耦合的优点</p>
 <h3 id="多用组合，少用继承"><a href="#多用组合，少用继承" class="headerlink" title="多用组合，少用继承"></a>多用组合，少用继承</h3><p>被观察者和观察者是通过关联在一起，而不是通过继承的方式</p>
 <h2 id="观察者模式的运用"><a href="#观察者模式的运用" class="headerlink" title="观察者模式的运用"></a>观察者模式的运用</h2><p>如在Java中JButton的监听事件注册；另外在Android中的控件适配器Adapter这一功能，我们的控件（ListView、RecycleView、GridView等）里面都有一个观察者实现类通过继承AdapterDataSetObserver实现了对变化的观察，在setAdapter()时，将该实现了对象注册到Adapter中。看一看源码一下就清楚了：</p>
@@ -547,6 +557,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/12/03/设计模式之装饰者模式/" rel="prev" title="设计模式之装饰器模式">
+                设计模式之装饰器模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -636,7 +650,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -653,7 +667,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -720,7 +734,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论坛每日精选项目"><span class="nav-number">1.</span> <span class="nav-text">论坛每日精选项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。"><span class="nav-number">2.1.</span> <span class="nav-text">在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式中体现的原则"><span class="nav-number">3.</span> <span class="nav-text">观察者模式中体现的原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#找出变化的部分，和不变的地方分离"><span class="nav-number">3.1.</span> <span class="nav-text">找出变化的部分，和不变的地方分离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对接口编程，不针对实现编程"><span class="nav-number">3.2.</span> <span class="nav-text">针对接口编程，不针对实现编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多用组合，少用继承"><span class="nav-number">3.3.</span> <span class="nav-text">多用组合，少用继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式的运用"><span class="nav-number">4.</span> <span class="nav-text">观察者模式的运用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论坛每日精选项目"><span class="nav-number">1.</span> <span class="nav-text">论坛每日精选项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。"><span class="nav-number">2.1.</span> <span class="nav-text">在对象之间建立一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象会受到通知，并自动更新。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">2.2.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">2.2.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式中体现的原则"><span class="nav-number">3.</span> <span class="nav-text">观察者模式中体现的原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#找出变化的部分，和不变的地方分离"><span class="nav-number">3.1.</span> <span class="nav-text">找出变化的部分，和不变的地方分离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对接口编程，不针对实现编程"><span class="nav-number">3.2.</span> <span class="nav-text">针对接口编程，不针对实现编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多用组合，少用继承"><span class="nav-number">3.3.</span> <span class="nav-text">多用组合，少用继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式的运用"><span class="nav-number">4.</span> <span class="nav-text">观察者模式的运用</span></a></li></ol></div>
             
           </div>
         </section>
