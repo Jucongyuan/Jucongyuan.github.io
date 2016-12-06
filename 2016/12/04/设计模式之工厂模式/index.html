@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,设计模式,工程模式," />
+  <meta name="keywords" content="Java,设计模式,工厂模式," />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/04/设计模式之工厂模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
-<meta property="og:updated_time" content="2016-12-05T01:41:46.000Z">
+<meta property="og:updated_time" content="2016-12-05T11:58:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之工厂模式">
 <meta name="twitter:description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
@@ -496,7 +496,6 @@
 <h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
 <li>增加新的产品等级结构很复杂，需要修改抽象工厂和所有的具体工厂类，对“开闭原则”的支持呈现倾斜性</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所有的工厂都是用来封装对象的创建，简单工厂虽然不算是一种设计模式，但是也是一种比较好的解耦方式；工厂方法模式使用继承，将对象的创建推迟到子类；抽象工厂使用对象组合，对象的创建被实现在工厂接口所暴露出来的方法里；所有工厂模式都通过减少应用程序和具体类之间的依赖促进送耦合。</p>
 
       
     </div>
@@ -542,7 +541,7 @@
           
             <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
-            <a href="/tags/工程模式/" rel="tag">#工程模式</a>
+            <a href="/tags/工厂模式/" rel="tag">#工厂模式</a>
           
         </div>
       
@@ -558,6 +557,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/05/设计模式之单例模式/" rel="prev" title="设计模式之单例模式">
+                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -648,7 +651,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -665,7 +668,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -732,7 +735,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#又来了新的项目"><span class="nav-number">1.</span> <span class="nav-text">又来了新的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式定义"><span class="nav-number">2.</span> <span class="nav-text">工厂方法模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#披萨店的新问题"><span class="nav-number">3.</span> <span class="nav-text">披萨店的新问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂模式定义"><span class="nav-number">4.</span> <span class="nav-text">抽象工厂模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色-1"><span class="nav-number">4.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品族"><span class="nav-number">4.2.</span> <span class="nav-text">产品族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">4.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">4.3.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">4.3.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#又来了新的项目"><span class="nav-number">1.</span> <span class="nav-text">又来了新的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式定义"><span class="nav-number">2.</span> <span class="nav-text">工厂方法模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#披萨店的新问题"><span class="nav-number">3.</span> <span class="nav-text">披萨店的新问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂模式定义"><span class="nav-number">4.</span> <span class="nav-text">抽象工厂模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色-1"><span class="nav-number">4.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品族"><span class="nav-number">4.2.</span> <span class="nav-text">产品族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">4.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">4.3.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">4.3.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
