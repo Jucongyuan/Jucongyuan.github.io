@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,设计模式,装饰器模式," />
+  <meta name="keywords" content="Java,设计模式,命令模式," />
 
 
 
@@ -80,20 +80,18 @@
 
 
 
-<meta name="description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
+<meta name="description" content="披萨店的生意越来越好小明公司之前给披萨店做了一个项目，主要用了工厂模式，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之装饰器模式">
-<meta property="og:url" content="http://yoursite.com/2016/12/03/设计模式之装饰者模式/index.html">
+<meta property="og:title" content="设计模式之命令模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/设计模式之命令模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decoratetwo.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/io.png">
-<meta property="og:updated_time" content="2016-12-05T01:46:54.000Z">
+<meta property="og:description" content="披萨店的生意越来越好小明公司之前给披萨店做了一个项目，主要用了工厂模式，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012071112313551.png">
+<meta property="og:updated_time" content="2016-12-07T02:10:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之装饰器模式">
-<meta name="twitter:description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png">
+<meta name="twitter:title" content="设计模式之命令模式">
+<meta name="twitter:description" content="披萨店的生意越来越好小明公司之前给披萨店做了一个项目，主要用了工厂模式，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012071112313551.png">
 
 
 
@@ -111,7 +109,7 @@
   };
 </script>
 
-  <title> 设计模式之装饰器模式 | Jucongyuan's Blog </title>
+  <title> 设计模式之命令模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +261,7 @@
             
             
               
-                设计模式之装饰器模式
+                设计模式之命令模式
               
             
           </h1>
@@ -275,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-03T20:02:12+08:00" content="2016-12-03">
-              2016-12-03
+            <time itemprop="dateCreated" datetime="2016-12-06T20:54:15+08:00" content="2016-12-06">
+              2016-12-06
             </time>
           </span>
 
@@ -305,8 +303,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/03/设计模式之装饰者模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/设计模式之装饰者模式/" itemprop="commentsCount"></span>
+                <a href="/2016/12/06/设计模式之命令模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/设计模式之命令模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -316,7 +314,7 @@
 
           
           
-             <span id="/2016/12/03/设计模式之装饰者模式/" class="leancloud_visitors" data-flag-title="设计模式之装饰器模式">
+             <span id="/2016/12/06/设计模式之命令模式/" class="leancloud_visitors" data-flag-title="设计模式之命令模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -338,34 +336,313 @@
       
 
       
-        <h2 id="经典咖啡厅问题"><a href="#经典咖啡厅问题" class="headerlink" title="经典咖啡厅问题"></a>经典咖啡厅问题</h2><p>小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：<br><img src="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png" alt="decorate"></p>
+        <h2 id="披萨店的生意越来越好"><a href="#披萨店的生意越来越好" class="headerlink" title="披萨店的生意越来越好"></a>披萨店的生意越来越好</h2><p>小明公司之前给披萨店做了一个项目，主要用了<a href="http://jucongyuan.github.io/2016/12/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">工厂模式</a>，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。</p>
 <a id="more"></a>
-<p>很快，新的需求来了，由于顾客的增多，有许多客户对咖啡有特殊的要求，如加奶、加糖，巧克力风味的等等，加了不同料的咖啡价格是不一样的。小明很快就着手开始新建更多类，加奶焦糖玛奇朵，巧克力摩卡……但这时的他突然发现有问题：相同的咖啡，因为加料的不同出现了很多的配搭，会导致严重的类剧增。</p>
-<p>小明立即请教了主管，并提出了新的解决方案，给Coffee接口增加方法，如setMilk()、hasMilk()等方法来确保某一个咖啡是加了哪些其他调料的，但是一个问题直接就否定了这样设计：如果我要加双倍调料呢？而且如果出现了一种新的不能加任何调料的饮料时，就会违背<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">接口隔离原则</a>，小明陷入了很大的困难之中，这是主管让小明去了解一下装饰器模式，然后再做出新的设计，小明再了解之后，很快做出了新的设计：</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/decoratetwo.png" alt="decoratetwo"></p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>小明用的设计模式就叫装饰者模式：动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案。</p>
+<p>披萨店招了一名服务员，专门负责顾客的下单，主要职责就是将顾客点的菜单交给做披萨的师傅，然后师傅将披萨做好。现在需要有一套程序来模拟这个场景，小明这次很开心，因为他知道这种就是一个很明确的命令模式的场景：对于顾客来说，每个人点的披萨是不一样的，他们并不关心厨师做披萨的过程，而主要在意是自己的需求能够明确到厨师那里。而服务员主要做的就是将顾客的想法传单到厨师那里，然后一个简单的命令模式就出现了：</p>
+<p>芝士披萨厨师：</p>
+<!-- lang:java -->
+<pre><code>public class CheesePizzaChef {
+    public void createCheesePizza(){
+        // 做一个芝士披萨
+    }
+}
+</code></pre><p>榴莲披萨厨师：</p>
+<!-- lang:java -->
+<pre><code>public class DurianPizzaChef {
+    public void createDurianPizza(){
+        // 做一个榴莲披萨
+    }
+
+    public void sendGift(){
+        // 送一个礼物
+    }
+}  
+</code></pre><p>抽象命令：</p>
+<!-- lang:java -->
+<pre><code>public interface Order {
+    public void execute();
+} 
+</code></pre><p>点一个芝士披萨：</p>
+<!-- lang:java -->
+<pre><code>public class CheesePizzaOrder implements Order{
+    CheesePizzaChef chef;
+
+    public CheesePizzaOrder(CheesePizzaChef chef){
+        this.chef = chef;
+    }
+
+    public void execute(){
+        chef.createCheesePizza();
+    }
+}
+</code></pre><p>点一个榴莲披萨：</p>
+<!-- lang:java -->
+<pre><code>public class DurianPizzaOrder implements Order{
+    DurianPizzaChef chef;
+
+    public DurianPizzaOrder(DurianPizzaChef chef){
+        this.chef = chef;
+    }
+
+    public void execute(){
+        chef.createDurianPizza();
+        chef.sendGift();
+    }
+}
+</code></pre><p>服务员：</p>
+<!-- lang:java -->
+<pre><code>public class Service {
+
+    Order order;
+
+    public Service(){
+    }
+
+    public void setOrder(Order order){
+        this.order = order;
+    }
+
+    public void orderUp(){
+        order.execute();
+    }
+}
+</code></pre><p>顾客：</p>
+<!-- lang:java -->
+<pre><code>public class Customer {
+
+    public static void main(String[] args){
+        Service sevice = new Service();
+
+        //点一个芝士披萨
+        CheesePizzaChef cheesePizzaChef = new CheesePizzaChef();
+        CheesePizzaOrder cheesePizzaOrder = new CheesePizzaOrder(cheesePizzaChef);
+
+        service.setOrder(cheesePizzaOrder);
+        service.orderUp();
+
+        //又点了一个榴莲披萨
+
+        DurianPizzaChef durianPizzaChef = new DurianPizzaChef();
+        DurianPizzaOrder durianPizzaOrder = new DurianPizzaOrder(durianPizzaChef);
+
+        service.setOrder(durianPizzaChef);
+        service.orderUp();
+
+    }
+}
+</code></pre><p>顾客先点了一个芝士披萨，又点了一个榴莲披萨，可以看到，对于顾客而言，他只用了服务员做了点餐（setOrder()方法），而服务员和厨师之前也没有过多的耦合，服务员就只是再执行了orderUp()方法，然后接下来的的事顾客和服务员就再也没有关心了，那么可以看到里面有很重要的一个类就是实现Order接口的两个类：CheesePizzaOrder和DurianPizzaOrder，他们就被称为命令，命令里面包含了真正的接收者，对于这两个命令，他们的接收者分别是CheesePizzaChef和DurianPizzaChef，也就是最终做事的对象，服务员每次都设置了不同的命令，然后在orderUp()方法了调用命令的execute()方法，命令实现类对execute()做了不同实现，在CheesePizzaOrder里面是调用CheesePizzaChef做了一个芝士披萨，DurianPizzaOrder是DurianPizzaChef做了一个榴莲披萨，而且还送了一个礼物。我们注意到，在两个Order的实现类里，execute()方法用不同的类做了不同的事情，这也是我们命令模式很重要的一点，请求发出者不用关心最终的接收者到底做了什么，任何类都可以接收者，所以命令的接收者彼此之间是独立的（上面的两个厨师并没有关联，我们的接接收者还可以是老板、经理等店里任何可以为顾客服务的人），顾客和最终的接收者之间的桥梁是我们<code>服务员中的命令对象</code>，也就是CheesePizzaOrder和DurianPizzaOrder，这样让顾客和接收者之间是松耦合，同样服务员和接收者之间也是松耦合。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>命令模式将“请求”封装成对象，以便使用不同的请求、队列、或者日志来参数化其他对象。</p>
 <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
-<li>抽象组件（Component）</li>
-<li>具体组件（Concrete Component）</li>
-<li>装饰（Decorator）</li>
-<li>具体装饰角色（Concrete Decorator）</li>
+<li>抽象命令 Command</li>
+<li>具体命令 ConcreteCommand</li>
+<li>接收者 Receiver</li>
+<li>要求命令对象执行请求 Invoker</li>
+<li>创建命令者 Client</li>
 </ul>
-<p><code>注意：装饰者模式并非针对具体的组件进行装饰</code></p>
-<h2 id="真实世界的装饰者：Java-I-O"><a href="#真实世界的装饰者：Java-I-O" class="headerlink" title="真实世界的装饰者：Java I/O"></a>真实世界的装饰者：Java I/O</h2><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/io.png" alt="输入流"></p>
-<p>这是Java I/O中字节输入流的类图结构，我们发现和咖啡厅的设计几乎是一样的，不同的是InputStream是通过抽象类实现，而非接口。我们把左边的三个类（FileInputStream、 StringBufferInputStream、ByteArrayInputStream，不止这是三个）在装饰者模式中称为组件，而把继承至FilterInputStream的类称之为装饰者，装饰者就是用来装饰组件的。看看I/O内部BufferedInputStream是怎么修饰的呢？我们可以用BufferedInputStream来修饰FileInputStream，如果不用BufferedInputStream修饰，直接使用FileInputStream，在调用read()方法时，我们每读出一个字节，就需要做处理，使用了BufferedInputStream，它会给我们提供一个缓冲区，这个缓冲区可以我们自定义大小，也可以使用BufferedInputStream的默认8兆的大小，缓冲区都作用就是将读取出来的数据缓存起来供我们使用，而不是读取一个字节就要使用。</p>
-<h2 id="装饰者模式的优缺点和体现的原则"><a href="#装饰者模式的优缺点和体现的原则" class="headerlink" title="装饰者模式的优缺点和体现的原则"></a>装饰者模式的优缺点和体现的原则</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
-<li>不用继承扩展了类的功能</li>
-<li>装饰者可以叠加使用，创造不同的功能，体现了不针对实现的编程</li>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/2012071112313551.png" alt="类图"></p>
+<p>接收者不是必须的，具体的命令也可以自己处理一些事</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：</p>
+<ol>
+<li>降低对象之间的耦合度。</li>
+<li>新的命令可以很容易地加入到系统中。</li>
+<li>可以比较容易地设计一个组合命令。</li>
+<li>调用同一方法实现不同的功能</li>
 </ol>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ol>
-<li>程序复杂性会增加</li>
-<li>会出现很多小类</li>
-<li>针对抽象组件编程，而非具体组件</li>
+<p>缺点：</p>
+<ol>
+<li>使用命令模式可能会导致某些系统有过多的具体命令类。因为针对每一个命令都需要设计一个具体命令类，因此某些系统可能需要大量具体命令类，这将影响命令模式的使用</li>
 </ol>
-<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ol>
-<li>多有组合，少用继承</li>
-<li>开闭原则：对扩展开发，对修改关闭</li>
-</ol>
+<h2 id="命令模式的具体使用"><a href="#命令模式的具体使用" class="headerlink" title="命令模式的具体使用"></a>命令模式的具体使用</h2><p>对象命令模式的定义大家可能还是很模糊，那我们就再仔细看看命令的使用，加深一下对命令模式的理解。接下来我们实现一个空调遥控器调节风力的功能：</p>
+<p>空调：</p>
+<!-- lang:java -->
+<pre><code>public class AirConditioner {
+
+    public static final int HIGH = 3;
+    public static final int MEDIUM = 2;
+    public static final int LOW = 1;
+    public static final int OFF = 0;
+
+    String name;
+    int speed = 0;
+
+    public AirConditioner(String name){
+        this.name = name;
+    }
+
+    public void high(){
+        // 设置强风
+        speed = HIGH;
+    }
+
+    public void medium(){
+        // 设置低风
+        speed = MEDIUM;
+    }
+
+    public void low(){
+        // 设置弱风
+        speed = LOW;
+    }
+
+    public void off(){
+        // 空调关
+        speed = OFF;
+    }
+
+    public int getSpeed(){
+        return speed;
+    }
+
+}
+</code></pre><p>抽象命令：</p>
+<!-- lang:java -->
+<pre><code>public interface Command {
+    public void execute(AirConditioner airConditioner);
+    public void undo();
+}
+</code></pre><p>强风命令：</p>
+<!-- lang:java -->
+<pre><code>public class ConditionerHighCommand implements Command{
+
+    AirConditioner airConditioner;
+    int speed;
+
+    public void execute(AirConditioner airConditioner){
+        speed = airConditioner.getSpeed();
+        this.airConditioner = airConditioner;
+        airConditioner.high();
+    }
+
+    public void undo(){
+        if(speed = AirConditioner.HIGH)
+            airConditioner.high();
+        else if (speed = AirConditioner.MEDIUM)
+            airConditioner.medium();
+        else if (speed = AirConditioner.LOW)
+            airConditioner.low();
+        else if (speed = AirConditioner.OFF)
+            airConditioner.off();
+    }
+}
+</code></pre><p>弱风命令：</p>
+<!-- lang:java -->
+<pre><code>public class ConditionerLowCommand implements Command{
+
+    AirConditioner airConditioner;
+    int speed;
+
+    public void execute(AirConditioner airConditioner){
+        speed = airConditioner.getSpeed();
+        this.airConditioner = airConditioner;
+        airConditioner.low();
+    }
+
+    public void undo(){
+        if(speed = AirConditioner.HIGH)
+            airConditioner.high();
+        else if (speed = AirConditioner.MEDIUM)
+            airConditioner.medium();
+        else if (speed = AirConditioner.LOW)
+            airConditioner.low();
+        else if (speed = AirConditioner.OFF)
+            airConditioner.off();
+    }
+}
+</code></pre><p>关闭命令：</p>
+<!-- lang:java -->
+<pre><code>public class ConditionerLowCommand implements Command{
+
+    AirConditioner airConditioner;
+    int speed;
+
+    public void execute(AirConditioner airConditioner){
+        speed = airConditioner.getSpeed();
+        this.airConditioner = airConditioner;
+        airConditioner.off();
+    }
+
+    public void undo(){
+        if(speed = AirConditioner.HIGH)
+            airConditioner.high();
+        else if (speed = AirConditioner.MEDIUM)
+            airConditioner.medium();
+        else if (speed = AirConditioner.LOW)
+            airConditioner.low();
+        else if (speed = AirConditioner.OFF)
+            airConditioner.off();
+    }
+}
+</code></pre><p>空命令:</p>
+<!-- lang:java -->
+<pre><code>public class NoCommand implements Command{
+    public void execute(AirConditioner airConditioner){
+        // 什么也不做
+    }
+
+    public void undo(){
+        // 什么也不做
+    }
+}
+</code></pre><p>遥控器：</p>
+<!-- lang:java -->
+<pre><code>public class RemoteControl {
+
+    // 记录最后一次命令，首次为空命令
+    Command lastCommand = new NoCommand();
+
+    //遥控器上一共有4个按钮：除了撤销，其他按钮是可以自由让它有特定的功能
+    Command[] commands;
+
+    public RemoteControl(Command[] commands){
+        commands = commands;
+    }
+
+    public void onePressed(AirConditioner airConditioner){
+        commands[0].execute(airConditioner);
+        lastCommand = commands[0];
+    }
+
+    public void twoPressed(AirConditioner airConditioner){
+        commands[1].execute(airConditioner);
+        lastCommand = commands[1];
+    }
+
+    public void threePressed(AirConditioner airConditioner){
+        commands[2].execute(airConditioner);
+        lastCommand = commands[2];
+    }        
+
+    // 撤销按钮被按
+    public void undoPressed(){
+        lastCommand.undo();
+    }    
+}
+</code></pre><p>人：</p>
+<!-- lang:java -->
+<pre><code>public class People {
+
+    public static void main(String[] args){
+
+        Command[] commands = new Command[3];
+        commands[0] = new ConditionerHighCommand();
+        commands[1] = new ConditionerLowCommand();
+        commands[2] = new ConditionerOffCommand();
+
+        // 暂且给三个按钮赋予这三个相应的功能，强风、弱风、关闭功能
+        RemoteControl rc = new RemoteControl(commands);
+
+        AirConditioner airConditioner = new AirConditioner(&quot;客厅的空调&quot;);
+
+        rc.twoPressed(airConditioner);
+        rc.onePressed(airConditioner);
+        rc.twoPressed(airConditioner);
+        rc.undoPressed(airConditioner);
+        // 最终风速为？
+    }
+}
+</code></pre><p>我们可以按遥控器了，每一次按了以后，接收者空调会做出相应的处理（除了撤销按钮），处理由被赋予按钮的命令决定，而且我们还可以更换三个按钮为其他功能，比如已经有的一个命令：空命令，如果实例化空调时，给其中一个按钮赋予空命令职责，他将什么都不会做，空命令在也是一个有非常大用处的命令。不过这个遥控器的还有很多需要优化的地方，比如撤销按钮，目前看来，撤销只能撤销前一次操作（恢复到前一次操作后的状态），大家可以再优化一下，看看怎么实现连续撤销功能，这也和命令模式的一个很重要的作用类似：实现事务系统。</p>
+<h2 id="还有哪些用法"><a href="#还有哪些用法" class="headerlink" title="还有哪些用法"></a>还有哪些用法</h2><h3 id="队列请求"><a href="#队列请求" class="headerlink" title="队列请求"></a>队列请求</h3><p>命令模式可以用来实现一个异步耗时队列请求的功能，我们可以实现一些列不同的命令，这些命令可能是某一个功能，也可能是一组功能，我们创建很多不同的命令，把他们放进一个队列，然后可能会有另一个线程从队列里面取出这些命令，挨个去执行他们。</p>
+<h3 id="状态恢复"><a href="#状态恢复" class="headerlink" title="状态恢复"></a>状态恢复</h3><p>当我们程序执行一些命令，我们可以将每一次的执行的命令写进我们的日志，当电脑死机重启后，我们将日志信息读取出来，然后再挨个的去执行这些命令，让电脑恢复到之前死机时候的状态。</p>
 
       
     </div>
@@ -411,7 +688,7 @@
           
             <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
-            <a href="/tags/装饰器模式/" rel="tag">#装饰器模式</a>
+            <a href="/tags/命令模式/" rel="tag">#命令模式</a>
           
         </div>
       
@@ -420,17 +697,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/02/设计模式之观察者模式/" rel="next" title="设计模式之观察者模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之观察者模式
+              <a href="/2016/12/05/设计模式之单例模式/" rel="next" title="设计模式之单例模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之单例模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/04/设计模式之工厂模式/" rel="prev" title="设计模式之工厂模式">
-                设计模式之工厂模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -445,10 +718,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/03/设计模式之装饰者模式/"
-     data-title="设计模式之装饰器模式"
+        <div class="ds-share flat" data-thread-key="2016/12/06/设计模式之命令模式/"
+     data-title="设计模式之命令模式"
      data-content=""
-     data-url="http://yoursite.com/2016/12/03/设计模式之装饰者模式/">
+     data-url="http://yoursite.com/2016/12/06/设计模式之命令模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -475,8 +748,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/03/设计模式之装饰者模式/"
-           data-title="设计模式之装饰器模式" data-url="http://yoursite.com/2016/12/03/设计模式之装饰者模式/">
+      <div class="ds-thread" data-thread-key="2016/12/06/设计模式之命令模式/"
+           data-title="设计模式之命令模式" data-url="http://yoursite.com/2016/12/06/设计模式之命令模式/">
       </div>
     
   </div>
@@ -605,7 +878,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典咖啡厅问题"><span class="nav-number">1.</span> <span class="nav-text">经典咖啡厅问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真实世界的装饰者：Java-I-O"><span class="nav-number">3.</span> <span class="nav-text">真实世界的装饰者：Java I/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰者模式的优缺点和体现的原则"><span class="nav-number">4.</span> <span class="nav-text">装饰者模式的优缺点和体现的原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点："><span class="nav-number">4.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">4.2.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原则"><span class="nav-number">4.3.</span> <span class="nav-text">原则</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#披萨店的生意越来越好"><span class="nav-number">1.</span> <span class="nav-text">披萨店的生意越来越好</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令模式的具体使用"><span class="nav-number">3.</span> <span class="nav-text">命令模式的具体使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#还有哪些用法"><span class="nav-number">4.</span> <span class="nav-text">还有哪些用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#队列请求"><span class="nav-number">4.1.</span> <span class="nav-text">队列请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态恢复"><span class="nav-number">4.2.</span> <span class="nav-text">状态恢复</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
