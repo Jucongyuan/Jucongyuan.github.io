@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="Java,设计模式,模板方法模式," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="前言为什么是简介呢？因为自己实在不敢用详解两字，不过还是希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以还是希望大家可以多看书，然后总结为自己的知识体系。">
+<meta name="description" content="小明拿到了一个半成品这天，主管发了一个项目给小明，说这是之前咖啡厅的一个小需求，他们的生意越来越好，开始买其他的饮品了，比如茶。咖啡店想把泡咖啡和泡茶的过程规范一下，所以需要小明他们公司迭代一个程序的版本。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内存区域简介">
-<meta property="og:url" content="http://yoursite.com/2016/09/12/Java内存区域简介/index.html">
+<meta property="og:title" content="设计模式之模板方法模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/08/设计模式之模板方法模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="前言为什么是简介呢？因为自己实在不敢用详解两字，不过还是希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以还是希望大家可以多看书，然后总结为自己的知识体系。">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
-<meta property="og:updated_time" content="2016-09-13T02:48:36.000Z">
+<meta property="og:description" content="小明拿到了一个半成品这天，主管发了一个项目给小明，说这是之前咖啡厅的一个小需求，他们的生意越来越好，开始买其他的饮品了，比如茶。咖啡店想把泡咖啡和泡茶的过程规范一下，所以需要小明他们公司迭代一个程序的版本。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012070917340125.png">
+<meta property="og:updated_time" content="2016-12-09T01:26:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存区域简介">
-<meta name="twitter:description" content="前言为什么是简介呢？因为自己实在不敢用详解两字，不过还是希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以还是希望大家可以多看书，然后总结为自己的知识体系。">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
+<meta name="twitter:title" content="设计模式之模板方法模式">
+<meta name="twitter:description" content="小明拿到了一个半成品这天，主管发了一个项目给小明，说这是之前咖啡厅的一个小需求，他们的生意越来越好，开始买其他的饮品了，比如茶。咖啡店想把泡咖啡和泡茶的过程规范一下，所以需要小明他们公司迭代一个程序的版本。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012070917340125.png">
 
 
 
@@ -109,7 +109,7 @@
   };
 </script>
 
-  <title> Java内存区域简介 | Jucongyuan's Blog </title>
+  <title> 设计模式之模板方法模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +254,7 @@
             
             
               
-                Java内存区域简介
+                设计模式之模板方法模式
               
             
           </h1>
@@ -266,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-12T19:58:40+08:00" content="2016-09-12">
-              2016-09-12
+            <time itemprop="dateCreated" datetime="2016-12-08T16:47:25+08:00" content="2016-12-08">
+              2016-12-08
             </time>
           </span>
 
@@ -280,8 +280,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -296,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/12/Java内存区域简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Java内存区域简介/" itemprop="commentsCount"></span>
+                <a href="/2016/12/08/设计模式之模板方法模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/设计模式之模板方法模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,7 +307,7 @@
 
           
           
-             <span id="/2016/09/12/Java内存区域简介/" class="leancloud_visitors" data-flag-title="Java内存区域简介">
+             <span id="/2016/12/08/设计模式之模板方法模式/" class="leancloud_visitors" data-flag-title="设计模式之模板方法模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -329,25 +329,161 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为什么是简介呢？因为自己实在不敢用<code>详解</code>两字，不过还是希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以还是希望大家可以多看书，然后总结为自己的知识体系。</p>
+        <h2 id="小明拿到了一个半成品"><a href="#小明拿到了一个半成品" class="headerlink" title="小明拿到了一个半成品"></a>小明拿到了一个半成品</h2><p>这天，主管发了一个项目给小明，说这是之前咖啡厅的一个小需求，他们的生意越来越好，开始买其他的饮品了，比如茶。咖啡店想把泡咖啡和泡茶的过程规范一下，所以需要小明他们公司迭代一个程序的版本。</p>
 <a id="more"></a>
-<h2 id="线程和进程"><a href="#线程和进程" class="headerlink" title="线程和进程"></a>线程和进程</h2><p>为什么会提到这两个老生常谈的东西呢？因为Java的内存区域是分为共享和非共享的，那么直接就和线程和进程相关了，线程和进程的区别在这里我就不详细介绍了，不太了解的同学可以看看这篇文章<a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="external">进程与线程的一个简单解释</a>，比较形象和生动。</p>
-<h2 id="单核可以多线程吗"><a href="#单核可以多线程吗" class="headerlink" title="单核可以多线程吗"></a>单核可以多线程吗</h2><p>我们从这个问题入手，看看Java虚拟机是如何实现多线程的。首先，这个问题的答案是肯定的（可以），多个线程会被CPU分配不同的时间，CPU快速的切换（一般在几十毫秒）不同的线程来实现多线程，我们把分配给线程的时间叫着<code>时间片</code>，不停的切换时间片就是<code>上下文切换</code>，在一秒时间里，上下文切换的次数可以达到数千次（2000次左右）。所以接下来第一块我们需要介绍到的，就是在切换中起着很大作用的<code>程序计数器</code>。</p>
-<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/14B1A10413DF45E69167EF20EFF9F713.jpg" alt="运行时数据区"></p>
-<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>程序计数器是一块很小的内存，它是线程私有的，它记录着当前线程Java方法虚拟机字节码指令的地址（如果为Native方法，计数器值为空），为什么需要记录这个东西呢？因为再上下文不断切换时，我们需要保存将被切换线程执行到哪里了，然后再恢复时，可以根据保存的信息进行恢复。在这个内存区域中，是不会出现OutOfMemoryError的，也是内存区域中唯一个。</p>
-<h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><p>Java虚拟机栈也是线程私有的，它的生命周期和线程相同。一个线程中有多个方法，每一个方法都会创建一个栈帧，这个栈帧里面保存了局部变量表、操作数栈、动态链接、方法出口等信息。很多个栈帧不断的在虚拟机栈中入栈和出栈，就是这个线程不断的执行，同时随着入栈和出栈，一个方法的调用也执行完成了。</p>
-<h3 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h3><p>一个方法有一个局部变量表，它存放了方法中各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，对象引用不是对象本身，而是指向对象起始地址的引用指针、一个代表对象的句柄或者其他对象的相关位置）、returnAddress类型（指向了一条字节码指令的地址）。虚拟机栈中局部变量表的大小在运行期间是不会变化的，进入一个方法时，这个大小就已经确定了。</p>
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>在虚拟机栈中，可能会发生两种异常：StackOverflowError和OutOfMemoryError。发生这两种异常的情况分别是：</p>
-<p>1）线程所请求的栈深度大于虚拟机所允许的深度。</p>
-<p>2）如果虚拟机扩展无法申请足够的内存。</p>
-<p>这两个描述还是比较模糊的，那么实际情况中，什么情形下会产生这两种不同的异常呢？有一个统一的结论，大家可以实际去证明，那就是：<code>在单个线程下，无论是由于栈帧太大还是栈容量太小（大小是可配置的），但内存无法分配时，都抛出StackOverflowError。在多线程中，线程越多，供每个线程瓜分的虚拟机栈空间越少，当把最后能被瓜分的内存耗尽时，就会抛出OutOfMemoryError</code>。</p>
-<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p>本地方法栈和Java虚拟机栈作用是非常相似的，Java虚拟机栈是服务于Java方法（也就是字节码），而本地方法栈是服务于Native方法的。甚至有的虚拟机（如HotSpot，目前最新版本JDK使用的虚拟机）直接将这两部分合二为一，所以同样的，本地方法栈也会抛出StackOverflowError和OutOfMemoryError。</p>
-<h3 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h3><p>Java堆一般来说是Java虚拟机所管理的内存中最大的一块。它是一块被线程共享的内存区域。他存放的就是对象的实例和数组，如上面提到局部变量中对象引用就可能指向这里。这一块的内容主要就是内存回收相关的东西，这里不再深入，后面单独对内存回收做介绍。无论这块内存有多大，还是会出现无法再扩展的情况，就会抛出OutOfMemoryError异常。</p>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>这个区域和堆一样，是线程共享的，它用来存储已被虚拟机加载的类信息（类名、访问修饰符等）、常量、静态变量、即时编译器编译后的代码等数据，因此它是堆得一个逻辑区域。不过大家容易被这个名字所误导，所以需要特别注意。</p>
-<h3 id="运行时常量区"><a href="#运行时常量区" class="headerlink" title="运行时常量区"></a>运行时常量区</h3><p>此区域属于方法区的一部分，在编译时，会产生一些类的常量信息，就存放在此区域中，当然在运行时，也可以产生一些常量，如调用String的intern方法，就会将该常量放入常量池中。在方法区中，如果无法满足内存分配时，将抛出OutOfMemoryError异常。</p>
-<h3 id="延伸知识"><a href="#延伸知识" class="headerlink" title="延伸知识"></a>延伸知识</h3><p>刚才提到，使用String的intern方法，会把常量放入方法区的运行时常量区中，不过JDK 1.6和JDK 1.7有一些区别：</p>
-<p>1）1.6intern方法会把首次遇到的字符串实例复制到永久代中，并返回实例的引用。</p>
-<p>2）1.7不会复制实例，而是在常量池中记录首次出现的实例引用。</p>
+<p>但是小明打开项目后，发现项目里面只有两个类，其中一个是抽象类，而主管的说，你的任务就是实现这个抽象类，完成这个项目。</p>
+<p>饮料抽象类：</p>
+<!-- java -->
+<pre><code>public abstract clsaa Beverage{
+
+    final void made(){
+        boilWater();
+        addBeverage();
+        waterInCup();
+        addCondiments();
+    }
+
+    abstract void addBeverage();
+
+    abstract void addCondiments();
+
+    void boilWater(){
+        // 煮开水
+    }
+
+    void waterInCup(){
+        // 把水放进水杯
+    }
+}
+</code></pre><p>很快小明实现了咖啡和茶：</p>
+<!-- java -->
+<pre><code>public clsaa Coffee extends Beverage{
+
+    void addBeverage(){
+        // 加咖啡
+    }
+
+    void addCondiments(){
+        // 加其他调料
+    }
+}
+</code></pre><!-- java -->
+<pre><code>public clsaa Tea extends Beverage{
+
+    void addBeverage(){
+        // 加茶叶
+    }
+
+    void addCondiments(){
+        // 加其他调料
+    }
+}
+</code></pre><p>主管说好，我们现在可以开始煮咖啡、泡茶了：</p>
+<!-- lang:java -->
+<pre><code>public class Customer {
+
+    public static void main(String[] args){
+
+        // 煮咖啡
+        Beverage coffee = new Beverage();
+        coffee.made();
+
+        // 泡茶
+        Beverage tea = new Tea();
+        tea.made();
+
+    }
+}
+</code></pre><p>小明发现这种方式真不错呢，于是请教了主管，这是什么用法。主管说，这叫模板方法模式，我们可以看到在抽象类中，我们定义了一些抽象方法，这些方法由子类去实现，还定义了一些默认实现的方法（boilWater()、waterInCup()），另外还有一个被final修饰的made()方法，我们把这个方法就称为<code>模板方法</code>（不会被子类覆盖），它调用了一些抽象方法和已经实现的方法去实现，抽象方法中的实现不是在抽象类中，而是在子类中，这就是我们的模板方法模式。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中某些步骤。</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/2012070917340125.png" alt="模板方法模式"></p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
+<li>模板方法模式在一个类中形式化地定义算法，而由它的子类实现细节的处理</li>
+<li>模板方法是一种代码复用的基本技术。它们在类库中尤为重要，它们提取了类库中的公共行为</li>
+<li>模板方法模式导致一种反向的控制结构，这种结构有时被称为“好莱坞法则” ，即“别找我们，我们找你”通过一个父类调用其子类的操作(而不是相反的子类调用父类)，通过对子类的扩展增加新的行为，符合“开闭原则”</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h3><ol>
+<li>每个不同的实现都需要定义一个子类，这会导致类的个数增加，系统更加庞大，设计也更加抽象，但是更加符合“单一职责原则”，使得类的内聚性得以提高</li>
+</ol>
+<h2 id="再加一个方法"><a href="#再加一个方法" class="headerlink" title="再加一个方法"></a>再加一个方法</h2><!-- java -->
+<pre><code>public abstract clsaa Beverage{
+
+    final void made(){
+        boilWater();
+        addBeverage();
+        waterInCup();
+        addCondiments();
+        addIce();
+    }
+
+    abstract void addBeverage();
+
+    abstract void addCondiments();
+
+    void boilWater(){
+        // 煮开水
+    }
+
+    void waterInCup(){
+        // 把水放进水杯
+    }
+
+    void addIce(){
+        // 不实现
+    }
+}
+</code></pre><p>在抽象类里面，我们又加了一个方法，偶尔顾客可能需要在咖啡或者茶里面加冰块，于是增加了addIce()方法。他和之前我们的三种方法都不同，他是一个没有实现的方法——钩子方法。那钩子方法的作用是什么呢，模板方法定义了整个算法，子类实现算法中的一部分，但是仅仅是这样，子类的作用就只是实现，而为了让子类也能做一些决定，于是加入了钩子方法，也就是钩子方法是为了让子类也可以做一些决定，如果它不想做决定，那么不去覆盖钩子方法就可以了。仿佛有点绕了，我们来理一理：抽象对象依赖了实现它的子类，子类的整个功能又依赖了它的抽象父类，父类由依赖了钩子方法，而钩子方法又由子类来决定，这不违背了我们的<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">依赖倒置原则</a>吗？其实它是遵循了我们的另外一个原则<code>好莱坞原则</code>：别调用我们，我们会调用你。子类不需要调用父类，而通过父类来调用子类，子类可以实现父类的可变部份，却继承父类的逻辑，不能改变业务逻辑。</p>
+<h2 id="现实中的模板方法使用"><a href="#现实中的模板方法使用" class="headerlink" title="现实中的模板方法使用"></a>现实中的模板方法使用</h2><p>Java中大家一定使用过Arrays.sort(Object[] array)方法，其实它就是模板方法的一个应用，不过它又和我们上面的实现有所不同，看看排序具体的方法：</p>
+<!-- java -->
+<pre><code>private static void binarySort(Object[] a, int lo, int hi, int start) {
+    if (DEBUG) assert lo &lt;= start &amp;&amp; start &lt;= hi;
+    if (start == lo)
+        start++;
+    for ( ; start &lt; hi; start++) {
+        @SuppressWarnings(&quot;unchecked&quot;)
+        Comparable&lt;Object&gt; pivot = (Comparable) a[start];
+
+        // Set left (and right) to the index where a[start] (pivot) belongs
+        int left = lo;
+        int right = start;
+        if (DEBUG) assert left &lt;= right;
+        /*
+         * Invariants:
+         *   pivot &gt;= all in [lo, left).
+         *   pivot &lt;  all in [right, start).
+         */
+        while (left &lt; right) {
+            int mid = (left + right) &gt;&gt;&gt; 1;
+            if (pivot.compareTo(a[mid]) &lt; 0)
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        if (DEBUG) assert left == right;
+
+        /*
+         * The invariants still hold: pivot &gt;= all in [lo, left) and
+         * pivot &lt; all in [left, start), so pivot belongs at left.  Note
+         * that if there are elements equal to pivot, left points to the
+         * first slot after them -- that&apos;s why this sort is stable.
+         * Slide elements over to make room to make room for pivot.
+         */
+        int n = start - left;  // The number of elements to move
+        // Switch is just an optimization for arraycopy in default case
+        switch(n) {
+            case 2:  a[left + 2] = a[left + 1];
+            case 1:  a[left + 1] = a[left];
+                     break;
+            default: System.arraycopy(a, left, a, left + 1, n);
+        }
+        a[left] = pivot;
+    }
+}
+</code></pre><p>注意两个地方：<code>Comparable&lt;Object&gt; pivot = (Comparable) a[start]</code>和<code>if (pivot.compareTo(a[mid]) &lt; 0)</code>，首先它将我们做排序的类类型转换成了Comparable接口，而这个接口有一个方法需要实现就是：</p>
+<!-- java -->
+<pre><code>int compareTo(T another);
+</code></pre><p>大家应该比较清楚了，如果我们需要自定义我们对象的排序规则，就需要实现Comparable，然后实现compareTo方法，根据自己的需求返回不同的值。是不是和我们之前的方式完全不同，但是它的确是模板方法的具体使用。所以，模板方法的使用可能形式多种多样，只要是遵守模板方法的大义，就像这个例子，静态方法sort通过和Comparable的组合实现了排序，但是中心思想也是被比较的对象来实现了排序中的大小比较的规则。等一下！这个方式用<a href="http://jucongyuan.github.io/2016/12/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">策略模式</a>来称呼它不是更合适么？通过组合，不关心实现！所以不得不说一说他们之间的区别，最大的区别：策略模式实现整个算法，而模板方式的子类只是实现了整个算法中的一部分。像上面的排序，整个排序方法是sort，而compareTo方法只是辅助sort方法而已。</p>
+<p>还有一个和它类似的模式，他们之间才是有关联的，那就是工厂方法，工厂方法模式是一种特殊的模板方法，特殊就特殊在工厂方法模式的方法是为了专门实例化需要的类。</p>
 
       
     </div>
@@ -391,6 +527,10 @@
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/模板方法模式/" rel="tag">#模板方法模式</a>
+          
         </div>
       
 
@@ -398,17 +538,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/08/LeetCode 394.Decode String/" rel="next" title="LeetCode 394.Decode String">
-                <i class="fa fa-chevron-left"></i> LeetCode 394.Decode String
+              <a href="/2016/12/08/设计模式之适配器模式和外观模式/" rel="next" title="设计模式之适配器模式和外观模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之适配器模式和外观模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/Java内存回收简介/" rel="prev" title="Java内存回收简介">
-                Java内存回收简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -423,10 +559,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/12/Java内存区域简介/"
-     data-title="Java内存区域简介"
+        <div class="ds-share flat" data-thread-key="2016/12/08/设计模式之模板方法模式/"
+     data-title="设计模式之模板方法模式"
      data-content=""
-     data-url="http://yoursite.com/2016/09/12/Java内存区域简介/">
+     data-url="http://yoursite.com/2016/12/08/设计模式之模板方法模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -453,8 +589,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/12/Java内存区域简介/"
-           data-title="Java内存区域简介" data-url="http://yoursite.com/2016/09/12/Java内存区域简介/">
+      <div class="ds-thread" data-thread-key="2016/12/08/设计模式之模板方法模式/"
+           data-title="设计模式之模板方法模式" data-url="http://yoursite.com/2016/12/08/设计模式之模板方法模式/">
       </div>
     
   </div>
@@ -583,7 +719,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程和进程"><span class="nav-number">2.</span> <span class="nav-text">线程和进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单核可以多线程吗"><span class="nav-number">3.</span> <span class="nav-text">单核可以多线程吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区"><span class="nav-number">4.</span> <span class="nav-text">运行时数据区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器"><span class="nav-number">5.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java虚拟机栈"><span class="nav-number">6.</span> <span class="nav-text">Java虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量表"><span class="nav-number">6.1.</span> <span class="nav-text">局部变量表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-number">6.2.</span> <span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法栈"><span class="nav-number">7.</span> <span class="nav-text">本地方法栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java堆"><span class="nav-number">7.1.</span> <span class="nav-text">Java堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">7.2.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量区"><span class="nav-number">7.3.</span> <span class="nav-text">运行时常量区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延伸知识"><span class="nav-number">7.4.</span> <span class="nav-text">延伸知识</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小明拿到了一个半成品"><span class="nav-number">1.</span> <span class="nav-text">小明拿到了一个半成品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点："><span class="nav-number">2.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.</span> <span class="nav-text">缺点:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再加一个方法"><span class="nav-number">3.</span> <span class="nav-text">再加一个方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现实中的模板方法使用"><span class="nav-number">4.</span> <span class="nav-text">现实中的模板方法使用</span></a></li></ol></div>
             
           </div>
         </section>
