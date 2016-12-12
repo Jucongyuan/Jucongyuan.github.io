@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,异常,基础知识," />
+  <meta name="keywords" content="Java,设计模式,组合模式," />
 
 
 
@@ -80,18 +80,21 @@
 
 
 
-<meta name="description" content="异常和错误首先，我们需要重塑对异常和错误的理解，在我们的程序中，不存在所谓的“异常”，只存在错误，错误会导致我们的程序在运行期无法继续运行，如除数为零、尝试打开不存在的文件、试图使用指向为空的对象引用……如果是上述任意一个情形发生，那么我们的程序都将无法继续运行，当然这些错误都是可以通过编码避免，但如果某一个方法的功能就是实现除法的功能，这个方法无法控制不接受获取除数为零的意外，也无法处理当接收到">
+<meta name="description" content="提示：此篇文章与上一篇文章耦合度较高，请先观看我
+合并的新店发现了新的问题新店老板找到小明他们，说之前的方式的确让我们的服务员减少不少的工作，但是我们现在的各种菜单越来越多，每家一种菜单，就必须在服务员里添加一次，最关键的是，我们准备在某些菜单中加入一些子菜单，就是说菜单里除了菜品，可能还有菜单。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java异常详解">
-<meta property="og:url" content="http://yoursite.com/2016/06/07/Java异常详解/index.html">
+<meta property="og:title" content="设计模式之组合模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/09/设计模式之组合模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="异常和错误首先，我们需要重塑对异常和错误的理解，在我们的程序中，不存在所谓的“异常”，只存在错误，错误会导致我们的程序在运行期无法继续运行，如除数为零、尝试打开不存在的文件、试图使用指向为空的对象引用……如果是上述任意一个情形发生，那么我们的程序都将无法继续运行，当然这些错误都是可以通过编码避免，但如果某一个方法的功能就是实现除法的功能，这个方法无法控制不接受获取除数为零的意外，也无法处理当接收到">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/Java%20exception%20class%20structure.png">
-<meta property="og:updated_time" content="2016-07-26T06:59:13.000Z">
+<meta property="og:description" content="提示：此篇文章与上一篇文章耦合度较高，请先观看我
+合并的新店发现了新的问题新店老板找到小明他们，说之前的方式的确让我们的服务员减少不少的工作，但是我们现在的各种菜单越来越多，每家一种菜单，就必须在服务员里添加一次，最关键的是，我们准备在某些菜单中加入一些子菜单，就是说菜单里除了菜品，可能还有菜单。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1340694955_4501.jpg">
+<meta property="og:updated_time" content="2016-12-12T03:22:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java异常详解">
-<meta name="twitter:description" content="异常和错误首先，我们需要重塑对异常和错误的理解，在我们的程序中，不存在所谓的“异常”，只存在错误，错误会导致我们的程序在运行期无法继续运行，如除数为零、尝试打开不存在的文件、试图使用指向为空的对象引用……如果是上述任意一个情形发生，那么我们的程序都将无法继续运行，当然这些错误都是可以通过编码避免，但如果某一个方法的功能就是实现除法的功能，这个方法无法控制不接受获取除数为零的意外，也无法处理当接收到">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/Java%20exception%20class%20structure.png">
+<meta name="twitter:title" content="设计模式之组合模式">
+<meta name="twitter:description" content="提示：此篇文章与上一篇文章耦合度较高，请先观看我
+合并的新店发现了新的问题新店老板找到小明他们，说之前的方式的确让我们的服务员减少不少的工作，但是我们现在的各种菜单越来越多，每家一种菜单，就必须在服务员里添加一次，最关键的是，我们准备在某些菜单中加入一些子菜单，就是说菜单里除了菜品，可能还有菜单。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1340694955_4501.jpg">
 
 
 
@@ -109,7 +112,7 @@
   };
 </script>
 
-  <title> Java异常详解 | Jucongyuan's Blog </title>
+  <title> 设计模式之组合模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +257,7 @@
             
             
               
-                Java异常详解
+                设计模式之组合模式
               
             
           </h1>
@@ -266,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T17:24:42+08:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2016-12-09T21:50:16+08:00" content="2016-12-09">
+              2016-12-09
             </time>
           </span>
 
@@ -280,8 +283,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -296,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/07/Java异常详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/Java异常详解/" itemprop="commentsCount"></span>
+                <a href="/2016/12/09/设计模式之组合模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/设计模式之组合模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,7 +310,7 @@
 
           
           
-             <span id="/2016/06/07/Java异常详解/" class="leancloud_visitors" data-flag-title="Java异常详解">
+             <span id="/2016/12/09/设计模式之组合模式/" class="leancloud_visitors" data-flag-title="设计模式之组合模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -329,357 +332,313 @@
       
 
       
-        <h2 id="异常和错误"><a href="#异常和错误" class="headerlink" title="异常和错误"></a>异常和错误</h2><p>首先，我们需要重塑对异常和错误的理解，在我们的程序中，不存在所谓的“异常”，只存在错误，错误会导致我们的程序在运行期无法继续运行，如除数为零、尝试打开不存在的文件、试图使用指向为空的对象引用……<br>如果是上述任意一个情形发生，那么我们的程序都将无法继续运行，当然这些错误都是可以通过编码避免，但如果某一个方法的功能就是实现除法的功能，这个方法无法控制不接受获取除数为零的意外，也无法处理当接收到除数为零时的情况，那么这个时候，你需要从当前环境中抛出一个异常，通知其他环境，这里发生了一个问题，我无法处理，我将它交给你处理（不然程序就中止了）。到这里，大家大概知道了Java中的异常和问题的关系了，<code>异常</code>是Java为了解决在出现<code>问题</code>时发出的一个通知，这个通知到达它该到达的地方，然后在这个地方得到解决，然后使程序继续向错误发生时的情况运行。</p>
-<h2 id="Java中的异常"><a href="#Java中的异常" class="headerlink" title="Java中的异常"></a>Java中的异常</h2><h3 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h3><div align="center"><br><img src="http://7xrmw5.com1.z0.glb.clouddn.com/Java%20exception%20class%20structure.png" alt="十面埋伏" align="center"><br><br>Java异常类结构图<br></div>
-
+        <p><code>提示：此篇文章与上一篇文章耦合度较高，请先</code><a href="http://jucongyuan.github.io/2016/12/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">观看我</a></p>
+<h2 id="合并的新店发现了新的问题"><a href="#合并的新店发现了新的问题" class="headerlink" title="合并的新店发现了新的问题"></a>合并的新店发现了新的问题</h2><p>新店老板找到小明他们，说之前的方式的确让我们的服务员减少不少的工作，但是我们现在的各种菜单越来越多，每家一种菜单，就必须在服务员里添加一次，最关键的是，我们准备在某些菜单中加入一些子菜单，就是说菜单里除了菜品，可能还有菜单。</p>
 <a id="more"></a>
-<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><p>Error用来表示编译时和系统错误，一般我们不用关心，这里再重申一个概念，异常是发生错误时被抛出的一个通知，所以Error是在编译时和系统错误时被抛出的异常。</p>
-<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h3><p>这是我们需要关心的异常，因为当这些异常抛出时，说明了我们程序出现了问题，我们需要处理这些问题。Exception又分为<code>不检查异常</code>和<code>检查异常</code>：</p>
-<h4 id="不检查异常"><a href="#不检查异常" class="headerlink" title="不检查异常"></a>不检查异常</h4><pre class="”brush:" java;="" gutter:="" true;”="">
-public void method(String s) {  
-    if(s == null)
-    throw new NullPointerException();
-}
-</pre> 
-首先，我们在代码中不会写这样的代码，因为这样的情况在我们的中可能数不胜数，如果都需要我们去手动的抛出异常，那么我们的代码会很难维护，那么当出现使用了指向空的引用时，系统会自动帮你抛出，所以我们不用手动抛出所有RuntimeException类型（它的子类）的异常。
-其次，当有方法会抛出RuntimeException类型的异常时（系统自动抛出），我们不需要去捕获它（try-catch），所以这类异常被称为`不检查异常`。有经验的大家会知道，往往我们的程序的问题就是出现在这些不被检查的异常，如NullPointerException（经常在一些群中发现新手贴出空指针异常，然后求助……）。所以正因为RuntimeException类型的异常不用我们去捕获，因此我们在Code的时候一定要注意防止RuntimeException的发生。
-#### 检查异常
-这一类异常抛出时，我们必须去捕获它，如SQLException、XMLStreamException等异常。至于说如何处理，根据具体的业务逻辑来编写处理的代码，那么接下来我们来看看Java中是如何设计异常处理的。
+<p>小明看了看主管，疑惑的问这样可以实现吗？主管说，当然可以，我们会用到一种新的模式，用了这种模式，新店遇到的两个问题都解决了！服务员只用知道一个菜单，而这个菜单里面既有菜品又有子菜单，小明说，那这不就成了一个树状结构的菜单了么，菜品属于叶节点，而子菜单属于组合节点，组合节点又可以出现新的叶节点和组合节点……</p>
+<p>主管说，对，我们就是要实现这样一种结构，它的名字叫组合模式，我们现在来看看它强大的威力吧！</p>
+<p>首先，我们需要定义一个抽象类，它是我们叶节点和组合节点的共同接口：</p>
+<!-- java -->
+<pre><code>public abstract class MenuComponent {
 
-## 捕获异常
-### 监控区域
-如果在方法内部抛出了异常或者在方法内部调用的其他方法抛出了异常，这方法将在抛出异常后终止，如果不希望方法就此终止，那么在方法内设置一个特殊的块来捕获异常，所以称为`try块`：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-try {
-    // Code that might generate exceptions
-}
-</pre>
-### 异常处理程序
-再次强调一下，不被检查的异常编译时不会强制让我们捕获，所以需要大家自己注意这些异常。抛出的异常需要在某处得到处理，这个“地点”就是`异常处理程序`，而且在Java中，针对捕获到的不同异常，有不同的处理程序：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-try {
-    // Code that might generate exceptions
-} catch(Type1 t1){
-    // Handle exceptions of type1 
-} catch(Type2 t2){
-    // Handle exceptions of type2 
-} catch(Type3 t3){
-    // Handle exceptions of type3 
-}
-</pre>
-当发生异常事时（监控区域抛出异常），Java异常处理机制将负责搜寻catch中与异常类型相匹配的第一个处理程序，进入这个catch块，也就是说只有匹配的catch字句才能执行，即便是下面还有匹配的类型（为什么下面还会存在匹配的类型，因为类继承原因，下面还存在父类的异常），也不会执行，具有唯一匹配性。Java的这种异常捕获、处理的模式，可以很好的将正常的代码和出现问题时处理的代码分开，而不是混在一起。
+    public void add(MenuComponent menuComponent) {
+        throw new UnsupportedOperationException();
+    }
+    public void remove(MenuComponent menuComponent) {
+        throw new UnsupportedOperationException();
+    }
+    public MenuComponent getChild(int i) {
+        throw new UnsupportedOperationException();
+    }
 
-### finally
-有一些代码，无论try中是否抛出异常，它们都能得到执行，这就是`finally字句`的作用。
-<pre class="”brush:" java;="" gutter:="" true;”="">
-try {
-    // Code that might generate exceptions
-} catch(Type1 t1){
-    // Handle exceptions of type1 
-} catch(Type2 t2){
-    // Handle exceptions of type2 
-} catch(Type3 t3){
-    // Handle exceptions of type3 
-} finally {
+    public String getName() {
+        throw new UnsupportedOperationException();
+    }
+    public String getDescription() {
+        throw new UnsupportedOperationException();
+    }
+    public double getPrice() {
+        throw new UnsupportedOperationException();
+    }
+    public boolean isVegetarian() {
+        throw new UnsupportedOperationException();
+    }
 
-}
-</pre>
-无论放生了什么，finally字句始终都会执行，即便是你在try或catch中加入了continue、break或者return。
-#### finally用来做什么
-Java中主要通过finally把资源恢复到它们的初始状态，如：已打开的文件或网络链接等，总言之，就是与外界“世界”的某个开关。这里有一个原则，就是在产生了一个必须被清理的对象之后，立即进入一个try-finally语句块，为什么会是在之后而不是把这个对象初始化也放进这个try中呢，因为finally总会执行，就会导致可能去做了释放没有被初始化的对象，这样会出现不良的代码结构。
-
-
-### 终止模式
-Java对于异常的处理采取的是`终止模式`，一旦发生问题，程序将不能继续执行，与之对应的是`恢复模式`，就是当异常抛出时，程序能够继续执行，而不是终止。在Java中如果我们要使用恢复模式，就需要将try块放在while循环中，直到满意，但这明显是不靠谱的，也是我们不提倡的。所以当当前方法终止时，我们只能在异常处理块中使程序向不同的方向继续执行，而具体向什么方向，取决于具体的实现。
-
-## 异常说明
-`异常说明`属于方法说明的一部分，紧跟在参数列表之后：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-void method() throws IOException{
-    //…………
-}
-</pre>
-如果某个方法有了异常说明，我们在使用的时候就必须捕获它，即使可能该方法根本不可能真实的抛出过该异常。当然，必须捕获的情况还要除去RuntimeException类型的异常（它的所有子类），因为他是不检查异常，即便是我们加了RuntimeException类型的异常说明，也是可以不去捕获的，所以我们加RuntimeException类型的异常说明是多此一举的（特别是对于不能看到方法源码的情况下）。
-### 继承中的方法说明限制
-在继承了某个类时，如果父类中某个方法（public或者protected）有异常说明，子类在覆盖方法时，异常说明只能是父类的一样的异常说明或者无异常说明，不能添加父类方法没有的异常说明。还有一个特殊情况，一个类的父类方法和接口方法同名，而且都添加了异常说明：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-class A {
-    void a() throws XPathException {
+    public void print() {
+        throw new UnsupportedOperationException();
     }
 }
+</code></pre><p>实现具体的一个菜品，也就是我们的也叶节点：</p>
+<!-- java -->
+<pre><code>public class MenuItem extends MenuComponent {
+    String name;
+    String description;
+    boolean vegetarian;
+    double price;
 
-interface B {
-    void a() throws DataFormatException;
+    public MenuItem(String name, 
+                    String description, 
+                    boolean vegetarian, 
+                    double price) { 
+        this.name = name;
+        this.description = description;
+        this.vegetarian = vegetarian;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isVegetarian() {
+        return vegetarian;
+    }
+
+    public void print() {
+        System.out.print(&quot;  &quot; + getName());
+        if (isVegetarian()) {
+            System.out.print(&quot;(v)&quot;);
+        }
+        System.out.println(&quot;, &quot; + getPrice());
+        System.out.println(&quot;     -- &quot; + getDescription());
+    }
 }
+</code></pre><p>我们可以看到，对于菜品类，并没覆盖父类的add、remove、getChild方法，因为对于叶节点，它在没有向下的叶节点和组合节点了。</p>
+<p>实现菜单项，也就是我们的组合节点，它包含了叶节点和组合节点，也就是又有菜品，又有子菜单：</p>
+<!-- java -->
+<pre><code>public class Menu extends MenuComponent {
+    ArrayList menuComponents = new ArrayList();
+    String name;
+    String description;
 
-class AB extends A implements B {
-    @Override
-    public void a() {}
+    public Menu(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
-    // public void a() throws XPathException {} 不能编译
-}
-</pre>
-这种情况该方法不能添加任何异常说明。
+    public void add(MenuComponent menuComponent) {
+        menuComponents.add(menuComponent);
+    }
 
-## 异常类型
-Java中已存在许多定义好的异常类型供我们使用，可通过查看[Java文档](http://tool.oschina.net/apidocs/apidoc?api=jdk_7u4)查看，我们可以自己定义异常类，就必须从现有的异常类继承。那我们先来看看Throwable类相关的方法。
+    public void remove(MenuComponent menuComponent) {
+        menuComponents.remove(menuComponent);
+    }
 
-### 方法汇总
-直到Java1.7，Throwable提供了4个公开的(public)和1个自身和子类可以访问（protected）的构造方法：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-    // 构造方法
-    // public 
-    Throwable() 
-    Throwable(String message)
-    Throwable(Throwable cause)
-    Throwable(String message, Throwable cause)
+    public MenuComponent getChild(int i) {
+        return (MenuComponent)menuComponents.get(i);
+    }
 
-    // protected 
-    Throwable(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
+    public String getName() {
+        return name;
+    }
 
-    addSuppressed(Throwable exception)
-    fillInStackTrace()
-    getCause()
-    getLocalizedMessage()
-    getMessage()
-    getStackTrace()
-    getSuppressed()
-    initCause(Throwable cause)
-    printStackTrace()
-    printStackTrace(PrintStream s)
-    printStackTrace(PrintWriter s)
-    setStackTrace(StackTraceElement[] stackTrace)
-    toString()
-</pre>
-接下来通过一些例子来看看部分方法的使用：
-### 方法使用例子
-<pre class="”brush:" java;="" gutter:="" true;”="">
-public class Test {
-    public static void main(String[] args) {
-        try {
-            throw new Exception("My Exception");
-        } catch (Exception ex) {
-            System.out.println("getMessage(): " + ex.getMessage());
-            System.out.println("getLocalizedMessage(): " + ex.getLocalizedMessage());
-            System.out.println("toString(): " + ex.toString());
-            System.out.println("printStackTrace(): ");
-            ex.printStackTrace(System.out);
+    public String getDescription() {
+        return description;
+    }
+
+    public void print() {
+        System.out.print(&quot;\n&quot; + getName());
+        System.out.println(&quot;, &quot; + getDescription());
+        System.out.println(&quot;---------------------&quot;);
+
+        Iterator iterator = menuComponents.iterator();
+        while (iterator.hasNext()) {
+            MenuComponent menuComponent = (MenuComponent)iterator.next();
+            menuComponent.print();
         }
     }
-}/* Output:
-getMessage(): My Exception
-getLocalizedMessage(): My Exception
-toString(): java.lang.Exception: My Exception
-printStackTrace(): 
-java.lang.Exception: My Exception
-at com.exercise.Test.main(Test.java:13)
-*///:~
-</pre>
-在不改写getLocalizedMessage()方法时，getLocalizedMessage()和getMessage()获取的都是使用了带有参数的构造方法传入的信息，如上列为“My Exception”。toString()方法包含了getMessage()方法的信息，printStackTrace()方法则包含了toString()方法的内容，printStackTrace()方法打印的的是此异常调用栈的轨迹，显示了把你带到异常抛出点的方法调用序列，可以根据类名和行号具体定位。接下里我们结详细介绍一下printStackTrace()打印的栈轨迹。
-### 栈轨迹
-printStackTrace()提供的信息可以通过getStackTrace()方法获取到更详细的内容，该方法将返回一个数组，由栈轨迹元素(StackTraceElement)构成，每个元素表示栈中的一桢，元素0是栈顶元素，是方法调用序列中最后一个方法调用，也就是在这个方法中创建或抛出了异常。数组中最后一个元素（栈底）是调用序列中的第一个方法调用。如下：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-public class Test {
-    static void methodOne() {
-        try {
-            throw new Exception();
-        } catch (Exception e) {
-            for (StackTraceElement stackTraceElement : e.getStackTrace()) {
-                System.out.println(stackTraceElement.getMethodName());
+}
+</code></pre><p>和上面一样，对于父类的一些方法，我们的菜单项也没有实现的，因为对于菜单项那些方法是没有意义。再比较一下print()方法，上面的叶节点，它是以明确的菜品，我们可以打印出它的一些信息，而对于组合节点，由于它只是一个菜单，我们要打印的不光是它的信息，我们还需要它里面包含的菜品，当然还有它里面包含的子菜单的菜品，和子菜单中子菜单的菜品……于是我们使用迭代器遍历它，然后再调用里面包含的菜单信息的打印方法（可能是菜单、也可能是菜品，如果是菜单会有递归）。</p>
+<p>现在，服务员轻松了：</p>
+<!-- java -->
+<pre><code>public class Waitress {
+    MenuComponent allMenus;
+
+    public Waitress(MenuComponent allMenus) {
+        this.allMenus = allMenus;
+    }
+
+    public void printMenu() {
+        allMenus.print();
+    }
+}
+</code></pre><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>允许你将对象组合成树形结构来表现“整体/部分”层次结构。组合能让客户以一致的方式处理个别对象以及对象组合。</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/1340694955_4501.jpg" alt="组合模式"></p>
+<h2 id="定义组合模式的迭代器"><a href="#定义组合模式的迭代器" class="headerlink" title="定义组合模式的迭代器"></a>定义组合模式的迭代器</h2><p>在组合模式中，定义一个迭代器似乎是有必要的，因为组合节点是一个集合，所以我们需要遍历它，在上面的实现中，我们已经使用了迭代器来打印，他只是在组合节点中来使用迭代来遍历组合节点中的集合，现在我们需要一个迭代器来访问组合模式中的所有元素，首先我们需要在叶节点和组合节点的实现类中加入一个方法，其他实现不变</p>
+<p>叶节点加入：</p>
+<!-- java -->
+<pre><code>public Iterator createIterator() {
+    return new NullIterator();
+}
+</code></pre><!-- java -->
+<pre><code>public class MenuItem extends MenuComponent {
+
+    String name;
+    String description;
+    boolean vegetarian;
+    double price;
+
+    public MenuItem(String name, 
+                    String description, 
+                    boolean vegetarian, 
+                    double price) 
+    { 
+        this.name = name;
+        this.description = description;
+        this.vegetarian = vegetarian;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isVegetarian() {
+        return vegetarian;
+    }
+
+    public Iterator createIterator() {
+        return new NullIterator();
+    }
+
+    public void print() {
+        System.out.print(&quot;  &quot; + getName());
+        if (isVegetarian()) {
+            System.out.print(&quot;(v)&quot;);
+        }
+        System.out.println(&quot;, &quot; + getPrice());
+        System.out.println(&quot;     -- &quot; + getDescription());
+    }
+}
+</code></pre><p>组合节点加入：</p>
+<!-- java -->
+<pre><code>public Iterator createIterator() {
+    return new CompositeIterator(menuComponents.iterator());
+}
+</code></pre><!-- java -->
+<pre><code>public class Menu extends MenuComponent {
+
+    ArrayList menuComponents = new ArrayList();
+    String name;
+    String description;
+
+    public Menu(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public void add(MenuComponent menuComponent) {
+        menuComponents.add(menuComponent);
+    }
+
+    public void remove(MenuComponent menuComponent) {
+        menuComponents.remove(menuComponent);
+    }
+
+    public MenuComponent getChild(int i) {
+        return (MenuComponent)menuComponents.get(i);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    public Iterator createIterator() {
+        return new CompositeIterator(menuComponents.iterator());
+    }
+
+
+    public void print() {
+        System.out.print(&quot;\n&quot; + getName());
+        System.out.println(&quot;, &quot; + getDescription());
+        System.out.println(&quot;---------------------&quot;);
+
+        Iterator iterator = menuComponents.iterator();
+        while (iterator.hasNext()) {
+            MenuComponent menuComponent = 
+                (MenuComponent)iterator.next();
+            menuComponent.print();
+        }
+    }
+}
+</code></pre><p>先看看叶节点中加入的方法返回的迭代器：</p>
+<!-- java -->
+<pre><code>public class NullIterator implements Iterator {
+
+    public Object next() {
+        return null;
+    }
+
+    public boolean hasNext() {
+        return false;
+    }
+
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
+}
+</code></pre><p>很容易理解，由于叶节点不需要遍历，所以他的实现如上所示，重点是组合节点遍历的实现，我们直接上代码：</p>
+<!-- java -->
+<pre><code>public class CompositeIterator implements Iterator {
+    Stack stack = new Stack();
+
+    public CompositeIterator(Iterator iterator) {
+        stack.push(iterator);
+    }
+
+    public Object next() {
+        if (hasNext()) {
+            Iterator iterator = (Iterator) stack.peek();
+            MenuComponent component = (MenuComponent) iterator.next();
+            if (component instanceof Menu) {
+                stack.push(component.createIterator());
+            } 
+            return component;
+        } else {
+            return null;
+        }
+    }
+
+    public boolean hasNext() {
+        if (stack.empty()) {
+            return false;
+        } else {
+            Iterator iterator = (Iterator) stack.peek();
+            if (!iterator.hasNext()) {
+                stack.pop();
+                return hasNext();
+            } else {
+                return true;
             }
         }
     }
 
-    static void methodTwo() {
-        methodOne();
-    }
-
-    static void methodThree() {
-        methodTwo();
-    }
-
-    public static void main(String[] args) {
-        methodOne();
-        System.out.println("------------分割线------------");
-        methodTwo();
-        System.out.println("------------分割线------------");
-        methodThree();
-    }
-}/* Output:
-methodOne
-main
-------------分割线------------
-methodOne
-methodTwo
-main
-------------分割线------------
-methodOne
-methodTwo
-methodThree
-main
-*///:~</pre>
-此例只打印了方法名，还可以通过StackTraceElement答应更多的信息。其他方法不会专门为了介绍它而介绍，注意下面的内容，会不断地提到其他的方法。
-## 重新抛出异常和异常链
-有时我们在捕获到异常后，可能在捕获的地方不适合处理该异常，我们需要将它重新抛出：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-    catch(Exception e){
-        throw e; 
-    } 
-</pre>
-这样有一个好处，我们可以将异常交给上一级环境处理，但是这样就会存在一个问题，抛出的的异常携带的信息，也就是printStackTrace()方法显示的是原来异常抛出点的调用栈信息，而非重新抛出点的信息，这样重新抛出点的调用信息就被掩盖了。如果想更新重新抛出点信息到这个异常调用栈中，就可以使用fillInStackTrace()方法：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-catch(Exception e){
-    throw e.fillInStackTrace(); 
-}
-</pre>
-那么当前调用栈的信息就更新到了这个异常对象中了，还有一种情况，也会存在类似的丢失现象：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-catch(Exception e){
-    throw new Exception();
-} 
-</pre>
-这样我们上一级的抛出的异常信息就丢了，接收异常的地方就是只能得到`new Exception()`这个异常的信息。在JDK1.4以前如果你希望保存丢失的那个异常信息，只能通过编码的方式自己实现，而在JDK1.4后，Throwable类有一个构造方法接收一个Throwable类型的参数（文章上方`方法汇总`可以查看该构造方法）。那么这个传入的参数称为`cause`，它用来表示原始异常，那么就可以通过异常链从新的异常追踪到异常最初发生的位置。除了构造方法，我们还可以通过initCause(Throwable cause)方法传入一个Throwable对象，它的作用和构造函数传入一个Throwable对象是一样的。大家还记得之前介绍过finally字句吗？，它其实也会造成异常丢失：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-class VeryImportantException extends Exception {
-    @Override
-    public String toString() {
-        return "A very important exception!";
+    public void remove() {
+        throw new UnsupportedOperationException();
     }
 }
-
-class OtherException extends Exception {
-    @Override
-    public String toString() {
-        return "Other exception";
-    }
-}
-
-public class Test {
-    void f() throws VeryImportantException {
-        throw new VeryImportantException();
-    }
-
-    void dispose() throws OtherException {
-        throw new OtherException();
-    }
-
-    public static void main(String[] args) {
-        try {
-            Test test = new Test();
-            try {
-                test.f();
-            } finally {
-                test.dispose();
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-}/* Output:
-Other exception
-*///:~
-</pre>
-我们把最外一层try看着是上一级程序的处理，在这个try里面发生了两次异常，但是我们只能获得从finally中抛出的异常信息，而在f()方法中的异常信息丢失，这种情况我们称上一个`异常被抑制了`。这在JDK1.7之前同样需要我们自己编码去解决这个问题，在JDK1.7之后，新加入了两个方法帮助我们能够很好的去解决这个问题了，那就是addSuppressed(Throwable exception)和getSuppressed()，对于上述问题的解决：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-class VeryImportantException extends Exception {
-    @Override
-    public String toString() {
-        return "A very important exception!";
-    }
-}
-
-class OtherException extends Exception {
-    @Override
-    public String toString() {
-        return "Other exception";
-    }
-}
-
-public class Test {
-    void f() throws VeryImportantException {
-        throw new VeryImportantException();
-    }
-
-    void dispose() throws OtherException {
-        throw new OtherException();
-    }
-
-    public static void main(String[] args) {
-        try {
-            Test test = new Test();
-            Exception exception = null;
-            try {
-                test.f();
-            } catch (VeryImportantException e) {
-                exception = e;
-            } finally {
-                try {
-                    test.dispose();
-                } catch (OtherException e) {
-                    if (exception != null) {
-                        exception.addSuppressed(e);
-                    } else {
-                        exception = e;
-                    }
-                }
-                if (exception != null) {
-                    throw exception;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-            for (Throwable throwable : e.getSuppressed()) {
-                System.out.println(throwable);
-            }
-        }
-    }
-}/* Output:
-A very important exception!
-Other exception
-*///:~
-</pre>
-## Throwable JDK1.7新特性补充
-
-### 同时捕获多个异常 
-<pre class="”brush:" java;="" gutter:="" true;”="">
-try {
-    Integer.parseInt("Hello");
-} catch (NumberFormatException | RuntimeException e) {
-
-}
-</pre>
-这种情况不能将RuntimeException放在首位，编译不能通过。
-
-### try-with-resources
-之前我们释放资源的需通过finally，但在JDK1.7后，可以使用try-with-resources方式，它可以实现自动释放功能，而不需要加上finally子句。需要做的就是将需要释放的资源对象放在try语句：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-public String read(String filename) throws IOException {
-    try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-        StringBuilder builder = new StringBuilder();
-        String line = null;
-        while((line=reader.readLine())!=null){
-            builder.append(line);
-            builder.append(String.format("%n"));
-        }
-        return builder.toString();
-    }
-}
-</pre>
-并且可以放入多个需要释放的资源：
-<pre class="”brush:" java;="" gutter:="" true;”="">
-public void copyFile(String fromPath, String toPath) throws IOException {
-    try (InputStream input = new FileInputStream(fromPath);
-         OutputStream output = new FileOutputStream(toPath)) {
-        byte[] buffer = new byte[8192];
-        int len = -1;
-        while ((len = input.read(buffer)) != -1) {
-            output.write(buffer, 0, len);
-        }
-    }
-}
-</pre>   
-
-<p>关于Java的异常就介绍到这里，希望大家能支持，你的支持是我继续前进的不断动力！</p>
+</code></pre><p>这段代码我不会做具体的解释，因为比较抽象，有一种只可意会不可言传的感觉，相信大家能看懂。</p>
 
       
     </div>
@@ -723,9 +682,9 @@ public void copyFile(String fromPath, String toPath) throws IOException {
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
-            <a href="/tags/异常/" rel="tag">#异常</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
-            <a href="/tags/基础知识/" rel="tag">#基础知识</a>
+            <a href="/tags/组合模式/" rel="tag">#组合模式</a>
           
         </div>
       
@@ -734,17 +693,13 @@ public void copyFile(String fromPath, String toPath) throws IOException {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/泰国曼谷、苏梅岛8日游/" rel="next" title="泰国曼谷、苏梅岛8日游">
-                <i class="fa fa-chevron-left"></i> 泰国曼谷、苏梅岛8日游
+              <a href="/2016/12/09/设计模式之迭代器模式/" rel="next" title="设计模式之迭代器模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之迭代器模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/08/Java设计模式中类的关系总结/" rel="prev" title="Java设计模式中类的关系总结">
-                Java设计模式中类的关系总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -759,10 +714,10 @@ public void copyFile(String fromPath, String toPath) throws IOException {
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/06/07/Java异常详解/"
-     data-title="Java异常详解"
+        <div class="ds-share flat" data-thread-key="2016/12/09/设计模式之组合模式/"
+     data-title="设计模式之组合模式"
      data-content=""
-     data-url="http://yoursite.com/2016/06/07/Java异常详解/">
+     data-url="http://yoursite.com/2016/12/09/设计模式之组合模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -789,8 +744,8 @@ public void copyFile(String fromPath, String toPath) throws IOException {
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/07/Java异常详解/"
-           data-title="Java异常详解" data-url="http://yoursite.com/2016/06/07/Java异常详解/">
+      <div class="ds-thread" data-thread-key="2016/12/09/设计模式之组合模式/"
+           data-title="设计模式之组合模式" data-url="http://yoursite.com/2016/12/09/设计模式之组合模式/">
       </div>
     
   </div>
@@ -919,7 +874,7 @@ public void copyFile(String fromPath, String toPath) throws IOException {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#异常和错误"><span class="nav-number">1.</span> <span class="nav-text">异常和错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的异常"><span class="nav-number">2.</span> <span class="nav-text">Java中的异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构图"><span class="nav-number">2.1.</span> <span class="nav-text">结构图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">2.2.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exception"><span class="nav-number">2.3.</span> <span class="nav-text">Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不检查异常"><span class="nav-number">2.3.1.</span> <span class="nav-text">不检查异常</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#合并的新店发现了新的问题"><span class="nav-number">1.</span> <span class="nav-text">合并的新店发现了新的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义组合模式的迭代器"><span class="nav-number">3.</span> <span class="nav-text">定义组合模式的迭代器</span></a></li></ol></div>
             
           </div>
         </section>
