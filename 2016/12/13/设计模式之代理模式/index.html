@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,设计模式,代理模式," />
 
 
 
@@ -80,15 +80,19 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jucongyuan's Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Java/index.html">
+<meta name="description" content="小明要买房了小明的公司的新项目应接不暇，这不，小明拿之前做项目积累的积蓄准备买房了，但是万事开头难，小明不知道该怎么如手，作为他在工作和生活上导师的主管说，我们来写一个程序你就明白该怎么做了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之代理模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/设计模式之代理模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description">
+<meta property="og:description" content="小明要买房了小明的公司的新项目应接不暇，这不，小明拿之前做项目积累的积蓄准备买房了，但是万事开头难，小明不知道该怎么如手，作为他在工作和生活上导师的主管说，我们来写一个程序你就明白该怎么做了。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1354197582_1664.png">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/194507142.jpg">
+<meta property="og:updated_time" content="2016-12-13T09:11:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jucongyuan's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="设计模式之代理模式">
+<meta name="twitter:description" content="小明要买房了小明的公司的新项目应接不暇，这不，小明拿之前做项目积累的积蓄准备买房了，但是万事开头难，小明不知道该怎么如手，作为他在工作和生活上导师的主管说，我们来写一个程序你就明白该怎么做了。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1354197582_1664.png">
 
 
 
@@ -106,7 +110,7 @@
   };
 </script>
 
-  <title> 分类: Java | Jucongyuan's Blog </title>
+  <title> 设计模式之代理模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,75 +234,306 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Java
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/12/Java内存区域简介/" itemprop="url">
-              
-                <span itemprop="name">Java内存区域简介</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-12T19:58:40+08:00"
-              content="2016-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/12/Java内存回收简介/" itemprop="url">
-              
-                <span itemprop="name">Java内存回收简介</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-12T19:58:40+08:00"
-              content="2016-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之代理模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T14:33:47+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/13/设计模式之代理模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/设计模式之代理模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/13/设计模式之代理模式/" class="leancloud_visitors" data-flag-title="设计模式之代理模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="小明要买房了"><a href="#小明要买房了" class="headerlink" title="小明要买房了"></a>小明要买房了</h2><p>小明的公司的新项目应接不暇，这不，小明拿之前做项目积累的积蓄准备买房了，但是万事开头难，小明不知道该怎么如手，作为他在工作和生活上导师的主管说，我们来写一个程序你就明白该怎么做了。</p>
+<a id="more"></a>
+<p>小明很诧异，这和程序需有什么关系啊，主管说，当然有，我们来实现一下你买房的场景：</p>
+<!-- java -->
+<pre><code>public interface IHouse{
+    public String getInfo();
+}
+</code></pre><p>一套具体的房子：</p>
+<!-- java -->
+<pre><code>public class House implements IHouse{
+
+    String info;
+
+    public House(String info){
+        this.info = info;    
+    }
+
+    public String getInfo(){
+        return info;
+    }
+}
+</code></pre><p>因为消息不对称，你并不知道这套房子在出售，那么你要找一个知道的人，然后找他了解情况，这个人就是代理：</p>
+<!-- java -->
+<pre><code>public class HouseProxy implements IHouse{
+
+    IHouse house;
+
+    public HouseProxy(IHouse house){
+        this.house = house;    
+    }
+
+    public String getInfo(){
+        return house.info;
+    }
+}
+</code></pre><p>所以，对于你来说，你只需要找到代理即可，而代理是你很容易接触到的，这就是代理模式：</p>
+<!-- java -->
+<pre><code>public class XiaoMing {  
+    public static void main(String[] args) {  
+         IHouse houseProxy = new HouseProxy(new House(&quot;三环的房子&quot;));
+         houseProxy.getInfo();
+    }
+}
+</code></pre><p>小明很快就明白该怎么做了，但是小明觉得这个模式在程序中没有存在的价值啊，我们不需要借用一个类去访问另一个类啊，因为在程序中不像我们现实中，程序中有多少类我们应该都是知道的。主管说，别着急，我们慢慢看，首先我们来看看代理模式的定义。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>为另一个对象提供一个替身或者占位符以控制对这个对象的访问</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/1354197582_1664.png" alt="代理模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象角色</li>
+<li>代理角色</li>
+<li>真实角色</li>
+</ul>
+<h2 id="代理模式的用法"><a href="#代理模式的用法" class="headerlink" title="代理模式的用法"></a>代理模式的用法</h2><p>代理模式的定义我们已经很清楚了，但是它到底有什么用处呢，还是它是一个没有多大用处的模式呢，恰巧相反，代理模式的用法非常非常多，所以我们来一个一个详细的了解</p>
+<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>代理类和被代理类的关系在运行前就确定了，也就是一个代理类对应一个被代理的真实角色，正如我们上面的列子，就是一个静态代理，他只是控制了对真实角色的直接访问，他有一个缺点，就是一个代理类代理一个真实角色，这样如果需要代理的角色很多，会造成代理类大量增加。那么有什么方式解决吗？接下来我们要说的代理模式的另一种形式就可以解决这个问题</p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>动态代理相比前面的静态代理，动态代理具有更强的灵活性，因为它不用在我们设计实现的时候就指定某一个代理类来代理哪一个被代理对象，我们可以把这种指定延迟到程序运行时由JVM来实现。我们知道，所谓代理，就是需要代理类和被代理类有相同的对外接口，所以代理类一般都必须实现了所有被代理类已实现的接口，因为接口就是制定了一系列对外服务的标准。正因为动态代理有这样灵活的特性，所以我们在设计动态代理类（DynamicProxy）时不用显式地让它实现与真实角色相同的接口，而是把这种实现推迟到运行时。我们把上面的例子用动态代理实现</p>
+<p>抽象角色和真实角色不变：</p>
+<!-- java -->
+<pre><code>public interface IHouse{
+    public String getInfo();
+}
+</code></pre><p>一套具体的房子：</p>
+<!-- java -->
+<pre><code>public class House implements IHouse{
+
+    String info;
+
+    public House(String info){
+        this.info = info;    
+    }
+
+    public String getInfo(){
+        return info;
+    }
+}
+</code></pre><p>变化的使我们的代理类：</p>
+<!-- java -->
+<pre><code>public class DynamicProxyHouse implements InvocationHandler {  
+
+    Object obj = null;  
+
+    public DynamicProxyHouse(Object obj) {  
+        this.obj = obj;  
+    }  
+
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        //do something  
+        Object result = method.invoke(this.obj, args);  
+        return result;  
+    }  
+}
+</code></pre><p>它并没有实现我们的抽象角色，而是实现JDK中的InvocationHandler，先看新的代理的的使用：</p>
+<!-- java -->
+<pre><code>public class XiaoMing {  
+    public static void main(String[] args) {  
+        IHouse realHouse = new House(&quot;二环的房子&quot;);  
+        ClassLoader loader = realHouse.getClass().getClassLoader();  
+        Class&lt;?&gt;[] interfaces = realHouse.getClass().getInterfaces();  
+        InvocationHandler handler = new DynamicProxyHouse(realHouse);  
+        IHouse houseProxy = (IHouse) Proxy.newProxyInstance(loader, interfaces, handler);  
+        houseProxy.getInfo();
+    }
+}
+</code></pre><p>我们可以看到，新的代理可以代理任何需要被代理的对象，而不需要像静态代理那样为每个需要代理的类定义一个代理类。当调用被代理类的方法时，是由InvocationHandler的invoke去调用，所以我们可以在invoke方法中增加我们要做的事，接下来我们看一下动态代理的过程：</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/194507142.jpg" alt="动态代理过程"></p>
+<p>动态代理用了Java中的反射，同时它也是一种AOP的体现，大家可以自行去深入了解一下发射和AOP。</p>
+<h3 id="远程代理"><a href="#远程代理" class="headerlink" title="远程代理"></a>远程代理</h3><p>远程代理就是通过代理去调用远程对象的方法，这个对象存在于不同的地址空间。Java RMI就是远程代理的一个实际运用，另外Android中的AIDL也是通过代理模式实现的不同进程间通讯很好的例子，只是它们各自的实现原理不一样</p>
+<h3 id="虚拟代理"><a href="#虚拟代理" class="headerlink" title="虚拟代理"></a>虚拟代理</h3><p>虚拟代理主要是被代理的对象实例化的开销很大，通过代理，可以管理被代理对象的加载。比如，在加载图片时，未加载出图片时，先显示一串提示文字，代理类作为被代理类的替身</p>
+<h3 id="安全代理"><a href="#安全代理" class="headerlink" title="安全代理"></a>安全代理</h3><p>安全代理很简单，就是用来控制对真实对象的访问</p>
+<h3 id="智能代理"><a href="#智能代理" class="headerlink" title="智能代理"></a>智能代理</h3><p>代理类在代理时，会在调用真实类方法时，在前面或者后面增加一些操作。如上面的房产代理，除了卖房（其实是房屋所有者卖房）还会收取佣金</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/代理模式/" rel="tag">#代理模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/12/设计模式之状态模式/" rel="next" title="设计模式之状态模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之状态模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/13/设计模式之代理模式/"
+     data-title="设计模式之代理模式"
+     data-content=""
+     data-url="http://yoursite.com/2016/12/13/设计模式之代理模式/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -306,6 +541,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/13/设计模式之代理模式/"
+           data-title="设计模式之代理模式" data-url="http://yoursite.com/2016/12/13/设计模式之代理模式/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -325,8 +568,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -414,6 +666,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小明要买房了"><span class="nav-number">1.</span> <span class="nav-text">小明要买房了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理模式的用法"><span class="nav-number">3.</span> <span class="nav-text">代理模式的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态代理"><span class="nav-number">3.1.</span> <span class="nav-text">静态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态代理"><span class="nav-number">3.2.</span> <span class="nav-text">动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程代理"><span class="nav-number">3.3.</span> <span class="nav-text">远程代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟代理"><span class="nav-number">3.4.</span> <span class="nav-text">虚拟代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全代理"><span class="nav-number">3.5.</span> <span class="nav-text">安全代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#智能代理"><span class="nav-number">3.6.</span> <span class="nav-text">智能代理</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -510,6 +773,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
