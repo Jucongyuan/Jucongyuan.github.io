@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,设计模式,访问者模式," />
 
 
 
@@ -80,15 +80,18 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jucongyuan's Blog">
-<meta property="og:url" content="http://yoursite.com/categories/游记/index.html">
+<meta name="description" content="小明公司的福利小明作为一个程序员，难免不经常加班，所以他这一年的年假也没有机会享受，但是小明的公司福利很好，对于公司没有休年假的员工作相应的补偿">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之访问者模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/设计模式之访问者模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description">
+<meta property="og:description" content="小明公司的福利小明作为一个程序员，难免不经常加班，所以他这一年的年假也没有机会享受，但是小明的公司福利很好，对于公司没有休年假的员工作相应的补偿">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/visitor-pattern-1.jpg">
+<meta property="og:updated_time" content="2016-12-16T07:53:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jucongyuan's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="设计模式之访问者模式">
+<meta name="twitter:description" content="小明公司的福利小明作为一个程序员，难免不经常加班，所以他这一年的年假也没有机会享受，但是小明的公司福利很好，对于公司没有休年假的员工作相应的补偿">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/visitor-pattern-1.jpg">
 
 
 
@@ -106,7 +109,7 @@
   };
 </script>
 
-  <title> 分类: 游记 | Jucongyuan's Blog </title>
+  <title> 设计模式之访问者模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,47 +233,392 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        游记
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之访问者模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-16T14:33:05+08:00" content="2016-12-16">
+              2016-12-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/16/设计模式之访问者模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/设计模式之访问者模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/16/设计模式之访问者模式/" class="leancloud_visitors" data-flag-title="设计模式之访问者模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="小明公司的福利"><a href="#小明公司的福利" class="headerlink" title="小明公司的福利"></a>小明公司的福利</h2><p>小明作为一个程序员，难免不经常加班，所以他这一年的年假也没有机会享受，但是小明的公司福利很好，对于公司没有休年假的员工作相应的补偿</p>
+<a id="more"></a>
+<p>具体的补偿根据员工的入职时间和职级来的，我们先看看小明公司的员工</p>
+<!-- java -->
+<pre><code>public class Staff {
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/07/泰国曼谷、苏梅岛8日游/" itemprop="url">
-              
-                <span itemprop="name">泰国曼谷、苏梅岛8日游</span>
-              
-            </a>
-        
-      </h1>
+    String name;
+    int workYear;
+    int level;
+    int vacationDay;
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-07T16:28:19+08:00"
-              content="2016-06-07" >
-          06-07
-        </time>
+    public Staff(String name, int workYear, int level, int vacationDay) {
+        this.name = name;
+        this.workYear = workYear;
+        this.level = level;
+        this.vacationDay = vacationDay;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getWorkYear() {
+        return workYear;
+    }
+
+    public void setWorkYear(int workYear) {
+        this.workYear = workYear;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getVacationDay() {
+        return vacationDay;
+    }
+
+    public void setVacationDay(int vacationDay) {
+        this.vacationDay = vacationDay;
+    }
+}
+</code></pre><p>员工集合类</p>
+<!-- java -->
+<pre><code>public class Staffs {
+
+    Map&lt;String, Staff&gt; staffMap = new HashMap&lt;&gt;(20);
+
+    public Staffs() {
+
+        Staff xiaoming = new Staff(&quot;xiaoming&quot;, 2, 1, 5);
+        Staff zhuguan = new Staff(&quot;zhuguan&quot;, 4, 2, 4);
+        Staff jingli = new Staff(&quot;jingli&quot;, 5, 4, 1);
+
+        staffMap.put(xiaoming.getName(), xiaoming);
+        staffMap.put(zhuguan.getName(), zhuguan);
+        staffMap.put(jingli.getName(), jingli);
+    }
+}
+</code></pre><p>现在我们要开始补偿员工了，规则是：年限的系数为1，职级的系数也为1，然后乘以每天50元的补偿。比如小明，如果还有1天没休，那么他这一天应该得到的补偿为：(1x2+1x1)x50，就是一天150块钱的补偿，所以对于小明来说，他还有5天的年假，所以他能得到750元的补偿。那么这个功能怎么加呢？由于是小明负责这个程序，他在员工集合类中加入了一个方法：</p>
+<!-- java -->
+<pre><code>public class Staffs {
+
+    Map&lt;String, Staff&gt; staffMap = new HashMap&lt;&gt;(20);
+
+    public Staffs() {
+        Staff xiaoming = new Staff(&quot;xiaoming&quot;, 2, 1, 5);
+        Staff zhuguan = new Staff(&quot;zhuguan&quot;, 4, 2, 4);
+        Staff jingli = new Staff(&quot;jingli&quot;, 5, 4, 1);
+
+        staffMap.put(xiaoming.getName(), xiaoming);
+        staffMap.put(zhuguan.getName(), zhuguan);
+        staffMap.put(jingli.getName(), jingli);
+    }
+
+    void printCompensation() {
+        for (Staff staff : staffMap.values()) {
+            System.out.println(staff.getName() + &quot; 应该得到&quot; + ((staff.getWorkYear() + staff.getLevel()) * 50 * staff.getVacationDay()) + &quot;元补偿&quot;);
+        }
+    }
+}
+</code></pre><p>得到的结果：</p>
+<!-- java -->
+<pre><code>xiaoming 应该得到750元补偿
+jingli 应该得到450元补偿
+zhuguan 应该得到1200元补偿
+</code></pre><p>小明开开心心的去找主管交代码准备领钱了，主管看了小明的代码说，你这样做违背了<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">开闭原则</a>。主管接着说，在没有这个福利之前，我们的员工类和员工集合类一直都没有任何的修改，而因为这个福利，加入了一个新的方法，这不是最关键的，关键是，如果明年没有这个福利了或者这个福利的补偿算法变了，你又必须修改员工集合类（Staffs），所以对于福利这一块，它是变动的。小明着急的问，那怎么办呢，主管说，对于这种结构比较固定的类，如果我们需要利用他们的元素去做一些其他事情，并且这些事情是变化的，我们需要将它独立出来，这次我们需要的是访问者模式</p>
+<p>可被访问者接口：</p>
+<!-- java -->
+<pre><code>public interface Visitable {
+    void accept(Visitor visitor);
+}
+</code></pre><p>我们的员工实现我们的Visitable接口：</p>
+<!-- java -->
+<pre><code>public class Staff implements Visitable {
+
+    String name;
+    int workYear;
+    int level;
+    int vacationDay;
+
+    public Staff(String name, int workYear, int level, int vacationDay) {
+        this.name = name;
+        this.workYear = workYear;
+        this.level = level;
+        this.vacationDay = vacationDay;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getWorkYear() {
+        return workYear;
+    }
+
+    public void setWorkYear(int workYear) {
+        this.workYear = workYear;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getVacationDay() {
+        return vacationDay;
+    }
+
+    public void setVacationDay(int vacationDay) {
+        this.vacationDay = vacationDay;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+}
+</code></pre><p>增加一个访问者接口：</p>
+<!-- java -->
+<pre><code>public interface Visitor {
+    void visit(Staff staff);
+}
+</code></pre><p>实现一个具体的访问者，比如我们的计算补偿的访问者：</p>
+<!-- java -->
+<pre><code>public class CompensationVisit implements Visitor {
+    @Override
+    public void visit(Staff staff) {
+        System.out.println(staff.getName() + &quot; 应该得到&quot; + ((staff.getWorkYear() + staff.getLevel()) * 50 * staff.getVacationDay()) + &quot;元补偿&quot;);
+    }
+}    
+</code></pre><p>使用我们的模式来计算大家的补偿</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        CompensationVisit compensationVisit = new CompensationVisit();
+        Staffs staffs = new Staffs();
+        for (Staff staff : staffs.staffMap.values()) {
+            staff.accept(compensationVisit);
+        }
+    }
+}
+</code></pre><p>执行结果是和上面一样的：</p>
+<!-- java -->
+<pre><code>xiaoming 应该得到750元补偿
+jingli 应该得到450元补偿
+zhuguan 应该得到1200元补偿
+</code></pre><p>如果明年我们的福利算法变了，我们只需要在Staff的accept方法中传入另一个不同实现的访问者即可，这就是我们的访问者模式</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>封装某些作用于某种数据结构中各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新的操作</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/visitor-pattern-1.jpg" alt="访问者模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象元素类</li>
+<li>元素类</li>
+<li>抽象访问者</li>
+<li>访问者</li>
+<li>结构对象</li>
+</ul>
+<h2 id="访问者模式的适用场景"><a href="#访问者模式的适用场景" class="headerlink" title="访问者模式的适用场景"></a>访问者模式的适用场景</h2><p>假如一个对象中存在着一些与本对象不相干（或者关系较弱）的操作，为了避免这些操作污染这个对象，则可以使用访问者模式来把这些操作封装到访问者中去</p>
+<p>假如一组对象中，存在着相似的操作，为了避免出现大量重复的代码，也可以将这些重复的操作封装到访问者中去</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
       </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/访问者模式/" rel="tag">#访问者模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/设计模式之原型模式/" rel="next" title="设计模式之原型模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之原型模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/16/设计模式之访问者模式/"
+     data-title="设计模式之访问者模式"
+     data-content=""
+     data-url="http://yoursite.com/2016/12/16/设计模式之访问者模式/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -278,6 +626,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/16/设计模式之访问者模式/"
+           data-title="设计模式之访问者模式" data-url="http://yoursite.com/2016/12/16/设计模式之访问者模式/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -297,8 +653,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -386,6 +751,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小明公司的福利"><span class="nav-number">1.</span> <span class="nav-text">小明公司的福利</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问者模式的适用场景"><span class="nav-number">3.</span> <span class="nav-text">访问者模式的适用场景</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -482,6 +858,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
