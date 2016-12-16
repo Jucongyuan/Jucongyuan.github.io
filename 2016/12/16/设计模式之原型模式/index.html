@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,设计模式,工厂模式," />
+  <meta name="keywords" content="Java,设计模式,原型模式," />
 
 
 
@@ -80,16 +80,18 @@
 
 
 
-<meta name="description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
+<meta name="description" content="公司做游戏了小明的公司赚的钱越来越多了，他们开始尝试新的机会，公司觉得游戏是一个不错的选择，所以公司准备做游戏了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之工厂模式">
-<meta property="og:url" content="http://yoursite.com/2016/12/04/设计模式之工厂模式/index.html">
+<meta property="og:title" content="设计模式之原型模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/设计模式之原型模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
-<meta property="og:updated_time" content="2016-12-05T11:58:49.000Z">
+<meta property="og:description" content="公司做游戏了小明的公司赚的钱越来越多了，他们开始尝试新的机会，公司觉得游戏是一个不错的选择，所以公司准备做游戏了">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/prototype-pattern-1.jpg">
+<meta property="og:updated_time" content="2016-12-16T04:11:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之工厂模式">
-<meta name="twitter:description" content="又来了新的项目这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。">
+<meta name="twitter:title" content="设计模式之原型模式">
+<meta name="twitter:description" content="公司做游戏了小明的公司赚的钱越来越多了，他们开始尝试新的机会，公司觉得游戏是一个不错的选择，所以公司准备做游戏了">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/prototype-pattern-1.jpg">
 
 
 
@@ -107,7 +109,7 @@
   };
 </script>
 
-  <title> 设计模式之工厂模式 | Jucongyuan's Blog </title>
+  <title> 设计模式之原型模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +254,7 @@
             
             
               
-                设计模式之工厂模式
+                设计模式之原型模式
               
             
           </h1>
@@ -264,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-04T23:45:09+08:00" content="2016-12-04">
-              2016-12-04
+            <time itemprop="dateCreated" datetime="2016-12-16T09:54:08+08:00" content="2016-12-16">
+              2016-12-16
             </time>
           </span>
 
@@ -294,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/04/设计模式之工厂模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/设计模式之工厂模式/" itemprop="commentsCount"></span>
+                <a href="/2016/12/16/设计模式之原型模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/设计模式之原型模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,7 +307,7 @@
 
           
           
-             <span id="/2016/12/04/设计模式之工厂模式/" class="leancloud_visitors" data-flag-title="设计模式之工厂模式">
+             <span id="/2016/12/16/设计模式之原型模式/" class="leancloud_visitors" data-flag-title="设计模式之原型模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -327,168 +329,136 @@
       
 
       
-        <h2 id="又来了新的项目"><a href="#又来了新的项目" class="headerlink" title="又来了新的项目"></a>又来了新的项目</h2><p>这一天，小明主管找到小明说：我们之前的项目里面其实有很多通过new的方式去创建对象，而且是创建的一些实际的对象，这样的做法是不太好的。小明很诧异，不通过new方式，还有其他的方式创建？主管对小明说：没事，做了我们的项目你就明白这一切了。这次我们的新项目是做给一家披萨店的，我和你一起来做这个项目，你先做，我再做进一步的改进。</p>
+        <h2 id="公司做游戏了"><a href="#公司做游戏了" class="headerlink" title="公司做游戏了"></a>公司做游戏了</h2><p>小明的公司赚的钱越来越多了，他们开始尝试新的机会，公司觉得游戏是一个不错的选择，所以公司准备做游戏了</p>
 <a id="more"></a>
-<p>小明很快做了一个版本出来：</p>
-<!-- lang:java -->
-<pre><code>Pizza orderPizza(String type) {
-    Pizza pizza;
-    if(type.equals(&quot;cheese&quot;)){
-        pizza = new CheesePizza();
-    }else if(type.equals(&quot;greek&quot;)){
-        pizza = new GreekPizza();
-    }else if(type.equals(&quot;durian&quot;)){
-        pizza = new DurianPizza();
+<p>小明负责游戏中的一个模块，这个模块是负责设计游戏中的各种小怪角色，小明拿觉得这个很简单啊，于是根据游戏策划对小怪的设计，开始写代码了：</p>
+<!-- java -->
+<pre><code>class Monster {
+    String color;
+    int healthValue;
+
+    public Monster(String color, int healthValue) {
+        this.color = color;
+        this.healthValue = healthValue;
     }
-    pizza.prepare();
-    pizza.make();
-    pizza.cut();
-    pizza.box();
-    return pizza;   
-} 
-</code></pre><p>主管对小明说：如果我现在有新种类的Pizza，你的程序会犯了什么问题？小明一下发觉了问题所在，代码里面除了make()方法以外，上面的都是变化的，我应该把它们独立出来：</p>
-<!-- lang:java -->
-<pre><code>public class SimplePizzaFactory{
-    public Pizza createPizza(String type) {
-        Pizza pizza;
-        if(type.equals(&quot;cheese&quot;)){
-            pizza = new CheesePizza();
-        }else if(type.equals(&quot;greek&quot;)){
-            pizza = new GreekPizza();
-        }else if(type.equals(&quot;durian&quot;)){
-            pizza = new DurianPizza();
-        }
-        return pizza;   
-    } 
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getHealthValue() {
+        return healthValue;
+    }
+
+    public void setHealthValue(int healthValue) {
+        this.healthValue = healthValue;
+    }
 }
-</code></pre><!-- lang:java -->
-<pre><code>public class PizzaStore{
-
-    SimplePizzaFactory factory;
-
-    public PizzaStore(SimplePizzaFactory factory){
-        this.factory = factory;
-    }
-
-    public Pizza orderPizza(String type) {
-        Pizza pizza = factory.createPizza(type);
-        pizza.prepare();
-        pizza.make();
-        pizza.cut();
-        pizza.box();
-        return pizza;   
-    } 
-} 
-</code></pre><p>主管继续对小明说，嗯，不错，已经慢慢走上正轨了，你现在使用的就是不算是一种设计模式的模式—<code>简单工厂</code>：将对象的创建放在另外的类中去解决，这样能够简单的将变化的部分独立出来，我们再有新的Pizza或者其中一种Pizza不在制作时，可以不用去修改PizzaStore的代码，因为PizzaStore是不应该被经常修改的。但是，简单工厂还不是我们想要的，如果出现了其他加盟店，我们需要将其他加盟店的整个流程都管理起来，那么仅仅只有生成Pizza的工厂是不够的，从准备到装盒的整个流程我们都需要规范其起来（prepare()、make()、cut()、box()方法），不然其他的加盟店只利用我们提供的工厂生产Pizza，而这些流程有自己的方式，那Pizza店的服务就不能统一标准了。那小明问那我们应该怎么改进呢？主管说，很简单，我们使用<code>工厂方法模式</code>：</p>
-<!-- lang:java -->
-<pre><code>public abstract class PizzaStore{
-
-    public Pizza orderPizza(String type) {
-        Pizza pizza = createPizza(type);
-        pizza.prepare();
-        pizza.make();
-        pizza.cut();
-        pizza.box();
-        return pizza;   
-    }
-
-    abstract Pizza createPizza(String type); 
-} 
-</code></pre><!-- lang:java -->
-<pre><code>public class ChengDuPizzaStore extends PizzaStore{    
-    Pizza createPizza(String type){
-        if(type.equals(&quot;cheese&quot;)){
-            return new CheesePizza();
-        }else if(type.equals(&quot;greek&quot;)){
-            return new GreekPizza();
-        }else if(type.equals(&quot;durian&quot;)){
-            return new DurianPizza();
-        }else {
-            return null;
+</code></pre><p>生成怪兽并使用</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        Monster monster = new Monster(&quot;green&quot;, 100);
+        int i = 1;
+        while (i &lt; 10) {
+            if (i % 2 == 0)
+                monster.setColor(&quot;red&quot;);
+            else
+                monster.setColor(&quot;blue&quot;);
+            monster.setHealthValue(i * 200);
+            System.out.print(monster);
+            i++;
         }
     }
-} 
-</code></pre><p>小明说，等等，这种模式怎么又出现了可能会改变的部分啊？而且这和简单工厂的方式区别就是新的创建对象类成了PizzaStore的子类。主管说，你说到关键了，这和简单工厂的方式很相似，但是仅仅只是相似，它和简单工厂的区别很大：<code>简单工厂仅仅只是把对象的创建封装到另一个类中，而工厂方法模式提供了一个框架，所有子类都依靠这个框架（prepare()、make()、cut()、box()），然后把对象的创建交给了子类，因为在Pizza店和其他的一些实际的需求中，子类可能只需要决定产生什么要的东西，而其他的流程都是统一规范的。</code>这里面体现了一个很重要的原则：<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">依赖倒置原则</a>，披萨店在使用Pizza时，没有具体依赖某一种披萨实现自己的流程（prepare()、make()、cut()、box()），而是一个通过依赖于一个Pizza接口。</p>
-<h2 id="工厂方法模式定义"><a href="#工厂方法模式定义" class="headerlink" title="工厂方法模式定义"></a>工厂方法模式定义</h2><p>定义了一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让类的实例化推迟到子类。</p>
-<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
-<li>抽象产品</li>
-<li>产品实现</li>
-<li>抽象工厂</li>
-<li>具体工厂</li>
-</ul>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
-<li>在工厂方法中，用户只需要知道所要产品的具体工厂，无须关系具体的创建过程，甚至不需要具体产品类的类名</li>
-<li>在系统增加新的产品时，我们只需要添加一个具体产品类和对应的实现工厂，无需对原工厂进行任何修改，很好地符合了“开闭原则”</li>
-</ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
-<li>每次增加一个产品时，都需要增加一个具体类和对象实现工厂，是的系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事</li>
-</ol>
-<h2 id="披萨店的新问题"><a href="#披萨店的新问题" class="headerlink" title="披萨店的新问题"></a>披萨店的新问题</h2><p>没过多久，主管找到小明说，披萨店在使用我们的程序时，出现了一个问题，披萨店的出售流程是规范了，但是有一些加盟店开始在原料上偷工减料，造成披萨在顾客中的口碑褒贬不一，所以我们需要改进一下，让每个店使用的原料是可以被监控的。小明很快想到了办法，我们将披萨生成（new的时候）统一为一个简单工厂，那么就可以统一知道披萨的生成了。主管说这样表面是解决了问题，但其实这样会使每个店生成的都是一样的，我们的目的是为了监控原料，而非统一原料。所以我们真正需要使用的是抽象工厂模式：</p>
-<!-- lang:java -->
-<pre><code>public interface PizzaIngredientFactory{    
-    public Dough createDough();
-    public Sauce createSauce();
-    public Cheese createCheese();
-    public Veggies[] createVeggies();
-    public Clams createClams();
 }
-</code></pre><!-- lang:java -->
-<pre><code>public abstract class Pizza{
+</code></pre><p>主管说，你现在只实例化了10个怪兽，我现在需要100万个小怪兽，让游戏有一种特殊的效果，你的方式还可以吗？小明想了一下，如果100万个的话，这样效率太低了，小明想那我们用多线程吧，主管说，多线程就必须每次都生成新的对象，不能像上面那样共用一个对象，这又是一笔额外的开支，所以我们想想可以在生成对象的时候提高一下效率吗？小明问，可以吗？主管说，当然，这种情况我们使用原型模式再适合不过了，我们改造一下Monster：</p>
+<!-- java -->
+<pre><code>public class Monster implements Cloneable {
 
-    String name;
-    Dough dough;
-    Sauce sauce;
-    Cheese cheese;
-    Veggies[] veggies;
-    Clams clams;
+    String color;
+    int healthValue;
 
-    public void make(){
-
-    }
-    public void cut(){
-
-    }
-    public void box(){
-
+    public Monster(String color, int healthValue) {
+        this.color = color;
+        this.healthValue = healthValue;
     }
 
-    abstract void prepare();
-
-}
-</code></pre><!-- lang:java -->
-<pre><code>public class CheesePizza extends Pizza{
-
-    PizzaIngredientFactory factory;
-
-    public CheesePizza(PizzaIngredientFactory factory){
-        this.factory = factory;
+    public String getColor() {
+        return color;
     }
 
-    void prepare(){
-        dough = factory.createDough();
-        sauce = factory.createSauce();
-        cheese = factory.createCheese();
-        veggies = factory.createVeggies();
-        clams = factory.createClams();
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getHealthValue() {
+        return healthValue;
+    }
+
+    public void setHealthValue(int healthValue) {
+        this.healthValue = healthValue;
+    }
+
+    @Override
+    protected Object clone(){
+        Monster monster = null;
+        try {
+            monster = (Monster) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return monster;
     }
 }
-</code></pre><p>这样一来，我们的披萨名字是一样的，但是不同的地方制作相同披萨的原料可以不一样（自己实现PizzaIngredientFactory），这就是抽象工厂模式。</p>
-<h2 id="抽象工厂模式定义"><a href="#抽象工厂模式定义" class="headerlink" title="抽象工厂模式定义"></a>抽象工厂模式定义</h2><p>提供一个接口，用于创建相关或依赖对象的家族，而不需要明确指定具体类。</p>
-<h3 id="角色-1"><a href="#角色-1" class="headerlink" title="角色"></a>角色</h3><ul>
-<li>抽象工厂</li>
-<li>实现工厂</li>
-<li>抽象产品</li>
-<li>具体产品</li>
-</ul>
-<h3 id="产品族"><a href="#产品族" class="headerlink" title="产品族"></a>产品族</h3><p>不同的产品等级结构，功能相关联的产品组成的家族。抽象工厂就是创建出分属于不同产品等级机构的对象组成产品族。</p>
-<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
-<li>抽象工厂模式隔离了具体类的生产，使得客户并不需要知道什么被创建</li>
-<li>当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象</li>
-<li>增加新的具体工厂和产品族很方便，无须修改已有系统，符合“开闭原则”</li>
-</ol>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
-<li>增加新的产品等级结构很复杂，需要修改抽象工厂和所有的具体工厂类，对“开闭原则”的支持呈现倾斜性</li>
-</ol>
+</code></pre><p>可以看到，我们的Monster实现了Cloneable接口，并重载了clone()方法，然后我们使用新的怪兽类</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        Monster monster = new Monster(&quot;green&quot;, 100);
+        int i = 1;
+        while (i &lt;= 1000000) {
+            Monster cloneMonster = monster.clone();
+            if (i % 2 == 0)
+                cloneMonster.setColor(&quot;red&quot;);
+            else
+                cloneMonster.setColor(&quot;blue&quot;);
+            cloneMonster.setHealthValue(i * 200);
+            System.out.print(cloneMonster);
+            i++;
+        }
+    }
+}
+</code></pre><p>可以看到，我们用了clone方法来生成新的对象，这样做有什么好处呢，如果之前那种方式在我们的while中有耗时操作的话，实例化的过程效率很低，如果我们实现Cloneable接口，我们可以通过clone方法来生成对象，它是一个本地方法，直接在内存中再复制一份我们对象的二进制生成一个新的对象，而不是通过再使用构造函数去生成，这样效率会提升很多。所以在需要重复地创建相似对象时可以考虑使用原型模式。比如需要在一个循环体内创建对象，假如对象创建过程比较复杂或者循环次数很多的话，使用原型模式不但可以简化创建过程，而且可以使系统的整体性能提高很多</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>用原型实例指定创建对象的种类，并通过拷贝这些原型创建新的对象</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/prototype-pattern-1.jpg" alt="原型模式"></p>
+<h2 id="使用原型模式的注意事项"><a href="#使用原型模式的注意事项" class="headerlink" title="使用原型模式的注意事项"></a>使用原型模式的注意事项</h2><h3 id="使用原型模式复制对象不会调用类的构造方法"><a href="#使用原型模式复制对象不会调用类的构造方法" class="headerlink" title="使用原型模式复制对象不会调用类的构造方法"></a>使用原型模式复制对象不会调用类的构造方法</h3><p>因为对象的复制是通过调用Object类的clone方法来完成的，它直接在内存中复制数据，因此不会调用到类的构造方法。不但构造方法中的代码不会执行，甚至连访问权限都对原型模式无效。还记得单例模式吗？单例模式中，只要将构造方法的访问权限设置为private型，就可以实现单例。但是clone方法直接无视构造方法的权限，所以，单例模式与原型模式是冲突的，在使用时要特别注意</p>
+<h3 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h3><h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><p>被拷贝对象的所有变量都含有与原对象相同的值，而且对其他对象的引用仍然是指向原来的对象。即浅拷贝只负责当前对象实例，对引用的对象不做拷贝，然后一直基本数据类型会被拷贝</p>
+<h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><p>被拷贝对象的所有变量都含有与原来的对象相同的值，除去那些引用其他对象的变量。那些引用其他对象的变量将指向被复制过的新对象，而不再是原有的那些被引用的对象。换言之，深拷贝把要复制的对象所引用的对象都复制了一遍</p>
+<p>明白了深拷贝和浅拷贝，我们在使用clone方法的时候就必须注意，因为默认的clone方法是浅拷贝，对于一些引用对象不会拷贝为新的对象，所以在需要时，我们必须对对象引用再做一次拷贝：</p>
+<!-- java -->
+<pre><code>public class Monster implements Cloneable {
+
+    String color;
+    int healthValue;
+    ArrayList&lt;String&gt; skills;
+
+    @Override
+    protected Monster clone() {
+        Monster monster = null;
+        try {
+            monster = (Monster) super.clone();
+            monster.skills = (ArrayList&lt;String&gt;) this.skills.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return monster;
+    }
+}
+</code></pre><p>深拷贝与浅拷贝问题中，会发生深拷贝的有java中的8中基本类型以及他们的封装类型，另外还有String类型。其余的都是浅拷贝</p>
 
       
     </div>
@@ -534,7 +504,7 @@
           
             <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
-            <a href="/tags/工厂模式/" rel="tag">#工厂模式</a>
+            <a href="/tags/原型模式/" rel="tag">#原型模式</a>
           
         </div>
       
@@ -543,17 +513,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/03/设计模式之装饰者模式/" rel="next" title="设计模式之装饰器模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之装饰器模式
+              <a href="/2016/12/15/设计模式之建造者模式/" rel="next" title="设计模式之建造者模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之建造者模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/05/设计模式之单例模式/" rel="prev" title="设计模式之单例模式">
-                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,10 +534,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/04/设计模式之工厂模式/"
-     data-title="设计模式之工厂模式"
+        <div class="ds-share flat" data-thread-key="2016/12/16/设计模式之原型模式/"
+     data-title="设计模式之原型模式"
      data-content=""
-     data-url="http://yoursite.com/2016/12/04/设计模式之工厂模式/">
+     data-url="http://yoursite.com/2016/12/16/设计模式之原型模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -598,8 +564,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/04/设计模式之工厂模式/"
-           data-title="设计模式之工厂模式" data-url="http://yoursite.com/2016/12/04/设计模式之工厂模式/">
+      <div class="ds-thread" data-thread-key="2016/12/16/设计模式之原型模式/"
+           data-title="设计模式之原型模式" data-url="http://yoursite.com/2016/12/16/设计模式之原型模式/">
       </div>
     
   </div>
@@ -728,7 +694,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#又来了新的项目"><span class="nav-number">1.</span> <span class="nav-text">又来了新的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式定义"><span class="nav-number">2.</span> <span class="nav-text">工厂方法模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#披萨店的新问题"><span class="nav-number">3.</span> <span class="nav-text">披萨店的新问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂模式定义"><span class="nav-number">4.</span> <span class="nav-text">抽象工厂模式定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色-1"><span class="nav-number">4.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品族"><span class="nav-number">4.2.</span> <span class="nav-text">产品族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">4.3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">4.3.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">4.3.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公司做游戏了"><span class="nav-number">1.</span> <span class="nav-text">公司做游戏了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式"><span class="nav-number">2.</span> <span class="nav-text">原型模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用原型模式的注意事项"><span class="nav-number">3.</span> <span class="nav-text">使用原型模式的注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用原型模式复制对象不会调用类的构造方法"><span class="nav-number">3.1.</span> <span class="nav-text">使用原型模式复制对象不会调用类的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝与浅拷贝"><span class="nav-number">3.2.</span> <span class="nav-text">深拷贝与浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浅拷贝"><span class="nav-number">3.2.1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝"><span class="nav-number">3.2.2.</span> <span class="nav-text">深拷贝</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
