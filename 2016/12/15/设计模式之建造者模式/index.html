@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,算法," />
+  <meta name="keywords" content="Java,设计模式,建造者模式," />
 
 
 
@@ -80,16 +80,18 @@
 
 
 
-<meta name="description" content="LeetCode新题LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
+<meta name="description" content="游乐园也来了游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 394.Decode String">
-<meta property="og:url" content="http://yoursite.com/2016/09/08/LeetCode 394.Decode String/index.html">
+<meta property="og:title" content="设计模式之建造者模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/设计模式之建造者模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="LeetCode新题LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
-<meta property="og:updated_time" content="2016-11-29T08:42:47.000Z">
+<meta property="og:description" content="游乐园也来了游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/builder-pattern-1.jpg">
+<meta property="og:updated_time" content="2016-12-16T00:33:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 394.Decode String">
-<meta name="twitter:description" content="LeetCode新题LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
+<meta name="twitter:title" content="设计模式之建造者模式">
+<meta name="twitter:description" content="游乐园也来了游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/builder-pattern-1.jpg">
 
 
 
@@ -107,7 +109,7 @@
   };
 </script>
 
-  <title> LeetCode 394.Decode String | Jucongyuan's Blog </title>
+  <title> 设计模式之建造者模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +254,7 @@
             
             
               
-                LeetCode 394.Decode String
+                设计模式之建造者模式
               
             
           </h1>
@@ -264,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T18:28:39+08:00" content="2016-09-08">
-              2016-09-08
+            <time itemprop="dateCreated" datetime="2016-12-15T16:39:00+08:00" content="2016-12-15">
+              2016-12-15
             </time>
           </span>
 
@@ -278,8 +280,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -294,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/08/LeetCode 394.Decode String/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/LeetCode 394.Decode String/" itemprop="commentsCount"></span>
+                <a href="/2016/12/15/设计模式之建造者模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/15/设计模式之建造者模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,7 +307,7 @@
 
           
           
-             <span id="/2016/09/08/LeetCode 394.Decode String/" class="leancloud_visitors" data-flag-title="LeetCode 394.Decode String">
+             <span id="/2016/12/15/设计模式之建造者模式/" class="leancloud_visitors" data-flag-title="设计模式之建造者模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -327,52 +329,408 @@
       
 
       
-        <h2 id="LeetCode新题"><a href="#LeetCode新题" class="headerlink" title="LeetCode新题"></a>LeetCode新题</h2><p>LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。</p>
+        <h2 id="游乐园也来了"><a href="#游乐园也来了" class="headerlink" title="游乐园也来了"></a>游乐园也来了</h2><p>游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。</p>
 <a id="more"></a>
-<h2 id="题意和解法"><a href="#题意和解法" class="headerlink" title="题意和解法"></a>题意和解法</h2><p>这道题的题意其实很简单，就不过多解释了，看到此类表达式的计算，我们第一个想到的数据结构就是<code>栈</code>，利用栈的先进后出性质进行计算。</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>遍历字符串，遇到数字、字母和<code>[</code>直接进栈，遇到<code>]</code>，然后出栈，先找出所有字母，直到<code>[</code>(也要出栈)，然后再继续出栈找出数字，这里注意数字可能是多位的，比如<code>123[a]</code>，所以出栈的终止条件是栈空或者遇到非数字的字符，通过上面出栈的字符串和数字，组成新的字符串，如字符串<code>2[ab]</code>，新的字符串应该为<code>abab</code>，这些新的字符也必须再重新进栈。就这么简单~</p>
-<!-- more -->
-<h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><p>第一版代码，后面如果优化了会再更新</p>
-<!-- lang:java -->
-<pre><code>public static String decodeString(String s) {
-    if (s == null || s.length() == 0)
-        return s;
-    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
-    for (char c : s.toCharArray()) {
-        if (c == &apos;]&apos;) {
-            StringBuilder sb = new StringBuilder();
-            while (!stack.isEmpty() &amp;&amp; ((stack.peek() &gt;= &apos;a&apos; &amp;&amp; stack.peek() &lt;= &apos;z&apos;) || stack.peek() == &apos;[&apos;)) {
-                char ccc = stack.pop();
-                if (ccc == &apos;[&apos;)
-                    break;
-                sb.insert(0, ccc);
-            }
-            if (stack.isEmpty()) {
-                return sb.toString();
-            } else {
-                int count = 0;
-                int w = 1;
-                while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= &apos;0&apos; &amp;&amp; stack.peek() &lt;= &apos;9&apos;) {
-                    int val = stack.pop() - &apos;0&apos;;
-                    count += val * w;
-                    w *= 10;
-                }
-                char[] chars = sb.toString().toCharArray();
-                while (count &gt; 0) {
-                    for (char cc : chars)
-                        stack.push(cc);
-                    count--;
-                }
-            }
-        } else
-            stack.push(c);
-    }
-    StringBuilder sb = new StringBuilder();
-    while (!stack.isEmpty())
-        sb.insert(0, stack.pop());
-    return sb.toString();
+<p>小明认真的想了一下，这不很简单吗？一个主题都会有这些要求相应的参数，在构造时，使用一个构造函数，参数包括这一切要求就可以根据不同要求实例化了：</p>
+<!-- java -->
+<pre><code>public class Vacation{
+    int day;
+    String type;
+    boolean needHotal;
+    boolean needTraffic;
+    String[] mustProjects;
+    String vacationPackage;
+
+    public Vacation(int day, String type, boolean needHotal, boolean needTraffic, String[] mustProjects, String vacationPackage){
+        this.day = day;
+        this.type = type;
+        this.needHotal = needHotal;
+        this.needTraffic = needTraffic;
+        this.mustProjects = mustProjects;
+        this.vacationPackage = vacationPackage;
+    }     
+
 }
-</code></pre>
+</code></pre><p>小明的主管说，你确定这样的设计可以吗？小明想了想，这样的确不太好。首先，构造函数的参数过多，会造成使用这个类的其他客户需要对每一个属性都必须明确它是否需要；第二，如果有新的属性加入，凡是使用到它的客户都需要做修改。所以我们将这一部分交给其他的类来处理，现在我们就需要使用到建造者模式，用建造者来负责这个对象的构建</p>
+<p>抽象建造类：</p>
+<!-- java -->
+<pre><code>public interface Builder {  
+    public void setDay(int day);
+    public void setType(String type);
+    public void needHotal(boolean needHotal);
+    public void this.needTraffic(boolean needTraffic);
+    public void set mustProjects(String[] projects);
+    public void set setVacationPackage(String vacationPackage);
+    public Vacation create();  
+}
+</code></pre><p>具体建造类：</p>
+<!-- java -->
+<pre><code>public class ConcreteBuilder implements Builder {  
+    int day;
+    String type;
+    boolean needHotal;
+    boolean needTraffic;
+    String[] mustProjects;
+    String vacationPackage;
+
+    public void setDay(int day){
+        this.day = day;
+    }
+    public void setType(String type){
+        this.type = type;
+    }
+    public void needHotal(boolean needHotal){
+        this.needHotal = needHotal;
+    }
+    public void needTraffic(boolean needTraffic){
+        this.needTraffic = needTraffic;
+    }
+    public void set mustProjects(String[] projects){
+        this.mustProjects = mustProjects;
+    }
+    public void set setPackage(String package){
+        this.vacationPackage = vacationPackage;
+    }
+    public Vacation create(){
+
+        Vacation vacation = new Vacation;
+
+        if(day == 0) vacation.setDay(1);
+        else vacation.setDay(day);
+
+        if(type == null) vacation.setType(&quot;普通&quot;);
+        else vacation.setType(type);
+
+        else vacation.setNeedHotal(needHotal);
+
+        else vacation.setNeedTraffic(needTraffic);
+
+        else vacation.setMustProjects(mustProjects);
+
+        else vacation.setVacationPackage(day);
+
+        return vacation
+    }
+}
+</code></pre><p>产品类：</p>
+<!-- java -->
+<pre><code>public class Vacation{
+    int day;
+    String type;
+    boolean needHotal;
+    boolean needTraffic;
+    String[] mustProjects;
+    String vacationPackage;
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setNeedHotal(boolean needHotal) {
+        this.needHotal = needHotal;
+    }
+
+    public void setNeedTraffic(boolean needTraffic) {
+        this.needTraffic = needTraffic;
+    }
+
+    public void setMustProjects(String[] mustProjects) {
+        this.mustProjects = mustProjects;
+    }
+
+    public void setVacationPackage(String vacationPackage) {
+        this.vacationPackage = vacationPackage;
+    }    
+}
+</code></pre><p>创建产品：</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[]args){
+        // 创建一个默认的产品
+        Builder builderOne = new ConcreteBuilder();
+        Vacation v1 = builderOne.create();
+
+        // 一个5天需要酒店的产品
+        Builder builderTwo = new ConcreteBuilder();
+        builderTwo.setDay(5);
+        builderTwo.needHotal(true);
+        Vacation v2 = builderTwo.create();
+
+        // 其他。。。    
+    }
+}
+</code></pre><p>可以看到，我们再创建产品时就使用了建造者，在建造者中，我们可以在客户没有设置某个产品属性时，默认给产品添加相应的属性，这就是我们的建造者模式。停！这让我想到了<a href="http://jucongyuan.github.io/2016/12/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">抽象工厂模式</a>，这不就是抽象工厂吗！一般情况下，建造者模式还有一个导演类，导演类的主要作用是和客户端打交道，也就是我们使用建造者模式创建产品的客户端并不直接与建造者打交道，而是通过导演类，这是建造者模式和抽象工厂一个很明显的区别，就这么点区别，当然不是，我们先看定义，再继续探讨他们的区别</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/builder-pattern-1.jpg" alt="建造者模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>产品类</li>
+<li>抽象建造者</li>
+<li>建造者</li>
+<li>导演类</li>
+</ul>
+<h3 id="和抽象工厂的区别"><a href="#和抽象工厂的区别" class="headerlink" title="和抽象工厂的区别"></a>和抽象工厂的区别</h3><p>除了多了一个导演类的区别，还有什么区别呢，其实导演类我们可以不需要，就像我们上面的例子，如果没有了导演类，它和我们的抽象工厂模式就更像了。一般的，抽象工厂是为了创建很复杂的产品，而建造者模式用于创建更为复杂的对象！甚至会引入导演类，导演类来负责产品的创建，而不是使用产品的客户端本身</p>
+<h2 id="在Android中的建造者"><a href="#在Android中的建造者" class="headerlink" title="在Android中的建造者"></a>在Android中的建造者</h2><p>大家一定在Android中使用过AlertDialog，AlertDialog的创建就是使用了建造者模式</p>
+<!-- java -->
+<pre><code>public static class Builder {
+    private final AlertController.AlertParams P;
+
+    public Builder(Context context) {
+        this(context, resolveDialogTheme(context, 0));
+    }
+
+    public Builder(Context context, int themeResId) {
+        P = new AlertController.AlertParams(new ContextThemeWrapper(
+                context, resolveDialogTheme(context, themeResId)));
+    }
+
+    public Context getContext() {
+        return P.mContext;
+    }
+
+    public Builder setTitle(@StringRes int titleId) {
+        P.mTitle = P.mContext.getText(titleId);
+        return this;
+    }
+
+    public Builder setTitle(CharSequence title) {
+        P.mTitle = title;
+        return this;
+    }
+
+    public Builder setCustomTitle(View customTitleView) {
+        P.mCustomTitleView = customTitleView;
+        return this;
+    }
+
+    public Builder setMessage(@StringRes int messageId) {
+        P.mMessage = P.mContext.getText(messageId);
+        return this;
+    }
+
+    public Builder setMessage(CharSequence message) {
+        P.mMessage = message;
+        return this;
+    }
+
+    public Builder setIcon(@DrawableRes int iconId) {
+        P.mIconId = iconId;
+        return this;
+    }
+
+    public Builder setIcon(Drawable icon) {
+        P.mIcon = icon;
+        return this;
+    }
+
+    public Builder setIconAttribute(@AttrRes int attrId) {
+        TypedValue out = new TypedValue();
+        P.mContext.getTheme().resolveAttribute(attrId, out, true);
+        P.mIconId = out.resourceId;
+        return this;
+    }
+
+    public Builder setPositiveButton(@StringRes int textId, final OnClickListener listener) {
+        P.mPositiveButtonText = P.mContext.getText(textId);
+        P.mPositiveButtonListener = listener;
+        return this;
+    }
+
+    public Builder setPositiveButton(CharSequence text, final OnClickListener listener) {
+        P.mPositiveButtonText = text;
+        P.mPositiveButtonListener = listener;
+        return this;
+    }
+
+    public Builder setNegativeButton(@StringRes int textId, final OnClickListener listener) {
+        P.mNegativeButtonText = P.mContext.getText(textId);
+        P.mNegativeButtonListener = listener;
+        return this;
+    }
+
+    public Builder setNegativeButton(CharSequence text, final OnClickListener listener) {
+        P.mNegativeButtonText = text;
+        P.mNegativeButtonListener = listener;
+        return this;
+    }
+
+    public Builder setNeutralButton(@StringRes int textId, final OnClickListener listener) {
+        P.mNeutralButtonText = P.mContext.getText(textId);
+        P.mNeutralButtonListener = listener;
+        return this;
+    }
+
+    public Builder setNeutralButton(CharSequence text, final OnClickListener listener) {
+        P.mNeutralButtonText = text;
+        P.mNeutralButtonListener = listener;
+        return this;
+    }
+
+    public Builder setCancelable(boolean cancelable) {
+        P.mCancelable = cancelable;
+        return this;
+    }
+
+    public Builder setOnCancelListener(OnCancelListener onCancelListener) {
+        P.mOnCancelListener = onCancelListener;
+        return this;
+    }
+
+    public Builder setOnDismissListener(OnDismissListener onDismissListener) {
+        P.mOnDismissListener = onDismissListener;
+        return this;
+    }
+
+    public Builder setOnKeyListener(OnKeyListener onKeyListener) {
+        P.mOnKeyListener = onKeyListener;
+        return this;
+    }
+
+    public Builder setItems(@ArrayRes int itemsId, final OnClickListener listener) {
+        P.mItems = P.mContext.getResources().getTextArray(itemsId);
+        P.mOnClickListener = listener;
+        return this;
+    }
+
+    public Builder setItems(CharSequence[] items, final OnClickListener listener) {
+        P.mItems = items;
+        P.mOnClickListener = listener;
+        return this;
+    }
+
+    public Builder setAdapter(final ListAdapter adapter, final OnClickListener listener) {
+        P.mAdapter = adapter;
+        P.mOnClickListener = listener;
+        return this;
+    }
+
+    public Builder setCursor(final Cursor cursor, final OnClickListener listener,
+            String labelColumn) {
+        P.mCursor = cursor;
+        P.mLabelColumn = labelColumn;
+        P.mOnClickListener = listener;
+        return this;
+    }
+
+    public Builder setMultiChoiceItems(@ArrayRes int itemsId, boolean[] checkedItems,
+            final OnMultiChoiceClickListener listener) {
+        P.mItems = P.mContext.getResources().getTextArray(itemsId);
+        P.mOnCheckboxClickListener = listener;
+        P.mCheckedItems = checkedItems;
+        P.mIsMultiChoice = true;
+        return this;
+    }
+
+    public Builder setMultiChoiceItems(CharSequence[] items, boolean[] checkedItems,
+            final OnMultiChoiceClickListener listener) {
+        P.mItems = items;
+        P.mOnCheckboxClickListener = listener;
+        P.mCheckedItems = checkedItems;
+        P.mIsMultiChoice = true;
+        return this;
+    }
+
+    public Builder setMultiChoiceItems(Cursor cursor, String isCheckedColumn, String labelColumn,
+            final OnMultiChoiceClickListener listener) {
+        P.mCursor = cursor;
+        P.mOnCheckboxClickListener = listener;
+        P.mIsCheckedColumn = isCheckedColumn;
+        P.mLabelColumn = labelColumn;
+        P.mIsMultiChoice = true;
+        return this;
+    }
+
+    public Builder setSingleChoiceItems(@ArrayRes int itemsId, int checkedItem,
+            final OnClickListener listener) {
+        P.mItems = P.mContext.getResources().getTextArray(itemsId);
+        P.mOnClickListener = listener;
+        P.mCheckedItem = checkedItem;
+        P.mIsSingleChoice = true;
+        return this;
+    }
+
+    public Builder setSingleChoiceItems(Cursor cursor, int checkedItem, String labelColumn,
+            final OnClickListener listener) {
+        P.mCursor = cursor;
+        P.mOnClickListener = listener;
+        P.mCheckedItem = checkedItem;
+        P.mLabelColumn = labelColumn;
+        P.mIsSingleChoice = true;
+        return this;
+    }
+
+    public Builder setSingleChoiceItems(CharSequence[] items, int checkedItem, final OnClickListener listener) {
+        P.mItems = items;
+        P.mOnClickListener = listener;
+        P.mCheckedItem = checkedItem;
+        P.mIsSingleChoice = true;
+        return this;
+    }
+
+    public Builder setSingleChoiceItems(ListAdapter adapter, int checkedItem, final OnClickListener listener) {
+        P.mAdapter = adapter;
+        P.mOnClickListener = listener;
+        P.mCheckedItem = checkedItem;
+        P.mIsSingleChoice = true;
+        return this;
+    }
+
+    public Builder setOnItemSelectedListener(final AdapterView.OnItemSelectedListener listener) {
+        P.mOnItemSelectedListener = listener;
+        return this;
+    }
+
+    public Builder setView(int layoutResId) {
+        P.mView = null;
+        P.mViewLayoutResId = layoutResId;
+        P.mViewSpacingSpecified = false;
+        return this;
+    }
+
+    public Builder setView(View view) {
+        P.mView = view;
+        P.mViewLayoutResId = 0;
+        P.mViewSpacingSpecified = false;
+        return this;
+    }
+
+    public Builder setRecycleOnMeasureEnabled(boolean enabled) {
+        P.mRecycleOnMeasure = enabled;
+        return this;
+    }
+
+    public AlertDialog create() {
+        // Context has already been wrapped with the appropriate theme.
+        final AlertDialog dialog = new AlertDialog(P.mContext, 0, false);
+        P.apply(dialog.mAlert);
+        dialog.setCancelable(P.mCancelable);
+        if (P.mCancelable) {
+            dialog.setCanceledOnTouchOutside(true);
+        }
+        dialog.setOnCancelListener(P.mOnCancelListener);
+        dialog.setOnDismissListener(P.mOnDismissListener);
+        if (P.mOnKeyListener != null) {
+            dialog.setOnKeyListener(P.mOnKeyListener);
+        }
+        return dialog;
+    }
+
+    public AlertDialog show() {
+        final AlertDialog dialog = create();
+        dialog.show();
+        return dialog;
+    }
+}
+</code></pre><p>这个类是AlertDialog.java类中的一个静态内部类，我们一般使用AlertDialog就是通过它创建的，像这样：</p>
+<!-- java -->
+<pre><code>new AlertDialog.Builder(this).setTitle(&quot;复选框&quot;).setMultiChoiceItems(new String[] { &quot;Item1&quot;, &quot;Item2&quot; }, null, null).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null).create();
+// 或者
+new AlertDialog.Builder(this).setTitle(&quot;复选框&quot;).setMultiChoiceItems(new String[] { &quot;Item1&quot;, &quot;Item2&quot; }, null, null).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null).show();
+</code></pre><p>可以看到，对于AlertDialog，他有很多属性供我们自定义，这些属性的组合又会产生很多不同的AlertDialog，所以他很复杂，如果我们使用抽象工厂模式，我们的工厂类在我们的产品对象中也会导致我们的产品更复杂，所以我们在这种情况下，一般使用建造者模式去创建如此复杂的产品</p>
+
       
     </div>
     
@@ -415,7 +773,9 @@
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/建造者模式/" rel="tag">#建造者模式</a>
           
         </div>
       
@@ -424,17 +784,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/25/马拉车(Manacher)算法/" rel="next" title="马拉车(Manacher)算法">
-                <i class="fa fa-chevron-left"></i> 马拉车(Manacher)算法
+              <a href="/2016/12/14/设计模式之中介者模式/" rel="next" title="设计模式之中介者模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之中介者模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/Java内存回收简介/" rel="prev" title="Java内存回收简介">
-                Java内存回收简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,10 +805,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/08/LeetCode 394.Decode String/"
-     data-title="LeetCode 394.Decode String"
+        <div class="ds-share flat" data-thread-key="2016/12/15/设计模式之建造者模式/"
+     data-title="设计模式之建造者模式"
      data-content=""
-     data-url="http://yoursite.com/2016/09/08/LeetCode 394.Decode String/">
+     data-url="http://yoursite.com/2016/12/15/设计模式之建造者模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -479,8 +835,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/08/LeetCode 394.Decode String/"
-           data-title="LeetCode 394.Decode String" data-url="http://yoursite.com/2016/09/08/LeetCode 394.Decode String/">
+      <div class="ds-thread" data-thread-key="2016/12/15/设计模式之建造者模式/"
+           data-title="设计模式之建造者模式" data-url="http://yoursite.com/2016/12/15/设计模式之建造者模式/">
       </div>
     
   </div>
@@ -609,7 +965,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode新题"><span class="nav-number">1.</span> <span class="nav-text">LeetCode新题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意和解法"><span class="nav-number">2.</span> <span class="nav-text">题意和解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过程"><span class="nav-number">2.1.</span> <span class="nav-text">过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码"><span class="nav-number">3.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#游乐园也来了"><span class="nav-number">1.</span> <span class="nav-text">游乐园也来了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和抽象工厂的区别"><span class="nav-number">2.2.</span> <span class="nav-text">和抽象工厂的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Android中的建造者"><span class="nav-number">3.</span> <span class="nav-text">在Android中的建造者</span></a></li></ol></div>
             
           </div>
         </section>

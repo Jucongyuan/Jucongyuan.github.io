@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,算法," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -80,16 +80,15 @@
 
 
 
-<meta name="description" content="LeetCode新题LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 394.Decode String">
-<meta property="og:url" content="http://yoursite.com/2016/09/08/LeetCode 394.Decode String/index.html">
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jucongyuan's Blog">
+<meta property="og:url" content="http://yoursite.com/tags/建造者模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="LeetCode新题LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
-<meta property="og:updated_time" content="2016-11-29T08:42:47.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 394.Decode String">
-<meta name="twitter:description" content="LeetCode新题LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。">
+<meta name="twitter:title" content="Jucongyuan's Blog">
+<meta name="twitter:description">
 
 
 
@@ -107,7 +106,7 @@
   };
 </script>
 
-  <title> LeetCode 394.Decode String | Jucongyuan's Blog </title>
+  <title> 标签: 建造者模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -138,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -231,245 +230,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                LeetCode 394.Decode String
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T18:28:39+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/08/LeetCode 394.Decode String/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/LeetCode 394.Decode String/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/08/LeetCode 394.Decode String/" class="leancloud_visitors" data-flag-title="LeetCode 394.Decode String">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="LeetCode新题"><a href="#LeetCode新题" class="headerlink" title="LeetCode新题"></a>LeetCode新题</h2><p>LeetCode最近好像又更新了，之前刷了100道左右的Easy和Medium，但是之前刷的题都没有写博客，这次写是因为网上的解法还很少，所以发上来供大家查阅。</p>
-<a id="more"></a>
-<h2 id="题意和解法"><a href="#题意和解法" class="headerlink" title="题意和解法"></a>题意和解法</h2><p>这道题的题意其实很简单，就不过多解释了，看到此类表达式的计算，我们第一个想到的数据结构就是<code>栈</code>，利用栈的先进后出性质进行计算。</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>遍历字符串，遇到数字、字母和<code>[</code>直接进栈，遇到<code>]</code>，然后出栈，先找出所有字母，直到<code>[</code>(也要出栈)，然后再继续出栈找出数字，这里注意数字可能是多位的，比如<code>123[a]</code>，所以出栈的终止条件是栈空或者遇到非数字的字符，通过上面出栈的字符串和数字，组成新的字符串，如字符串<code>2[ab]</code>，新的字符串应该为<code>abab</code>，这些新的字符也必须再重新进栈。就这么简单~</p>
-<!-- more -->
-<h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><p>第一版代码，后面如果优化了会再更新</p>
-<!-- lang:java -->
-<pre><code>public static String decodeString(String s) {
-    if (s == null || s.length() == 0)
-        return s;
-    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
-    for (char c : s.toCharArray()) {
-        if (c == &apos;]&apos;) {
-            StringBuilder sb = new StringBuilder();
-            while (!stack.isEmpty() &amp;&amp; ((stack.peek() &gt;= &apos;a&apos; &amp;&amp; stack.peek() &lt;= &apos;z&apos;) || stack.peek() == &apos;[&apos;)) {
-                char ccc = stack.pop();
-                if (ccc == &apos;[&apos;)
-                    break;
-                sb.insert(0, ccc);
-            }
-            if (stack.isEmpty()) {
-                return sb.toString();
-            } else {
-                int count = 0;
-                int w = 1;
-                while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= &apos;0&apos; &amp;&amp; stack.peek() &lt;= &apos;9&apos;) {
-                    int val = stack.pop() - &apos;0&apos;;
-                    count += val * w;
-                    w *= 10;
-                }
-                char[] chars = sb.toString().toCharArray();
-                while (count &gt; 0) {
-                    for (char cc : chars)
-                        stack.push(cc);
-                    count--;
-                }
-            }
-        } else
-            stack.push(c);
-    }
-    StringBuilder sb = new StringBuilder();
-    while (!stack.isEmpty())
-        sb.insert(0, stack.pop());
-    return sb.toString();
-}
-</code></pre>
-      
-    </div>
-    
-    <div>
-      
-        
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        建造者模式
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
-      
-        
-<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
-  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
-  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
-    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
-  </button>
-  <div id="QR" style="display: none;">
     
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
-        <p>微信打赏</p>
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/12/15/设计模式之建造者模式/" itemprop="url">
+              
+                <span itemprop="name">设计模式之建造者模式</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-15T16:39:00+08:00"
+              content="2016-12-15" >
+          12-15
+        </time>
       </div>
-    
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
-        <p>支付宝打赏</p>
-      </div>
-    
-  </div>
-</div>
 
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Java/" rel="tag">#Java</a>
-          
-            <a href="/tags/算法/" rel="tag">#算法</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/25/马拉车(Manacher)算法/" rel="next" title="马拉车(Manacher)算法">
-                <i class="fa fa-chevron-left"></i> 马拉车(Manacher)算法
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/Java内存回收简介/" rel="prev" title="Java内存回收简介">
-                Java内存回收简介 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/09/08/LeetCode 394.Decode String/"
-     data-title="LeetCode 394.Decode String"
-     data-content=""
-     data-url="http://yoursite.com/2016/09/08/LeetCode 394.Decode String/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
+    
   </div>
-</div>
-      
-    </div>
-  </div>
+
+  
 
 
           </div>
@@ -477,14 +277,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/09/08/LeetCode 394.Decode String/"
-           data-title="LeetCode 394.Decode String" data-url="http://yoursite.com/2016/09/08/LeetCode 394.Decode String/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -504,17 +296,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -602,17 +385,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode新题"><span class="nav-number">1.</span> <span class="nav-text">LeetCode新题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意和解法"><span class="nav-number">2.</span> <span class="nav-text">题意和解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过程"><span class="nav-number">2.1.</span> <span class="nav-text">过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码"><span class="nav-number">3.</span> <span class="nav-text">AC代码</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -709,10 +481,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
