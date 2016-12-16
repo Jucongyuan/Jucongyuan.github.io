@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="游乐园也来了游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/builder-pattern-1.jpg">
-<meta property="og:updated_time" content="2016-12-16T00:33:43.000Z">
+<meta property="og:updated_time" content="2016-12-16T00:38:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之建造者模式">
 <meta name="twitter:description" content="游乐园也来了游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。">
@@ -726,7 +726,7 @@
 }
 </code></pre><p>这个类是AlertDialog.java类中的一个静态内部类，我们一般使用AlertDialog就是通过它创建的，像这样：</p>
 <!-- java -->
-<pre><code>new AlertDialog.Builder(this).setTitle(&quot;复选框&quot;).setMultiChoiceItems(new String[] { &quot;Item1&quot;, &quot;Item2&quot; }, null, null).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null).create();
+<pre><code>AlertDialog alertDialog = new AlertDialog.Builder(this).setTitle(&quot;复选框&quot;).setMultiChoiceItems(new String[] { &quot;Item1&quot;, &quot;Item2&quot; }, null, null).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null).create();
 // 或者
 new AlertDialog.Builder(this).setTitle(&quot;复选框&quot;).setMultiChoiceItems(new String[] { &quot;Item1&quot;, &quot;Item2&quot; }, null, null).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null).show();
 </code></pre><p>可以看到，对于AlertDialog，他有很多属性供我们自定义，这些属性的组合又会产生很多不同的AlertDialog，所以他很复杂，如果我们使用抽象工厂模式，我们的工厂类在我们的产品对象中也会导致我们的产品更复杂，所以我们在这种情况下，一般使用建造者模式去创建如此复杂的产品</p>
