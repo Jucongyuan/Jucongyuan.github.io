@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,设计模式,类的关系," />
+  <meta name="keywords" content="Java,设计模式,桥接模式," />
 
 
 
@@ -80,23 +80,18 @@
 
 
 
-<meta name="description" content="概述在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。">
+<meta name="description" content="开始涉足硬件小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java设计模式中类的关系总结">
-<meta property="og:url" content="http://yoursite.com/2016/08/08/Java设计模式中类的关系总结/index.html">
+<meta property="og:title" content="设计模式之桥接模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/18/设计模式之桥接模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="概述在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-0.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-7.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-6.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-3.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-4.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-5.png">
-<meta property="og:updated_time" content="2016-12-07T02:35:00.000Z">
+<meta property="og:description" content="开始涉足硬件小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012070516130466.png">
+<meta property="og:updated_time" content="2016-12-18T15:30:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java设计模式中类的关系总结">
-<meta name="twitter:description" content="概述在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-0.png">
+<meta name="twitter:title" content="设计模式之桥接模式">
+<meta name="twitter:description" content="开始涉足硬件小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012070516130466.png">
 
 
 
@@ -114,7 +109,7 @@
   };
 </script>
 
-  <title> Java设计模式中类的关系总结 | Jucongyuan's Blog </title>
+  <title> 设计模式之桥接模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +254,7 @@
             
             
               
-                Java设计模式中类的关系总结
+                设计模式之桥接模式
               
             
           </h1>
@@ -271,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T19:26:19+08:00" content="2016-08-08">
-              2016-08-08
+            <time itemprop="dateCreated" datetime="2016-12-18T17:18:40+08:00" content="2016-12-18">
+              2016-12-18
             </time>
           </span>
 
@@ -301,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/08/Java设计模式中类的关系总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/Java设计模式中类的关系总结/" itemprop="commentsCount"></span>
+                <a href="/2016/12/18/设计模式之桥接模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/18/设计模式之桥接模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -312,7 +307,7 @@
 
           
           
-             <span id="/2016/08/08/Java设计模式中类的关系总结/" class="leancloud_visitors" data-flag-title="Java设计模式中类的关系总结">
+             <span id="/2016/12/18/设计模式之桥接模式/" class="leancloud_visitors" data-flag-title="设计模式之桥接模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,65 +329,173 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在面向对象设计模式中，类与类之间的关系存在6中，分别为：依赖、关联、聚合、组合、继承和实现，它们的耦合度依次增强。下面我们在Java中讨论它们的定义和特点。</p>
+        <h2 id="开始涉足硬件"><a href="#开始涉足硬件" class="headerlink" title="开始涉足硬件"></a>开始涉足硬件</h2><p>小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了</p>
 <a id="more"></a>
-<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><table>
-<thead>
-<tr>
-<th>关系</th>
-<th>定义</th>
-<th>UML图例表示</th>
-<th>赋值方式</th>
-<th>例子 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>依赖（Dependence）</td>
-<td>类A中使用了类B，其中类B作为类A中方法的参数、方法中的局部变量或者静态方法的调用</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-0.png" alt="依赖"></td>
-<td>无</td>
-<td>无 </td>
-</tr>
-<tr>
-<td>关联（Association）</td>
-<td>单向：类A中使用了类B作为成员变量。双向：类A当中使用了类B作为成员变量；同时类B中也使用了类A作为成员变量。类A类B无任何关系</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-7.png" alt="关联"></td>
-<td>类中赋值</td>
-<td>车和房 </td>
-</tr>
-<tr>
-<td>聚合（Aggregation）</td>
-<td>关联的一种，类A和类B存在包容关系，但相互是可以独立的（整体-个体）</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-6.png" alt="聚合"></td>
-<td>set方法</td>
-<td>人（车和房） </td>
-</tr>
-<tr>
-<td>组合（Composition）</td>
-<td>关联的一种，类B是类A的一部分，类B不能单独存在（整体-部分），整体代表了部分的生命周期</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-3.png" alt="组合"></td>
-<td>构造方法中</td>
-<td>人（灵魂和肉体） </td>
-</tr>
-<tr>
-<td>继承（Generalization）</td>
-<td>子类和父类的关系，子类是具有父类的属性和行为，并且扩展了新的能力</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-4.png" alt="继承"></td>
-<td>无</td>
-<td>无  </td>
-</tr>
-<tr>
-<td>实现（Implementation）</td>
-<td>实现一个或多个接口方法的类</td>
-<td><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20160808-5.png" alt="实现"></td>
-<td>无</td>
-<td>无 </td>
-</tr>
-</tbody>
-</table>
-<p>注意1：判断关系通过语义，然后结合上下文判断。</p>
-<p>注意2：UML图例的箭头指向。</p>
+<p>电视机厂商遥控器对电视的控制都遵循统一的标准，所以长黑电视机厂商将这个标准和他们对标准的实现给了小明他们</p>
+<p>遥控器的统一标准：</p>
+<!-- java -->
+<pre><code>public interface Control {
+    void on();
+    void off();
+    void setChannel(int channel);
+}
+</code></pre><p>长黑电视对电视的控制是现实：</p>
+<!-- java -->
+<pre><code>public class CHControl implements Control {
+    @Override
+    public void on() {
+        System.out.print(&quot;Open CH TV&quot;);
+    }
+    @Override
+    public void off() {
+        System.out.print(&quot;Off CH TV&quot;);
+    }
+    @Override
+    public void setChannel(int channel) {
+        System.out.print(&quot;Set CH TV To &quot; + channel);
+    }
+}
+</code></pre><p>只要小明的公司通过CHControl的方法就可以操作长黑的电视机了，现在小明的公司只为长黑电视机生产一个功能极简的遥控器，只有三个按钮，分别是开/关、上一个节目、下一个节目，小明的主管实现把遥控器的接口类编写好了：</p>
+<!-- java -->
+<pre><code>public interface TvControl {
+    void onOff();
+    void preChannel();
+    void nextChannel();
+}
+</code></pre><p>小明要做的，就是将这个具体的遥控器实现，小明想了想，他要做的事就是，实现TvControl并且通过CHControl来控制电视，所以思路非常清晰，然后小明很快实现了这个遥控器：</p>
+<!-- java -->
+<pre><code>public class CHTvControl extends CHControl implements TvControl {
+
+    private boolean on = false;
+    private int channel = 1;
+
+    @Override
+    public void onOff() {
+        if (on) off();
+        else on();
+    }
+
+    @Override
+    public void preChannel() {
+        if (on) setChannel(--channel);
+    }
+
+    @Override
+    public void nextChannel() {
+        if (on) setChannel(++channel);
+    }
+}    
+</code></pre><p>小明高兴的开始测试遥控器了：</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args){
+        CHTvControl chTvControl = new CHTvControl();
+        chTvControl.onOff();
+        chTvControl.nextChannel();
+        chTvControl.nextChannel();
+        chTvControl.preChannel();
+        chTvControl.onOff();
+    }
+}
+</code></pre><p>测试结果</p>
+<!-- java -->
+<pre><code>Open CH TV
+Set CH TV To 2
+Set CH TV To 3
+Set CH TV To 2
+Off CH TV
+</code></pre><p>小明找到主管，询问主管是否需要再做修改，主管看了看说，小明，我们仔细想一下你的代码如果要扩展会有什么问题。现在有新的电视机厂商找到我们，遥控器的样式是不变的，也是和之前的遥控器功能一样，你就必须要再针对新的电视机厂商再实现新的遥控器类</p>
+<p>比如，狗熊电视机厂再找到我们，遥控器仍然只有三个按钮，那么必须产生一个新的遥控器类：</p>
+<!-- java -->
+<pre><code>public class GXTvContrlo extends GXControl implements TvControl {
+    // 省略实现…………
+}
+</code></pre><p>还有一个问题，现在要针对长黑电视机生产新的遥控器了，我们也必须再实现新的遥控器，我们可以看到，我们现有的设计里面，变动的两个地方，一是电视机厂商，二是遥控器的种类，所以我们的类可能会有N*N个（N个电视机厂商，N种遥控器）。那么应该怎么办呢？我们又要认识一个新的朋友了，它可以帮助我们避免这种变化的问题，它就叫桥接模式，我们先来认识一下它，然后再用它帮我们解决问题</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>通过将实现和抽象放在两个不同的类层次中而使它们可以独立改变</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/2012070516130466.png" alt="桥接模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象化角色</li>
+<li>修正抽象化角色</li>
+<li>实现化角色</li>
+<li>具体实现化角色</li>
+</ul>
+<p><code>注：</code>抽象化角色包含一个实现化角色的引用</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>看完桥接模式的定义，我们现在来用桥接模式中各个角色对应我们上面的类，我们应该被抽象的应该是哪一个类呢？抽象化角色是用来被继承的，继承一般是扩展类的功能，在上面的例子中，我们需要扩展的类应该是遥控器，因为遥控器只会从简易化向复杂化演进，所以我们应该抽象画一个基本的遥控器父类，然后需要不同的遥控器时，我们再来扩展它。相应的，我们的实现化角色应该是我们对同步电视的控制类，对电视的控制有统一的标准，不同的厂家会实现这个标准，然后我们针对不同的厂家调用不同的实现，所以，实现化角色应该是我们的对电视的控制类。现在，一切都清晰了，开始做我们新的遥控器吧！</p>
+<p>重新定义我们的抽象化角色，也就是我们的遥控器基类：</p>
+<!-- java -->
+<pre><code>public abstract class TvControl {
+
+    Control control;
+
+    public TvControl(Control control) {
+        this.control = control;
+    }
+
+    abstract void onOff();
+    abstract void nextChannel();
+    abstract void preChannel();
+}    
+</code></pre><p>我们实现遥控器时，最简单的功能也必须包括这三个功能，如果需要新加功能，只需要再扩展相应的功能即可，现在我们实现一个具体的遥控器：</p>
+<!-- java -->
+<pre><code>public class SimpleTvControl extends TvControl {
+
+    private boolean on = false;
+    private int channel = 1;
+
+    public SimpleTvControl(Control control) {
+        super(control);
+    }
+
+
+    @Override
+    void onOff() {
+        if (on) control.off();
+        else control.on();
+        on = !on;
+    }
+
+    @Override
+    void nextChannel() {
+        if (on) control.setChannel(++channel);
+    }
+
+    @Override
+    void preChannel() {
+        if (on) control.setChannel(--channel);
+    }
+}
+</code></pre><p>使用新的遥控器：</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        CHControl chControl = new CHControl();
+        SimpleTvControl simpleTvControl = new SimpleTvControl(chControl);
+        chTvControl.onOff();
+        chTvControl.nextChannel();
+        chTvControl.nextChannel();
+        chTvControl.preChannel();
+        chTvControl.onOff();
+    }
+}
+</code></pre><p>结果是和上面一样的：</p>
+<!-- java -->
+<pre><code>Open CH TV
+Set CH TV To 2
+Set CH TV To 3
+Set CH TV To 2
+Off CH TV
+</code></pre><p>我们看到，用了桥接模式的新设计，不会出现像上面那样的问题了，同一款遥控器，我们只需要包含不同的电视控制实现就可以，比如我们的简易遥控器，只要在构造SimpleTvControl遥控器时，放入不同的电视控制类即可。同样的，如果我们的简易遥控器需要扩展，只需继承当前的SimpleTvControl，然后扩展新功能就行了，对电视控制类不会有影响</p>
+<h2 id="桥接模式和策略模式"><a href="#桥接模式和策略模式" class="headerlink" title="桥接模式和策略模式"></a>桥接模式和策略模式</h2><p>仔细分析，我们的桥接模式貌似只是在策略模式的基础上加了一个继承，的确如此，那么我们看看两者的区别：</p>
+<h3 id="目的不同"><a href="#目的不同" class="headerlink" title="目的不同"></a>目的不同</h3><!-- java -->
+<pre><code>桥接：让接口实现和抽象层可以分别演化，提高移植性
+策略：将复杂的算法封装起来，从而便于替代不同的算法
+</code></pre><h3 id="使用方式不同"><a href="#使用方式不同" class="headerlink" title="使用方式不同"></a>使用方式不同</h3><!-- java --> 
+<pre><code>桥接：利用已有的类和方法
+策略：扩展或者修改，并提供动态配置
+</code></pre><h3 id="重点不同"><a href="#重点不同" class="headerlink" title="重点不同"></a>重点不同</h3><!-- java --> 
+<pre><code>桥接：强调接口对象提供基本的操作
+策略：强调接口对象提供的是一种算法
+</code></pre><h3 id="什么时候使用桥接模式"><a href="#什么时候使用桥接模式" class="headerlink" title="什么时候使用桥接模式"></a>什么时候使用桥接模式</h3><p>桥接模式的目的是为了分离抽象和实现，便于两者的独立变化，所以当有多维度分类时，而且每一种分类又有可能变化，就可以考虑使用我们的桥接模式了</p>
 
       
     </div>
@@ -438,7 +541,7 @@
           
             <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
-            <a href="/tags/类的关系/" rel="tag">#类的关系</a>
+            <a href="/tags/桥接模式/" rel="tag">#桥接模式</a>
           
         </div>
       
@@ -447,17 +550,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/07/Java异常详解/" rel="next" title="Java异常详解">
-                <i class="fa fa-chevron-left"></i> Java异常详解
+              <a href="/2016/12/16/设计模式之访问者模式/" rel="next" title="设计模式之访问者模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之访问者模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/25/马拉车(Manacher)算法/" rel="prev" title="马拉车(Manacher)算法">
-                马拉车(Manacher)算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,10 +571,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/08/Java设计模式中类的关系总结/"
-     data-title="Java设计模式中类的关系总结"
+        <div class="ds-share flat" data-thread-key="2016/12/18/设计模式之桥接模式/"
+     data-title="设计模式之桥接模式"
      data-content=""
-     data-url="http://yoursite.com/2016/08/08/Java设计模式中类的关系总结/">
+     data-url="http://yoursite.com/2016/12/18/设计模式之桥接模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -502,8 +601,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/08/Java设计模式中类的关系总结/"
-           data-title="Java设计模式中类的关系总结" data-url="http://yoursite.com/2016/08/08/Java设计模式中类的关系总结/">
+      <div class="ds-thread" data-thread-key="2016/12/18/设计模式之桥接模式/"
+           data-title="设计模式之桥接模式" data-url="http://yoursite.com/2016/12/18/设计模式之桥接模式/">
       </div>
     
   </div>
@@ -632,7 +731,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇总"><span class="nav-number">2.</span> <span class="nav-text">汇总</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始涉足硬件"><span class="nav-number">1.</span> <span class="nav-text">开始涉足硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#桥接模式和策略模式"><span class="nav-number">4.</span> <span class="nav-text">桥接模式和策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的不同"><span class="nav-number">4.1.</span> <span class="nav-text">目的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式不同"><span class="nav-number">4.2.</span> <span class="nav-text">使用方式不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点不同"><span class="nav-number">4.3.</span> <span class="nav-text">重点不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候使用桥接模式"><span class="nav-number">4.4.</span> <span class="nav-text">什么时候使用桥接模式</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
