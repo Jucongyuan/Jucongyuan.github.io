@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,设计模式,备忘录模式," />
 
 
 
@@ -80,15 +80,18 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jucongyuan's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/工厂模式/index.html">
+<meta name="description" content="新的游戏功能之前公司的游戏小明通过原型模式完成了游戏中的小怪对象，现在公司游戏有一个需求，需要定期保存游戏的进度，并且用户可以恢复到保存的进度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之备忘录模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/20/设计模式之备忘录模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description">
+<meta property="og:description" content="新的游戏功能之前公司的游戏小明通过原型模式完成了游戏中的小怪对象，现在公司游戏有一个需求，需要定期保存游戏的进度，并且用户可以恢复到保存的进度">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/memento-pattern-1.jpg">
+<meta property="og:updated_time" content="2016-12-20T10:02:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jucongyuan's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="设计模式之备忘录模式">
+<meta name="twitter:description" content="新的游戏功能之前公司的游戏小明通过原型模式完成了游戏中的小怪对象，现在公司游戏有一个需求，需要定期保存游戏的进度，并且用户可以恢复到保存的进度">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/memento-pattern-1.jpg">
 
 
 
@@ -106,7 +109,7 @@
   };
 </script>
 
-  <title> 标签: 工厂模式 | Jucongyuan's Blog </title>
+  <title> 设计模式之备忘录模式 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,46 +233,313 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        工厂模式
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之备忘录模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-20T16:49:26+08:00" content="2016-12-20">
+              2016-12-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/20/设计模式之备忘录模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/20/设计模式之备忘录模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/20/设计模式之备忘录模式/" class="leancloud_visitors" data-flag-title="设计模式之备忘录模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="新的游戏功能"><a href="#新的游戏功能" class="headerlink" title="新的游戏功能"></a>新的游戏功能</h2><p>之前公司的游戏小明通过<a href="http://jucongyuan.github.io/2016/12/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">原型模式</a>完成了游戏中的小怪对象，现在公司游戏有一个需求，需要定期保存游戏的进度，并且用户可以恢复到保存的进度</p>
+<a id="more"></a>
+<p>小明对于这个功能无从下手，于是请教了主管，主管让小明去了解一下备忘录模式，使用备忘录模式就可以完成这个功能，于是小明去搜集了一下备忘录的资料，然后将这个模式迅速掌握并应用到了新的功能上</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样就可以将该对象恢复到原先保存的状态</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/memento-pattern-1.jpg" alt="备忘录模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>发起人</li>
+<li>备忘录</li>
+<li>管理角色</li>
+</ul>
+<h2 id="用备忘录实现功能"><a href="#用备忘录实现功能" class="headerlink" title="用备忘录实现功能"></a>用备忘录实现功能</h2><p>通过备忘录模式的类图和角色，我们来实现一下我们的程序。首先，我们要定义我们的备忘录类，他记录了具体的状态</p>
+<!-- java -->
+<pre><code>public interface IMemento {
+}
+</code></pre><!-- java -->
+<pre><code>public class Memento implements IMemento {
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/04/设计模式之工厂模式/" itemprop="url">
-              
-                <span itemprop="name">设计模式之工厂模式</span>
-              
-            </a>
-        
-      </h1>
+    private int progress;
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-04T23:45:09+08:00"
-              content="2016-12-04" >
-          12-04
-        </time>
+    public Memento(int progress) {
+        this.progress = progress;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+}
+</code></pre><p>我们需要保存的是游戏的进度，所以我们游戏进度类是发起人，它来定义游戏进度类中哪些状态需要保存</p>
+<p>游戏状态类，也就是我们的发起者：</p>
+<!-- java -->
+<pre><code>public class Originator {
+
+    int progress;
+
+    public Originator() {
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    public Memento createMemento() {
+        return new Memento(this.progress);
+    }
+
+    public void restoreMemento(IMemento memento) {
+        this.setProgress(((Memento) memento).getProgress());
+    }
+
+}
+</code></pre><p>另外，我们还需要一个类来管理我们这些状态，可以根据实际需求来指定这个管理角色的管理形式，我们使用一个Map来管理，这样可以保存多个状态</p>
+<!-- java -->
+<pre><code>public class Caretaker {
+
+    Map&lt;String, IMemento&gt; mementos;
+
+    public Caretaker() {
+        mementos = new HashMap&lt;&gt;();
+    }
+
+    public IMemento getMemento(String name) {
+        return mementos.get(name);
+    }
+
+    public void addMemento(String name, Memento memento) {
+        this.mementos.put(name, memento);
+    }
+}
+</code></pre><p>现在我们来使用这个备忘录，帮助我们完成状态的恢复</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+
+        Originator originator = new Originator();
+        originator.setProgress(1);
+        System.out.println(&quot;当前进度 &quot; + originator.getProgress());
+
+        Caretaker caretaker = new Caretaker();
+        caretaker.addMemento(&quot;进度一&quot;, originator.createMemento());
+
+        originator.setProgress(2);
+        System.out.println(&quot;当前进度 &quot; + originator.getProgress());
+
+        originator.setProgress(3);
+        System.out.println(&quot;当前进度 &quot; + originator.getProgress());
+        caretaker.addMemento(&quot;进度三&quot;, originator.createMemento());
+
+        originator.restoreMemento(caretaker.getMemento(&quot;进度一&quot;));
+        System.out.println(&quot;当前进度 &quot; + originator.getProgress());
+
+        originator.restoreMemento(caretaker.getMemento(&quot;进度三&quot;));
+        System.out.println(&quot;当前进度 &quot; + originator.getProgress());
+
+    }
+}
+</code></pre><p>最初时，游戏进度为1，调用游戏进度生成方法，也就是发起者产生一个此刻状态下的备忘录，并且将它保存到我们的Caretaker，名字为<code>进度一</code>，然后们游戏进度改变，从2再到3，我们只在1和3的时候生成了备忘录，然后将它保存到了Caretaker，然后在状态3时我们恢复到了状态1，再恢复到了3</p>
+<p>执行结果：<br>    当前进度 1<br>    当前进度 2<br>    当前进度 3<br>    当前进度 1<br>    当前进度 3</p>
+<h2 id="备忘录和发起者"><a href="#备忘录和发起者" class="headerlink" title="备忘录和发起者"></a>备忘录和发起者</h2><p>管理角色的功能很清晰，我们看看备忘录和发起者，发起者就是我们需要保存和恢复的，具体的备忘录也是由发起者产生的，备忘录里面需要存储的是由实际的需求来制定的，比如，有一些属性和状态无关，我们就不需要保存。备忘录模式比起其他模式算是比较简单的，不管是使用还是实现，但是它也有自己明显的优缺点：</p>
+<p>优点：</p>
+<ul>
+<li>当发起人角色中的状态改变时，有可能这是个错误的改变，我们使用备忘录模式就可以把这个错误的改变还原。</li>
+<li>备份的状态是保存在发起人角色之外的，这样，发起人角色就不需要对各个备份的状态进行管理。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>在实际应用中，备忘录模式都是多状态和多备份的，发起人角色的状态需要存储到备忘录对象中，对资源的消耗是比较严重的。</li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
       </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/备忘录模式/" rel="tag">#备忘录模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/19/从源码看commit和commitAllowingStateLoss方法区别/" rel="next" title="从源码看commit和commitAllowingStateLoss方法区别">
+                <i class="fa fa-chevron-left"></i> 从源码看commit和commitAllowingStateLoss方法区别
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/20/设计模式之备忘录模式/"
+     data-title="设计模式之备忘录模式"
+     data-content=""
+     data-url="http://yoursite.com/2016/12/20/设计模式之备忘录模式/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -277,6 +547,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/20/设计模式之备忘录模式/"
+           data-title="设计模式之备忘录模式" data-url="http://yoursite.com/2016/12/20/设计模式之备忘录模式/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -296,8 +574,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -385,6 +672,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新的游戏功能"><span class="nav-number">1.</span> <span class="nav-text">新的游戏功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用备忘录实现功能"><span class="nav-number">3.</span> <span class="nav-text">用备忘录实现功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备忘录和发起者"><span class="nav-number">4.</span> <span class="nav-text">备忘录和发起者</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -481,6 +779,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
