@@ -88,7 +88,7 @@
 <meta property="og:description" content="小明要买房了小明的公司的新项目应接不暇，这不，小明拿之前做项目积累的积蓄准备买房了，但是万事开头难，小明不知道该怎么如手，作为他在工作和生活上导师的主管说，我们来写一个程序你就明白该怎么做了。">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1354197582_1664.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/194507142.jpg">
-<meta property="og:updated_time" content="2016-12-13T09:11:37.000Z">
+<meta property="og:updated_time" content="2017-01-04T00:24:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之代理模式">
 <meta name="twitter:description" content="小明要买房了小明的公司的新项目应接不暇，这不，小明拿之前做项目积累的积蓄准备买房了，但是万事开头难，小明不知道该怎么如手，作为他在工作和生活上导师的主管说，我们来写一个程序你就明白该怎么做了。">
@@ -433,7 +433,7 @@
 }
 </code></pre><p>我们可以看到，新的代理可以代理任何需要被代理的对象，而不需要像静态代理那样为每个需要代理的类定义一个代理类。当调用被代理类的方法时，是由InvocationHandler的invoke去调用，所以我们可以在invoke方法中增加我们要做的事，接下来我们看一下动态代理的过程：</p>
 <p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/194507142.jpg" alt="动态代理过程"></p>
-<p>动态代理用了Java中的反射，同时它也是一种AOP的体现，大家可以自行去深入了解一下发射和AOP。</p>
+<p>动态代理用了Java中的反射，同时它也是一种AOP的体现，大家可以自行去深入了解一下反射和AOP。</p>
 <h3 id="远程代理"><a href="#远程代理" class="headerlink" title="远程代理"></a>远程代理</h3><p>远程代理就是通过代理去调用远程对象的方法，这个对象存在于不同的地址空间。Java RMI就是远程代理的一个实际运用，另外Android中的AIDL也是通过代理模式实现的不同进程间通讯很好的例子，只是它们各自的实现原理不一样</p>
 <h3 id="虚拟代理"><a href="#虚拟代理" class="headerlink" title="虚拟代理"></a>虚拟代理</h3><p>虚拟代理主要是被代理的对象实例化的开销很大，通过代理，可以管理被代理对象的加载。比如，在加载图片时，未加载出图片时，先显示一串提示文字，代理类作为被代理类的替身</p>
 <h3 id="安全代理"><a href="#安全代理" class="headerlink" title="安全代理"></a>安全代理</h3><p>安全代理很简单，就是用来控制对真实对象的访问</p>
@@ -695,8 +695,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
