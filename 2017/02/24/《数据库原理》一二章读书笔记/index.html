@@ -1,0 +1,1028 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="使用数据库的原因单纯的数据表格可以解决我们一般的数据记录需求，但是数据表格会有一些因为增、删、改造成的问题。例如：在一张学校信息表中，有一列记录了学生老师的Email，如果这个老师的Email修改了，我们需要花费很大精力去修改整张表。因此，关系模型的方法就随之诞生，成为了一项解决这些问题的新技术。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数据库原理》一二章读书笔记">
+<meta property="og:url" content="http://yoursite.com/2017/02/24/《数据库原理》一二章读书笔记/index.html">
+<meta property="og:site_name" content="Jucongyuan's Blog">
+<meta property="og:description" content="使用数据库的原因单纯的数据表格可以解决我们一般的数据记录需求，但是数据表格会有一些因为增、删、改造成的问题。例如：在一张学校信息表中，有一列记录了学生老师的Email，如果这个老师的Email修改了，我们需要花费很大精力去修改整张表。因此，关系模型的方法就随之诞生，成为了一项解决这些问题的新技术。">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170224-1.png">
+<meta property="og:updated_time" content="2017-02-24T08:38:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《数据库原理》一二章读书笔记">
+<meta name="twitter:description" content="使用数据库的原因单纯的数据表格可以解决我们一般的数据记录需求，但是数据表格会有一些因为增、删、改造成的问题。例如：在一张学校信息表中，有一列记录了学生老师的Email，如果这个老师的Email修改了，我们需要花费很大精力去修改整张表。因此，关系模型的方法就随之诞生，成为了一项解决这些问题的新技术。">
+<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170224-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《数据库原理》一二章读书笔记 | Jucongyuan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cd7046a48ccdba5e46def068f8e7e269";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jucongyuan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《数据库原理》一二章读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-24T16:38:10+08:00" content="2017-02-24">
+              2017-02-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/24/《数据库原理》一二章读书笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/《数据库原理》一二章读书笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/24/《数据库原理》一二章读书笔记/" class="leancloud_visitors" data-flag-title="《数据库原理》一二章读书笔记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="使用数据库的原因"><a href="#使用数据库的原因" class="headerlink" title="使用数据库的原因"></a>使用数据库的原因</h2><p>单纯的数据表格可以解决我们一般的数据记录需求，但是数据表格会有一些因为增、删、改造成的问题。例如：在一张学校信息表中，有一列记录了学生老师的Email，如果这个老师的Email修改了，我们需要花费很大精力去修改整张表。因此，关系模型的方法就随之诞生，成为了一项解决这些问题的新技术。</p>
+<a id="more"></a>
+<h2 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h2><p>关系是一种特殊类型的表（由行和列组成的二维表），这不和表格一样的吗？从目前信息的确如此，不过这种关系模型的关系必须具备一些特征，因此说关系是一种特殊类型的表。那么关系模型的特征有哪些呢？特征如下：</p>
+<ul>
+<li>行包含实体的数据</li>
+<li>列包含实体属性的数据</li>
+<li>表中的单元格存储单个值 </li>
+<li>每列的所有实体类型一致 </li>
+<li>每列具有唯一名称</li>
+<li>列的顺序任意</li>
+<li>行的顺序任意</li>
+<li>任意两行互不重复</li>
+</ul>
+<p>所以，和单纯的数据表格不一样，有了这些特征的表格，就为关系表。有一种特殊的情况，就是在实际的应用中，我们的关系表中可能会存在重复的行，这时我们也默认该表也为关系表。</p>
+<h3 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h3><p>在数据库设计的过程中，我们的数据库需要满足一些规范，根据不同的程度，要求满足不同的规则，这些规则称为范式，目前的关系型数据库一共有六种方式，对于关系模型的表，它就是满足了我们的第一范式。其它五种范式将在后续介绍，不过要满足后面的范式，必须先满足前面的范式。</p>
+<h3 id="表的一些术语"><a href="#表的一些术语" class="headerlink" title="表的一些术语"></a>表的一些术语</h3><table>
+<thead>
+<tr>
+<th>表</th>
+<th style="text-align:center">行</th>
+<th style="text-align:center">列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件</td>
+<td style="text-align:center">记录</td>
+<td style="text-align:center">字段</td>
+</tr>
+<tr>
+<td>关系</td>
+<td style="text-align:center">元组</td>
+<td style="text-align:center">属性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="键的类型"><a href="#键的类型" class="headerlink" title="键的类型"></a>键的类型</h2><p>键的定义：<code>可以用来标识行的一列或多列</code>。也就是说键可以唯一，也可以不唯一。</p>
+<h3 id="复合键"><a href="#复合键" class="headerlink" title="复合键"></a>复合键</h3><p>它包含多个属性（至少两个）的键称为复合键</p>
+<h3 id="候选键"><a href="#候选键" class="headerlink" title="候选键"></a>候选键</h3><p>唯一标识表中每一行的键，获选键可以使单列建，也可以是复合键</p>
+<h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><p>主键的定义和候选键一样，但是在一个表中，只有一个主键（单列建或者复合键），这个主键就是从候选键中<code>选举</code>出来的</p>
+<p><code>EMPLOYEE (EmployeeNumber, FirstName, LastName, Department, Email, Phone)</code></p>
+<p>在这个表中，可以唯一标识每一行的键有：<code>EmployeeNumber</code>、<code>Email</code>和复合键<code>（FirstName, LastName, Department）</code>，一般情况下，我们选择EmployeeNumber键作为主键，这样候选键和主键的概念大家就明白了。那么这个主键是怎么从候选键中选择出来的的呢？也就是选举的规则是怎样的呢？后面我们会提到</p>
+<h3 id="代理建"><a href="#代理建" class="headerlink" title="代理建"></a>代理建</h3><p><code>TEACHER (Name, Age, Sex)</code></p>
+<p>在这张表中，我们很难选择一个键作为主键，那么此时在实际的操作中，我们会给这张表增加一个字段，来作为它的主键：</p>
+<p><code>TEACHER (TeacherId, Name, Age, Sex)</code></p>
+<p>那么这个我们增加的主键，就是代理建，它是主键，但是并不是这个实体的某一个属性，也不会有现实的使用情况。</p>
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><p>将一个表的值放入第二个表来表示关联，所使用的值是第一个表的主键值(在必要时可包括复合主键值)。此时，第二个表中保存这些值的属性称为外键(foreign key)。例如学生表中一般会存在一个<code>TeacherId</code>，这个<code>TeacherId</code>标识<code>TEACHER</code>表中的一个教师，那么在学生表中的这个<code>TeacherId</code>就是外键，当然，在学生表中这个字段的命名可以不和TeacherId一致，例如也可以是<code>Teacher</code>。如果一个表中存在外键，应该在相应的表中存在对应的主键，这个规则称为<code>参照完整性约束</code>。</p>
+<h3 id="表的表示"><a href="#表的表示" class="headerlink" title="表的表示"></a>表的表示</h3><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170224-1.png" alt="表的表示"></p>
+<h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><p>做一个表中，如果其中一个字段可以决定另一个字段的值，那么，我们就说某一个字段依赖于该字段。例如在学生表中，一个学生的身高决定了他穿衣服的大小，那么我就说衣服大小依赖于身高，或者身高决定衣服大小，用表达式表示：</p>
+<p><code>Height → Size</code></p>
+<p>对于两边的属性，可以是多个，如：</p>
+<p><code>(Quantity, UnitPrice) → ExtendedPrice</code></p>
+<p>一份订单的总结依赖于单价和数量，同样可以一对多和多对多，这里就不再举例了。</p>
+<h3 id="从候选键到主键"><a href="#从候选键到主键" class="headerlink" title="从候选键到主键"></a>从候选键到主键</h3><p>有了函数依赖的概念，我们就可以回答刚才怎么选举的问题了？表的主键可以定义为：<code>该表中一个或多个可以通过函数决定其他所有属性的属性</code>，那么候选键也如此，所以从候选键中选举主键是，我们要选择最有意义和最重要的函数依赖。</p>
+<h2 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h2><p>在我们创建完表后，可能这个表不是最优的，因为它可能存在一些问题，所以我们必须优化这个表，那么具体的步骤和规则是怎样的呢？这就不得不提到规范了：</p>
+<ul>
+<li>在结构良好的表中，每个决定因子都必须是候选键</li>
+<li>非结构良好的表应分解成两个或多个结构良好的表</li>
+</ul>
+<h3 id="规范化的过程"><a href="#规范化的过程" class="headerlink" title="规范化的过程"></a>规范化的过程</h3><ul>
+<li>找出所有候选键</li>
+<li>列出所有函数依赖</li>
+<li>检查函数依赖的决定因子，如果决定因子不是候选键则需要：a. 把函数依赖的列放在它自己的新表中。 b. 把函数依赖的决定因子作为新表的主键。 c. 将决定因子的副本作为原表中的外键。 d. 在新表和原表之间创建参照完整性约束</li>
+<li>重复第三步，直到所有的表都满足条件</li>
+</ul>
+<h3 id="规范化的示例"><a href="#规范化的示例" class="headerlink" title="规范化的示例"></a>规范化的示例</h3><p><code>EMPLOYEE (EmployeeNumber, LastName, Email, Department, DeptPhone)</code></p>
+<h4 id="1-找出候选键"><a href="#1-找出候选键" class="headerlink" title="1.找出候选键"></a>1.找出候选键</h4><p>在这个表中，候选键为<code>EmployeeNumber</code>和<code>Email</code></p>
+<h4 id="2-找出函数依赖"><a href="#2-找出函数依赖" class="headerlink" title="2.找出函数依赖"></a>2.找出函数依赖</h4><p><code>Department → DeptPhone</code></p>
+<h4 id="3-判断决定因子是否为候选键"><a href="#3-判断决定因子是否为候选键" class="headerlink" title="3.判断决定因子是否为候选键"></a>3.判断决定因子是否为候选键</h4><p>Department并不是候选键，所以我们需要将函数依赖放入一个新的表中：</p>
+<p><code>DEPARTMENT (Department, DeptPhone)</code></p>
+<p>用决定因子<code>Department</code>作为主键，将主键放入前一个表作为外键：</p>
+<p><code>EMPLOYEE (EmployeeNumber, LastName, Email, Department)</code></p>
+<h4 id="4-重复3步骤"><a href="#4-重复3步骤" class="headerlink" title="4.重复3步骤"></a>4.重复3步骤</h4><p>决定因子都为候选键了，规范过程结束，最终表的设计：</p>
+<p><code>EMPLOYEE (EmployeeNumber, LastName, Email, Department)</code></p>
+<p><code>DEPARTMENT (Department, DeptPhone)</code></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag">#数据库</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/22/设计模式之享元模式/" rel="next" title="设计模式之享元模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之享元模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/02/24/《数据库原理》一二章读书笔记/"
+     data-title="《数据库原理》一二章读书笔记"
+     data-content=""
+     data-url="http://yoursite.com/2017/02/24/《数据库原理》一二章读书笔记/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/24/《数据库原理》一二章读书笔记/"
+           data-title="《数据库原理》一二章读书笔记" data-url="http://yoursite.com/2017/02/24/《数据库原理》一二章读书笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jucongyuan" />
+          <p class="site-author-name" itemprop="name">Jucongyuan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Jucongyuan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1351932483" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jucongyuan.com" title="个人主页" target="_blank">个人主页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dannyjiajia.github.io" title="DannyHe" target="_blank">DannyHe</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用数据库的原因"><span class="nav-number">1.</span> <span class="nav-text">使用数据库的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系模型"><span class="nav-number">2.</span> <span class="nav-text">关系模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一范式"><span class="nav-number">2.1.</span> <span class="nav-text">第一范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表的一些术语"><span class="nav-number">2.2.</span> <span class="nav-text">表的一些术语</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#键的类型"><span class="nav-number">3.</span> <span class="nav-text">键的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复合键"><span class="nav-number">3.1.</span> <span class="nav-text">复合键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#候选键"><span class="nav-number">3.2.</span> <span class="nav-text">候选键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主键"><span class="nav-number">3.3.</span> <span class="nav-text">主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理建"><span class="nav-number">3.4.</span> <span class="nav-text">代理建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键"><span class="nav-number">3.5.</span> <span class="nav-text">外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表的表示"><span class="nav-number">3.6.</span> <span class="nav-text">表的表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数依赖"><span class="nav-number">4.</span> <span class="nav-text">函数依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从候选键到主键"><span class="nav-number">4.1.</span> <span class="nav-text">从候选键到主键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规范化"><span class="nav-number">5.</span> <span class="nav-text">规范化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规范化的过程"><span class="nav-number">5.1.</span> <span class="nav-text">规范化的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范化的示例"><span class="nav-number">5.2.</span> <span class="nav-text">规范化的示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-找出候选键"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.找出候选键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-找出函数依赖"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.找出函数依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-判断决定因子是否为候选键"><span class="nav-number">5.2.3.</span> <span class="nav-text">3.判断决定因子是否为候选键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-重复3步骤"><span class="nav-number">5.2.4.</span> <span class="nav-text">4.重复3步骤</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jucongyuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jucongyuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vkmSxjwqS7LLJJjCTRY8oHlV-gzGzoHsz", "eYPDjiwQtMjW2L3nKI39Irdj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
