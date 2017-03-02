@@ -97,7 +97,8 @@
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-5.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-7.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-8.png">
-<meta property="og:updated_time" content="2017-03-01T10:15:22.000Z">
+<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/WechatIMG1.png">
+<meta property="og:updated_time" content="2017-03-02T01:42:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《数据库原理》三章读书笔记">
 <meta name="twitter:description" content="结构化查询语言结构化查询语言(Structured Query Language)简称SQL，由IBM开发，并被美国标准制定委员会（ANSI）定位国家标准。SQL命令可以分为几大类，今天主要介绍其中两类，数据定义语言DDL(data definition Language)和数据操作语言DML(Data Manipulation Language)。">
@@ -449,7 +450,8 @@ LIMIT [no of rows] OFFSET [row num]</code></p>
 <p><code>SELECT DISTINCT FirstName FROM EMPLOYEE;</code></p>
 <p><code>SELECT COUNT(DISTINCT FirstName) FROM EMPLOYEE;</code></p>
 <p>后者可以作为一种统计：有多少个不同的员工名字。</p>
-<h2 id="完全连接和交叉连接"><a href="#完全连接和交叉连接" class="headerlink" title="完全连接和交叉连接"></a>完全连接和交叉连接</h2><p>刚才我们提到了内连接和外连接（包括左连接和右连接），除了内外连接还有完全连接和交叉连接，全连接是在内连接的基础上，在不符合条件的数据上填写NULL，可以理解为左连接加上右连接，使用FULL JOIN关键字。交叉连接是将两个表进行组合，行数为两个表的行数乘积，使用CROSS JOIN关键字。</p>
+<h2 id="完全连接和交叉连接"><a href="#完全连接和交叉连接" class="headerlink" title="完全连接和交叉连接"></a>完全连接和交叉连接</h2><p>刚才我们提到了内连接和外连接（包括左连接和右连接），除了内外连接还有完全连接和交叉连接，全连接是在内连接的基础上，在不符合条件的数据上填写NULL，可以理解为左连接加上右连接，使用FULL JOIN关键字。交叉连接是将两个表进行组合，行数为两个表的行数乘积，使用CROSS JOIN关键字。我们用图形表示这些关系就一目了然了：</p>
+<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/WechatIMG1.png" alt="连接的图示"></p>
 
       
     </div>
