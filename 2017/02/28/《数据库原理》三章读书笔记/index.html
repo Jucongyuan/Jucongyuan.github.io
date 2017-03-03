@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-7.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-8.png">
 <meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/WechatIMG1.png">
-<meta property="og:updated_time" content="2017-03-02T03:14:22.000Z">
+<meta property="og:updated_time" content="2017-03-03T03:12:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《数据库原理》三章读书笔记">
 <meta name="twitter:description" content="结构化查询语言结构化查询语言(Structured Query Language)简称SQL，由IBM开发，并被美国标准制定委员会（ANSI）定位国家标准。SQL命令可以分为几大类，今天主要介绍其中两类，数据定义语言DDL(data definition Language)和数据操作语言DML(Data Manipulation Language)。">
@@ -406,7 +406,7 @@ LIMIT [no of rows] OFFSET [row num]</code></p>
 <p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-6.png" alt="无别名"></p>
 <p><code>SELECT Department AS Name, COUNT(*) AS Number FROM EMPLOYEE  GROUP BY Department;</code></p>
 <p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/QQ20170301-5.png" alt="有别名"></p>
-<h3 id="小插曲"><a href="#小插曲" class="headerlink" title="小插曲"></a>小插曲</h3><p>在公司面试时，我出了一套笔试题，上面有一些简单的简单的SQL语句，然后如果笔试比较好的，简单SQL也写的比较好的，我会在面试时问他SQL怎么样，他如果很有信心，我就会问一个问题：<code>用一条SQL查出一个班上姓李和姓王各有多少人</code>，不要求写出来，只是说说大致的语句。坦白讲至今很少人答上来……</p>
+<h3 id="小插曲"><a href="#小插曲" class="headerlink" title="小插曲"></a>小插曲</h3><p>在公司面试时，我出了一套笔试题，上面有一些简单的简单的SQL语句，然后如果笔试比较好的，简单SQL也写的比较好的，我会在面试时问他SQL怎么样，他如果很有信心，我就会问一个问题：<code>用一条SQL查出一个班上男女各有多少人</code>，不要求写出来，只是说说大致的语句。但是很少人答上来（Android或者iOS面试）</p>
 <h3 id="使用子查询处理多个表"><a href="#使用子查询处理多个表" class="headerlink" title="使用子查询处理多个表"></a>使用子查询处理多个表</h3><p>有时我们需要用一个表中的数据作为条件在另一个表中查数据，我们就可以使用子查询</p>
 <p><code>SELECT * FROM EMPLOYEE WHERE Department = (SELECT DepartmentName FROM DEPARTMENT WHERE Phone = &#39;360-2858210&#39;);</code></p>
 <p>在DEPARTMENT中查出电话号码为360-2858210的部门名字，再在EMPLOYEE中查出该部门名字下的所有员工。子查询可以扩展到3层、4层或更多层。</p>
