@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/13/Android项目中文件下载模块的演进/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="概述公司有一个产品需要下载图片和视频，终端是我们自己的硬件产品，Android系统，用的是联通3G卡，设备主要铺设在餐厅里面，很分散，由于各个餐厅的网络环境很不统一，所以项目中这个模块一直在不断的改进，这里就将整个演进的过程做一次总计。">
-<meta property="og:updated_time" content="2017-03-13T05:57:59.000Z">
+<meta property="og:updated_time" content="2017-03-13T06:01:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android项目中文件下载模块的演进">
 <meta name="twitter:description" content="概述公司有一个产品需要下载图片和视频，终端是我们自己的硬件产品，Android系统，用的是联通3G卡，设备主要铺设在餐厅里面，很分散，由于各个餐厅的网络环境很不统一，所以项目中这个模块一直在不断的改进，这里就将整个演进的过程做一次总计。">
@@ -424,7 +424,7 @@
     }
 }
 </code></pre><p>先判断本地文件的大小，如果存在，则调用setRequestProperty方法，这个方法的作用是设置链接的头信息，可以设置很多东西，如果不设置，会有特定的默认值，这里通过<code>Range</code>设置文件的读取范围，后面参数的格式为：<code>&quot;bytes=&quot; + start + &quot;-&quot; + end</code>，<code>start</code>表示从文件<code>start</code>位置开始读取，一直读取到<code>end</code>，这两个值可以不设置，不设置分别代表从头读、读到尾。这里只是根据本地文件的大小设置了开始位置，然后读到文件末尾。另外这里多加入了两个状态码：206和416，206是设置了<code>Range</code>后的状态码，如果是从头到尾下载则是200。416则是一个错误的状态码，表示服务器不能满足客户在请求中指定的Range头。</p>
-<h2 id="第三阶段"><a href="#第三阶段" class="headerlink" title="第三阶段"></a>第三阶段</h2><p>第二阶段解决了第一阶段下载失败后又重新从头下载的问题，但是其实下载失败的问题还是没有解决，于是第三阶段考虑降低下载失败次数（不能完全避免，取决于网络环境，只能优化），怎么降低呢？文件下载时，可能下载个一两兆就失败了，也就是说，下载一兆文件对于大多数设备所在的网络环境来说问题还是不大，这里就要发挥多线程的优势了。所以我们下载时，对下载的文件进行分片多线程下载。当然，某个分片还是可能失败，同样的第二阶段的优化还是需要，就是失败后再下载时我们还是需要断点续传，分别断点续传的判断就不能像第二阶段根据本地文件大小来判断了，我们需要将分片信息进行持久化，这里我选择的是数据库，数据库中文件名作为主键，然后存上文件分了多少片，每一片的文件开始和结束的位置，和已经下载了多少的记录，这样我们失败后，就可以根据这些信息判断这个文件哪一个片需要重新下载、从哪里开始下载和下载到哪里结束。因为这里面有持久化和牵扯到其他模块的代码，这里就不贴代码了，梳理一下这个方法的思路：</p>
+<h2 id="第三阶段：分片下载加断点续传"><a href="#第三阶段：分片下载加断点续传" class="headerlink" title="第三阶段：分片下载加断点续传"></a>第三阶段：分片下载加断点续传</h2><p>第二阶段解决了第一阶段下载失败后又重新从头下载的问题，但是其实下载失败的问题还是没有解决，于是第三阶段考虑降低下载失败次数（不能完全避免，取决于网络环境，只能优化），怎么降低呢？文件下载时，可能下载个一两兆就失败了，也就是说，下载一兆文件对于大多数设备所在的网络环境来说问题还是不大，这里就要发挥多线程的优势了。所以我们下载时，对下载的文件进行分片多线程下载。当然，某个分片还是可能失败，同样的第二阶段的优化还是需要，就是失败后再下载时我们还是需要断点续传，分别断点续传的判断就不能像第二阶段根据本地文件大小来判断了，我们需要将分片信息进行持久化，这里我选择的是数据库，数据库中文件名作为主键，然后存上文件分了多少片，每一片的文件开始和结束的位置，和已经下载了多少的记录，这样我们失败后，就可以根据这些信息判断这个文件哪一个片需要重新下载、从哪里开始下载和下载到哪里结束。因为这里面有持久化和牵扯到其他模块的代码，这里就不贴代码了，梳理一下这个方法的思路：</p>
 <!-- java -->
 <pre><code>1.从数据库中读取该文件信息
 2.如果有信息，根据记录启动相应数量的线程下载对应记录的部分
@@ -433,7 +433,7 @@
 </code></pre><p>大概的思路就是这样，这里面有需要注意的点：</p>
 <h3 id="怎么判断这个文件下载完成"><a href="#怎么判断这个文件下载完成" class="headerlink" title="怎么判断这个文件下载完成"></a>怎么判断这个文件下载完成</h3><p>由于是多线程同时下载，所以怎么判断每个线程都下载完了呢？我的方法是每次在更新数据库时，同时更新一个变量，这个变量是多个线程同时更新的，每一个线程下载完了以后，判断这个变量和总文件大小，如果一样，则表示其他线程已经下载完成。同时这里要注意多线程对变量的访问问题（同步问题）。</p>
 <h3 id="文件的校验"><a href="#文件的校验" class="headerlink" title="文件的校验"></a>文件的校验</h3><p>文件下载完成以后，我们不能盲目的觉得已经成功，所以我们需要对文件做一次校验，可以通过文件的MD5来判断，本项目中，我们文件名使用的就是文件的MD5值，所以直接对下载完成后的文件进行MD5后和文件名对比，如果一样，则文件下载成功。</p>
-<h2 id="第四阶段"><a href="#第四阶段" class="headerlink" title="第四阶段"></a>第四阶段</h2><p>到这里，已经解决了大部分问题，但是从公司运维平台统计的数据来看，再第一次访问文件获取它的大小进行分片时，直接就失败了，于是考虑不通过本地分片，在上传到服务器时，就对文件进行分片，再将分片存储的链接同步到设备，设备直接通过分片的信息进行分片下载，省去了分片的这一步，这样，设备端减少一步，同时也减少了一次失败的可能。</p>
+<h2 id="第四阶段：去掉本地分片"><a href="#第四阶段：去掉本地分片" class="headerlink" title="第四阶段：去掉本地分片"></a>第四阶段：去掉本地分片</h2><p>到这里，已经解决了大部分问题，但是从公司运维平台统计的数据来看，再第一次访问文件获取它的大小进行分片时，直接就失败了，于是考虑不通过本地分片，在上传到服务器时，就对文件进行分片，再将分片存储的链接同步到设备，设备直接通过分片的信息进行分片下载，省去了分片的这一步，这样，设备端减少一步，同时也减少了一次失败的可能。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>目前，该模块就只经历了这四个阶段，当然后面肯定会面临新的问题，需要采取不同的方法去优化，这也是我们项目和产品迭代的过程，这里面也能让我们学到新的东西，比如第四阶段的方案其实是公司另一个同事提出来的，也增加了我的经验。所以我们应该正视和敢于面对问题，在问题中学习，并且向周围的人学习经验。</p>
 
       
@@ -670,7 +670,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一阶段：什么都没有"><span class="nav-number">2.</span> <span class="nav-text">第一阶段：什么都没有</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二阶段：断点续传"><span class="nav-number">3.</span> <span class="nav-text">第二阶段：断点续传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三阶段"><span class="nav-number">4.</span> <span class="nav-text">第三阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么判断这个文件下载完成"><span class="nav-number">4.1.</span> <span class="nav-text">怎么判断这个文件下载完成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的校验"><span class="nav-number">4.2.</span> <span class="nav-text">文件的校验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四阶段"><span class="nav-number">5.</span> <span class="nav-text">第四阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一阶段：什么都没有"><span class="nav-number">2.</span> <span class="nav-text">第一阶段：什么都没有</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二阶段：断点续传"><span class="nav-number">3.</span> <span class="nav-text">第二阶段：断点续传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三阶段：分片下载加断点续传"><span class="nav-number">4.</span> <span class="nav-text">第三阶段：分片下载加断点续传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么判断这个文件下载完成"><span class="nav-number">4.1.</span> <span class="nav-text">怎么判断这个文件下载完成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的校验"><span class="nav-number">4.2.</span> <span class="nav-text">文件的校验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四阶段：去掉本地分片"><span class="nav-number">5.</span> <span class="nav-text">第四阶段：去掉本地分片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>
