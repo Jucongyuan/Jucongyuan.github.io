@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="Java,算法,排序," />
 
 
 
@@ -80,31 +80,16 @@
 
 
 
-<meta name="description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
-1）那些内存需要回收？
-2）什么时候回收？
-3）如何回收？">
+<meta name="description" content="交换排序交换排序有两种排序方法：快速排序和冒泡排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内存回收简介">
-<meta property="og:url" content="http://yoursite.com/2016/09/12/Java内存回收简介/index.html">
+<meta property="og:title" content="排序算法之交换排序">
+<meta property="og:url" content="http://yoursite.com/2017/03/16/排序算法之交换排序/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
-1）那些内存需要回收？
-2）什么时候回收？
-3）如何回收？">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_101.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png">
-<meta property="og:updated_time" content="2016-09-13T02:28:44.000Z">
+<meta property="og:description" content="交换排序交换排序有两种排序方法：快速排序和冒泡排序">
+<meta property="og:updated_time" content="2017-03-16T10:43:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存回收简介">
-<meta name="twitter:description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
-1）那些内存需要回收？
-2）什么时候回收？
-3）如何回收？">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg">
+<meta name="twitter:title" content="排序算法之交换排序">
+<meta name="twitter:description" content="交换排序交换排序有两种排序方法：快速排序和冒泡排序">
 
 
 
@@ -122,7 +107,7 @@
   };
 </script>
 
-  <title> Java内存回收简介 | Jucongyuan's Blog </title>
+  <title> 排序算法之交换排序 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +252,7 @@
             
             
               
-                Java内存回收简介
+                排序算法之交换排序
               
             
           </h1>
@@ -279,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-12T19:58:40+08:00" content="2016-09-12">
-              2016-09-12
+            <time itemprop="dateCreated" datetime="2017-03-16T18:13:11+08:00" content="2017-03-16">
+              2017-03-16
             </time>
           </span>
 
@@ -293,8 +278,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -309,8 +294,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/12/Java内存回收简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Java内存回收简介/" itemprop="commentsCount"></span>
+                <a href="/2017/03/16/排序算法之交换排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/16/排序算法之交换排序/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,7 +305,7 @@
 
           
           
-             <span id="/2016/09/12/Java内存回收简介/" class="leancloud_visitors" data-flag-title="Java内存回收简介">
+             <span id="/2017/03/16/排序算法之交换排序/" class="leancloud_visitors" data-flag-title="排序算法之交换排序">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,39 +327,46 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：</p>
-<p>1）那些内存需要回收？</p>
-<p>2）什么时候回收？</p>
-<p>3）如何回收？</p>
+        <h2 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h2><p>交换排序有两种排序方法：<code>快速排序</code>和<code>冒泡排序</code></p>
 <a id="more"></a>
-<h2 id="那些内存需要回收和什么时候回收"><a href="#那些内存需要回收和什么时候回收" class="headerlink" title="那些内存需要回收和什么时候回收"></a>那些内存需要回收和什么时候回收</h2><p>要确认那些对象可以回收，就需要确认该对象实例是否已经不再被使用了，那么常见的实现由哪些呢？</p>
-<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>此方法的实现为：给每一个对象实例添加一个引用计数器，每当有一个地方引用它了，该计数器就加一。当对象引用计数器为零的时候，说明没有再引用它的地方了，所以该对象实例“死了”，可以被回收了。那么是不是这种算法就可以了呢？但是实际情况中，主流的一些Java虚拟机并没有采用此算法，原因是因为，当遇到循环引用的情况时，就不好处理了。</p>
-<h3 id="Java采用的算法：可达性分析算法"><a href="#Java采用的算法：可达性分析算法" class="headerlink" title="Java采用的算法：可达性分析算法"></a>Java采用的算法：可达性分析算法</h3><p>该算法通过一些列可以作为“GC Roots”的对象作为起始点，从这些节点向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连时，说明该对象已死（不过不一定就被回收，可以自救，但是实际情况中不会这么做）。在Java中，可以作为GC Roots对象的对象包括：</p>
-<p>1）栈帧中的局部变量引用的对象</p>
-<p>2）方法区静态变量引用的对象</p>
-<p>3）方法区中常量引用的对象</p>
-<p>4）本地方法栈中Native方法里应用的对象</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg" alt="可达性分析"></p>
-<h3 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h3><p>上面讲的是堆中的垃圾回收，在Java中，除了堆中会有垃圾回收，还有其他内存区域有内存回收吗？是有的，那就是方法区，方法区中存放的是和类相关的一些信息，那么如果确定那些类可以被回收呢：</p>
-<p>1）该类的所有实例都被回收，在堆中已经不存在该类的实例</p>
-<p>2）加载该类的ClassLoader已经被回收</p>
-<p>3）该类对应的Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</p>
-<h2 id="如何回收"><a href="#如何回收" class="headerlink" title="如何回收"></a>如何回收</h2><p>如何回收已经成为垃圾对象实例，也有很多不同的算法，每种算法有它的优势和劣势。</p>
-<h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>这种算法是最容易理解的，它就是通过上面可达性分析算法后，标记出已死的对象实例，然后将这些区域的内存进行回收。不过它有两个明显的不足：</p>
-<p>1）标记和清除两个步骤的效率很低</p>
-<p>2）由于被回收的区域可能是不连续的，所以当需要连续内存时，必须提前触发一次垃圾收集动作</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_101.png" alt="标记-清除"></p>
-<h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><p>复制的具体实现原理就是将内存分为两块，每次只使用其中一块，当这一块快使用完了的时候，就将这块中还存活的对象复制到另一块中，然后清理掉前一块中的内存空间。这种算法用于商业虚拟机回收新生代，因为新生代的对象98%都是“朝生夕死”，就将这块区域分为一块大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中一块Survivor，当回收时，将较少存活对象复制到另一块Survivor中，清理掉之前使用的Eden和其中一块Survivor。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png" alt="复制"></p>
-<h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>标记-整理算法和标记-清除算法的前面步骤是一样的，只是在标记后，并不马上清理，而是让所有存货的对象向一端移动，然后清理掉另一端的边界以外的对象。这种算法和上面的标记-清除算法用于虚拟机中老年代的回收算法。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png" alt="标记-整理"></p>
-<h3 id="分代收集法"><a href="#分代收集法" class="headerlink" title="分代收集法"></a>分代收集法</h3><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png" alt="分代收集"></p>
-<p>分代收集法就是根据对象的存活周期将内存划分为两块：新生代和老年代，然后不同的区域采用不同的垃圾回收算法，如上面介绍到的：新生代采用复制算法，老年代采用标记-清除或者标记-整理算法。在实际情况中，当新生代中另一块Survivor区域无法存放下存活下来的对象时，这些对象将进入老年代，那么有哪些情况，新生代的对象会进入老年代呢？</p>
-<p>1）大对象</p>
-<p>2）每次Eden进行MinorGC后对象年龄加1进入survivor，对象年龄达到15时进入老年代</p>
-<p>3）如果Survivor空间中相同年龄所有对象大小的总和大于survivor空间的一半，年龄大于等于该年龄的对象就直接进入老年代</p>
-<p>4）如果survivor空间不能容纳Eden中存活的对象。由于担保机制会进入老年代。如果survivor中的对象存活很多，担保失败，那么会进行一次Full GC</p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>快速排序就是让一个序列中第一个数归位（到它正确的位置上），然后再用归位的位置将序列分成两个序列，然后对这两个序列进行上述的归位操作，然后递归下去。那么怎么将第一个数归位呢？选择两个指针，分别指向第一个数的下一个数和该序列最后一个数，左边的指针找比第一个数小的，右边的指针找比第一个数大的，右边的指针先移动，左边的指针再移动，两个指针找到后，交换两个位置上的数，然后再移动再找，直到两个指针相遇，将相遇位置上的数和第一个数交换，那么此时第一个数就到了正确的位置上。如果看了原理和代码还是不够清晰可以看看<a href="http://developer.51cto.com/art/201403/430986.htm" target="_blank" rel="external">这篇文章</a>，总结的比较全面。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><!-- lang:java -->
+<pre><code>public static void quickSort(int[] num, int l, int r) {
+    if (l &lt; r) {
+        int mid = getMiddle(num, l, r);
+        quickSort(num, l, mid - 1);
+        quickSort(num, mid + 1, r);
+    }
+}
 
+public static int getMiddle(int[] num, int l, int r) {
+    int o = num[l];
+    while (l &lt; r) {
+        while (l &lt; r &amp;&amp; num[r] &gt;= o)
+            r--;
+        num[l] = num[r];
+        while (l &lt; r &amp;&amp; num[l] &lt;= o)
+            l++;
+        num[r] = num[l];
+    }
+    num[r] = o;
+    return l;
+}
+</code></pre><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>冒泡排序很简单，就是每一趟找出最大的数放到数组末尾，然后下一趟再对除去末尾的数进行同样的操作，这样就能将序列排序</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><!-- lang:java -->
+<pre><code>public static void bubble(int[] num) {
+    int tmp;
+    for (int i = 0; i &lt; num.length; i++) {
+        for (int j = 0; j &lt; num.length - 1 - i; j++) {
+            if (num[j] &gt; num[j + 1]) {
+                tmp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = tmp;
+            }
+        }
+    }
+}
+</code></pre>
       
     </div>
     
@@ -417,6 +409,10 @@
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/排序/" rel="tag">#排序</a>
+          
         </div>
       
 
@@ -424,17 +420,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/08/LeetCode 394.Decode String/" rel="next" title="LeetCode 394.Decode String">
-                <i class="fa fa-chevron-left"></i> LeetCode 394.Decode String
+              <a href="/2017/03/16/排序算法之插入排序/" rel="next" title="排序算法之插入排序">
+                <i class="fa fa-chevron-left"></i> 排序算法之插入排序
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/Java内存区域简介/" rel="prev" title="Java内存区域简介">
-                Java内存区域简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,10 +441,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/12/Java内存回收简介/"
-     data-title="Java内存回收简介"
+        <div class="ds-share flat" data-thread-key="2017/03/16/排序算法之交换排序/"
+     data-title="排序算法之交换排序"
      data-content=""
-     data-url="http://yoursite.com/2016/09/12/Java内存回收简介/">
+     data-url="http://yoursite.com/2017/03/16/排序算法之交换排序/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -479,8 +471,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/12/Java内存回收简介/"
-           data-title="Java内存回收简介" data-url="http://yoursite.com/2016/09/12/Java内存回收简介/">
+      <div class="ds-thread" data-thread-key="2017/03/16/排序算法之交换排序/"
+           data-title="排序算法之交换排序" data-url="http://yoursite.com/2017/03/16/排序算法之交换排序/">
       </div>
     
   </div>
@@ -609,7 +601,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#那些内存需要回收和什么时候回收"><span class="nav-number">2.</span> <span class="nav-text">那些内存需要回收和什么时候回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数法"><span class="nav-number">2.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java采用的算法：可达性分析算法"><span class="nav-number">2.2.</span> <span class="nav-text">Java采用的算法：可达性分析算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延伸"><span class="nav-number">2.3.</span> <span class="nav-text">延伸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何回收"><span class="nav-number">3.</span> <span class="nav-text">如何回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-清除算法"><span class="nav-number">3.1.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制算法"><span class="nav-number">3.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">3.3.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代收集法"><span class="nav-number">3.4.</span> <span class="nav-text">分代收集法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#交换排序"><span class="nav-number">1.</span> <span class="nav-text">交换排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">2.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-1"><span class="nav-number">3.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-1"><span class="nav-number">3.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
