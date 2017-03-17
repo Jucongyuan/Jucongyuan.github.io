@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,算法,排序," />
+  <meta name="keywords" content="Android,Handler,线程间通讯," />
 
 
 
@@ -80,18 +80,16 @@
 
 
 
-<meta name="description" content="归并排序归并排序就一种排序方法">
+<meta name="description" content="目的这个目的是我今天写这篇文章的目的，希望通过通俗易懂的语言将Handler这个东西给大家讲清楚，当然还包括和它关系很密切的Looper、Message和MessageQueue。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法之归并排序">
-<meta property="og:url" content="http://yoursite.com/2017/03/16/排序算法之归并排序/index.html">
+<meta property="og:title" content="Handler从使用到崩溃">
+<meta property="og:url" content="http://yoursite.com/2017/03/17/Handler从使用到到溃/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="归并排序归并排序就一种排序方法">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14235319-8c15631895704786979d97954264cc66.png">
-<meta property="og:updated_time" content="2017-03-16T10:59:02.000Z">
+<meta property="og:description" content="目的这个目的是我今天写这篇文章的目的，希望通过通俗易懂的语言将Handler这个东西给大家讲清楚，当然还包括和它关系很密切的Looper、Message和MessageQueue。">
+<meta property="og:updated_time" content="2017-03-17T10:40:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法之归并排序">
-<meta name="twitter:description" content="归并排序归并排序就一种排序方法">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14235319-8c15631895704786979d97954264cc66.png">
+<meta name="twitter:title" content="Handler从使用到崩溃">
+<meta name="twitter:description" content="目的这个目的是我今天写这篇文章的目的，希望通过通俗易懂的语言将Handler这个东西给大家讲清楚，当然还包括和它关系很密切的Looper、Message和MessageQueue。">
 
 
 
@@ -109,7 +107,7 @@
   };
 </script>
 
-  <title> 排序算法之归并排序 | Jucongyuan's Blog </title>
+  <title> Handler从使用到崩溃 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +252,7 @@
             
             
               
-                排序算法之归并排序
+                Handler从使用到崩溃
               
             
           </h1>
@@ -266,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-16T18:46:28+08:00" content="2017-03-16">
-              2017-03-16
+            <time itemprop="dateCreated" datetime="2017-03-17T15:10:39+08:00" content="2017-03-17">
+              2017-03-17
             </time>
           </span>
 
@@ -280,8 +278,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -296,8 +294,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/03/16/排序算法之归并排序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/16/排序算法之归并排序/" itemprop="commentsCount"></span>
+                <a href="/2017/03/17/Handler从使用到到溃/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/Handler从使用到到溃/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,7 +305,7 @@
 
           
           
-             <span id="/2017/03/16/排序算法之归并排序/" class="leancloud_visitors" data-flag-title="排序算法之归并排序">
+             <span id="/2017/03/17/Handler从使用到到溃/" class="leancloud_visitors" data-flag-title="Handler从使用到崩溃">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -329,51 +327,366 @@
       
 
       
-        <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>归并排序就一种排序方法</p>
+        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>这个目的是我今天写这篇文章的目的，希望通过通俗易懂的语言将Handler这个东西给大家讲清楚，当然还包括和它关系很密切的Looper、Message和MessageQueue。</p>
 <a id="more"></a>
-<h2 id="归并排序-1"><a href="#归并排序-1" class="headerlink" title="归并排序"></a>归并排序</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>并归排序的原理就是合并两个有序的序列为一个有序序列，怎么才能有两个有序的序列呢？我们用一张图来讲解归并排序：</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/14235319-8c15631895704786979d97954264cc66.png" alt="归并排序"></p>
-<p>我们可以看到，我们从左到右将一个序列一分为二、二分为四……直到所有序列中只有一个，然后合并，从右到左开始合并，如<code>4</code>和<code>10</code>先合并，组成<code>[4,10]</code>，<code>[4,10]</code>再和<code>6</code>合并组成<code>[4,6,10]</code>……那么用什么方法呢，当然是递归了，代码如下：</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><!-- lang:java -->
-<pre><code>public static void mergeSort(int[] num, int l, int r) {
-    if (l &lt; r) {
-        int mid = (l + r) / 2;
-        mergeSort(num, l, mid);
-        mergeSort(num, mid + 1, r);
-        merge(num, l, mid, r);
+<h2 id="从用法开始"><a href="#从用法开始" class="headerlink" title="从用法开始"></a>从用法开始</h2><!-- lang:java -->
+<pre><code>public class HandlerTestActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_handler_test);
+        Handler mainHandler = new Handler();
+    }
+}
+</code></pre><p>这段代码并没有什么意义，大家可以运行一下，并没有什么问题，它的主要目的是为了引出下面这段代码：</p>
+<!-- lang:java -->
+<pre><code>public class HandlerTestActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_handler_test);
+        Handler mainHandler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Handler threadHandler = new Handler();
+            }
+        }).start();
+    }
+}
+</code></pre><p>什么！？崩溃了！<code>点题了，就这么从使用到崩溃了！！！</code>通过崩溃的堆栈信息：</p>
+<!-- lang:java -->
+<pre><code>FATAL EXCEPTION: Thread-103
+java.lang.RuntimeException: Can&apos;t create handler inside thread that has not called Looper.prepare()
+    at android.os.Handler.&lt;init&gt;(Handler.java:197)
+    at android.os.Handler.&lt;init&gt;(Handler.java:111)
+    at com.jucongyuan.handlertest.HandlerTestActivity$1.run(HandlerTestActivity.java:16)
+    at java.lang.Thread.run(Thread.java:856)
+</code></pre><p>（这里开始需要借助Android Framework的源码了），我们看看Handler中这次执行过的代码：</p>
+<!-- lang:java -->
+<pre><code>public class Handler {
+    public Handler() {
+        this(null, false);
+    }
+    public Handler(android.os.Handler.Callback callback, boolean async) {
+        if (FIND_POTENTIAL_LEAKS) {
+            final Class&lt;? extends android.os.Handler&gt; klass = getClass();
+            if ((klass.isAnonymousClass() || klass.isMemberClass() || klass.isLocalClass()) &amp;&amp;
+                    (klass.getModifiers() &amp; Modifier.STATIC) == 0) {
+                Log.w(TAG, &quot;The following Handler class should be static or leaks might occur: &quot; +
+                        klass.getCanonicalName());
+            }
+        }
+        /** 这里可以查崩溃的原因 **/
+        mLooper = Looper.myLooper();
+        if (mLooper == null) {
+            throw new RuntimeException(
+                    &quot;Can&apos;t create handler inside thread that has not called Looper.prepare()&quot;);
+        }
+        /** 这里可以查崩溃的原因 **/
+        /** 这里持有了mLooper的mQueue，现在不用管，待会你会回来看的 **/
+        mQueue = mLooper.mQueue;
+        mCallback = callback;
+        mAsynchronous = async;
+    }
+}
+</code></pre><p>Looper隆重登场，原来是在构造函数中，mLooper为空时抛出了一个异常，就是我们崩溃日志中的异常，查看Looper源码，这里就不贴源码了，大家可以自己查看，通过源码，知道Looper是从Handler所在的线程中取到的，也就是说，threadHandler所在的我们自己创建的那个线程中没有Looper，回到最初，我们在主线程也就是UI线程中也实例化了Handler，没有报错，所以我们猜想UI线程实例化时，一定同时实例化了一个Looper，求证一下，看看Framework源码中创建主线程的代码了，在<code>AcitivityThread</code>中，有一个main方法： </p>
+<!-- lang:java -->
+<pre><code>public static void main(String[] args) {
+    Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, &quot;ActivityThreadMain&quot;);
+    SamplingProfilerIntegration.start();
+
+    // CloseGuard defaults to true and can be quite spammy.  We
+    // disable it here, but selectively enable it later (via
+    // StrictMode) on debug builds, but using DropBox, not logs.
+    CloseGuard.setEnabled(false);
+
+    Environment.initForCurrentUser();
+
+    // Set the reporter for event logging in libcore
+    EventLogger.setReporter(new EventLoggingReporter());
+
+    AndroidKeyStoreProvider.install();
+
+    // Make sure TrustedCertificateStore looks in the right place for CA certificates
+    final File configDir = Environment.getUserConfigDirectory(UserHandle.myUserId());
+    TrustedCertificateStore.setDefaultUserDirectory(configDir);
+
+    Process.setArgV0(&quot;&lt;pre-initialized&gt;&quot;);
+
+    // 在这里实例化的
+    Looper.prepareMainLooper();
+
+    ActivityThread thread = new ActivityThread();
+    thread.attach(false);
+
+    if (sMainThreadHandler == null) {
+        sMainThreadHandler = thread.getHandler();
+    }
+
+    if (false) {
+        Looper.myLooper().setMessageLogging(new
+                LogPrinter(Log.DEBUG, &quot;ActivityThread&quot;));
+    }
+
+    // End of event ActivityThreadMain.
+    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+    // 注意这里，我们待会要再来看它
+    Looper.loop();
+
+    throw new RuntimeException(&quot;Main thread loop unexpectedly exited&quot;);
+}
+</code></pre><p>我们的猜想是正确的，通过调用prepareMainLooper方法，最终调用了Looper的私有构造方法：</p>
+<!-- lang:java -->
+<pre><code>Looper.Java
+
+public static void prepareMainLooper() {
+    prepare(false);
+    synchronized (Looper.class) {
+        if (sMainLooper != null) {
+            throw new IllegalStateException(&quot;The main Looper has already been prepared.&quot;);
+        }
+        sMainLooper = myLooper();
     }
 }
 
-public static void merge(int[] num, int l, int mid, int r) {
-    int[] tmp = new int[r - l + 1];
-    int i = l;
-    int j = mid + 1;
-    int index = 0;
-    while (i &lt;= mid &amp;&amp; j &lt;= r) {
-        if (num[i] &lt; num[j]) {
-            tmp[index] = num[i];
-            i++;
-        } else {
-            tmp[index] = num[j];
-            j++;
-        }
-        index++;
+private static void prepare(boolean quitAllowed) {
+    if (sThreadLocal.get() != null) {
+        throw new RuntimeException(&quot;Only one Looper may be created per thread&quot;);
     }
-    while (i &lt;= mid) {
-        tmp[index] = num[i];
-        i++;
-        index++;
-    }
-    while (j &lt;= r) {
-        tmp[index] = num[j];
-        j++;
-        index++;
-    }
-    for (int k = 0; k &lt; tmp.length; k++) {
-        num[k + l] = tmp[k];
+    sThreadLocal.set(new Looper(quitAllowed));
+}
+
+private Looper(boolean quitAllowed) {
+    mQueue = new MessageQueue(quitAllowed);
+    mThread = Thread.currentThread();
+}
+</code></pre><p>这个Looper也就归属了主线程。同时注意，我们在线程中调用prepare()方法时，如果这个线程已经存在Looper了，会抛出一个<code>Only one Looper may be created per thread</code>，就是说一个线程有只能有一个Looper，所以如果我们在主线程中再调用Looper的prepare方法为主线程实例化一个Looper，就会报错。我们上面的那个崩溃大家应该知道怎么解决了：要为线程创建一个Looper：</p>
+<!-- lang:java -->
+<pre><code>public class HandlerTestActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_handler_test);
+        Handler mainHandler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                Handler threadHandler = new Handler();
+            }
+        }).start();
     }
 }
-</code></pre>
+</code></pre><p>在构Looper的造函数中，MessageQueue隆重登场了！在看MessageQueue之前，我们先小小总结一下，毕竟到现在信息量还是比较大了：</p>
+<ol>
+<li>要在线程中使用Handler，该线程必须有一个Looper</li>
+<li>Looper的构造方法是私有的，我们在线程中通过调用Looper的prepare()方法为该线程生成一个Looper。主线程调用prepareMainLooper方法生成是为了我们方便通过Looper.getMainLooper()方法获取主线程的Looper</li>
+<li>每个线程只能有一个Looper，可以没有（没有不能使用Handler？作为一个提高题大家自己寻找答案）</li>
+<li>Looper会持有实例化它的线程和一个消息队列MessageQueue实例</li>
+<li>Handler会通过Looper持有它的MessageQueue实例（上面Handler的源码说你会回去看的地方）</li>
+</ol>
+<p>随着MessageQueue的出场，现在我们要说的四个类就只剩下Message了，我们直接看Message类：</p>
+<!-- lang:java -->
+<pre><code>public final class Message implements Parcelable {
+
+    public int what;
+
+    public int arg1; 
+
+    public int arg2;
+
+    public Object obj;
+
+    public Messenger replyTo;
+
+    public int sendingUid = -1;
+
+    static final int FLAG_IN_USE = 1 &lt;&lt; 0;
+
+    static final int FLAG_ASYNCHRONOUS = 1 &lt;&lt; 1;
+
+    static final int FLAGS_TO_CLEAR_ON_COPY_FROM = FLAG_IN_USE;
+
+    int flags;
+
+    long when;
+
+    Bundle data;
+
+    Handler target;
+
+    Runnable callback;
+
+    Message next;
+}
+</code></pre><p>最后三个属性我们记住，待会会使用，同时<code>Message next</code>也说明Message类是一个单向链表的数据结构。</p>
+<h2 id="发送一条Message"><a href="#发送一条Message" class="headerlink" title="发送一条Message"></a>发送一条Message</h2><p>我们使用Handler最常用的方法就是<code>sendMessage(Message msg)</code>，来看看整个过程吧：</p>
+<!-- lang:java -->
+<pre><code>public class Handler {
+    public final boolean sendMessage(Message msg) {
+        return sendMessageDelayed(msg, 0);
+    }
+
+    public final boolean sendMessageDelayed(Message msg, long delayMillis) {
+        if (delayMillis &lt; 0) {
+            delayMillis = 0;
+        }
+        return sendMessageAtTime(msg, SystemClock.uptimeMillis() + delayMillis);
+    }
+
+    public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
+        MessageQueue queue = mQueue;
+        if (queue == null) {
+            RuntimeException e = new RuntimeException(
+                    this + &quot; sendMessageAtTime() called with no mQueue&quot;);
+            Log.w(&quot;Looper&quot;, e.getMessage(), e);
+            return false;
+        }
+        return enqueueMessage(queue, msg, uptimeMillis);
+    }
+
+    private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) {
+        msg.target = this;
+        if (mAsynchronous) {
+            msg.setAsynchronous(true);
+        }
+        return queue.enqueueMessage(msg, uptimeMillis);
+    }
+}
+</code></pre><p>发送消息时，其实是调用了MessageQueue的enqueueMessage方法，这个MessageQueue是哪里来的呢，上面的结论5中已经总结，在看MessageQueue之前，我们注意<code>msg.target = this;</code>（Message最后三个属性的中的一个），每一条Message都持有了发送它的Handler的。接下来是MessageQueue的enqueueMessage：</p>
+<!-- lang:java -->
+<pre><code>boolean enqueueMessage(Message msg, long when) {
+    if (msg.target == null) {
+        throw new IllegalArgumentException(&quot;Message must have a target.&quot;);
+    }
+    if (msg.isInUse()) {
+        throw new IllegalStateException(msg + &quot; This message is already in use.&quot;);
+    }
+
+    synchronized (this) {
+        if (mQuitting) {
+            IllegalStateException e = new IllegalStateException(
+                    msg.target + &quot; sending message to a Handler on a dead thread&quot;);
+            Log.w(TAG, e.getMessage(), e);
+            msg.recycle();
+            return false;
+        }
+
+        msg.markInUse();
+        msg.when = when;
+        Message p = mMessages;
+        boolean needWake;
+        if (p == null || when == 0 || when &lt; p.when) {
+            // New head, wake up the event queue if blocked.
+            msg.next = p;
+            mMessages = msg;
+            needWake = mBlocked;
+        } else {
+            // Inserted within the middle of the queue.  Usually we don&apos;t have to wake
+            // up the event queue unless there is a barrier at the head of the queue
+            // and the message is the earliest asynchronous message in the queue.
+            needWake = mBlocked &amp;&amp; p.target == null &amp;&amp; msg.isAsynchronous();
+            Message prev;
+            for (;;) {
+                prev = p;
+                p = p.next;
+                if (p == null || when &lt; p.when) {
+                    break;
+                }
+                if (needWake &amp;&amp; p.isAsynchronous()) {
+                    needWake = false;
+                }
+            }
+            msg.next = p; // invariant: p == prev.next
+            prev.next = msg;
+        }
+
+        // We can assume mPtr != 0 because mQuitting is false.
+        if (needWake) {
+            nativeWake(mPtr);
+        }
+    }
+    return true;
+}
+</code></pre><p>这段代码其实也很简单，我们注意最下面else的内容，他其实就是在通过Message的when属性，把这条Message插入到这个MessageQueue中Message单向链表的合适位置。但是，消息到这里就结束了啊，结束了？看这里的代码的确是结束了，当时我们知道消息最后是会到Handler的<code>handleMessage(Message msg)方法中</code>，这个方法在哪里调用的呢？上面的源码注释中，还有一个地方我提到：<code>注意这里，我们待会要再来看它</code>，那就是<code>Looper.loop();</code>，我们来看看：</p>
+<!-- lang:java -->
+<pre><code>public static void loop() {
+    final Looper me = myLooper();
+    if (me == null) {
+        throw new RuntimeException(&quot;No Looper; Looper.prepare() wasn&apos;t called on this thread.&quot;);
+    }
+    final MessageQueue queue = me.mQueue;
+
+    // Make sure the identity of this thread is that of the local process,
+    // and keep track of what that identity token actually is.
+    Binder.clearCallingIdentity();
+    final long ident = Binder.clearCallingIdentity();
+
+    for (;;) {
+        Message msg = queue.next(); // might block
+        if (msg == null) {
+            // No message indicates that the message queue is quitting.
+            return;
+        }
+
+        // This must be in a local variable, in case a UI event sets the logger
+        Printer logging = me.mLogging;
+        if (logging != null) {
+            logging.println(&quot;&gt;&gt;&gt;&gt;&gt; Dispatching to &quot; + msg.target + &quot; &quot; +
+                    msg.callback + &quot;: &quot; + msg.what);
+        }
+
+        msg.target.dispatchMessage(msg);
+
+        if (logging != null) {
+            logging.println(&quot;&lt;&lt;&lt;&lt;&lt; Finished to &quot; + msg.target + &quot; &quot; + msg.callback);
+        }
+
+        // Make sure that during the course of dispatching the
+        // identity of the thread wasn&apos;t corrupted.
+        final long newIdent = Binder.clearCallingIdentity();
+        if (ident != newIdent) {
+            Log.wtf(TAG, &quot;Thread identity changed from 0x&quot;
+                    + Long.toHexString(ident) + &quot; to 0x&quot;
+                    + Long.toHexString(newIdent) + &quot; while dispatching to &quot;
+                    + msg.target.getClass().getName() + &quot; &quot;
+                    + msg.callback + &quot; what=&quot; + msg.what);
+        }
+
+        msg.recycleUnchecked();
+    }
+}
+</code></pre><p>一目了然，一个for (;;)死循环一直不断的从MessageQueue中取消息Message，并且通过<code>msg.target.dispatchMessage(msg);</code>调用了Handler的dispatchMessage方法（上面的结论，Message持有了发送它的Handler对象，就是target），到这里，我们应该可以猜到，Handler的dispatchMessage方法中一定调用了Handler的<code>handleMessage(Message msg)</code>方法：</p>
+<!-- lang:java -->
+<pre><code>public void handleMessage(Message msg) {
+}
+
+public void dispatchMessage(Message msg) {
+    if (msg.callback != null) {
+        handleCallback(msg);
+    } else {
+        if (mCallback != null) {
+            if (mCallback.handleMessage(msg)) {
+                return;
+            }
+        }
+        handleMessage(msg);
+    }
+}
+</code></pre><p>猜想同样正确。整个过程无缝的串联起来了，这里Message最后三个属性的中的callback也是出现了，如果msg.callback不为空就是调用的handleCallback方法，而handleCallback方法如下，这个callback是哪里来的呢？callback其实就是Runnable，它就是我们调用Handler的post方法传入的Runnable，大家可以通过源码从post方法调用开始分析整个流程。</p>
+<!-- lang:java -->
+<pre><code>private static void handleCallback(Message message) {
+    message.callback.run();
+}
+</code></pre><p>再来一次总结：</p>
+<ol>
+<li>Handler发送消息时，调用Looper中MessageQueue的enqueueMessage方法来组织消息</li>
+<li>Looper通过loop方法不断的从MessageQueue中去消息，发送Message到Message持有的Handler中由handleMessage方法执行</li>
+</ol>
+<p>最后一个结论有点奇妙，我们通过Handler发消息就是为了让Handler中的另一而方法执行，这不是劳民伤财吗？不过大家想一下Handler的用法：<code>进程间通讯</code>。为什么进程间需要这样通讯，因为在Android中，非UI线程（非主线程）中我们不能更新UI，所以我们可以借助Handler来发送一些消息更新UI，常见的功能如：下载进度的更新……</p>
+<h2 id="大总结"><a href="#大总结" class="headerlink" title="大总结"></a>大总结</h2><p>这篇文章只是通过一步一步看源码来分析Handler、Looper、Message、MessageQueue和Thread之间的关系，其实他们的用法还很多很多，从他们不止一个的构造方法就可以看出来，但是我们要更好的使用它必须先了解它最简单的一面，然后再继续深入，看源码是非常重要的一种方式。</p>
+
       
     </div>
     
@@ -414,11 +727,11 @@ public static void merge(int[] num, int l, int mid, int r) {
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/Handler/" rel="tag">#Handler</a>
           
-            <a href="/tags/排序/" rel="tag">#排序</a>
+            <a href="/tags/线程间通讯/" rel="tag">#线程间通讯</a>
           
         </div>
       
@@ -427,17 +740,13 @@ public static void merge(int[] num, int l, int mid, int r) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/排序算法之交换排序/" rel="next" title="排序算法之交换排序">
-                <i class="fa fa-chevron-left"></i> 排序算法之交换排序
+              <a href="/2017/03/16/排序算法之归并排序/" rel="next" title="排序算法之归并排序">
+                <i class="fa fa-chevron-left"></i> 排序算法之归并排序
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/17/Handler从使用到到溃/" rel="prev" title="Handler从使用到崩溃">
-                Handler从使用到崩溃 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -452,10 +761,10 @@ public static void merge(int[] num, int l, int mid, int r) {
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/16/排序算法之归并排序/"
-     data-title="排序算法之归并排序"
+        <div class="ds-share flat" data-thread-key="2017/03/17/Handler从使用到到溃/"
+     data-title="Handler从使用到崩溃"
      data-content=""
-     data-url="http://yoursite.com/2017/03/16/排序算法之归并排序/">
+     data-url="http://yoursite.com/2017/03/17/Handler从使用到到溃/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -482,8 +791,8 @@ public static void merge(int[] num, int l, int mid, int r) {
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/16/排序算法之归并排序/"
-           data-title="排序算法之归并排序" data-url="http://yoursite.com/2017/03/16/排序算法之归并排序/">
+      <div class="ds-thread" data-thread-key="2017/03/17/Handler从使用到到溃/"
+           data-title="Handler从使用到崩溃" data-url="http://yoursite.com/2017/03/17/Handler从使用到到溃/">
       </div>
     
   </div>
@@ -612,7 +921,7 @@ public static void merge(int[] num, int l, int mid, int r) {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">1.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序-1"><span class="nav-number">2.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从用法开始"><span class="nav-number">2.</span> <span class="nav-text">从用法开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发送一条Message"><span class="nav-number">3.</span> <span class="nav-text">发送一条Message</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大总结"><span class="nav-number">4.</span> <span class="nav-text">大总结</span></a></li></ol></div>
             
           </div>
         </section>
