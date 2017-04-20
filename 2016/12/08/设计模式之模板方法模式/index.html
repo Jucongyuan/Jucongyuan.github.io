@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/08/设计模式之模板方法模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="小明拿到了一个半成品这天，主管发了一个项目给小明，说这是之前咖啡厅的一个小需求，他们的生意越来越好，开始买其他的饮品了，比如茶。咖啡店想把泡咖啡和泡茶的过程规范一下，所以需要小明他们公司迭代一个程序的版本。">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012070917340125.png">
-<meta property="og:updated_time" content="2016-12-09T01:26:54.000Z">
+<meta property="og:image" content="https://images.jucongyuan.com/2012070917340125.png">
+<meta property="og:updated_time" content="2017-04-20T10:10:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之模板方法模式">
 <meta name="twitter:description" content="小明拿到了一个半成品这天，主管发了一个项目给小明，说这是之前咖啡厅的一个小需求，他们的生意越来越好，开始买其他的饮品了，比如茶。咖啡店想把泡咖啡和泡茶的过程规范一下，所以需要小明他们公司迭代一个程序的版本。">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/2012070917340125.png">
+<meta name="twitter:image" content="https://images.jucongyuan.com/2012070917340125.png">
 
 
 
@@ -389,7 +389,7 @@
 }
 </code></pre><p>小明发现这种方式真不错呢，于是请教了主管，这是什么用法。主管说，这叫模板方法模式，我们可以看到在抽象类中，我们定义了一些抽象方法，这些方法由子类去实现，还定义了一些默认实现的方法（boilWater()、waterInCup()），另外还有一个被final修饰的made()方法，我们把这个方法就称为<code>模板方法</code>（不会被子类覆盖），它调用了一些抽象方法和已经实现的方法去实现，抽象方法中的实现不是在抽象类中，而是在子类中，这就是我们的模板方法模式。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中某些步骤。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/2012070917340125.png" alt="模板方法模式"></p>
+<p><img src="https://images.jucongyuan.com/2012070917340125.png" alt="模板方法模式"></p>
 <h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
 <li>模板方法模式在一个类中形式化地定义算法，而由它的子类实现细节的处理</li>
 <li>模板方法是一种代码复用的基本技术。它们在类库中尤为重要，它们提取了类库中的公共行为</li>

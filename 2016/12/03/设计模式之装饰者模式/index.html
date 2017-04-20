@@ -86,14 +86,14 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/03/设计模式之装饰者模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decoratetwo.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/io.png">
-<meta property="og:updated_time" content="2016-12-05T01:46:54.000Z">
+<meta property="og:image" content="https://images.jucongyuan.com/decorate.png">
+<meta property="og:image" content="https://images.jucongyuan.com/decoratetwo.png">
+<meta property="og:image" content="https://images.jucongyuan.com/io.png">
+<meta property="og:updated_time" content="2017-04-20T10:09:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之装饰器模式">
 <meta name="twitter:description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png">
+<meta name="twitter:image" content="https://images.jucongyuan.com/decorate.png">
 
 
 
@@ -324,11 +324,11 @@
       
 
       
-        <h2 id="经典咖啡厅问题"><a href="#经典咖啡厅问题" class="headerlink" title="经典咖啡厅问题"></a>经典咖啡厅问题</h2><p>小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：<br><img src="http://7xrmw5.com1.z0.glb.clouddn.com/decorate.png" alt="decorate"></p>
+        <h2 id="经典咖啡厅问题"><a href="#经典咖啡厅问题" class="headerlink" title="经典咖啡厅问题"></a>经典咖啡厅问题</h2><p>小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：<br><img src="https://images.jucongyuan.com/decorate.png" alt="decorate"></p>
 <a id="more"></a>
 <p>很快，新的需求来了，由于顾客的增多，有许多客户对咖啡有特殊的要求，如加奶、加糖，巧克力风味的等等，加了不同料的咖啡价格是不一样的。小明很快就着手开始新建更多类，加奶焦糖玛奇朵，巧克力摩卡……但这时的他突然发现有问题：相同的咖啡，因为加料的不同出现了很多的配搭，会导致严重的类剧增。</p>
 <p>小明立即请教了主管，并提出了新的解决方案，给Coffee接口增加方法，如setMilk()、hasMilk()等方法来确保某一个咖啡是加了哪些其他调料的，但是一个问题直接就否定了这样设计：如果我要加双倍调料呢？而且如果出现了一种新的不能加任何调料的饮料时，就会违背<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">接口隔离原则</a>，小明陷入了很大的困难之中，这是主管让小明去了解一下装饰器模式，然后再做出新的设计，小明再了解之后，很快做出了新的设计：</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/decoratetwo.png" alt="decoratetwo"></p>
+<p><img src="https://images.jucongyuan.com/decoratetwo.png" alt="decoratetwo"></p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>小明用的设计模式就叫装饰者模式：动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案。</p>
 <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
 <li>抽象组件（Component）</li>
@@ -337,7 +337,7 @@
 <li>具体装饰角色（Concrete Decorator）</li>
 </ul>
 <p><code>注意：装饰者模式并非针对具体的组件进行装饰</code></p>
-<h2 id="真实世界的装饰者：Java-I-O"><a href="#真实世界的装饰者：Java-I-O" class="headerlink" title="真实世界的装饰者：Java I/O"></a>真实世界的装饰者：Java I/O</h2><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/io.png" alt="输入流"></p>
+<h2 id="真实世界的装饰者：Java-I-O"><a href="#真实世界的装饰者：Java-I-O" class="headerlink" title="真实世界的装饰者：Java I/O"></a>真实世界的装饰者：Java I/O</h2><p><img src="https://images.jucongyuan.com/io.png" alt="输入流"></p>
 <p>这是Java I/O中字节输入流的类图结构，我们发现和咖啡厅的设计几乎是一样的，不同的是InputStream是通过抽象类实现，而非接口。我们把左边的三个类（FileInputStream、 StringBufferInputStream、ByteArrayInputStream，不止这是三个）在装饰者模式中称为组件，而把继承至FilterInputStream的类称之为装饰者，装饰者就是用来装饰组件的。看看I/O内部BufferedInputStream是怎么修饰的呢？我们可以用BufferedInputStream来修饰FileInputStream，如果不用BufferedInputStream修饰，直接使用FileInputStream，在调用read()方法时，我们每读出一个字节，就需要做处理，使用了BufferedInputStream，它会给我们提供一个缓冲区，这个缓冲区可以我们自定义大小，也可以使用BufferedInputStream的默认8兆的大小，缓冲区都作用就是将读取出来的数据缓存起来供我们使用，而不是读取一个字节就要使用。</p>
 <h2 id="装饰者模式的优缺点和体现的原则"><a href="#装饰者模式的优缺点和体现的原则" class="headerlink" title="装饰者模式的优缺点和体现的原则"></a>装饰者模式的优缺点和体现的原则</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
 <li>不用继承扩展了类的功能</li>

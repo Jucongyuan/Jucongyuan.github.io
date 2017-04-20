@@ -92,19 +92,19 @@
 1）那些内存需要回收？
 2）什么时候回收？
 3）如何回收？">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_101.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png">
-<meta property="og:updated_time" content="2016-09-13T02:28:44.000Z">
+<meta property="og:image" content="https://images.jucongyuan.com/A153051507-186393.jpg_small.jpg">
+<meta property="og:image" content="https://images.jucongyuan.com/20140725152545_101.png">
+<meta property="og:image" content="https://images.jucongyuan.com/20140725152545_996.png">
+<meta property="og:image" content="https://images.jucongyuan.com/20140725152545_510.png">
+<meta property="og:image" content="https://images.jucongyuan.com/20140725152545_514.png">
+<meta property="og:updated_time" content="2017-04-20T09:59:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存回收简介">
 <meta name="twitter:description" content="前言大家都知道，C++的内存管理是由开发人员自己掌握的，而Java则是自动完成的，那么它是怎么实现的呢？在前人们设计垃圾收集技术时，解决了下面三件事情：
 1）那些内存需要回收？
 2）什么时候回收？
 3）如何回收？">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg">
+<meta name="twitter:image" content="https://images.jucongyuan.com/A153051507-186393.jpg_small.jpg">
 
 
 
@@ -347,7 +347,7 @@
 <p>2）方法区静态变量引用的对象</p>
 <p>3）方法区中常量引用的对象</p>
 <p>4）本地方法栈中Native方法里应用的对象</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/A153051507-186393.jpg_small.jpg" alt="可达性分析"></p>
+<p><img src="https://images.jucongyuan.com/A153051507-186393.jpg_small.jpg" alt="可达性分析"></p>
 <h3 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h3><p>上面讲的是堆中的垃圾回收，在Java中，除了堆中会有垃圾回收，还有其他内存区域有内存回收吗？是有的，那就是方法区，方法区中存放的是和类相关的一些信息，那么如果确定那些类可以被回收呢：</p>
 <p>1）该类的所有实例都被回收，在堆中已经不存在该类的实例</p>
 <p>2）加载该类的ClassLoader已经被回收</p>
@@ -356,12 +356,12 @@
 <h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>这种算法是最容易理解的，它就是通过上面可达性分析算法后，标记出已死的对象实例，然后将这些区域的内存进行回收。不过它有两个明显的不足：</p>
 <p>1）标记和清除两个步骤的效率很低</p>
 <p>2）由于被回收的区域可能是不连续的，所以当需要连续内存时，必须提前触发一次垃圾收集动作</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_101.png" alt="标记-清除"></p>
+<p><img src="https://images.jucongyuan.com/20140725152545_101.png" alt="标记-清除"></p>
 <h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><p>复制的具体实现原理就是将内存分为两块，每次只使用其中一块，当这一块快使用完了的时候，就将这块中还存活的对象复制到另一块中，然后清理掉前一块中的内存空间。这种算法用于商业虚拟机回收新生代，因为新生代的对象98%都是“朝生夕死”，就将这块区域分为一块大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中一块Survivor，当回收时，将较少存活对象复制到另一块Survivor中，清理掉之前使用的Eden和其中一块Survivor。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_996.png" alt="复制"></p>
+<p><img src="https://images.jucongyuan.com/20140725152545_996.png" alt="复制"></p>
 <h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>标记-整理算法和标记-清除算法的前面步骤是一样的，只是在标记后，并不马上清理，而是让所有存货的对象向一端移动，然后清理掉另一端的边界以外的对象。这种算法和上面的标记-清除算法用于虚拟机中老年代的回收算法。</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_510.png" alt="标记-整理"></p>
-<h3 id="分代收集法"><a href="#分代收集法" class="headerlink" title="分代收集法"></a>分代收集法</h3><p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/20140725152545_514.png" alt="分代收集"></p>
+<p><img src="https://images.jucongyuan.com/20140725152545_510.png" alt="标记-整理"></p>
+<h3 id="分代收集法"><a href="#分代收集法" class="headerlink" title="分代收集法"></a>分代收集法</h3><p><img src="https://images.jucongyuan.com/20140725152545_514.png" alt="分代收集"></p>
 <p>分代收集法就是根据对象的存活周期将内存划分为两块：新生代和老年代，然后不同的区域采用不同的垃圾回收算法，如上面介绍到的：新生代采用复制算法，老年代采用标记-清除或者标记-整理算法。在实际情况中，当新生代中另一块Survivor区域无法存放下存活下来的对象时，这些对象将进入老年代，那么有哪些情况，新生代的对象会进入老年代呢？</p>
 <p>1）大对象</p>
 <p>2）每次Eden进行MinorGC后对象年龄加1进入survivor，对象年龄达到15时进入老年代</p>

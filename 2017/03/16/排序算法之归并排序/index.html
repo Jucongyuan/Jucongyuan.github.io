@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/16/排序算法之归并排序/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="归并排序归并排序就一种排序方法">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14235319-8c15631895704786979d97954264cc66.png">
-<meta property="og:updated_time" content="2017-03-16T10:59:02.000Z">
+<meta property="og:image" content="https://images.jucongyuan.com/14235319-8c15631895704786979d97954264cc66.png">
+<meta property="og:updated_time" content="2017-04-20T10:05:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法之归并排序">
 <meta name="twitter:description" content="归并排序归并排序就一种排序方法">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/14235319-8c15631895704786979d97954264cc66.png">
+<meta name="twitter:image" content="https://images.jucongyuan.com/14235319-8c15631895704786979d97954264cc66.png">
 
 
 
@@ -325,7 +325,7 @@
         <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>归并排序就一种排序方法</p>
 <a id="more"></a>
 <h2 id="归并排序-1"><a href="#归并排序-1" class="headerlink" title="归并排序"></a>归并排序</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>并归排序的原理就是合并两个有序的序列为一个有序序列，怎么才能有两个有序的序列呢？我们用一张图来讲解归并排序：</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/14235319-8c15631895704786979d97954264cc66.png" alt="归并排序"></p>
+<p><img src="https://images.jucongyuan.com/14235319-8c15631895704786979d97954264cc66.png" alt="归并排序"></p>
 <p>我们可以看到，我们从左到右将一个序列一分为二、二分为四……直到所有序列中只有一个，然后合并，从右到左开始合并，如<code>4</code>和<code>10</code>先合并，组成<code>[4,10]</code>，<code>[4,10]</code>再和<code>6</code>合并组成<code>[4,6,10]</code>……那么用什么方法呢，当然是递归了，代码如下：</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><!-- lang:java -->
 <pre><code>public static void mergeSort(int[] num, int l, int r) {

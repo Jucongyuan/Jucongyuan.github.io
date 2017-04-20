@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/21/设计模式之解释器模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="这次没有小明，我们来做加减乘除现在我们要计算6*(5+(25+15)/8+22)这个表达式的值，大家应该觉得很简单，写一个方法，一步一步计算就是了，这样是可以计算出来这个表达式的结果，那如果换了一个另外一个表达式，我们又要写一个方法去单独计算这另外一个表达式，所以我们应该想一种办法，用一个算法，可以计算出所有加减乘除带括号的表达式">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1341331467_7271.jpg">
-<meta property="og:updated_time" content="2016-12-22T01:53:35.000Z">
+<meta property="og:image" content="https://images.jucongyuan.com/1341331467_7271.jpg">
+<meta property="og:updated_time" content="2017-04-20T10:10:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之解释器模式">
 <meta name="twitter:description" content="这次没有小明，我们来做加减乘除现在我们要计算6*(5+(25+15)/8+22)这个表达式的值，大家应该觉得很简单，写一个方法，一步一步计算就是了，这样是可以计算出来这个表达式的结果，那如果换了一个另外一个表达式，我们又要写一个方法去单独计算这另外一个表达式，所以我们应该想一种办法，用一个算法，可以计算出所有加减乘除带括号的表达式">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/1341331467_7271.jpg">
+<meta name="twitter:image" content="https://images.jucongyuan.com/1341331467_7271.jpg">
 
 
 
@@ -409,7 +409,7 @@ public static int getValue(String s) {
 </ol>
 <p>通过此方法，可以将上面的<code>6 * ( 5 + ( 25 + 15 ) / 8 + 22 )</code>转化为我们的逆波兰表达式：<code>6 5 25 15 + 8 / + 22 + *</code>，那么怎么计算呢，大家可能会发现，到现在我们都还没提到解释器模式，不过现在，我们可以用到他了，我们要用解释器模式来计算我们转化为逆波兰表达式的值。现在先来看看解释器模式的定义</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>定义一个语言的文法，并且建立一个解释器来解释该语言中的句子，这里的“语言”是指使用规定格式和语法的代码</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/1341331467_7271.jpg" alt="解释器模式"></p>
+<p><img src="https://images.jucongyuan.com/1341331467_7271.jpg" alt="解释器模式"></p>
 <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
 <li>抽象表达式</li>
 <li>终结符表达式</li>

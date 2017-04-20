@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/16/设计模式之原型模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="公司做游戏了小明的公司赚的钱越来越多了，他们开始尝试新的机会，公司觉得游戏是一个不错的选择，所以公司准备做游戏了">
-<meta property="og:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/prototype-pattern-1.jpg">
-<meta property="og:updated_time" content="2016-12-16T04:11:21.000Z">
+<meta property="og:image" content="https://images.jucongyuan.com/prototype-pattern-1.jpg">
+<meta property="og:updated_time" content="2017-04-20T10:10:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之原型模式">
 <meta name="twitter:description" content="公司做游戏了小明的公司赚的钱越来越多了，他们开始尝试新的机会，公司觉得游戏是一个不错的选择，所以公司准备做游戏了">
-<meta name="twitter:image" content="http://7xrmw5.com1.z0.glb.clouddn.com/prototype-pattern-1.jpg">
+<meta name="twitter:image" content="https://images.jucongyuan.com/prototype-pattern-1.jpg">
 
 
 
@@ -427,7 +427,7 @@
 }
 </code></pre><p>可以看到，我们用了clone方法来生成新的对象，这样做有什么好处呢，如果之前那种方式在我们的while中有耗时操作的话，实例化的过程效率很低，如果我们实现Cloneable接口，我们可以通过clone方法来生成对象，它是一个本地方法，直接在内存中再复制一份我们对象的二进制生成一个新的对象，而不是通过再使用构造函数去生成，这样效率会提升很多。所以在需要重复地创建相似对象时可以考虑使用原型模式。比如需要在一个循环体内创建对象，假如对象创建过程比较复杂或者循环次数很多的话，使用原型模式不但可以简化创建过程，而且可以使系统的整体性能提高很多</p>
 <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>用原型实例指定创建对象的种类，并通过拷贝这些原型创建新的对象</p>
-<p><img src="http://7xrmw5.com1.z0.glb.clouddn.com/prototype-pattern-1.jpg" alt="原型模式"></p>
+<p><img src="https://images.jucongyuan.com/prototype-pattern-1.jpg" alt="原型模式"></p>
 <h2 id="使用原型模式的注意事项"><a href="#使用原型模式的注意事项" class="headerlink" title="使用原型模式的注意事项"></a>使用原型模式的注意事项</h2><h3 id="使用原型模式复制对象不会调用类的构造方法"><a href="#使用原型模式复制对象不会调用类的构造方法" class="headerlink" title="使用原型模式复制对象不会调用类的构造方法"></a>使用原型模式复制对象不会调用类的构造方法</h3><p>因为对象的复制是通过调用Object类的clone方法来完成的，它直接在内存中复制数据，因此不会调用到类的构造方法。不但构造方法中的代码不会执行，甚至连访问权限都对原型模式无效。还记得单例模式吗？单例模式中，只要将构造方法的访问权限设置为private型，就可以实现单例。但是clone方法直接无视构造方法的权限，所以，单例模式与原型模式是冲突的，在使用时要特别注意</p>
 <h3 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h3><h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><p>被拷贝对象的所有变量都含有与原对象相同的值，而且对其他对象的引用仍然是指向原来的对象。即浅拷贝只负责当前对象实例，对引用的对象不做拷贝，然后一直基本数据类型会被拷贝</p>
 <h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><p>被拷贝对象的所有变量都含有与原来的对象相同的值，除去那些引用其他对象的变量。那些引用其他对象的变量将指向被复制过的新对象，而不再是原有的那些被引用的对象。换言之，深拷贝把要复制的对象所引用的对象都复制了一遍</p>
