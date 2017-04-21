@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/07/搭建Hexo静态博客/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20160308-0.png">
-<meta property="og:updated_time" content="2017-04-20T10:06:07.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20160308-0.png">
+<meta property="og:updated_time" content="2017-04-21T06:17:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建Hexo静态博客">
 <meta name="twitter:description" content="概述开源项目Hexo是由Node.js完成，所有源码位于GitHib上，可以使用它搭建自己的静态博客网页。很重要的一点，该框架可以使用轻量级标记语言Markdown编辑文章，可参考Markdown入门资料">
-<meta name="twitter:image" content="https://images.jucongyuan.com/QQ20160308-0.png">
+<meta name="twitter:image" content="http://images.jucongyuan.com/QQ20160308-0.png">
 
 
 
@@ -329,7 +329,7 @@
 <h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>进入你想存放文件的目录，如我是在<code>/Document/hexo/blog</code>下，命令进入到相应目录下，执行：</p>
 <p><pre><code>1 $ hexo init<br>2 $ npm install<br></code></pre><br>启动本地服务器</p>
 <p><pre><code>$ hexo s</code></pre><br>浏览器打开<code>http://localhost:4000</code>，至此本地的静态网页博客已经搭建成功，那么如何让其他人也能够访问到呢，我们需要将他部署到GitHub上</p>
-<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>申请GitHub社区账号，并新建新的Repository，注意Repository的名字一定要遵守<code>用户名.github.io</code>，如图是我的<br><img src="https://images.jucongyuan.com/QQ20160308-0.png" alt="New"></p>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>申请GitHub社区账号，并新建新的Repository，注意Repository的名字一定要遵守<code>用户名.github.io</code>，如图是我的<br><img src="http://images.jucongyuan.com/QQ20160308-0.png" alt="New"></p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在本地的静态博客根目录下，找到<code>_config.yml</code>文件，找到<code>deploy</code>关键字，根据自己新建的Repository修改为如以下配置</p>
 <p><pre><code>deploy:<br>  type: git<br>  repo: git@github.com:Jucongyuan/Jucongyuan.github.io.git<br>  branch: master<br></code></pre><br>部署到GitHub，在博客根目录下执行以下命令</p>
 <p><pre><code>1 $ hexo clean<br>2 $ hexo generate<br>3 $ hexo deploy<br></code></pre></p>

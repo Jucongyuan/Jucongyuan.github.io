@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/12/Java内存区域简介/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="前言为什么是简介呢？因为自己实在不敢用详解两字，不过还是希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以还是希望大家可以多看书，然后总结为自己的知识体系。">
-<meta property="og:image" content="https://images.jucongyuan.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
-<meta property="og:updated_time" content="2017-04-20T09:58:40.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
+<meta property="og:updated_time" content="2017-04-21T06:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存区域简介">
 <meta name="twitter:description" content="前言为什么是简介呢？因为自己实在不敢用详解两字，不过还是希望用简短易懂的语言来描述，使大家能有一个初步的认识，这些内容主要是从《深入Java虚拟机》中同时加入自己的一些零碎知识总结而来的，所以还是希望大家可以多看书，然后总结为自己的知识体系。">
-<meta name="twitter:image" content="https://images.jucongyuan.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
+<meta name="twitter:image" content="http://images.jucongyuan.com/14B1A10413DF45E69167EF20EFF9F713.jpg">
 
 
 
@@ -326,7 +326,7 @@
 <a id="more"></a>
 <h2 id="线程和进程"><a href="#线程和进程" class="headerlink" title="线程和进程"></a>线程和进程</h2><p>为什么会提到这两个老生常谈的东西呢？因为Java的内存区域是分为共享和非共享的，那么直接就和线程和进程相关了，线程和进程的区别在这里我就不详细介绍了，不太了解的同学可以看看这篇文章<a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="external">进程与线程的一个简单解释</a>，比较形象和生动。</p>
 <h2 id="单核可以多线程吗"><a href="#单核可以多线程吗" class="headerlink" title="单核可以多线程吗"></a>单核可以多线程吗</h2><p>我们从这个问题入手，看看Java虚拟机是如何实现多线程的。首先，这个问题的答案是肯定的（可以），多个线程会被CPU分配不同的时间，CPU快速的切换（一般在几十毫秒）不同的线程来实现多线程，我们把分配给线程的时间叫着<code>时间片</code>，不停的切换时间片就是<code>上下文切换</code>，在一秒时间里，上下文切换的次数可以达到数千次（2000次左右）。所以接下来第一块我们需要介绍到的，就是在切换中起着很大作用的<code>程序计数器</code>。</p>
-<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p><img src="https://images.jucongyuan.com/14B1A10413DF45E69167EF20EFF9F713.jpg" alt="运行时数据区"></p>
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p><img src="http://images.jucongyuan.com/14B1A10413DF45E69167EF20EFF9F713.jpg" alt="运行时数据区"></p>
 <h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>程序计数器是一块很小的内存，它是线程私有的，它记录着当前线程Java方法虚拟机字节码指令的地址（如果为Native方法，计数器值为空），为什么需要记录这个东西呢？因为再上下文不断切换时，我们需要保存将被切换线程执行到哪里了，然后再恢复时，可以根据保存的信息进行恢复。在这个内存区域中，是不会出现OutOfMemoryError的，也是内存区域中唯一个。</p>
 <h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><p>Java虚拟机栈也是线程私有的，它的生命周期和线程相同。一个线程中有多个方法，每一个方法都会创建一个栈帧，这个栈帧里面保存了局部变量表、操作数栈、动态链接、方法出口等信息。很多个栈帧不断的在虚拟机栈中入栈和出栈，就是这个线程不断的执行，同时随着入栈和出栈，一个方法的调用也执行完成了。</p>
 <h3 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h3><p>一个方法有一个局部变量表，它存放了方法中各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，对象引用不是对象本身，而是指向对象起始地址的引用指针、一个代表对象的句柄或者其他对象的相关位置）、returnAddress类型（指向了一条字节码指令的地址）。虚拟机栈中局部变量表的大小在运行期间是不会变化的，进入一个方法时，这个大小就已经确定了。</p>

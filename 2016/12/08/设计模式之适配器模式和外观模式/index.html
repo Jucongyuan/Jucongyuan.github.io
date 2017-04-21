@@ -86,14 +86,14 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/08/设计模式之适配器模式和外观模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="工厂也来了小明公司的项目越来越多，一家做污水处理的工厂也找上门了，这家污水处理厂最近和一家新的工厂签约了，这家新签约排放污水的工厂之前是和另一个污水处理厂合作，但是之前那家倒闭了，找到了他们，但是他们遇到了一个问题，排放污水的工厂不想改变他们之前排放污水的方式，但是现在这家污水处理厂接收污水的方式又和之前的污水处理厂的接收污水的方式完全不同，所以找到小明他们公司，希望能帮助解决。">
-<meta property="og:image" content="https://images.jucongyuan.com/629b701eg78c552d00933&690.gif">
-<meta property="og:image" content="https://images.jucongyuan.com/629b701eg78c552d09884&690.gif">
-<meta property="og:image" content="https://images.jucongyuan.com/1336116055_1914.jpg">
-<meta property="og:updated_time" content="2017-04-20T10:10:11.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/629b701eg78c552d00933&690.gif">
+<meta property="og:image" content="http://images.jucongyuan.com/629b701eg78c552d09884&690.gif">
+<meta property="og:image" content="http://images.jucongyuan.com/1336116055_1914.jpg">
+<meta property="og:updated_time" content="2017-04-21T06:20:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之适配器模式和外观模式">
 <meta name="twitter:description" content="工厂也来了小明公司的项目越来越多，一家做污水处理的工厂也找上门了，这家污水处理厂最近和一家新的工厂签约了，这家新签约排放污水的工厂之前是和另一个污水处理厂合作，但是之前那家倒闭了，找到了他们，但是他们遇到了一个问题，排放污水的工厂不想改变他们之前排放污水的方式，但是现在这家污水处理厂接收污水的方式又和之前的污水处理厂的接收污水的方式完全不同，所以找到小明他们公司，希望能帮助解决。">
-<meta name="twitter:image" content="https://images.jucongyuan.com/629b701eg78c552d00933&690.gif">
+<meta name="twitter:image" content="http://images.jucongyuan.com/629b701eg78c552d00933&690.gif">
 
 
 
@@ -409,9 +409,9 @@ sewageFactory.discharge(discharge);
 </code></pre><p>的确，从名字就可以读出，对象适配器是通过适配器和新的需要适配的类组合实现适配，而类的方式没有组合，通过直接继承需要适配的类实现适配，两者用法不同，但是都达到了同样的效果。两种应该在不同的场景下被选择，比如对象的适配器比较适配那些变化不大的，不会有更新扩展的的类，因为一旦对象变化了，需要修改适配器本身去适应新的变化。而类的适配器更适合适配单一的需要适配的类，因为如果适配器中牵扯到多个类时，类的适配方式就不那么灵活了，所以我们应该因材施教。</p>
 <h2 id="适配器定义"><a href="#适配器定义" class="headerlink" title="适配器定义"></a>适配器定义</h2><p>将一个类的接口，装换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。</p>
 <p>对象适配器：</p>
-<p><img src="https://images.jucongyuan.com/629b701eg78c552d00933&amp;690.gif" alt="对象适配器"></p>
+<p><img src="http://images.jucongyuan.com/629b701eg78c552d00933&amp;690.gif" alt="对象适配器"></p>
 <p>类适配器：</p>
-<p><img src="https://images.jucongyuan.com/629b701eg78c552d09884&amp;690.gif" alt="类适配器"></p>
+<p><img src="http://images.jucongyuan.com/629b701eg78c552d09884&amp;690.gif" alt="类适配器"></p>
 <h2 id="说一说适配器模式和装饰者模式"><a href="#说一说适配器模式和装饰者模式" class="headerlink" title="说一说适配器模式和装饰者模式"></a>说一说适配器模式和装饰者模式</h2><p>回想一下<a href="http://jucongyuan.github.io/2016/12/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">装饰者模式</a>，好像和适配器非常相似，那么两者有什么区别呢？其实他们的区别从定义就可以总结出来：装饰者会对装饰的组件增加新的责任，也就是功能，但是适配器没有给适配对象增加的责任，而只是让它满足客户的需求，好比有一个中间人，联络着客户和适配方。</p>
 <h2 id="标题中的另一种模式"><a href="#标题中的另一种模式" class="headerlink" title="标题中的另一种模式"></a>标题中的另一种模式</h2><p>文章的标题还提到了另一种模式：外观模式，为什么这次是两个模式一起来讲呢？因为外观模式和适配器模式非常相似，甚至有人任务两种模式是同一种模式，其实不然，外观模式和适配器模式用法是不一样的，也就是他们有各自的用途，我们已经知道适配器模式的用途，那么接下来看看外观模式的用途。</p>
 <h3 id="极客小明"><a href="#极客小明" class="headerlink" title="极客小明"></a>极客小明</h3><p>小明是一名极客，特别喜欢把各种东西攒在一起，这不，他为了给家里营造更好的观影感受，买了一大堆电子产品，有投影仪、自动屏幕、音响、DVD，甚至还有一个爆米花机。但是每次观影时的他是这样的：</p>
@@ -440,7 +440,7 @@ robot.off();
 </code></pre><p>我们看到，对于小明来说，之前需要做很多事，现在只需要做很简单的动作就可以了，这就是外观模式给使用者带来的好处。</p>
 <h2 id="外观模式的定义"><a href="#外观模式的定义" class="headerlink" title="外观模式的定义"></a>外观模式的定义</h2><p>提供一个统一的接口，用来访问子系统中的一群接口。外观模式定义了一个高层接口，让子系统更容易使用。</p>
 <p>外观模式完美体现了<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">最少知道原则</a></p>
-<p><img src="https://images.jucongyuan.com/1336116055_1914.jpg" alt="外观模式"></p>
+<p><img src="http://images.jucongyuan.com/1336116055_1914.jpg" alt="外观模式"></p>
 <p>那么通过对外观模式和适配器模式的深入了解，我们也能很清楚的知道他们之间的不同点了：外观模式是为了让接口更简单，而适配器是为了适配客户的接口。</p>
 
       

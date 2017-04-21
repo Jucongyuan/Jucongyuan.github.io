@@ -86,13 +86,13 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/02/设计模式之观察者模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="论坛每日精选项目小明的公司又接到了新的项目，这次的项目是一个论坛管理员给他们的论坛做的，论坛每天会选出优秀的文章发给读者，读者需要订阅这个推送，小明不太明白从何入手，于是请教了他的主管……">
-<meta property="og:image" content="https://images.jucongyuan.com/observer.png">
-<meta property="og:image" content="https://images.jucongyuan.com/observer%20two.png">
-<meta property="og:updated_time" content="2017-04-20T10:10:39.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/observer.png">
+<meta property="og:image" content="http://images.jucongyuan.com/observer%20two.png">
+<meta property="og:updated_time" content="2017-04-21T06:21:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之观察者模式">
 <meta name="twitter:description" content="论坛每日精选项目小明的公司又接到了新的项目，这次的项目是一个论坛管理员给他们的论坛做的，论坛每天会选出优秀的文章发给读者，读者需要订阅这个推送，小明不太明白从何入手，于是请教了他的主管……">
-<meta name="twitter:image" content="https://images.jucongyuan.com/observer.png">
+<meta name="twitter:image" content="http://images.jucongyuan.com/observer.png">
 
 
 
@@ -326,8 +326,8 @@
         <h2 id="论坛每日精选项目"><a href="#论坛每日精选项目" class="headerlink" title="论坛每日精选项目"></a>论坛每日精选项目</h2><p>小明的公司又接到了新的项目，这次的项目是一个论坛管理员给他们的论坛做的，论坛每天会选出优秀的文章发给读者，读者需要订阅这个推送，小明不太明白从何入手，于是请教了他的主管……</p>
 <a id="more"></a>
 <p>然后小明的主管很快设计出了两套程序让小明选择，</p>
-<p>程序A:<br><img src="https://images.jucongyuan.com/observer.png" alt="程序A"></p>
-<p>程序B:<br><img src="https://images.jucongyuan.com/observer%20two.png" alt="程序A"></p>
+<p>程序A:<br><img src="http://images.jucongyuan.com/observer.png" alt="程序A"></p>
+<p>程序B:<br><img src="http://images.jucongyuan.com/observer%20two.png" alt="程序A"></p>
 <p>程序A和B都是通过注册的方式将观察者关联到可观察者中，当有新的文章时，在notifyObservers()方法中调用所有Observer的update()方法。主管问小明我们应该选择哪一个呢？小明仔细分析了A和B，然后说选择B。主管说，A中我用的JDK中的可观察者类（java.util.Observable），为什么不选择A呢，还要自己定一个接口去做和Observable做差不多的事呢？小明说，上个项目用到策略模式时，有一个原则：<code>针对接口编程</code>，如果我们用继承的方式，会有很多问题：</p>
 <p>1）如果ArticleData还需要干其他事情，因为Java不能多继承，所以会陷入两难</p>
 <p>2）建立自己的实现时，破坏对<code>扩展开发，对修改关闭</code>的原则。因为Observable中已经对注册、删除、更新做了自己的实现</p>

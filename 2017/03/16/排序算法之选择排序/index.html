@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/16/排序算法之选择排序/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="选择排序选择排序有两种排序方法：简单选择排序和堆排序">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170316-0.png">
-<meta property="og:updated_time" content="2017-04-20T10:04:49.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170316-0.png">
+<meta property="og:updated_time" content="2017-04-21T06:16:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法之选择排序">
 <meta name="twitter:description" content="选择排序选择排序有两种排序方法：简单选择排序和堆排序">
-<meta name="twitter:image" content="https://images.jucongyuan.com/QQ20170316-0.png">
+<meta name="twitter:image" content="http://images.jucongyuan.com/QQ20170316-0.png">
 
 
 
@@ -343,7 +343,7 @@
     }
 }
 </code></pre><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>堆排序是利用<code>堆</code>这种数据结果的性质进行排序，堆是一个完全二叉树，堆分为大根堆和小根堆，大根堆是指父节点的值不小于它子节点的值的堆。例如同样对于上述序列<code>[4,3,6,1]</code>，用大根堆表示这个序列则为：</p>
-<p><img src="https://images.jucongyuan.com/QQ20170316-0.png" alt="大根堆"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170316-0.png" alt="大根堆"></p>
 <p>如果用数组表示则为<code>[6,4,3,1]</code>，大根堆和数组之间有关系吗？对于<code>6</code>这个数，它的索引为0，那么它的两个子节点的索引为<code>1</code>和<code>2</code>，对于用数组表示的堆，数组中任意一个数的子节点的索引为<code>(2*i)+1</code>和<code>(2*i)+2</code>（可能会超过数组长度），这就是我们要用到的最重要的关系，就是靠这个关系，我们可以将一个普通数组变为一个堆。再来看看图中的大根堆，它的第一个数永远是最大的，所以我们可以一步一步的把堆顶点的数<code>选择</code>出来，再对剩下的数再建堆，再取出堆顶的数，这样我们取出的数就是从大到小的了。所以堆排序的过程为：</p>
 <ol>
 <li>建堆</li>

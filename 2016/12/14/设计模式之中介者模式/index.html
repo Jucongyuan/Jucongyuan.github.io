@@ -86,14 +86,14 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/14/设计模式之中介者模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="小明开始了解更多的模式小明买房的事正在顺利的进展着，同时他也知道了代理模式的用处，为了掌握更多的设计模式，他开始自己学习其他模式了，首先它想到的就是中介者模式，因为它似乎觉得中介者模式更能体现他买房的方式。">
-<meta property="og:image" content="https://images.jucongyuan.com/mediator-pattern-2.jpg">
-<meta property="og:image" content="https://images.jucongyuan.com/mediator-pattern-3.jpg">
-<meta property="og:image" content="https://images.jucongyuan.com/mediator-pattern-1.jpg">
-<meta property="og:updated_time" content="2017-04-20T10:09:53.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/mediator-pattern-2.jpg">
+<meta property="og:image" content="http://images.jucongyuan.com/mediator-pattern-3.jpg">
+<meta property="og:image" content="http://images.jucongyuan.com/mediator-pattern-1.jpg">
+<meta property="og:updated_time" content="2017-04-21T06:19:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之中介者模式">
 <meta name="twitter:description" content="小明开始了解更多的模式小明买房的事正在顺利的进展着，同时他也知道了代理模式的用处，为了掌握更多的设计模式，他开始自己学习其他模式了，首先它想到的就是中介者模式，因为它似乎觉得中介者模式更能体现他买房的方式。">
-<meta name="twitter:image" content="https://images.jucongyuan.com/mediator-pattern-2.jpg">
+<meta name="twitter:image" content="http://images.jucongyuan.com/mediator-pattern-2.jpg">
 
 
 
@@ -368,7 +368,7 @@
     }
 }
 </code></pre><p>如果只有像上面两个这样的同事类，我们还能应付过来，但如果像下面这样呢？</p>
-<p><img src="https://images.jucongyuan.com/mediator-pattern-2.jpg" alt="同事类"></p>
+<p><img src="http://images.jucongyuan.com/mediator-pattern-2.jpg" alt="同事类"></p>
 <p>如果对象1发生变化了，有4个对象会被影响，对象5变化了，将有5个对象被影响，所以这种情况下，我们必须解决这种困境，也就是假如对象1发生变化，它不需要关心和去处理它的同事类变化，它只负责自己，不管是变化还是怎样也好，它的职责应该是单一的</p>
 <p>我们优化一下上面的A和B，引进一个中介者：</p>
 <!-- java -->
@@ -436,9 +436,9 @@
     }
 }
 </code></pre><p>在代码中，虽然类A和类B有很大的关系，但是都没有在类A和类B中体现出来了，而是通过一个中介者类解耦了。所以有了中介者模式，我们可以将上图中多个同事类的关系改变为这样：</p>
-<p><img src="https://images.jucongyuan.com/mediator-pattern-3.jpg" alt="中介者"></p>
+<p><img src="http://images.jucongyuan.com/mediator-pattern-3.jpg" alt="中介者"></p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>用一个中介者对象封装一系列的对象交互，中介者使各对象不需要显示地相互作用，从而使耦合松散，而且可以独立地改变它们之间的交互</p>
-<p><img src="https://images.jucongyuan.com/mediator-pattern-1.jpg" alt="角色"></p>
+<p><img src="http://images.jucongyuan.com/mediator-pattern-1.jpg" alt="角色"></p>
 <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
 <li>同事类（多个）</li>
 <li>抽象中介者</li>

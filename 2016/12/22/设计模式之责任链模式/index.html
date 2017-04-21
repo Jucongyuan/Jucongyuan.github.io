@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/22/设计模式之责任链模式/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="小明公司要做财务ERP系统小明公司随着项目的增多，公司发展得越来越壮大，所以有一些财务上的审批，如果报账的金额在100以下，团队主管直接审批后就可以，如果在100以上5000以下，需要部门经理审批，如果在5000以上，需要公司经理审批。公司想通过线上的方式去将这个流程实现">
-<meta property="og:image" content="https://images.jucongyuan.com/chain-responsibility-pattern-1.jpg">
-<meta property="og:updated_time" content="2017-04-20T10:09:59.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/chain-responsibility-pattern-1.jpg">
+<meta property="og:updated_time" content="2017-04-21T06:19:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之责任链模式">
 <meta name="twitter:description" content="小明公司要做财务ERP系统小明公司随着项目的增多，公司发展得越来越壮大，所以有一些财务上的审批，如果报账的金额在100以下，团队主管直接审批后就可以，如果在100以上5000以下，需要部门经理审批，如果在5000以上，需要公司经理审批。公司想通过线上的方式去将这个流程实现">
-<meta name="twitter:image" content="https://images.jucongyuan.com/chain-responsibility-pattern-1.jpg">
+<meta name="twitter:image" content="http://images.jucongyuan.com/chain-responsibility-pattern-1.jpg">
 
 
 
@@ -354,7 +354,7 @@
 }
 </code></pre><p>小明写完后仔细的思考了一下，这个代码存在很多问题，比如不符合单一原则，这个类负责了三个不同的事情。同时，不符合开闭原则，如果新增加一个审批角色，需要修改代码来扩展。但是小明一时也想不到解决办法，于是找到了主管，主管说，这是一个典型的责任链模式，我们可以通过责任链模式来设计这个项目</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>避免请求发送者与接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止</p>
-<p><img src="https://images.jucongyuan.com/chain-responsibility-pattern-1.jpg" alt="责任链模式"></p>
+<p><img src="http://images.jucongyuan.com/chain-responsibility-pattern-1.jpg" alt="责任链模式"></p>
 <h2 id="用责任链模式来现实"><a href="#用责任链模式来现实" class="headerlink" title="用责任链模式来现实"></a>用责任链模式来现实</h2><p>首先我们要实现处理类</p>
 <!-- java -->
 <pre><code>public abstract class Handler {

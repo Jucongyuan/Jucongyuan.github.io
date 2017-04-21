@@ -86,23 +86,23 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/28/《数据库原理》三章读书笔记/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="结构化查询语言结构化查询语言(Structured Query Language)简称SQL，由IBM开发，并被美国标准制定委员会（ANSI）定位国家标准。SQL命令可以分为几大类，今天主要介绍其中两类，数据定义语言DDL(data definition Language)和数据操作语言DML(Data Manipulation Language)。">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170228-1.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170228-0.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-0.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-1.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-3.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-4.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-2.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-6.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-5.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-7.png">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20170301-8.png">
-<meta property="og:image" content="https://images.jucongyuan.com/WechatIMG1.png">
-<meta property="og:updated_time" content="2017-04-20T10:07:32.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170228-1.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170228-0.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-0.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-1.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-3.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-4.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-2.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-6.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-5.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-7.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170301-8.png">
+<meta property="og:image" content="http://images.jucongyuan.com/WechatIMG1.png">
+<meta property="og:updated_time" content="2017-04-21T06:18:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《数据库原理》三章读书笔记">
 <meta name="twitter:description" content="结构化查询语言结构化查询语言(Structured Query Language)简称SQL，由IBM开发，并被美国标准制定委员会（ANSI）定位国家标准。SQL命令可以分为几大类，今天主要介绍其中两类，数据定义语言DDL(data definition Language)和数据操作语言DML(Data Manipulation Language)。">
-<meta name="twitter:image" content="https://images.jucongyuan.com/QQ20170228-1.png">
+<meta name="twitter:image" content="http://images.jucongyuan.com/QQ20170228-1.png">
 
 
 
@@ -339,8 +339,8 @@
 <p><code>注：本文使用的数据库系统为MySQL和SQLite，相关环境请自行搭建</code></p>
 <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>命令：<code>CREATE DATABASE demo;</code></p>
 <p>在SQLite的命令行中，直接使用<code>sqlite3 demo</code>可以直接创建和使用名字为<code>demo</code>的数据库。打开MySQL可视化工具MySQLWorkbench，创建一个名为demo的数据库。</p>
-<p><img src="https://images.jucongyuan.com/QQ20170228-1.png" alt="sqlite"></p>
-<p><img src="https://images.jucongyuan.com/QQ20170228-0.png" alt="MySQL"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170228-1.png" alt="sqlite"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170228-0.png" alt="MySQL"></p>
 <h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><!-- sql -->
 <pre><code>CREATE TABLE NewTableName(
     ColumnName DataType OptionalConstraint,
@@ -349,26 +349,26 @@
     optional table constraint
 );
 </code></pre><p>NewTableName为表名，ColumnName为数据表中的列名，也就是字段名，DataType为该列的数据类型，OptionalConstraint为该列的数据约束，是可选的，常见的数据约束有：PRIMARY KEY，NULL，NOT NULL，UNIQUE，FOREIGN KEY。optional table constraint为表约束，可以定义表的主键和参照完整性约束等。SQLite数据类型可以查考<a href="http://www.runoob.com/sqlite/sqlite-data-types.html" target="_blank" rel="external">这里</a>。MySQL的数据类型可以查考<a href="http://www.runoob.com/mysql/mysql-data-types.html" target="_blank" rel="external">这里</a>。现在我们在刚才的demo数据库中创建四个Table，MySQL语句如下：</p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-0.png" alt="MySQL创建表"></p>
-<p><a href="https://images.jucongyuan.com/MySQL%E5%88%9B%E5%BB%BA%E8%A1%A8.sql" target="_blank" rel="external">下载以上SQL</a></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-0.png" alt="MySQL创建表"></p>
+<p><a href="http://images.jucongyuan.com/MySQL%E5%88%9B%E5%BB%BA%E8%A1%A8.sql" target="_blank" rel="external">下载以上SQL</a></p>
 <p>SQLite语句如下：</p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-1.png" alt="SQLite创建表"></p>
-<p><a href="https://images.jucongyuan.com/SQLite%E5%88%9B%E5%BB%BA%E8%A1%A8" target="_blank" rel="external">下载以上SQL</a></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-1.png" alt="SQLite创建表"></p>
+<p><a href="http://images.jucongyuan.com/SQLite%E5%88%9B%E5%BB%BA%E8%A1%A8" target="_blank" rel="external">下载以上SQL</a></p>
 <h3 id="CHAR和VARCHAR"><a href="#CHAR和VARCHAR" class="headerlink" title="CHAR和VARCHAR"></a>CHAR和VARCHAR</h3><p>都是表示字符，但是CHAR是固定长度的，括号内可声明最大长度，存储时不能超过最大长度，而无论比最大长度少多少，存储时都存储最大长度，不足用空格代替。而VARCHAR存储的长度是可变的，根据实际的长度存储，不过这就需要额外的空间来存储它的长度，才能在内存或者硬盘中组织不定长度的值。</p>
 <h3 id="NUMERIC-5-2"><a href="#NUMERIC-5-2" class="headerlink" title="NUMERIC(5, 2)"></a>NUMERIC(5, 2)</h3><p>表示带两位小数的八位数字，如果插入数据位123.34，则该数据存储为12334，不会存储小数点。</p>
 <h3 id="CONSTRAINT-XX-PK-和CONSTRAINT-XX-FK"><a href="#CONSTRAINT-XX-PK-和CONSTRAINT-XX-FK" class="headerlink" title="CONSTRAINT XX_PK 和CONSTRAINT XX_FK"></a>CONSTRAINT XX_PK 和CONSTRAINT XX_FK</h3><p>都为约束名，一个是主键的约束名称，一个是外键的约束名称，习惯性用<code>表名加PK</code>表示主键，<code>表名加FK</code>表示主键，定义这个约束名是为了方便以后对数据库的操作，比如删除某个表的主键。</p>
 <h3 id="CONSTRAINT-ASS-PRO-FK-FOREIGN-KEY-ProjectID-REFERENCES-PROJECT-ProjectID-ON-UPDATE-NO-ACTION-ON-DELETE-CASCADE"><a href="#CONSTRAINT-ASS-PRO-FK-FOREIGN-KEY-ProjectID-REFERENCES-PROJECT-ProjectID-ON-UPDATE-NO-ACTION-ON-DELETE-CASCADE" class="headerlink" title="CONSTRAINT ASS_PRO_FK FOREIGN KEY (ProjectID) REFERENCES PROJECT(ProjectID) ON UPDATE NO ACTION ON DELETE CASCADE"></a>CONSTRAINT ASS_PRO_FK FOREIGN KEY (ProjectID) REFERENCES PROJECT(ProjectID) ON UPDATE NO ACTION ON DELETE CASCADE</h3><p>解释：定义一个约束名为ASS_PRO_FK的外键ProjectID，这个外键关联到PROJECT表中的主键ProjectID，当更新时，外键不做任何处理（实际上该ProjectID在PROJECT中永远不会更新，因为它是自增长的），当删除PROJECT某一行时，同时也删除所有在ASSIGNMENT中ProjectID为同样值的数据。然后再看<code>CONSTRAINT ASS_EMP_FK FOREIGN KEY (EmployeeNumber) REFERENCES EMPLOYEE(EmployeeNumber) ON UPDATE NO ACTION ON DELETE NO ACTION</code>，更新EmployeeNumber时没有操作，原因同样是EmployeeNumber是不会变的，但是当删除一个Employee时，就和上面不一样了，这里不会有任何操作，这是什么原因呢？其实这个是和实际的业务规则有关系的，删除一个项目，我们会把项目的所有指派全部删了，因为没有项目的指派是没有意义的。但是如果一个员工离职了，指派还是有意义的，我们可以指派另一个员工嘛，这就是我们的业务规则。NO ACTION是默认的，我们可以不定义，但是一般情况下我们需要显示的展示出来，这是为了生成更好的文档。</p>
 <h2 id="数据操作语言DML"><a href="#数据操作语言DML" class="headerlink" title="数据操作语言DML"></a>数据操作语言DML</h2><p>DML用于数据的修改操作，包括：插入、修改和删除</p>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p><img src="https://images.jucongyuan.com/QQ20170301-3.png" alt="插入数据SQL"></p>
-<p><a href="https://images.jucongyuan.com/MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE.sql" target="_blank" rel="external">下载以上SQL</a></p>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p><img src="http://images.jucongyuan.com/QQ20170301-3.png" alt="插入数据SQL"></p>
+<p><a href="http://images.jucongyuan.com/MySQL%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE.sql" target="_blank" rel="external">下载以上SQL</a></p>
 <p><code>SQLite插入数据的SQL和上面一致</code></p>
 <p>插入数据的SQL很好理解，值得注意的是，除了数字类型的数据，其他的在赋值时都需要加引号（普通的、无方向的）。</p>
 <h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><h3 id="从表中读取所有列"><a href="#从表中读取所有列" class="headerlink" title="从表中读取所有列"></a>从表中读取所有列</h3><p><code>SELECT * FROM EMPLOYEE;</code></p>
 <p>结果：</p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-4.png" alt="读取指定列"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-4.png" alt="读取指定列"></p>
 <h3 id="从表中读取指定列"><a href="#从表中读取指定列" class="headerlink" title="从表中读取指定列"></a>从表中读取指定列</h3><p><code>SELECT FirstName, LastName, Email FROM EMPLOYEE;</code></p>
 <p>结果：</p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-2.png" alt="读取指定列"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-2.png" alt="读取指定列"></p>
 <h3 id="从单个表中读取指定行"><a href="#从单个表中读取指定行" class="headerlink" title="从单个表中读取指定行"></a>从单个表中读取指定行</h3><p><code>SELECT * FROM DEPARTMENT WHERE Phone = &#39;360-2858310&#39;;</code></p>
 <h3 id="从单个表中读取指定行和列"><a href="#从单个表中读取指定行和列" class="headerlink" title="从单个表中读取指定行和列"></a>从单个表中读取指定行和列</h3><p><code>SELECT DepartmentName FROM DEPARTMENT WHERE Phone = &#39;360-2858310&#39;;</code></p>
 <h3 id="WHERE字句"><a href="#WHERE字句" class="headerlink" title="WHERE字句"></a>WHERE字句</h3><p>WHERE字句中可以使用的条件：=、&gt;、&lt;、&gt;=、&lt;=、!=、IN、NOT IN、BETWEEN AND、IS NULL、IS NOT NULL、LIKE，这些条件的判断都很容易理解，条件右边的值同样是除了数字以外，都需要加引号。LIKE和通配符符配合使用，通配符有<code>_</code>和<code>%</code>，前者表示一个未指定的字符，后者表示一个或多个为指定的字符。使用BETWEEN AND时，注意是包括两端的值的。这些条件都可以使用<code>AND</code>和<code>OR</code>连接。</p>
@@ -396,9 +396,9 @@ LIMIT [no of rows] OFFSET [row num]</code></p>
 <p><code>SELECT Department, COUNT(*) AS Number  FROM EMPLOYEE GROUP BY Department HAVING COUNT(8) &gt; 2;</code></p>
 <p>GROUP BY和WHERE同时使用时，一般将WHERE字句放在前面，所以WHERE先被运行。上面使用了<code>AS</code>，我们使用函数计算的数据列展示时是没有列名的，我们可以通过AS给它指定一个，同样的，即便是有列名的列，我们也可以通过AS给它换一个用于展示的列名，如下：</p>
 <p><code>SELECT Department, COUNT(*)  FROM EMPLOYEE GROUP BY Department;</code></p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-6.png" alt="无别名"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-6.png" alt="无别名"></p>
 <p><code>SELECT Department AS Name, COUNT(*) AS Number FROM EMPLOYEE  GROUP BY Department;</code></p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-5.png" alt="有别名"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-5.png" alt="有别名"></p>
 <h3 id="使用子查询处理多个表"><a href="#使用子查询处理多个表" class="headerlink" title="使用子查询处理多个表"></a>使用子查询处理多个表</h3><p>有时我们需要用一个表中的数据作为条件在另一个表中查数据，我们就可以使用子查询</p>
 <p><code>SELECT * FROM EMPLOYEE WHERE Department = (SELECT DepartmentName FROM DEPARTMENT WHERE Phone = &#39;360-2858210&#39;);</code></p>
 <p>在DEPARTMENT中查出电话号码为360-2858210的部门名字，再在EMPLOYEE中查出该部门名字下的所有员工。子查询可以扩展到3层、4层或更多层。</p>
@@ -406,10 +406,10 @@ LIMIT [no of rows] OFFSET [row num]</code></p>
 <p><code>SELECT FirstName, LastName, HoursWorked From EMPLOYEE AS E,ASSIGNMENT AS A WHERE E.EmployeeNumber = A.EmployeeNumber;</code></p>
 <p>这样就从EMPLOYEE和ASSIGNMENT中分别查处了不同的信息。我们也可以使用JOIN…ON实现上面的查询：</p>
 <p><code>SELECT FirstName, LastName, HoursWorked From EMPLOYEE AS E JOIN ASSIGNMENT AS A ON E.EmployeeNumber = A.EmployeeNumber;</code></p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-7.png" alt="结果"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-7.png" alt="结果"></p>
 <h4 id="外链接"><a href="#外链接" class="headerlink" title="外链接"></a>外链接</h4><p>通过上面的查询，我们可以产出所有分配了任务的员工在EMPLOYEE和ASSIGNMENT的信息，但是如果想显示没有被分配项目的员工信息怎么办？这个时候我们就可以使用外链接LEFT JOIN…ON，它会连接左边表的所有数据</p>
 <p><code>SELECT FirstName, LastName, HoursWorked From EMPLOYEE AS E  LEFT JOIN ASSIGNMENT AS A ON E.EmployeeNumber = A.EmployeeNumber;</code></p>
-<p><img src="https://images.jucongyuan.com/QQ20170301-8.png" alt="结果"></p>
+<p><img src="http://images.jucongyuan.com/QQ20170301-8.png" alt="结果"></p>
 <p>同样的，可以使用RIGHT JOIN…ON，这里就不再演示了。</p>
 <h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><p>UPDATE…SET可以修改已有数据，可以通过WHERE指定修改莫一行，SET后也可以修改指定列的值为多少。</p>
 <p><code>UPDATE EMPLOYEE SET Email = &#39;Tom.Cruse@WPC.com&#39; WHERE EmployeeNumber = 3;</code></p>
@@ -451,7 +451,7 @@ INSERT INTO TEST VALUES (&apos;F&apos;); //执行成功
 <p><code>SELECT COUNT(DISTINCT FirstName) FROM EMPLOYEE;</code></p>
 <p>后者可以作为一种统计：员工中有多少个不同的名字。</p>
 <h2 id="完全连接和交叉连接"><a href="#完全连接和交叉连接" class="headerlink" title="完全连接和交叉连接"></a>完全连接和交叉连接</h2><p>刚才我们提到了内连接和外连接（包括左连接和右连接），除了内外连接还有完全连接和交叉连接，全连接是在内连接的基础上，在不符合条件的数据上填写NULL，可以理解为左连接加上右连接，使用FULL JOIN关键字。交叉连接是将两个表进行组合，行数为两个表的行数乘积，使用CROSS JOIN关键字。我们用图形表示这些关系就一目了然了：</p>
-<p><img src="https://images.jucongyuan.com/WechatIMG1.png" alt="连接的图示"></p>
+<p><img src="http://images.jucongyuan.com/WechatIMG1.png" alt="连接的图示"></p>
 
       
     </div>

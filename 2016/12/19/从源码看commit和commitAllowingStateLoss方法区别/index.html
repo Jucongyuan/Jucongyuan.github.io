@@ -86,13 +86,13 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/19/从源码看commit和commitAllowingStateLoss方法区别/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="Fragment介绍在很久以前，也就是我刚开始写Android时（大约在2012年的冬天……），那时候如果要实现像下面微信一样的Tab切换页面，需要继承TabActivity，然后使用TabHost，在TabHost中添加子Activity来实现">
-<meta property="og:image" content="https://images.jucongyuan.com/01866a55426c2f0000019ae94099ef.jpg">
-<meta property="og:image" content="https://images.jucongyuan.com/complete_android_fragment_lifecycle.png">
-<meta property="og:updated_time" content="2017-04-20T10:06:18.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/01866a55426c2f0000019ae94099ef.jpg">
+<meta property="og:image" content="http://images.jucongyuan.com/complete_android_fragment_lifecycle.png">
+<meta property="og:updated_time" content="2017-04-21T06:17:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从源码看commit和commitAllowingStateLoss方法区别">
 <meta name="twitter:description" content="Fragment介绍在很久以前，也就是我刚开始写Android时（大约在2012年的冬天……），那时候如果要实现像下面微信一样的Tab切换页面，需要继承TabActivity，然后使用TabHost，在TabHost中添加子Activity来实现">
-<meta name="twitter:image" content="https://images.jucongyuan.com/01866a55426c2f0000019ae94099ef.jpg">
+<meta name="twitter:image" content="http://images.jucongyuan.com/01866a55426c2f0000019ae94099ef.jpg">
 
 
 
@@ -325,9 +325,9 @@
       
         <h2 id="Fragment介绍"><a href="#Fragment介绍" class="headerlink" title="Fragment介绍"></a>Fragment介绍</h2><p>在很久以前，也就是我刚开始写Android时（大约在2012年的冬天……），那时候如果要实现像下面微信一样的Tab切换页面，需要继承TabActivity，然后使用TabHost，在TabHost中添加子Activity来实现</p>
 <a id="more"></a>
-<p><img src="https://images.jucongyuan.com/01866a55426c2f0000019ae94099ef.jpg" alt="微信"></p>
+<p><img src="http://images.jucongyuan.com/01866a55426c2f0000019ae94099ef.jpg" alt="微信"></p>
 <p>现在大家都知道，我们一般情况下会使用FragmentActivity加Fragment来实现，Fragment是Android 3.0新增的，另外我们的support v4包也提供能Fragment的支持，所以现在在所有版本的SDK中我们都可以使用Fragment。Fragment是Activity的一部分，其中一个很重要的需要大家掌握的就是关于Fragment的生命周期，当然这次我们不会讨论这个问题，不过提供一个图片供大家参考，图片来自<a href="https://github.com/xxv/android-lifecycle" target="_blank" rel="external">xxv/android-lifecycle</a></p>
-<p><img src="https://images.jucongyuan.com/complete_android_fragment_lifecycle.png" alt="Complete Android Fragment &amp; Activity Lifecycle"></p>
+<p><img src="http://images.jucongyuan.com/complete_android_fragment_lifecycle.png" alt="Complete Android Fragment &amp; Activity Lifecycle"></p>
 <h3 id="从使用开始"><a href="#从使用开始" class="headerlink" title="从使用开始"></a>从使用开始</h3><!-- java -->
 <pre><code>FragmentManager fm = getSupportFragmentManager();
 FragmentTransaction ft = fm.beginTransaction();

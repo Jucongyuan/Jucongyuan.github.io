@@ -86,12 +86,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/08/编辑距离及算法实现/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="简要各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索happy，却不小心按到了y旁边的u，这时我们依然达到了我们想要的目的">
-<meta property="og:image" content="https://images.jucongyuan.com/QQ20160308-1.png">
-<meta property="og:updated_time" content="2017-04-20T10:06:27.000Z">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20160308-1.png">
+<meta property="og:updated_time" content="2017-04-21T06:17:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编辑距离及算法实现">
 <meta name="twitter:description" content="简要各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索happy，却不小心按到了y旁边的u，这时我们依然达到了我们想要的目的">
-<meta name="twitter:image" content="https://images.jucongyuan.com/QQ20160308-1.png">
+<meta name="twitter:image" content="http://images.jucongyuan.com/QQ20160308-1.png">
 
 
 
@@ -323,7 +323,7 @@
 
       
         <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>各位一定体验到过搜索引擎的纠错功能，当你在无意识的情况下将你搜索的内容输入错误时，搜索引擎会自动帮你纠错。如你本来想搜索<code>happy</code>，却不小心按到了<code>y</code>旁边的<code>u</code>，这时我们依然达到了我们想要的目的</p>
-<p><img src="https://images.jucongyuan.com/QQ20160308-1.png" alt="Happy"></p>
+<p><img src="http://images.jucongyuan.com/QQ20160308-1.png" alt="Happy"></p>
 <a id="more"></a>
 <p>那么这个是怎么实现的呢，先不考虑这个功能整体使用到的技术，先解决一个问题，它是怎么知道从<code>happu</code>到<code>happy</code>的，这就是我们今天要讲的编辑距离</p>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="编辑距离（Edit-Distance）"><a href="#编辑距离（Edit-Distance）" class="headerlink" title="编辑距离（Edit Distance）"></a>编辑距离（Edit Distance）</h3><p>又称Levenshtein距离，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。一般来说，编辑距离越小，两个串的相似度越大。</p>
