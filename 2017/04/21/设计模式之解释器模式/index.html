@@ -1,0 +1,1233 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,设计模式,解释器模式,逆波兰算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="这次没有小明，我们来做加减乘除现在我们要计算6*(5+(25+15)/8+22)这个表达式的值，大家应该觉得很简单，写一个方法，一步一步计算就是了，这样是可以计算出来这个表达式的结果，那如果换了一个另外一个表达式，我们又要写一个方法去单独计算这另外一个表达式，所以我们应该想一种办法，用一个算法，可以计算出所有加减乘除带括号的表达式">
+<meta name="keywords" content="Java,设计模式,解释器模式,逆波兰算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之解释器模式">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/设计模式之解释器模式/index.html">
+<meta property="og:site_name" content="Jucongyuan's Blog">
+<meta property="og:description" content="这次没有小明，我们来做加减乘除现在我们要计算6*(5+(25+15)/8+22)这个表达式的值，大家应该觉得很简单，写一个方法，一步一步计算就是了，这样是可以计算出来这个表达式的结果，那如果换了一个另外一个表达式，我们又要写一个方法去单独计算这另外一个表达式，所以我们应该想一种办法，用一个算法，可以计算出所有加减乘除带括号的表达式">
+<meta property="og:image" content="http://images.jucongyuan.com/1341331467_7271.jpg">
+<meta property="og:updated_time" content="2017-04-21T06:20:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之解释器模式">
+<meta name="twitter:description" content="这次没有小明，我们来做加减乘除现在我们要计算6*(5+(25+15)/8+22)这个表达式的值，大家应该觉得很简单，写一个方法，一步一步计算就是了，这样是可以计算出来这个表达式的结果，那如果换了一个另外一个表达式，我们又要写一个方法去单独计算这另外一个表达式，所以我们应该想一种办法，用一个算法，可以计算出所有加减乘除带括号的表达式">
+<meta name="twitter:image" content="http://images.jucongyuan.com/1341331467_7271.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 设计模式之解释器模式 | Jucongyuan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cd7046a48ccdba5e46def068f8e7e269";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jucongyuan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之解释器模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T14:20:44+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/21/设计模式之解释器模式/" class="leancloud_visitors" data-flag-title="设计模式之解释器模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="这次没有小明，我们来做加减乘除"><a href="#这次没有小明，我们来做加减乘除" class="headerlink" title="这次没有小明，我们来做加减乘除"></a>这次没有小明，我们来做加减乘除</h2><p>现在我们要计算<code>6*(5+(25+15)/8+22)</code>这个表达式的值，大家应该觉得很简单，写一个方法，一步一步计算就是了，这样是可以计算出来这个表达式的结果，那如果换了一个另外一个表达式，我们又要写一个方法去单独计算这另外一个表达式，所以我们应该想一种办法，用一个算法，可以计算出所有加减乘除带括号的表达式</p>
+<a id="more"></a>
+<p>注意，我们说的是算法，还没有涉及到模式，那么什么算法可以解决这个问题呢？让我们现在请出它，它叫做<code>逆波兰</code>算法，什么是逆波兰算法呢？我们先模拟分步计算上面的表达式</p>
+<ol>
+<li>最先计算25+15，得到40</li>
+<li>再用40/8，得到5</li>
+<li>计算5+5，得到10</li>
+<li>计算10+22，得到32</li>
+<li>最后计算6*32，得到192</li>
+</ol>
+<p>逆波兰算法的作用就是将我们的表达式装换一下，装换成什么样呢？比如上面的表达式，通过逆波兰算法装换后，我们的表达式是这样的：</p>
+<p><code>6 5 25 15 + 8 / + 22 + *</code></p>
+<p>那么它和我们的计算步骤有什么联系呢，逆波兰表达式又叫做后缀表达式，上面的逆波兰表达式可以很明显体现我们的运算步骤，从左向右遍历，遇到运算符，就将此运算符用于此运算符前面两个数，比如上面的逆波兰表达式，第一个遇到的运算符号是加号，将它作用于25和15，计算得出40，一次类推，我们可以发现，和我们上面列出的1-5步骤是一毛一样的！接下来我们用代码实现，将普通表达式转化为逆波兰表达式</p>
+<p>首先，写一个方法，将我们的表达式转换为中序表达式，就是一个存储运算符和数字的List</p>
+<!-- java -->
+<pre><code>public static List&lt;String&gt; stringToList(String str) {
+    List&lt;String&gt; numberAndOperators = new ArrayList&lt;&gt;();
+    char[] chars = str.toCharArray();
+    int i = 0;
+    char c;
+    String number;
+    while (i &lt; chars.length) {
+        c = chars[i];
+        if (c &lt; &apos;0&apos; || c &gt; &apos;9&apos;) {
+            numberAndOperators.add(String.valueOf(c));
+            i++;
+        } else {
+            number = &quot;&quot;;
+            while (i &lt; chars.length &amp;&amp; c &gt;= &apos;0&apos; &amp;&amp; c &lt;= &apos;9&apos;) {
+                number += c;
+                i++;
+                c = chars[i];
+            }
+            numberAndOperators.add(number);
+        }
+    }
+    return numberAndOperators;
+}
+</code></pre><p>此方法很简单，遍历字符串中的字符，如果是运算符直接放进List，如果是数字，继续先前遍历，直到不是数字，将这些数字字符拼接，例如上面的<code>25</code>，先遍历到2，再遍历到5，组成字符串<code>25</code>，放进List。进过这个算法，我们的字符串表达式被装换为</p>
+<p><code>6 * ( 5 + ( 25 + 15 ) / 8 + 22 )</code></p>
+<p>接下来遍历上面的List，生成逆波兰表达式，同样用List保存这个字符序列</p>
+<!-- java -->
+<pre><code>public static List&lt;String&gt; listToNBLList(List&lt;String&gt; list) {
+    List&lt;String&gt; numberAndOperatorsNBL = new ArrayList&lt;&gt;();
+    Stack&lt;String&gt; stackNPL = new Stack&lt;&gt;();
+    for (String s : list) {
+        if (s.matches(&quot;\\d+&quot;)) numberAndOperatorsNBL.add(s);
+        else if (s.equals(&quot;(&quot;)) stackNPL.push(s);
+        else if (s.equals(&quot;)&quot;)) {
+            while (!stackNPL.peek().equals(&quot;(&quot;)) numberAndOperatorsNBL.add(stackNPL.pop());
+            stackNPL.pop();
+        } else {
+            while (stackNPL.size() != 0 &amp;&amp; getValue(stackNPL.peek()) &gt;= getValue(s)) numberAndOperatorsNBL.add(stackNPL.pop());
+            stackNPL.push(s);
+        }
+    }
+    while (stackNPL.size() != 0) numberAndOperatorsNBL.add(stackNPL.pop());
+    return numberAndOperatorsNBL;
+}
+</code></pre><!-- java -->
+<pre><code>/**
+ * 获取运算符优先级
+ * +,-为1 *,/为2 ()为0
+ */
+public static int getValue(String s) {
+    if (s.equals(&quot;+&quot;)) {
+        return 1;
+    } else if (s.equals(&quot;-&quot;)) {
+        return 1;
+    } else if (s.equals(&quot;*&quot;)) {
+        return 2;
+    } else if (s.equals(&quot;/&quot;)) {
+        return 2;
+    }
+    return 0;
+}
+</code></pre><p>解释一下这个方法：</p>
+<ol>
+<li>读到操作数，直接放入List</li>
+<li>读到(，直接压入Stack栈顶</li>
+<li>读到)，则弹出离Stack栈顶最近的到左括号(的所有操作符放入Lis,之后弹出该(</li>
+<li>读到非括号操作符，则按照优先级操作。如果操作符比Stack栈顶操作符优先级高，则直接压入Stack；如果操作符不比Stack栈顶操作符优先级高，则弹出Stack栈顶并放入List，直到当前操作符高于Stack栈顶或者Stack为空，然后将当前操作符压入Stack</li>
+<li>当中缀表达式读取完毕，将Stack内剩余的操作符逐个弹出并放入List</li>
+<li>List中即为逆波兰表达式</li>
+</ol>
+<p>通过此方法，可以将上面的<code>6 * ( 5 + ( 25 + 15 ) / 8 + 22 )</code>转化为我们的逆波兰表达式：<code>6 5 25 15 + 8 / + 22 + *</code>，那么怎么计算呢，大家可能会发现，到现在我们都还没提到解释器模式，不过现在，我们可以用到他了，我们要用解释器模式来计算我们转化为逆波兰表达式的值。现在先来看看解释器模式的定义</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>定义一个语言的文法，并且建立一个解释器来解释该语言中的句子，这里的“语言”是指使用规定格式和语法的代码</p>
+<p><img src="http://images.jucongyuan.com/1341331467_7271.jpg" alt="解释器模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象表达式</li>
+<li>终结符表达式</li>
+<li>非终结符表达式</li>
+<li>环境类</li>
+</ul>
+<h3 id="什么是表达式"><a href="#什么是表达式" class="headerlink" title="什么是表达式"></a>什么是表达式</h3><p>表达式就是就是代表我们上面的表达式，不过，具体的表达式会根据表达式的规则和语法来定义成最小单元的表达式，例如对于上面的整个表达式，里面的操作数是一个表达式，25+15是一个表达式，( 25 + 15 ) / 8是一个复合表达式，复合表达式是由简单表达式共同组合成的。根据表达式的不同，可以分为终结表达式和非终结符表达式。终结表达式很简单，比如上面的例子，每一个操作数就是终结表达式。非终结符表达式就是对非终结表达式和终结表达式的解释，比如25+15、( 25 + 15 ) / 8，非终结表达式中可以包含终结表达式和非终结表达式，终结表达式和非终结表达式都继承至抽象表达式。环境类我们稍后解释，现在我们就用解释器来计算我们上面的逆波兰表达式</p>
+<p>抽象表达式：</p>
+<!-- java -->
+<pre><code>public abstract class AbstractExpression {
+    public abstract int interpret();
+}
+</code></pre><p>数字表达式：</p>
+<!-- java -->
+<pre><code>// 终结表达式
+public class NumberExpression extends AbstractExpression {
+
+    private int number;
+
+    public NumberExpression(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public int interpret() {
+        return number;
+    }
+}
+</code></pre><p>加法表达式：</p>
+<!-- java -->
+<pre><code>public class PlusExpression extends AbstractExpression {
+
+    private AbstractExpression left;
+    private AbstractExpression right;
+
+    public PlusExpression(AbstractExpression left, AbstractExpression right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    @Override
+    public int interpret() {
+        return left.interpret() + right.interpret();
+    }
+}
+</code></pre><p>减法表达式：</p>
+<!-- java -->
+<pre><code>public class MinusExpression extends AbstractExpression {
+
+    private AbstractExpression left;
+    private AbstractExpression right;
+
+    public MinusExpression(AbstractExpression left, AbstractExpression right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    @Override
+    public int interpret() {
+        return left.interpret() - right.interpret();
+    }
+}
+</code></pre><p>乘法表达式：</p>
+<!-- java -->
+<p>public class MultiplyExpression extends AbstractExpression {</p>
+<pre><code>private AbstractExpression left;
+private AbstractExpression right;
+
+public MultiplyExpression(AbstractExpression left, AbstractExpression right) {
+    this.left = left;
+    this.right = right;
+}
+
+@Override
+public int interpret() {
+    return left.interpret() * right.interpret();
+}
+</code></pre><p>}</p>
+<p>除法表达式：</p>
+<!-- java -->
+<p>public class DivideExpression extends AbstractExpression {</p>
+<pre><code>private AbstractExpression left;
+private AbstractExpression right;
+
+public DivideExpression(AbstractExpression left, AbstractExpression right) {
+    this.left = left;
+    this.right = right;
+}
+
+@Override
+public int interpret() {
+    return left.interpret() / right.interpret();
+}
+</code></pre><p>}</p>
+<p>除了数字表达式是终结表达式以外，加、乘、除都是非终结表达式，他们的实现方法用了递归的方式计算。接下来是我们的环境类，他一般就是用来计算我们的表达式，里面有一些方法和变量，方便客户端调用，类似一个工具类</p>
+<!-- java -->
+<pre><code>public class Context {
+
+    public int NBL(String expression) {
+        List&lt;String&gt; numberAndOperators = stringToList(expression);
+        List&lt;String&gt; NBLList = listToNBLList(numberAndOperators);
+        Stack&lt;AbstractExpression&gt; stackCalculateNPL = new Stack&lt;&gt;();
+        for (String s : NBLList) {
+            System.out.print(s + &quot; &quot;);
+            if (s.matches(&quot;\\d+&quot;)) {
+                stackCalculateNPL.push(new NumberExpression(Integer.valueOf(s)));
+            } else {
+                AbstractExpression right = stackCalculateNPL.pop();
+                AbstractExpression left = stackCalculateNPL.pop();
+                AbstractExpression nonterminalExpression = null;
+                if (s.equals(&quot;+&quot;)) nonterminalExpression = new PlusExpression(right,left);
+                else if (s.equals(&quot;-&quot;)) nonterminalExpression = new MinusExpression(right,left);
+                else if (s.equals(&quot;*&quot;)) nonterminalExpression = new MultiplyExpression(right,left);
+                else if (s.equals(&quot;/&quot;)) nonterminalExpression = new DivideExpression(right,left);
+                stackCalculateNPL.push(nonterminalExpression);
+            }
+        }
+        return stackCalculateNPL.pop().interpret();
+    }
+
+
+    /**
+     * 获取运算符优先级
+     * +,-为1 *,/为2 ()为0
+     */
+    private int getValue(String s) {
+        if (s.equals(&quot;+&quot;)) {
+            return 1;
+        } else if (s.equals(&quot;-&quot;)) {
+            return 1;
+        } else if (s.equals(&quot;*&quot;)) {
+            return 2;
+        } else if (s.equals(&quot;/&quot;)) {
+            return 2;
+        }
+        return 0;
+    }
+
+    private List&lt;String&gt; stringToList(String str) {
+        List&lt;String&gt; numberAndOperators = new ArrayList&lt;&gt;();
+        char[] chars = str.toCharArray();
+        int i = 0;
+        char c;
+        String number;
+        while (i &lt; chars.length) {
+            c = chars[i];
+            if (c &lt; &apos;0&apos; || c &gt; &apos;9&apos;) {
+                numberAndOperators.add(String.valueOf(c));
+                i++;
+            } else {
+                number = &quot;&quot;;
+                while (i &lt; chars.length &amp;&amp; c &gt;= &apos;0&apos; &amp;&amp; c &lt;= &apos;9&apos;) {
+                    number += c;
+                    i++;
+                    c = chars[i];
+                }
+                numberAndOperators.add(number);
+            }
+        }
+        return numberAndOperators;
+    }
+
+    private List&lt;String&gt; listToNBLList(List&lt;String&gt; list) {
+        List&lt;String&gt; numberAndOperatorsNBL = new ArrayList&lt;&gt;();
+        Stack&lt;String&gt; stackNPL = new Stack&lt;&gt;();
+        for (String s : list) {
+            if (s.matches(&quot;\\d+&quot;)) numberAndOperatorsNBL.add(s);
+            else if (s.equals(&quot;(&quot;)) stackNPL.push(s);
+            else if (s.equals(&quot;)&quot;)) {
+                while (!stackNPL.peek().equals(&quot;(&quot;)) numberAndOperatorsNBL.add(stackNPL.pop());
+                stackNPL.pop();
+            } else {
+                while (stackNPL.size() != 0 &amp;&amp; getValue(stackNPL.peek()) &gt;= getValue(s))
+                    numberAndOperatorsNBL.add(stackNPL.pop());
+                stackNPL.push(s);
+            }
+        }
+        while (stackNPL.size() != 0) numberAndOperatorsNBL.add(stackNPL.pop());
+        return numberAndOperatorsNBL;
+    }
+
+}
+</code></pre><p>这个类里面除了NBL方法外，其他三个方法都是我们上面讲NBL算法时讲解了的，可以看到NBL方法，里面就用了各种实现AbstractExpression的表达式解释出了我们的算术表达式的值。有了这个方法，不管我们什么形式的四则运算都可以计算出来，而且只用了一个方法，最后我们来使用一下，计算一个新的表达式<code>6*(5+(3+2)/5+22)</code>，如果正确，应该得到的结果为168</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        Context context = new Context();
+        int result = context.NBL(&quot;6*(5+(3+2)/5+22)&quot;);
+        System.out.println();
+        System.out.println(result);
+    }
+}
+</code></pre><p>结果：</p>
+<!-- java -->
+<pre><code>6 5 3 2 + 5 / + 22 + * 
+168
+</code></pre><h2 id="解释器模式的用处"><a href="#解释器模式的用处" class="headerlink" title="解释器模式的用处"></a>解释器模式的用处</h2><p>在平时的编程中，解释器模式用得比较少，但是它的作用非常明显，比如在一些对大型数据做统计的程序中，可能我们数据是固定的，而不同的计算都是通过统一的语法，但是计算形式不同，有的是加两个数据，有的是两个数据相乘等等，这时候我们可以实现对这个同一语法的解释器，来计算经过统一语法构成的不同表达式。一般的，在这些情况下我们需要使用解释器</p>
+<ol>
+<li>可以将一个需要解释执行的语言中的句子表示为一个抽象语法树。</li>
+<li>一些重复出现的问题可以用一种简单的语言来进行表达。</li>
+<li>一个语言的文法较为简单。</li>
+<li>执行效率不是关键问题</li>
+</ol>
+<h3 id="解释器模式的优缺点"><a href="#解释器模式的优缺点" class="headerlink" title="解释器模式的优缺点"></a>解释器模式的优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>易于改变和扩展文法。由于在解释器模式中使用类来表示语言的文法规则，因此可以通过继承等机制来改变或扩展文法</li>
+<li>每一条文法规则都可以表示为一个类，因此可以方便地实现一个简单的语言</li>
+<li>实现文法较为容易。在抽象语法树中每一个表达式节点类的实现方式都是相似的，这些类的代码编写都不会特别复杂，还可以通过一些工具自动生成节点类代码</li>
+<li>增加新的解释表达式较为方便。如果用户需要增加新的解释表达式只需要对应增加一个新的终结符表达式或非终结符表达式类，原有表达式类代码无须修改，符合“开闭原则”</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>对于复杂文法难以维护。在解释器模式中，每一条规则至少需要定义一个类，因此如果一个语言包含太多文法规则，类的个数将会急剧增加，导致系统难以管理和维护，此时可以考虑使用语法分析程序等方式来取代解释器模式。</li>
+<li>执行效率较低。由于在解释器模式中使用了大量的循环和递归调用，因此在解释较为复杂的句子时其速度很慢，而且代码的调试过程也比较麻烦。</li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/解释器模式/" rel="tag">#解释器模式</a>
+          
+            <a href="/tags/逆波兰算法/" rel="tag">#逆波兰算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之建造者模式/" rel="next" title="设计模式之建造者模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之建造者模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之命令模式/" rel="prev" title="设计模式之命令模式">
+                设计模式之命令模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIxMS80Nzg0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jucongyuan" />
+          <p class="site-author-name" itemprop="name">Jucongyuan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Jucongyuan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1351932483" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jucongyuan.com" title="个人主页" target="_blank">个人主页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dannyjiajia.github.io" title="DannyHe" target="_blank">DannyHe</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#这次没有小明，我们来做加减乘除"><span class="nav-number">1.</span> <span class="nav-text">这次没有小明，我们来做加减乘除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是表达式"><span class="nav-number">2.2.</span> <span class="nav-text">什么是表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释器模式的用处"><span class="nav-number">3.</span> <span class="nav-text">解释器模式的用处</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解释器模式的优缺点"><span class="nav-number">3.1.</span> <span class="nav-text">解释器模式的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jucongyuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vkmSxjwqS7LLJJjCTRY8oHlV-gzGzoHsz", "eYPDjiwQtMjW2L3nKI39Irdj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

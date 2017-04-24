@@ -1,0 +1,1097 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,设计模式,桥接模式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="开始涉足硬件小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了">
+<meta name="keywords" content="Java,设计模式,桥接模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之桥接模式">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/设计模式之桥接模式/index.html">
+<meta property="og:site_name" content="Jucongyuan's Blog">
+<meta property="og:description" content="开始涉足硬件小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了">
+<meta property="og:image" content="http://images.jucongyuan.com/2012070516130466.png">
+<meta property="og:updated_time" content="2017-04-21T06:20:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之桥接模式">
+<meta name="twitter:description" content="开始涉足硬件小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了">
+<meta name="twitter:image" content="http://images.jucongyuan.com/2012070516130466.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 设计模式之桥接模式 | Jucongyuan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cd7046a48ccdba5e46def068f8e7e269";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jucongyuan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之桥接模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T14:20:17+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/21/设计模式之桥接模式/" class="leancloud_visitors" data-flag-title="设计模式之桥接模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="开始涉足硬件"><a href="#开始涉足硬件" class="headerlink" title="开始涉足硬件"></a>开始涉足硬件</h2><p>小明公司最近准备做硬件了，他们开始四处去寻找订单，但是效果不是太明显，不过，功夫不负有心人，一家名为长黑的电视机厂商被他们打动，电视机厂商准备将他们的遥控器外包给小明他们公司。小明很开心，又可以开始做新的项目了</p>
+<a id="more"></a>
+<p>电视机厂商遥控器对电视的控制都遵循统一的标准，所以长黑电视机厂商将这个标准和他们对标准的实现给了小明他们</p>
+<p>遥控器的统一标准：</p>
+<!-- java -->
+<pre><code>public interface Control {
+    void on();
+    void off();
+    void setChannel(int channel);
+}
+</code></pre><p>长黑电视对电视的控制是现实：</p>
+<!-- java -->
+<pre><code>public class CHControl implements Control {
+    @Override
+    public void on() {
+        System.out.print(&quot;Open CH TV&quot;);
+    }
+    @Override
+    public void off() {
+        System.out.print(&quot;Off CH TV&quot;);
+    }
+    @Override
+    public void setChannel(int channel) {
+        System.out.print(&quot;Set CH TV To &quot; + channel);
+    }
+}
+</code></pre><p>只要小明的公司通过CHControl的方法就可以操作长黑的电视机了，现在小明的公司只为长黑电视机生产一个功能极简的遥控器，只有三个按钮，分别是开/关、上一个节目、下一个节目，小明的主管实现把遥控器的接口类编写好了：</p>
+<!-- java -->
+<pre><code>public interface TvControl {
+    void onOff();
+    void preChannel();
+    void nextChannel();
+}
+</code></pre><p>小明要做的，就是将这个具体的遥控器实现，小明想了想，他要做的事就是，实现TvControl并且通过CHControl来控制电视，所以思路非常清晰，然后小明很快实现了这个遥控器：</p>
+<!-- java -->
+<pre><code>public class CHTvControl extends CHControl implements TvControl {
+
+    private boolean on = false;
+    private int channel = 1;
+
+    @Override
+    public void onOff() {
+        if (on) off();
+        else on();
+    }
+
+    @Override
+    public void preChannel() {
+        if (on) setChannel(--channel);
+    }
+
+    @Override
+    public void nextChannel() {
+        if (on) setChannel(++channel);
+    }
+}    
+</code></pre><p>小明高兴的开始测试遥控器了：</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args){
+        CHTvControl chTvControl = new CHTvControl();
+        chTvControl.onOff();
+        chTvControl.nextChannel();
+        chTvControl.nextChannel();
+        chTvControl.preChannel();
+        chTvControl.onOff();
+    }
+}
+</code></pre><p>测试结果</p>
+<!-- java -->
+<pre><code>Open CH TV
+Set CH TV To 2
+Set CH TV To 3
+Set CH TV To 2
+Off CH TV
+</code></pre><p>小明找到主管，询问主管是否需要再做修改，主管看了看说，小明，我们仔细想一下你的代码如果要扩展会有什么问题。现在有新的电视机厂商找到我们，遥控器的样式是不变的，也是和之前的遥控器功能一样，你就必须要再针对新的电视机厂商再实现新的遥控器类</p>
+<p>比如，狗熊电视机厂再找到我们，遥控器仍然只有三个按钮，那么必须产生一个新的遥控器类：</p>
+<!-- java -->
+<pre><code>public class GXTvContrlo extends GXControl implements TvControl {
+    // 省略实现…………
+}
+</code></pre><p>还有一个问题，现在要针对长黑电视机生产新的遥控器了，我们也必须再实现新的遥控器，我们可以看到，我们现有的设计里面，变动的两个地方，一是电视机厂商，二是遥控器的种类，所以我们的类可能会有N*N个（N个电视机厂商，N种遥控器）。那么应该怎么办呢？我们又要认识一个新的朋友了，它可以帮助我们避免这种变化的问题，它就叫桥接模式，我们先来认识一下它，然后再用它帮我们解决问题</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>通过将实现和抽象放在两个不同的类层次中而使它们可以独立改变</p>
+<p><img src="http://images.jucongyuan.com/2012070516130466.png" alt="桥接模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象化角色</li>
+<li>修正抽象化角色</li>
+<li>实现化角色</li>
+<li>具体实现化角色</li>
+</ul>
+<p><code>注：</code>抽象化角色包含一个实现化角色的引用</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>看完桥接模式的定义，我们现在来用桥接模式中各个角色对应我们上面的类，我们应该被抽象的应该是哪一个类呢？抽象化角色是用来被继承的，继承一般是扩展类的功能，在上面的例子中，我们需要扩展的类应该是遥控器，因为遥控器只会从简易化向复杂化演进，所以我们应该抽象画一个基本的遥控器父类，然后需要不同的遥控器时，我们再来扩展它。相应的，我们的实现化角色应该是我们对同步电视的控制类，对电视的控制有统一的标准，不同的厂家会实现这个标准，然后我们针对不同的厂家调用不同的实现，所以，实现化角色应该是我们的对电视的控制类。现在，一切都清晰了，开始做我们新的遥控器吧！</p>
+<p>重新定义我们的抽象化角色，也就是我们的遥控器基类：</p>
+<!-- java -->
+<pre><code>public abstract class TvControl {
+
+    Control control;
+
+    public TvControl(Control control) {
+        this.control = control;
+    }
+
+    abstract void onOff();
+    abstract void nextChannel();
+    abstract void preChannel();
+}    
+</code></pre><p>我们实现遥控器时，最简单的功能也必须包括这三个功能，如果需要新加功能，只需要再扩展相应的功能即可，现在我们实现一个具体的遥控器：</p>
+<!-- java -->
+<pre><code>public class SimpleTvControl extends TvControl {
+
+    private boolean on = false;
+    private int channel = 1;
+
+    public SimpleTvControl(Control control) {
+        super(control);
+    }
+
+
+    @Override
+    void onOff() {
+        if (on) control.off();
+        else control.on();
+        on = !on;
+    }
+
+    @Override
+    void nextChannel() {
+        if (on) control.setChannel(++channel);
+    }
+
+    @Override
+    void preChannel() {
+        if (on) control.setChannel(--channel);
+    }
+}
+</code></pre><p>使用新的遥控器：</p>
+<!-- java -->
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        CHControl chControl = new CHControl();
+        SimpleTvControl simpleTvControl = new SimpleTvControl(chControl);
+        chTvControl.onOff();
+        chTvControl.nextChannel();
+        chTvControl.nextChannel();
+        chTvControl.preChannel();
+        chTvControl.onOff();
+    }
+}
+</code></pre><p>结果是和上面一样的：</p>
+<!-- java -->
+<pre><code>Open CH TV
+Set CH TV To 2
+Set CH TV To 3
+Set CH TV To 2
+Off CH TV
+</code></pre><p>我们看到，用了桥接模式的新设计，不会出现像上面那样的问题了，同一款遥控器，我们只需要包含不同的电视控制实现就可以，比如我们的简易遥控器，只要在构造SimpleTvControl遥控器时，放入不同的电视控制类即可。同样的，如果我们的简易遥控器需要扩展，只需继承当前的SimpleTvControl，然后扩展新功能就行了，对电视控制类不会有影响</p>
+<h2 id="桥接模式和策略模式"><a href="#桥接模式和策略模式" class="headerlink" title="桥接模式和策略模式"></a>桥接模式和策略模式</h2><p>仔细分析，我们的桥接模式貌似只是在策略模式的基础上加了一个继承，的确如此，那么我们看看两者的区别：</p>
+<h3 id="目的不同"><a href="#目的不同" class="headerlink" title="目的不同"></a>目的不同</h3><!-- java -->
+<pre><code>桥接：让接口实现和抽象层可以分别演化，提高移植性
+策略：将复杂的算法封装起来，从而便于替代不同的算法
+</code></pre><h3 id="使用方式不同"><a href="#使用方式不同" class="headerlink" title="使用方式不同"></a>使用方式不同</h3><!-- java --> 
+<pre><code>桥接：利用已有的类和方法
+策略：扩展或者修改，并提供动态配置
+</code></pre><h3 id="重点不同"><a href="#重点不同" class="headerlink" title="重点不同"></a>重点不同</h3><!-- java --> 
+<pre><code>桥接：强调接口对象提供基本的操作
+策略：强调接口对象提供的是一种算法
+</code></pre><h3 id="什么时候使用桥接模式"><a href="#什么时候使用桥接模式" class="headerlink" title="什么时候使用桥接模式"></a>什么时候使用桥接模式</h3><p>桥接模式的目的是为了分离抽象和实现，便于两者的独立变化，所以当有多维度分类时，而且每一种分类又有可能变化，就可以考虑使用我们的桥接模式了</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/桥接模式/" rel="tag">#桥接模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之模板方法模式/" rel="next" title="设计模式之模板方法模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之模板方法模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之适配器模式和外观模式/" rel="prev" title="设计模式之适配器模式和外观模式">
+                设计模式之适配器模式和外观模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIxMS80Nzg0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jucongyuan" />
+          <p class="site-author-name" itemprop="name">Jucongyuan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Jucongyuan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1351932483" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jucongyuan.com" title="个人主页" target="_blank">个人主页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dannyjiajia.github.io" title="DannyHe" target="_blank">DannyHe</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始涉足硬件"><span class="nav-number">1.</span> <span class="nav-text">开始涉足硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#桥接模式和策略模式"><span class="nav-number">4.</span> <span class="nav-text">桥接模式和策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的不同"><span class="nav-number">4.1.</span> <span class="nav-text">目的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式不同"><span class="nav-number">4.2.</span> <span class="nav-text">使用方式不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点不同"><span class="nav-number">4.3.</span> <span class="nav-text">重点不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候使用桥接模式"><span class="nav-number">4.4.</span> <span class="nav-text">什么时候使用桥接模式</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jucongyuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vkmSxjwqS7LLJJjCTRY8oHlV-gzGzoHsz", "eYPDjiwQtMjW2L3nKI39Irdj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

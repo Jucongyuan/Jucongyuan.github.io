@@ -1,0 +1,1164 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,设计模式,状态模式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="自动贩卖机公司的需求小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。">
+<meta name="keywords" content="Java,设计模式,状态模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之状态模式">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/设计模式之状态模式/index.html">
+<meta property="og:site_name" content="Jucongyuan's Blog">
+<meta property="og:description" content="自动贩卖机公司的需求小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。">
+<meta property="og:image" content="http://images.jucongyuan.com/Vending%20Machine.png">
+<meta property="og:image" content="http://images.jucongyuan.com/2012071613421365.png">
+<meta property="og:image" content="http://images.jucongyuan.com/2012070310013466.png">
+<meta property="og:updated_time" content="2017-04-21T06:18:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之状态模式">
+<meta name="twitter:description" content="自动贩卖机公司的需求小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。">
+<meta name="twitter:image" content="http://images.jucongyuan.com/Vending%20Machine.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 设计模式之状态模式 | Jucongyuan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cd7046a48ccdba5e46def068f8e7e269";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jucongyuan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之状态模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T14:18:51+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/21/设计模式之状态模式/" class="leancloud_visitors" data-flag-title="设计模式之状态模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="自动贩卖机公司的需求"><a href="#自动贩卖机公司的需求" class="headerlink" title="自动贩卖机公司的需求"></a>自动贩卖机公司的需求</h2><p>小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。</p>
+<a id="more"></a>
+<p>自动贩卖机公司递交了一份关于贩卖机售卖过程的文档给小明他们：</p>
+<p><img src="http://images.jucongyuan.com/Vending%20Machine.png" alt="VendingMachine"></p>
+<p>小明拿到这张图一看，觉得整个需求和过程都非常清晰，椭圆表示售卖机不同的状态，横线上面的动作表示售卖机的动作。于是开始写代码了，很快完成了售卖机。</p>
+<!-- java -->
+<pre><code>public class VendingMachine {
+
+    final static int FREE = 0;
+    final static int HAS_MONEY= 1;
+    final static int HAS_GOODS = 2;
+    final static int SOLD = 3;
+    final static int HAS_CHANGE = 4;
+
+    int state = FREE;
+    double money = 0;
+    double change = 0;
+
+    public VendingMachine(int count) {
+    }
+
+    public void insertMoney(double money) {
+        if (state == FREE) {
+            state = HAS_MONEY;
+            System.out.println(&quot;你已经投入&quot; + money + &quot;元&quot;);
+        } else if (state == HAS_MONEY) {
+            System.out.println(&quot;你已经投入&quot; + (this.money + money) + &quot;元&quot;);
+        } else if (state == HAS_GOODS) {
+            System.out.println(&quot;不能再投入&quot;);
+        } else if (state == SOLD) {
+            System.out.println(&quot;不能再投入&quot;);
+        }else if (state == HAS_CHANGE) {
+            System.out.println(&quot;不能再投入&quot;);
+        }
+    }
+
+    public void selectGoods() {
+        if (state == FREE) {
+            System.out.println(&quot;你还没有投入钱&quot;);
+        } else if (state == HAS_MONEY) {
+            if(商品价格 &gt; money){
+                System.out.println(&quot;商品价格大于你投入的钱&quot;);
+            }else {
+                state = HAS_GOODS;
+                System.out.println(&quot;你已经选择商品&quot;);
+            }
+        } else if (state == HAS_GOODS) {
+            if(商品价格 &gt; money){
+                System.out.println(&quot;商品价格大于你投入的钱&quot;);
+            }else {
+                state = HAS_GOODS;
+                System.out.println(&quot;你已经选择商品&quot;);
+            }
+        } else if (state == SOLD) {
+            System.out.println(&quot;不能再选择&quot;);
+        }else if (state == HAS_CHANGE) {
+            System.out.println(&quot;不能再选择&quot;);
+        }
+    } 
+
+    public void clickConfirm() {
+        if (state == FREE) {
+            System.out.println(&quot;你还没有投入钱&quot;);
+        } else if (state == HAS_MONEY) {
+            System.out.println(&quot;你还没有选择商品&quot;);
+        } else if (state == HAS_GOODS) {
+            state = SOLD;
+            System.out.println(&quot;售出&quot;);
+        } else if (state == SOLD) {
+            System.out.println(&quot;已经售出&quot;);
+        }else if (state == HAS_CHANGE) {
+            System.out.println(&quot;已经售出&quot;);
+        }
+    }
+
+    public void shipment() {
+        if (state == SOLD) {
+            change = money - 商品价格;
+            if (change &gt; 0) {
+                state = HAS_CHANGE;
+            }else {
+                state = FREE;
+            }
+        }else  {
+            System.out.println(&quot;错误&quot;);
+        }
+    }
+
+    public void giveChange() {
+        if (state == FREE) {
+            System.out.println(&quot;你还没有投入钱&quot;);
+        } else if (state == HAS_MONEY) {
+            state = FREE;
+        } else if (state == HAS_GOODS) {
+            System.out.println(&quot;不能找零&quot;);
+        } else if (state == SOLD) {
+            System.out.println(&quot;没有零钱&quot;);
+        } else if (state == HAS_CHANGE) {
+            state = FREE;
+            System.out.println(&quot;找零&quot;);
+        }
+    }
+}
+</code></pre><p>代码很容易理解，在售卖机执行不同动作时，判断售卖机之前的状态，然后执行不同的动作，并且将售卖机更新为新的状态。小明很开心的把程序交给了主管，主管拿到项目并没有说什么，只是给小明说，你的程序没有问题，但是现在售卖机工厂增加了一个需求，在出货时随机（百分之一的概率）让当前购买用户可以中奖，小明这时候准备开始修改代码，但是发现，代码改动的非常大，不仅要加入新的状态，还要修改每个动作内的代码。主管发现了小明的犹豫说，我知道你已经发现了问题，你的代码对于之前的需求是没有问题的，但是之前说过，我们的程序是一定会变的，所以你的代码对于更新会出现很大的问题，违反了很多设计的原则，所以我们必须重构你的代码，而且是完全的重构，抛弃你现在的方式。我们先来分析一下售卖机厂的的需求：对于售卖机，有不同的状态，在不同的状态下发生不同动作时需要做不同的处理和更新，而且可能会加入新的状态和动作，所以状态对于售卖机是变化的部分，我们应该将它独立出来，那么针对这样的情况，我们使用状态模式就再适合不过了：</p>
+<p>首先，定义一个状态接口：</p>
+<!-- java -->
+<pre><code>public interface State {
+    public void insertMoney(double money);
+    public void selectGoods();
+    public void clickConfirm();
+    public void shipment();
+    public void giveChange();
+}
+</code></pre><p>修改售卖机的代码：</p>
+<!-- java -->
+<pre><code>public class VendingMachine {
+
+    State freeState;
+    State hasMoneyState;
+    State hasGoodsState;
+    State soldState;
+    State hasChangeState;
+
+    State status;
+
+    double money;
+    double change;
+
+    public VendingMachine() {
+        freeState = new FreeState(this);
+        hasMoneyState = new HasMoneyState(this);
+        hasGoodsState = new HasGoodsState(this);
+        soldState = new SoldState(this);
+        hasChangeState = new HasChangeState(this);
+        state = freeState;
+    }
+
+    public void insertMoney(double money) {
+        state.insertMoney(money);
+    }
+
+    public void selectGoods() {
+        state.selectGoods();
+    } 
+
+    public void clickConfirm() {
+        state.clickConfirm();
+    }
+
+    public void shipment() {
+        state.shipment();
+    }
+
+    public void giveChange() {
+        state.giveChange();
+    }
+}
+</code></pre><p>实现一个Free状态的实现类：</p>
+<!-- java -->
+<pre><code>public class FreeState implements State {
+
+    VendingMachine vendingMachine;
+
+    public FreeState(VendingMachine vendingMachine) {
+        this.vendingMachine = vendingMachine;
+    }
+
+    public void insertMoney(double money) {
+        vendingMachine.money += money;
+        vendingMachine.state = vendingMachine.hasMoneyState;
+        System.out.println(&quot;你已经投入&quot; + vendingMachine.money + &quot;元&quot;);
+    }
+
+    public void selectGoods() {
+        System.out.println(&quot;你还没有投入钱&quot;);
+    } 
+
+    public void clickConfirm() {
+        System.out.println(&quot;你还没有投入钱&quot;);
+    }
+
+    public void shipment() {
+        System.out.println(&quot;你还没有投入钱&quot;);
+    }
+
+    public void giveChange() {
+        System.out.println(&quot;你还没有投入钱&quot;);
+    }
+}
+</code></pre><p>实现已投入钱状态的实现类：</p>
+<!-- java -->
+<pre><code>public class HasMoneyState implements State {
+
+    VendingMachine vendingMachine;
+
+    public HasMoneyState(VendingMachine vendingMachine) {
+        this.vendingMachine = vendingMachine;
+    }
+
+    public void insertMoney(double money) {
+        vendingMachine.money += money;
+        System.out.println(&quot;你已经投入&quot; + vendingMachine.money + &quot;元&quot;);
+    }
+
+    public void selectGoods() {
+        vendingMachine.state = vendingMachine.hasGoodsState;
+        System.out.println(&quot;你已经选择商品&quot;);
+    } 
+
+    public void clickConfirm() {
+        System.out.println(&quot;你还没有选择商品&quot;);
+    }
+
+    public void shipment() {
+        System.out.println(&quot;你还没有选择商品&quot;);
+    }
+
+    public void giveChange() {
+        vendingMachine.state = vendingMachine. freeState;
+        System.out.println(&quot;已经将钱退出&quot;);
+    }
+}
+</code></pre><p>其他三种状态的实现相信大家已经很清楚了，在这里就不在赘述了。这样一来，我们的售卖机程序就非常清晰了，也利于我们的扩展或修改，如果要加入一个状态，只需要修改和这个状态相关的代码，而不会影响其他状态，这就是我们的状态模式。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类</p>
+<p><img src="http://images.jucongyuan.com/2012071613421365.png" alt="状态模式"></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>上下文环境</li>
+<li>抽象状态</li>
+<li>具体状态</li>
+</ul>
+<h3 id="它与策略模式的区别"><a href="#它与策略模式的区别" class="headerlink" title="它与策略模式的区别"></a>它与策略模式的区别</h3><p>首相我们看看策略模式的类图：<br><img src="http://images.jucongyuan.com/2012070310013466.png" alt="策略模式"></p>
+<p>惊人的相似！那么，他们是不是同一种模式呢，根据以往的经验，一般这种情况的两种模式一定是有区别的，不然它们不应该被分别定义，对于策略模式和状态模式的区别又是怎样的呢？其实两种模式最大的区别就是它们各自的意图，策略模式的上下文会选择不同的策略以表示该类不同的表现，类的表现从初始化后已经决定。而状态模式会决定上下文的状态和在不同状态下的表现，你某个时刻的体现取决于当前的状态对象，而下一个状态取决于当前状态对当前动作的结果，状态模式中会体现动作和改变，而策略模式中只体现了动作，只是动作被封装成了其他类，由其他类管理起来了。当两者有共同的作用就是<code>解耦</code>，把类的可变部分由独立出来的类实现，不同的策略或者状态会体现出不同的动作。当然我们也发现，对于状态模式，不同的状态我们会实现不同状态接口，所以有多少状态，就会有多少的状态类，这样我们类的数量是必定会增加的，这是它的缺点。不过，如果我们类的状态过多，而且状态的切换非常复杂的话，那么我们的状态模式的优点是显而易见的。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/状态模式/" rel="tag">#状态模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之装饰者模式/" rel="next" title="设计模式之装饰器模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之装饰器模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之组合模式/" rel="prev" title="设计模式之组合模式">
+                设计模式之组合模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIxMS80Nzg0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jucongyuan" />
+          <p class="site-author-name" itemprop="name">Jucongyuan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Jucongyuan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1351932483" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jucongyuan.com" title="个人主页" target="_blank">个人主页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dannyjiajia.github.io" title="DannyHe" target="_blank">DannyHe</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动贩卖机公司的需求"><span class="nav-number">1.</span> <span class="nav-text">自动贩卖机公司的需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#它与策略模式的区别"><span class="nav-number">2.2.</span> <span class="nav-text">它与策略模式的区别</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jucongyuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vkmSxjwqS7LLJJjCTRY8oHlV-gzGzoHsz", "eYPDjiwQtMjW2L3nKI39Irdj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

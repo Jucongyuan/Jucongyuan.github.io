@@ -1,0 +1,1237 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,设计模式,命令模式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="披萨店的生意越来越好小明公司之前给披萨店做了一个项目，主要用了工厂模式，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。">
+<meta name="keywords" content="Java,设计模式,命令模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之命令模式">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/设计模式之命令模式/index.html">
+<meta property="og:site_name" content="Jucongyuan's Blog">
+<meta property="og:description" content="披萨店的生意越来越好小明公司之前给披萨店做了一个项目，主要用了工厂模式，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。">
+<meta property="og:image" content="http://images.jucongyuan.com/2012071112313551.png">
+<meta property="og:updated_time" content="2017-04-21T06:20:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之命令模式">
+<meta name="twitter:description" content="披萨店的生意越来越好小明公司之前给披萨店做了一个项目，主要用了工厂模式，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。">
+<meta name="twitter:image" content="http://images.jucongyuan.com/2012071112313551.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 设计模式之命令模式 | Jucongyuan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cd7046a48ccdba5e46def068f8e7e269";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jucongyuan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之命令模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T14:20:37+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/21/设计模式之命令模式/" class="leancloud_visitors" data-flag-title="设计模式之命令模式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="披萨店的生意越来越好"><a href="#披萨店的生意越来越好" class="headerlink" title="披萨店的生意越来越好"></a>披萨店的生意越来越好</h2><p>小明公司之前给披萨店做了一个项目，主要用了<a href="http://jucongyuan.github.io/2016/12/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">工厂模式</a>，披萨店的老板非常满意，这不，由于披萨店的生意越来越好，小明他们公司又接到了披萨店的新需求。</p>
+<a id="more"></a>
+<p>披萨店招了一名服务员，专门负责顾客的下单，主要职责就是将顾客点的菜单交给做披萨的师傅，然后师傅将披萨做好。现在需要有一套程序来模拟这个场景，小明这次很开心，因为他知道这种就是一个很明确的命令模式的场景：对于顾客来说，每个人点的披萨是不一样的，他们并不关心厨师做披萨的过程，而主要在意是自己的需求能够明确到厨师那里。而服务员主要做的就是将顾客的想法传单到厨师那里，然后一个简单的命令模式就出现了：</p>
+<p>芝士披萨厨师：</p>
+<!-- lang:java -->
+<pre><code>public class CheesePizzaChef {
+    public void createCheesePizza(){
+        // 做一个芝士披萨
+    }
+}
+</code></pre><p>榴莲披萨厨师：</p>
+<!-- lang:java -->
+<pre><code>public class DurianPizzaChef {
+    public void createDurianPizza(){
+        // 做一个榴莲披萨
+    }
+
+    public void sendGift(){
+        // 送一个礼物
+    }
+}  
+</code></pre><p>抽象命令：</p>
+<!-- lang:java -->
+<pre><code>public interface Order {
+    public void execute();
+} 
+</code></pre><p>点一个芝士披萨：</p>
+<!-- lang:java -->
+<pre><code>public class CheesePizzaOrder implements Order{
+    CheesePizzaChef chef;
+
+    public CheesePizzaOrder(CheesePizzaChef chef){
+        this.chef = chef;
+    }
+
+    public void execute(){
+        chef.createCheesePizza();
+    }
+}
+</code></pre><p>点一个榴莲披萨：</p>
+<!-- lang:java -->
+<pre><code>public class DurianPizzaOrder implements Order{
+    DurianPizzaChef chef;
+
+    public DurianPizzaOrder(DurianPizzaChef chef){
+        this.chef = chef;
+    }
+
+    public void execute(){
+        chef.createDurianPizza();
+        chef.sendGift();
+    }
+}
+</code></pre><p>服务员：</p>
+<!-- lang:java -->
+<pre><code>public class Service {
+
+    Order order;
+
+    public Service(){
+    }
+
+    public void setOrder(Order order){
+        this.order = order;
+    }
+
+    public void orderUp(){
+        order.execute();
+    }
+}
+</code></pre><p>顾客：</p>
+<!-- lang:java -->
+<pre><code>public class Customer {
+
+    public static void main(String[] args){
+        Service sevice = new Service();
+
+        //点一个芝士披萨
+        CheesePizzaChef cheesePizzaChef = new CheesePizzaChef();
+        CheesePizzaOrder cheesePizzaOrder = new CheesePizzaOrder(cheesePizzaChef);
+
+        service.setOrder(cheesePizzaOrder);
+        service.orderUp();
+
+        //又点了一个榴莲披萨
+
+        DurianPizzaChef durianPizzaChef = new DurianPizzaChef();
+        DurianPizzaOrder durianPizzaOrder = new DurianPizzaOrder(durianPizzaChef);
+
+        service.setOrder(durianPizzaChef);
+        service.orderUp();
+
+    }
+}
+</code></pre><p>顾客先点了一个芝士披萨，又点了一个榴莲披萨，可以看到，对于顾客而言，他只用了服务员做了点餐（setOrder()方法），而服务员和厨师之前也没有过多的耦合，服务员就只是再执行了orderUp()方法，然后接下来的的事顾客和服务员就再也没有关心了，那么可以看到里面有很重要的一个类就是实现Order接口的两个类：CheesePizzaOrder和DurianPizzaOrder，他们就被称为命令，命令里面包含了真正的接收者，对于这两个命令，他们的接收者分别是CheesePizzaChef和DurianPizzaChef，也就是最终做事的对象，服务员每次都设置了不同的命令，然后在orderUp()方法了调用命令的execute()方法，命令实现类对execute()做了不同实现，在CheesePizzaOrder里面是调用CheesePizzaChef做了一个芝士披萨，DurianPizzaOrder是DurianPizzaChef做了一个榴莲披萨，而且还送了一个礼物。我们注意到，在两个Order的实现类里，execute()方法用不同的类做了不同的事情，这也是我们命令模式很重要的一点，请求发出者不用关心最终的接收者到底做了什么，任何类都可以接收者，所以命令的接收者彼此之间是独立的（上面的两个厨师并没有关联，我们的接接收者还可以是老板、经理等店里任何可以为顾客服务的人），顾客和最终的接收者之间的桥梁是我们<code>服务员中的命令对象</code>，也就是CheesePizzaOrder和DurianPizzaOrder，这样让顾客和接收者之间是松耦合，同样服务员和接收者之间也是松耦合。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>命令模式将“请求”封装成对象，以便使用不同的请求、队列、或者日志来参数化其他对象。</p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
+<li>抽象命令 Command</li>
+<li>具体命令 ConcreteCommand</li>
+<li>接收者 Receiver</li>
+<li>要求命令对象执行请求 Invoker</li>
+<li>创建命令者 Client</li>
+</ul>
+<p><img src="http://images.jucongyuan.com/2012071112313551.png" alt="类图"></p>
+<p>接收者不是必须的，具体的命令也可以自己处理一些事</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：</p>
+<ol>
+<li>降低对象之间的耦合度。</li>
+<li>新的命令可以很容易地加入到系统中。</li>
+<li>可以比较容易地设计一个组合命令。</li>
+<li>调用同一方法实现不同的功能</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>使用命令模式可能会导致某些系统有过多的具体命令类。因为针对每一个命令都需要设计一个具体命令类，因此某些系统可能需要大量具体命令类，这将影响命令模式的使用</li>
+</ol>
+<h2 id="命令模式的具体使用"><a href="#命令模式的具体使用" class="headerlink" title="命令模式的具体使用"></a>命令模式的具体使用</h2><p>对象命令模式的定义大家可能还是很模糊，那我们就再仔细看看命令的使用，加深一下对命令模式的理解。接下来我们实现一个空调遥控器调节风力的功能：</p>
+<p>空调：</p>
+<!-- lang:java -->
+<pre><code>public class AirConditioner {
+
+    public static final int HIGH = 3;
+    public static final int MEDIUM = 2;
+    public static final int LOW = 1;
+    public static final int OFF = 0;
+
+    String name;
+    int speed = 0;
+
+    public AirConditioner(String name){
+        this.name = name;
+    }
+
+    public void high(){
+        // 设置强风
+        speed = HIGH;
+    }
+
+    public void medium(){
+        // 设置低风
+        speed = MEDIUM;
+    }
+
+    public void low(){
+        // 设置弱风
+        speed = LOW;
+    }
+
+    public void off(){
+        // 空调关
+        speed = OFF;
+    }
+
+    public int getSpeed(){
+        return speed;
+    }
+
+}
+</code></pre><p>抽象命令：</p>
+<!-- lang:java -->
+<pre><code>public interface Command {
+    public void execute(AirConditioner airConditioner);
+    public void undo();
+}
+</code></pre><p>强风命令：</p>
+<!-- lang:java -->
+<pre><code>public class ConditionerHighCommand implements Command{
+
+    AirConditioner airConditioner;
+    int speed;
+
+    public void execute(AirConditioner airConditioner){
+        speed = airConditioner.getSpeed();
+        this.airConditioner = airConditioner;
+        airConditioner.high();
+    }
+
+    public void undo(){
+        if(speed = AirConditioner.HIGH)
+            airConditioner.high();
+        else if (speed = AirConditioner.MEDIUM)
+            airConditioner.medium();
+        else if (speed = AirConditioner.LOW)
+            airConditioner.low();
+        else if (speed = AirConditioner.OFF)
+            airConditioner.off();
+    }
+}
+</code></pre><p>弱风命令：</p>
+<!-- lang:java -->
+<pre><code>public class ConditionerLowCommand implements Command{
+
+    AirConditioner airConditioner;
+    int speed;
+
+    public void execute(AirConditioner airConditioner){
+        speed = airConditioner.getSpeed();
+        this.airConditioner = airConditioner;
+        airConditioner.low();
+    }
+
+    public void undo(){
+        if(speed = AirConditioner.HIGH)
+            airConditioner.high();
+        else if (speed = AirConditioner.MEDIUM)
+            airConditioner.medium();
+        else if (speed = AirConditioner.LOW)
+            airConditioner.low();
+        else if (speed = AirConditioner.OFF)
+            airConditioner.off();
+    }
+}
+</code></pre><p>关闭命令：</p>
+<!-- lang:java -->
+<pre><code>public class ConditionerLowCommand implements Command{
+
+    AirConditioner airConditioner;
+    int speed;
+
+    public void execute(AirConditioner airConditioner){
+        speed = airConditioner.getSpeed();
+        this.airConditioner = airConditioner;
+        airConditioner.off();
+    }
+
+    public void undo(){
+        if(speed = AirConditioner.HIGH)
+            airConditioner.high();
+        else if (speed = AirConditioner.MEDIUM)
+            airConditioner.medium();
+        else if (speed = AirConditioner.LOW)
+            airConditioner.low();
+        else if (speed = AirConditioner.OFF)
+            airConditioner.off();
+    }
+}
+</code></pre><p>空命令:</p>
+<!-- lang:java -->
+<pre><code>public class NoCommand implements Command{
+    public void execute(AirConditioner airConditioner){
+        // 什么也不做
+    }
+
+    public void undo(){
+        // 什么也不做
+    }
+}
+</code></pre><p>遥控器：</p>
+<!-- lang:java -->
+<pre><code>public class RemoteControl {
+
+    // 记录最后一次命令，首次为空命令
+    Command lastCommand = new NoCommand();
+
+    //遥控器上一共有4个按钮：除了撤销，其他按钮是可以自由让它有特定的功能
+    Command[] commands;
+
+    public RemoteControl(Command[] commands){
+        commands = commands;
+    }
+
+    public void onePressed(AirConditioner airConditioner){
+        commands[0].execute(airConditioner);
+        lastCommand = commands[0];
+    }
+
+    public void twoPressed(AirConditioner airConditioner){
+        commands[1].execute(airConditioner);
+        lastCommand = commands[1];
+    }
+
+    public void threePressed(AirConditioner airConditioner){
+        commands[2].execute(airConditioner);
+        lastCommand = commands[2];
+    }        
+
+    // 撤销按钮被按
+    public void undoPressed(){
+        lastCommand.undo();
+    }    
+}
+</code></pre><p>人：</p>
+<!-- lang:java -->
+<pre><code>public class People {
+
+    public static void main(String[] args){
+
+        Command[] commands = new Command[3];
+        commands[0] = new ConditionerHighCommand();
+        commands[1] = new ConditionerLowCommand();
+        commands[2] = new ConditionerOffCommand();
+
+        // 暂且给三个按钮赋予这三个相应的功能，强风、弱风、关闭功能
+        RemoteControl rc = new RemoteControl(commands);
+
+        AirConditioner airConditioner = new AirConditioner(&quot;客厅的空调&quot;);
+
+        rc.twoPressed(airConditioner);
+        rc.onePressed(airConditioner);
+        rc.twoPressed(airConditioner);
+        rc.undoPressed(airConditioner);
+        // 最终风速为？
+    }
+}
+</code></pre><p>我们可以按遥控器了，每一次按了以后，接收者空调会做出相应的处理（除了撤销按钮），处理由被赋予按钮的命令决定，而且我们还可以更换三个按钮为其他功能，比如已经有的一个命令：空命令，如果实例化空调时，给其中一个按钮赋予空命令职责，他将什么都不会做，空命令在也是一个有非常大用处的命令。不过这个遥控器的还有很多需要优化的地方，比如撤销按钮，目前看来，撤销只能撤销前一次操作（恢复到前一次操作后的状态），大家可以再优化一下，看看怎么实现连续撤销功能，这也和命令模式的一个很重要的作用类似：实现事务系统。</p>
+<h2 id="还有哪些用法"><a href="#还有哪些用法" class="headerlink" title="还有哪些用法"></a>还有哪些用法</h2><h3 id="队列请求"><a href="#队列请求" class="headerlink" title="队列请求"></a>队列请求</h3><p>命令模式可以用来实现一个异步耗时队列请求的功能，我们可以实现一些列不同的命令，这些命令可能是某一个功能，也可能是一组功能，我们创建很多不同的命令，把他们放进一个队列，然后可能会有另一个线程从队列里面取出这些命令，挨个去执行他们。</p>
+<h3 id="状态恢复"><a href="#状态恢复" class="headerlink" title="状态恢复"></a>状态恢复</h3><p>当我们程序执行一些命令，我们可以将每一次的执行的命令写进我们的日志，当电脑死机重启后，我们将日志信息读取出来，然后再挨个的去执行这些命令，让电脑恢复到之前死机时候的状态。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/命令模式/" rel="tag">#命令模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之解释器模式/" rel="next" title="设计模式之解释器模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之解释器模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/21/设计模式之模板方法模式/" rel="prev" title="设计模式之模板方法模式">
+                设计模式之模板方法模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIxMS80Nzg0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jucongyuan" />
+          <p class="site-author-name" itemprop="name">Jucongyuan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Jucongyuan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1351932483" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jucongyuan.com" title="个人主页" target="_blank">个人主页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dannyjiajia.github.io" title="DannyHe" target="_blank">DannyHe</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#披萨店的生意越来越好"><span class="nav-number">1.</span> <span class="nav-text">披萨店的生意越来越好</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令模式的具体使用"><span class="nav-number">3.</span> <span class="nav-text">命令模式的具体使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#还有哪些用法"><span class="nav-number">4.</span> <span class="nav-text">还有哪些用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#队列请求"><span class="nav-number">4.1.</span> <span class="nav-text">队列请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态恢复"><span class="nav-number">4.2.</span> <span class="nav-text">状态恢复</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jucongyuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vkmSxjwqS7LLJJjCTRY8oHlV-gzGzoHsz", "eYPDjiwQtMjW2L3nKI39Irdj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

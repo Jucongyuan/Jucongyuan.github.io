@@ -1,0 +1,1043 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="概述本书的前三章主要介绍了关系模型、数据库的组成、函数依赖、规范化过程以及使用SQL语句来操作数据库。四五章内容主要内容为一个数据库从无到有的过程，里面提到了很多重要的概念和方法，对我们实际的数据库开发工作有很大帮助。">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数据库原理》四、五章读书笔记">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/《数据库原理》四、五章读书笔记/index.html">
+<meta property="og:site_name" content="Jucongyuan's Blog">
+<meta property="og:description" content="概述本书的前三章主要介绍了关系模型、数据库的组成、函数依赖、规范化过程以及使用SQL语句来操作数据库。四五章内容主要内容为一个数据库从无到有的过程，里面提到了很多重要的概念和方法，对我们实际的数据库开发工作有很大帮助。">
+<meta property="og:image" content="http://images.jucongyuan.com/entity.png">
+<meta property="og:image" content="http://images.jucongyuan.com/relationship.png">
+<meta property="og:image" content="http://images.jucongyuan.com/min.png">
+<meta property="og:image" content="http://images.jucongyuan.com/niao.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170302-7.jpg">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170302-0.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170302-1.png">
+<meta property="og:image" content="http://images.jucongyuan.com/studeng.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170303-1.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170303-1.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170303-2.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170303-3.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170303-4.png">
+<meta property="og:image" content="http://images.jucongyuan.com/QQ20170303-5.png">
+<meta property="og:updated_time" content="2017-04-21T06:18:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《数据库原理》四、五章读书笔记">
+<meta name="twitter:description" content="概述本书的前三章主要介绍了关系模型、数据库的组成、函数依赖、规范化过程以及使用SQL语句来操作数据库。四五章内容主要内容为一个数据库从无到有的过程，里面提到了很多重要的概念和方法，对我们实际的数据库开发工作有很大帮助。">
+<meta name="twitter:image" content="http://images.jucongyuan.com/entity.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《数据库原理》四、五章读书笔记 | Jucongyuan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cd7046a48ccdba5e46def068f8e7e269";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jucongyuan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《数据库原理》四、五章读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T14:18:01+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/21/《数据库原理》四、五章读书笔记/" class="leancloud_visitors" data-flag-title="《数据库原理》四、五章读书笔记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本书的前三章主要介绍了关系模型、数据库的组成、函数依赖、规范化过程以及使用SQL语句来操作数据库。四五章内容主要内容为一个数据库从无到有的过程，里面提到了很多重要的概念和方法，对我们实际的数据库开发工作有很大帮助。</p>
+<a id="more"></a>
+<h2 id="数据库开发过程的三个步骤"><a href="#数据库开发过程的三个步骤" class="headerlink" title="数据库开发过程的三个步骤"></a>数据库开发过程的三个步骤</h2><ul>
+<li>需求分析</li>
+<li>组件设计</li>
+<li>实现</li>
+</ul>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>需求分析过程本书提及的内容不多，不过这个过程在实际的开发中还是非常重要的，可能对我们程序开发人员来说，大部分需求分析的工作是产品经理完成的，不过我们要知道需求分析的目的：找出实体、实体的属性、属性的特性（数据类型、取值范围等）、实体间的关系和相关的业务规则。比如对于学生管理系统，显而易见的实体有：学生、课程等；学生的属性有姓名、性别等；性别只能是男或子女；学生可以有相应的学习课程；相应的业务规则如学生必须有相应的课程等。当然还有很重要的一点就是不断地与<code>客户</code>交流，以更加有效的确定需求的完整性和准确性，这里的<code>客户</code>是泛指。</p>
+<h2 id="实体-关系数据模型"><a href="#实体-关系数据模型" class="headerlink" title="实体-关系数据模型"></a>实体-关系数据模型</h2><p>在确定了具体需求后，并不是直接开始创建数据库和相关的数据表，而是需要将数据需求描述到数据模型中，一般创建数据模型采用的是<code>实体-关系模型（E-R模型）</code>，全称为扩展的实体-关系模型（Extended entity-relationship model）。现在我们介绍这个模型中涉及到的一些概念和定义</p>
+<h3 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h3><p>一般情况下，我们在需求分析时，会接触到很多实体的实例如学号为066的学生、化学实验课程、203教室等等…但是学生不止一个，课程和教室也不止为一，于是我们把所有的学生分组到STUDENT实体中、把所有教室分组到CLASSROOM实体中，STUDENT和CLASSROOM就是实体类，具体的一个学生或者教室我们称为实体实例，所以实体类有许多实体实例。需求分析时，我们就需要将实体实例抽象到实体类。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>属性是为了描述实体的特征，例如STUDENT实体，具有姓名、年龄、年级、性别及生日等属性，另外属性具有类型和特性，例如年龄是数字、生日是日期……而特性是指该属性是否必须，是否有默认值、取值是否有限制及其他约束，如性别只能是男或者女，而且是必须的。</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>实体具有属性外，还需要有一个标识符，标识符是给实体实例命名或者标识的属性，由一个或者多个属性组成标识符，所以标识符就是实体的一个属性或多个属性，多个属性组成的标识符称为复合标识符。标识符可以唯一也可以不唯一，这里的唯一和不唯一是指相同的标识符可以标识多少具体的实体实例。例如我们用姓名属性来标识学生，可能某一个名字只能标识一个学生，而对于同名的学生来说，这个姓名可以标识多个学生。</p>
+<h3 id="实体的表示"><a href="#实体的表示" class="headerlink" title="实体的表示"></a>实体的表示</h3><p>我们用一个矩形表示一个实体，根据需要用不同的层次表示一个实体：</p>
+<p><img src="http://images.jucongyuan.com/entity.png" alt="实体"></p>
+<p>图一列出了实体名、标识符和属性。图二只有实体名和标识符。而图三则只有实体名。</p>
+<h3 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h3><p>实体是独立存在的，不同的实体存在各种各样的关系，实体之间也是通过关系来关联。关系分为关系类和关系实例，关系类反映实体类间的关系，关系实例放映了实体实例间的关系。关系类涉及多个实体，关系到的实体数目称为关系的度数，度数为二的关系最为常见，我们称为二元关系，度数为三的关系称为三元关系</p>
+<h4 id="二元关系的三种类型"><a href="#二元关系的三种类型" class="headerlink" title="二元关系的三种类型"></a>二元关系的三种类型</h4><ul>
+<li>一对一关系（1:1）</li>
+<li>一对多关系（1:N）</li>
+<li>多对多关系（M:N）</li>
+</ul>
+<p><img src="http://images.jucongyuan.com/relationship.png" alt="关系"></p>
+<p>在1:1的关系中，一个实体实例仅和另一个实体实例相关联。图中的学生和座位的关系就是一对一，一个学生只对应一个座位，一个学生不能有多个座位；而某一个座位只能属于某一个学生，不能属于多个学生。</p>
+<p>在1:N的关系中，一个学生有很多课本，但是某一个课本只属于某一个学生，不能被多个学生共用（不钻牛角尖）。在1:N的关系中，有时会用到<code>父</code>和<code>子</code>的术语，父实体是关系中表示“一”的实体，子实体是关系中表示“多”的实体。图中学生是父实体，课本是子实体。</p>
+<p>最后的M:N关系中，一个学生有多个老师授课，一个老师也不止给一个学生授课，所以是多对多的关系。</p>
+<h4 id="最大基数"><a href="#最大基数" class="headerlink" title="最大基数"></a>最大基数</h4><p>在图中菱形中的数字表示该方向实体的最大基数，表示在关系中该实体可以存在的最多实体实例数量。如果学生和课本的关系是1:15，则一个学生最多只能有15本课本，如10本、13本、15本，而不能超过15本，这就是最大基数。</p>
+<h4 id="最小基数"><a href="#最小基数" class="headerlink" title="最小基数"></a>最小基数</h4><p>有最大基数就有最小基数，就是在关系中至少存在的实体实例，最小基数怎么表示呢？如下：</p>
+<p><img src="http://images.jucongyuan.com/min.png" alt="最小基数"></p>
+<p>在关系的横线上加一个横条表示必须存在一个实体，在横线上添加一个椭圆表示可以不存在实体，最小基数为0表示实体参与是可选的，而最小基数是1的实体，则关系中实体参与是强制性的。对于一个学校，只要有一个学生，就必须和一个老师有关系，但是某个老师可以没有学生，可能他不并不授课（如后勤老师）。</p>
+<h3 id="实体-关系图"><a href="#实体-关系图" class="headerlink" title="实体-关系图"></a>实体-关系图</h3><p>刚才我们已经接触到了实体关系图，但是都是最初的表示法，一般不再使用，而被大多数使用的是Information Engineering(IE)，该模型用“鸟足”来显示多个实体的关系。如上面的学生老师关系：</p>
+<p><img src="http://images.jucongyuan.com/niao.png" alt="鸟足版"></p>
+<p>左边符号表示STUDENT是多个可选的，右边的符号表示教室多个强制的。符号相关含义汇总：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170302-7.jpg" alt="符号含义"></p>
+<p>图里的相关图形就表示了实体的最大基数和最小基数，离实体近的表示最大基数，离实体远的表示最小基数。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>现在我们可以从需求分析中提取出实体，并给它们添加属性，定义属性的特性和标识符，然后确定不同实体间的关系，然后还可以用图的方式把这些实体和关系都表示出来了。</p>
+<h2 id="一些特殊的实体"><a href="#一些特殊的实体" class="headerlink" title="一些特殊的实体"></a>一些特殊的实体</h2><h3 id="弱实体"><a href="#弱实体" class="headerlink" title="弱实体"></a>弱实体</h3><p>弱实体是一种特殊的实体，它的存在取决于另一个实体，若另一个实体不存在，它就不存在，那么这个实体就是弱实体。比如在一个学校，有不同的教学楼，教学楼中有教室，但若教学楼不存在，则里面的教室也不存在，那么教室实体就依赖于教学楼实体，教室就是弱实体。非弱实体称为强实体。</p>
+<h4 id="ID依赖实体"><a href="#ID依赖实体" class="headerlink" title="ID依赖实体"></a>ID依赖实体</h4><p>ID依赖实体是弱实体的一种，一个ID依赖实体就是弱实体，但弱实体不一定都是ID依赖实体。观察下图：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170302-0.png" alt="符号含义"></p>
+<p>一栋建筑中有多个房间，一个房间属于一栋建筑，我们在标识房间时，会使用到它所在的建筑，所以在房间的标识符中有建筑的标识符，我们就说房间ID依赖建筑。我们用圆角的方框表示ID依赖实体，并且是用实线连接两个实体，这种关系叫着标识关系，而用虚线连接的关系称为非标识关系。</p>
+<h4 id="非ID依赖的弱实体"><a href="#非ID依赖的弱实体" class="headerlink" title="非ID依赖的弱实体"></a>非ID依赖的弱实体</h4><p>在实际的情况中，可能存在标识不依赖其他实体的弱实体，例如，汽车设计模型实体和一个具体的汽车，他们在实际情况中都可以用不同的标识来标识，但是如果没有模型，汽车是不存在的，所以汽车也依赖于模型，它是弱实体。</p>
+<h4 id="如何区分弱实体和非弱实体"><a href="#如何区分弱实体和非弱实体" class="headerlink" title="如何区分弱实体和非弱实体"></a>如何区分弱实体和非弱实体</h4><p>上面的我们可以看到，弱实体都存在一对多的关系，那么所有的一对多关系那个多的实体都是弱实体吗？答案是否定的，例如上面的的学生和课本就是一对多的关系，但是他们在逻辑上并不是依赖的，没有学生时，也可以有课本。所以判断弱实体一般是通过逻辑的存在关系判断。那么大家想一想，学生和成绩（各科）的关系中，成绩是弱实体吗？</p>
+<h3 id="子型实体"><a href="#子型实体" class="headerlink" title="子型实体"></a>子型实体</h3><p>子型实体是另一种名为父型实体的特例。比如学生有可以分为大学生和中学生，学生是父型实体，大学生和中学生就是子型实体。</p>
+<p><img src="http://images.jucongyuan.com/QQ20170302-1.png" alt="子型实体"></p>
+<p>子型实体可以是排他的，也可以是包含的，排他的子型实体会有一个辨别器，如(a)图中的isGradStudent，它的表示图形中圈里有一个叉，表示排他的。排他和包含具体的含义分别是，子型实体是确定的某一个或者是可以使多个不同的子型。(a)中一个学生只能是毕业的或者没有毕业的；而(b)中一个学生可以参加多个兴趣俱乐部。</p>
+<h3 id="递归关系"><a href="#递归关系" class="headerlink" title="递归关系"></a>递归关系</h3><p>不同实体之间存在关系，那么同一个实体之间也存在关系，例如一个学生可以和其他多个学生有关联（同班、同级、同社团等），我们把这个关系成为递归关系。递归关系也可能是1:1、1:N或者M:N的。</p>
+<h2 id="把数据模型转化为数据库设计"><a href="#把数据模型转化为数据库设计" class="headerlink" title="把数据模型转化为数据库设计"></a>把数据模型转化为数据库设计</h2><p>前面我们提到了很多概念，例如实体、属性、标识符和关系等……似乎他们就是我们数据库的表、列、主键和表之前的关系，那为什么却用不同的名词来定义呢。我是这样理解的，这些概念在不同的时期就有不同的称呼，例如实体，可能在数据模型阶段它只是一个粗糙的存在，它要称为表，还需要一定的步骤，所以就有了实体和数据表的不同称呼。接下来我们就来看看如何把数据模型转化为数据库设计，也就是数据模型成为具体的表、属性、主键等。</p>
+<h3 id="实体的转换"><a href="#实体的转换" class="headerlink" title="实体的转换"></a>实体的转换</h3><p>下面我们把一个STUDENT实体转化为一个数据表，前面的需求分析工作就不介绍了，我们从需求分析中建立了一个STUDENT实体：</p>
+<p><img src="http://images.jucongyuan.com/studeng.png" alt="学生实体"></p>
+<p>接下来我们需要将它变为数据表，按照以下步骤进行：</p>
+<ul>
+<li>首先，确定主键</li>
+<li>列的特性：1）数据类型；2）空值状态；3）默认值；4）数据约束</li>
+<li>验证规范化问题</li>
+<li>是否需要反规范化</li>
+</ul>
+<h4 id="确认主键"><a href="#确认主键" class="headerlink" title="确认主键"></a>确认主键</h4><p>在实体中StudentNumber为标识符，这里我们可以直接用它作为我们表的主键。确认主键的时候，我们有可能会考虑是否需要使用代理建，一般我们会从两个方面考虑是否需要代理建：</p>
+<ul>
+<li>是否需要增加一个没有意义的字段</li>
+<li>考虑合并的情况，如果在两个数据库中，同一个表都是用的代理建，则在合并时会代理键冲突</li>
+</ul>
+<h4 id="确认列的属性"><a href="#确认列的属性" class="headerlink" title="确认列的属性"></a>确认列的属性</h4><p><img src="http://images.jucongyuan.com/QQ20170303-1.png" alt="学生表"></p>
+<h4 id="验证规范化"><a href="#验证规范化" class="headerlink" title="验证规范化"></a>验证规范化</h4><p>我们按照第二章中规范化步骤来验证我们表是否规范</p>
+<h5 id="找出所有候选键"><a href="#找出所有候选键" class="headerlink" title="找出所有候选键"></a>找出所有候选键</h5><p>这个表中只有一个候选键StudentNumber</p>
+<h5 id="找出函数依赖"><a href="#找出函数依赖" class="headerlink" title="找出函数依赖"></a>找出函数依赖</h5><p>ZIP -&gt; (City，State)</p>
+<h5 id="是否需要新增表"><a href="#是否需要新增表" class="headerlink" title="是否需要新增表"></a>是否需要新增表</h5><p>因为决定因子ZIP不是候选键，所以我们需要新增一个表，用ZIP作为主键：</p>
+<p><code>ZIP(Zip, City, State)</code></p>
+<p><code>STUDENT(StudentName, Name, Sex, ZIP)</code></p>
+<p>在STUDENT表中ZIP作为外键，规范化过程结束</p>
+<h4 id="反规范化"><a href="#反规范化" class="headerlink" title="反规范化"></a>反规范化</h4><p>有的时候，我们的规范化会过度，所以我们会考虑有的规范化是否需要。如果我们不把(Zip, City, State)这三个字段放在另外的表行吗？这就需要考虑插入、更新、删除三个方面的问题。首先，新增了一个城市（邮编），其他STUDENT中的这三个字段并不会受影响。然后是更新，现实情况，一个城市的邮编并不会更新，所以也没有影响。最后是删除，如果只有一个学生在某一个城市，删除这个学生后，这条城市信息就不存在了，不过这并不会影响我们，因为在我们学生系统中并没有需求单独的查某一个城市邮编的需求</p>
+<p>所以我们的最终表为：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170303-1.png" alt="学生表"></p>
+<h4 id="弱实体的表示"><a href="#弱实体的表示" class="headerlink" title="弱实体的表示"></a>弱实体的表示</h4><p>记住一条：不管是ID依赖的弱实体还是非ID依赖的弱实体，在转化为表的时候，主键中必须加入所依赖表的主键作为这个弱实体表的主键（一般会和这个弱实体的标识符一起构成复合主键）</p>
+<h3 id="关系的表示"><a href="#关系的表示" class="headerlink" title="关系的表示"></a>关系的表示</h3><p>前面我们讲了具体一个实体的变为表的过程，接下来我们说一个实体的关系怎么转化为表，实体的关系有三种，1:1、1:N、M:N，一般的我们是通过添加外键的方式表示关系，这三种关系的外键怎么添加呢？</p>
+<h3 id="1-1强实体关系"><a href="#1-1强实体关系" class="headerlink" title="1:1强实体关系"></a>1:1强实体关系</h3><p>1:1的关系中我们可以将其中一个表的主键放在另一个表中作为外键即可。在上面的表示关系的图中，学生和座位是1:1的关系，那么我们在学生表中添加一个座位的主键作为外键，还是在座位表中添加一个学生的主键作为外键呢？考虑三个要素</p>
+<ul>
+<li>查询的常见性</li>
+<li>索引少出现</li>
+<li>表的大小（可能连接查询）</li>
+</ul>
+<p>首先，对于学生和座位，一般的情况我们是通过学生查位置，然后如果在StudentNumber上加了索引，我们就最好不要再把它放在其他表中作为外键了。最后，每一个学生肯定有一个座位，可能还要很多空的座位，所以座位表更大，连接查询时，通过学生表来连接会更快。综上，应该将座位的主键放在学生表中作为外键。</p>
+<h4 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h4><p>1:1关系中有一点非常重要的就是约束，因为是1:1，所以一个表的主键在另一个表中最多出现一次，所以我们还必须将那个作为外键的列约束为唯一（UNIQUE）</p>
+<h3 id="1-N强实体关系"><a href="#1-N强实体关系" class="headerlink" title="1:N强实体关系"></a>1:N强实体关系</h3><p>1:N的关系是最固定的，在上图中1:N关系中的学生和课本实体，我们提到了父实体和子实体，一般情况下，我们将父表中的主键放在字表中作为外键，这很容易理解为什么这么做。1:N的关系中，我们就不能约束外键唯一了，外键可以在字表中出现多次</p>
+<h3 id="M-N强实体关系"><a href="#M-N强实体关系" class="headerlink" title="M:N强实体关系"></a>M:N强实体关系</h3><p>M:N关系中，我们不能按照上面的方式将其中一个表的主键作为另一个表的外键了，这样是行不通的，M:N关系的做法是：新增一个表，称为交集表。如学生和班级的关系用表表示：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170303-2.png" alt="学生和班级"></p>
+<p>新表的主键是两个表的主键共同组成的，所以新表是ID依赖的。</p>
+<h3 id="关联关系和混合实体"><a href="#关联关系和混合实体" class="headerlink" title="关联关系和混合实体"></a>关联关系和混合实体</h3><p>前面提到过标识关系和非标识关系，是在两个实体间的关系，对于图中的三个实体，如果我们再在STUDENT_CLASS表中新增一个属性，变为：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170303-3.png" alt="关联关系"></p>
+<p>我们就称这种关系为关联关系，虽然STUDENT_CLASS仍依赖STUDENT和CLASS，但是新增字段后，它有了独立的数据，所以它是关联关系。那什么又是混合实体呢？如下图：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170303-4.png" alt="混合实体"></p>
+<p>一个实体依赖其中一个实体，而不依赖另外的一个，这种模式就是混合实体模式。</p>
+<h3 id="子型实体的表示"><a href="#子型实体的表示" class="headerlink" title="子型实体的表示"></a>子型实体的表示</h3><p>很简单，将父型实体的主键作为子型实体的主键和外键即可。</p>
+<h3 id="递归关系的表示"><a href="#递归关系的表示" class="headerlink" title="递归关系的表示"></a>递归关系的表示</h3><p>在递归关系中，也有1:1、1:N、M:N三种关系：</p>
+<p><img src="http://images.jucongyuan.com/QQ20170303-5.png" alt="递归关系"></p>
+<h4 id="1-1的递归关系"><a href="#1-1的递归关系" class="headerlink" title="1:1的递归关系"></a>1:1的递归关系</h4><p>新增一个列，把被资助（上图的1:1）的主键放入该列，并且该列唯一</p>
+<h4 id="1-N的递归关系"><a href="#1-N的递归关系" class="headerlink" title="1:N的递归关系"></a>1:N的递归关系</h4><p>新增一个列，把介绍人（上图的1:N）的主键放入该列，但是不唯一</p>
+<h4 id="M-N的递归关系"><a href="#M-N的递归关系" class="headerlink" title="M:N的递归关系"></a>M:N的递归关系</h4><p>新增一个表，用医生和患者医生的ID作为复合主键</p>
+<h4 id="递归关系的查询"><a href="#递归关系的查询" class="headerlink" title="递归关系的查询"></a>递归关系的查询</h4><p>递归关系的表虽然有关系，但是只存在一个表，如果我们需要查询相关数据怎么办，这里新介绍一种查询数据的办法，先在我们之前3章中用到的表里新增一列LeadNumber:</p>
+<p><code>ALTER TABLE EMPLOYEE ADD LeadNumber INT;</code></p>
+<p>将表中EmployeeNumber为3的员工领导设为EmployeeNumber为2的员工：</p>
+<p><code>UPDATE EMPLOYEE SET LeadNumber = 2 WHERE EmployeeNumber = 3;</code></p>
+<p>查询关系：</p>
+<p><code>SELECT * FROM EMPLOYEE A, EMPLOYEE B WHERE A.LeadNumber = B.EmployeeNumber;</code></p>
+<p>这样就查出了对应的领导，同样我们可以查询谁为谁的领导：</p>
+<p><code>SELECT * FROM EMPLOYEE A, EMPLOYEE B WHERE A.EmployeeNumber = B.LeadNumber;</code></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创分享，您的支持将鼓励我不断前行！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Jucongyuan WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.png" alt="Jucongyuan Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag">#数据库</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/21/《数据库原理》三章读书笔记/" rel="next" title="《数据库原理》三章读书笔记">
+                <i class="fa fa-chevron-left"></i> 《数据库原理》三章读书笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/21/编辑距离及算法实现/" rel="prev" title="编辑距离及算法实现">
+                编辑距离及算法实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODIxMS80Nzg0"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jucongyuan" />
+          <p class="site-author-name" itemprop="name">Jucongyuan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Jucongyuan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1351932483" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jucongyuan.com" title="个人主页" target="_blank">个人主页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://dannyjiajia.github.io" title="DannyHe" target="_blank">DannyHe</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库开发过程的三个步骤"><span class="nav-number">2.</span> <span class="nav-text">数据库开发过程的三个步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">3.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实体-关系数据模型"><span class="nav-number">4.</span> <span class="nav-text">实体-关系数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实体"><span class="nav-number">4.1.</span> <span class="nav-text">实体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">4.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符"><span class="nav-number">4.3.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体的表示"><span class="nav-number">4.4.</span> <span class="nav-text">实体的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系"><span class="nav-number">4.5.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二元关系的三种类型"><span class="nav-number">4.5.1.</span> <span class="nav-text">二元关系的三种类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大基数"><span class="nav-number">4.5.2.</span> <span class="nav-text">最大基数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小基数"><span class="nav-number">4.5.3.</span> <span class="nav-text">最小基数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体-关系图"><span class="nav-number">4.6.</span> <span class="nav-text">实体-关系图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.7.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些特殊的实体"><span class="nav-number">5.</span> <span class="nav-text">一些特殊的实体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#弱实体"><span class="nav-number">5.1.</span> <span class="nav-text">弱实体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ID依赖实体"><span class="nav-number">5.1.1.</span> <span class="nav-text">ID依赖实体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非ID依赖的弱实体"><span class="nav-number">5.1.2.</span> <span class="nav-text">非ID依赖的弱实体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何区分弱实体和非弱实体"><span class="nav-number">5.1.3.</span> <span class="nav-text">如何区分弱实体和非弱实体</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子型实体"><span class="nav-number">5.2.</span> <span class="nav-text">子型实体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归关系"><span class="nav-number">5.3.</span> <span class="nav-text">递归关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把数据模型转化为数据库设计"><span class="nav-number">6.</span> <span class="nav-text">把数据模型转化为数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实体的转换"><span class="nav-number">6.1.</span> <span class="nav-text">实体的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确认主键"><span class="nav-number">6.1.1.</span> <span class="nav-text">确认主键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确认列的属性"><span class="nav-number">6.1.2.</span> <span class="nav-text">确认列的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证规范化"><span class="nav-number">6.1.3.</span> <span class="nav-text">验证规范化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#找出所有候选键"><span class="nav-number">6.1.3.1.</span> <span class="nav-text">找出所有候选键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#找出函数依赖"><span class="nav-number">6.1.3.2.</span> <span class="nav-text">找出函数依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#是否需要新增表"><span class="nav-number">6.1.3.3.</span> <span class="nav-text">是否需要新增表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反规范化"><span class="nav-number">6.1.4.</span> <span class="nav-text">反规范化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弱实体的表示"><span class="nav-number">6.1.5.</span> <span class="nav-text">弱实体的表示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系的表示"><span class="nav-number">6.2.</span> <span class="nav-text">关系的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1强实体关系"><span class="nav-number">6.3.</span> <span class="nav-text">1:1强实体关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加约束"><span class="nav-number">6.3.1.</span> <span class="nav-text">添加约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-N强实体关系"><span class="nav-number">6.4.</span> <span class="nav-text">1:N强实体关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#M-N强实体关系"><span class="nav-number">6.5.</span> <span class="nav-text">M:N强实体关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联关系和混合实体"><span class="nav-number">6.6.</span> <span class="nav-text">关联关系和混合实体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子型实体的表示"><span class="nav-number">6.7.</span> <span class="nav-text">子型实体的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归关系的表示"><span class="nav-number">6.8.</span> <span class="nav-text">递归关系的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1的递归关系"><span class="nav-number">6.8.1.</span> <span class="nav-text">1:1的递归关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-N的递归关系"><span class="nav-number">6.8.2.</span> <span class="nav-text">1:N的递归关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#M-N的递归关系"><span class="nav-number">6.8.3.</span> <span class="nav-text">M:N的递归关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归关系的查询"><span class="nav-number">6.8.4.</span> <span class="nav-text">递归关系的查询</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jucongyuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vkmSxjwqS7LLJJjCTRY8oHlV-gzGzoHsz", "eYPDjiwQtMjW2L3nKI39Irdj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
