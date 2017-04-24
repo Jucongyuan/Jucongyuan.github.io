@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Mac svnX首次信任证书操作过程备忘]]></title>
+      <url>%2F2017%2F04%2F24%2FMac%20svnX%E9%A6%96%E6%AC%A1%E4%BF%A1%E4%BB%BB%E8%AF%81%E4%B9%A6%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%2F</url>
+      <content type="text"><![CDATA[首次使用svnX访问https的仓库时，会报证书验证错误，但是svnX中没有地方去设置信任证书，不光是svnX，还有Xcode中的svn……，怎么解决呢？操作很简单，打开终端，使用svn ls https://www.yourRepositories.com (R)eject, accept (t)emporarily or accept (p)ermanently? 然后会让你选择是否同意，R、t、p分别表示拒绝、同意一次和永远同意，默认输入p，然后会要求输入你访问svn的账号和密码，自此，再在任何地方用svn访问该https链接时，不再会出现这个问题]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[2016款15寸高配版MacBook Pro开箱]]></title>
       <url>%2F2017%2F04%2F23%2F2016%E6%AC%BE15%E5%AF%B8%E9%AB%98%E9%85%8D%E7%89%88MacBook%20Pro%E5%BC%80%E7%AE%B1%2F</url>
       <content type="text"><![CDATA[狠下心入手了，真的很贵，一直都很犹豫，前段时间刚去过一趟美国，差一点就在美国一个免税的州入手，但是那个时候还是没有下定决心，回来以后，在女朋友一次一次的“鼓动”下，今天终于下手把它带回家了，女朋友说，如果它可以让你产生更多的价值，就不要犹豫（程序猿必备）！ 开箱过程这是官网的配置和价格，在美国，比这个价便宜1000多，但是我没有在美国买，也没有在中国官网买，我入手的价格是比官网便宜接近5000，渠道大家都懂的，就不多说了。 这是盒子上的配置信息 电源是Typc-C接口的，电源还是比较大，和之前版本的差不多 电源线比较长也比较粗 新版的有一个比较装B的功能，就是在关机状态下，打开盖子会自动开机，不知道的同学第一次千万别紧张 TouchBar和右边的Touch ID，上面的文字看着还是比较舒适，然后新版的键盘标上了中文标点符号 触控板真的很大，非常大！ 新版的只有四个Type-C接口和一个耳机接口，插上提前购买的HUB，绿联的，分出一个USB3.1、HDMI和Type-C 查看电池循环次数然后在官网上查查激活时间（就不贴图了，一切正常） 开箱结束！]]></content>
