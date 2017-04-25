@@ -89,7 +89,7 @@
 <meta property="og:description" content="这次又需要大量对象">
 <meta property="og:image" content="http://images.jucongyuan.com/a5.jpg">
 <meta property="og:image" content="http://images.jucongyuan.com/1339770628_5970.jpg">
-<meta property="og:updated_time" content="2017-04-21T06:20:00.000Z">
+<meta property="og:updated_time" content="2017-04-25T02:46:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之享元模式">
 <meta name="twitter:description" content="这次又需要大量对象">
@@ -326,7 +326,7 @@
       
         <h2 id="这次又需要大量对象"><a href="#这次又需要大量对象" class="headerlink" title="这次又需要大量对象"></a>这次又需要大量对象</h2><p><img src="http://images.jucongyuan.com/a5.jpg" alt="围棋"></p>
 <a id="more"></a>
-<p>从图片可以知道，小明他们这次要做一个围棋的游戏，其中小明负责的就是围棋棋子的创建，棋子的数量很多，小明第一时间想到了之前游戏的小怪，也是需要大量的对象，所以是不可以用<a href="http://jucongyuan.github.io/2016/12/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">原型模式</a>的，当然不是，我们今天讲的是享元模式！分析一下为什么不是原型模式，原型模式的重要一点是为了快速的产生对象，而产生的新对象和之前的对象在内存中不是指向同一块内存，因为我们本来就是需要大量的不同对象，可能它们的各种状态都不一样。而这次，我们的棋子，颜色、大小和材质都是一模一样，而唯一不一样的就是它们的位置，所以这次，我们需要的是相同的对象，现在我们就用享元模式来实现这个需求</p>
+<p>从图片可以知道，小明他们这次要做一个围棋的游戏，其中小明负责的就是围棋棋子的创建，棋子的数量很多，小明第一时间想到了之前游戏的小怪，也是需要大量的对象，所以是不是可以用<a href="http://jucongyuan.github.io/2016/12/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" target="_blank" rel="external">原型模式</a>的，当然不是，我们今天讲的是享元模式！分析一下为什么不是原型模式，原型模式的重要一点是为了快速的产生对象，而产生的新对象和之前的对象在内存中不是指向同一块内存，因为我们本来就是需要大量的不同对象，可能它们的各种状态都不一样。而这次，我们的棋子，颜色、大小和材质都是一模一样，而唯一不一样的就是它们的位置，所以这次，我们需要的是相同的对象，现在我们就用享元模式来实现这个需求</p>
 <p>首先定义一个抽象享元类：</p>
 <!-- java -->
 <pre><code>public abstract class Piece {
@@ -408,7 +408,7 @@ p1: com.jucongyuan.testsdk.BlackPiece@1b6d3586
 p2: com.jucongyuan.testsdk.BlackPiece@1b6d3586
 p3: com.jucongyuan.testsdk.WhitePiece@4554617c
 p4: com.jucongyuan.testsdk.WhitePiece@4554617c
-</code></pre><p>可以看到，相同颜色棋子的内存地址是一样的，这就是我们的享元模式，我们的棋子就是享元类，另外我们还是用了工厂模式</p>
+</code></pre><p>可以看到，相同颜色棋子的内存地址是一样的，这就是我们的享元模式，我们的棋子就是享元类，另外我们还使用了工厂模式</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>运用共享技术有效地支持大量细粒度对象的复用。系统只使用少量的对象，而这些对象都很相似，状态变化很小，可以实现对象的多次复用</p>
 <p><img src="http://images.jucongyuan.com/1339770628_5970.jpg" alt="享元模式"></p>
 <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
@@ -517,7 +517,7 @@ p4: com.jucongyuan.testsdk.WhitePiece@4554617c
 true
 false
 false
-</code></pre><p>可以看到，对于字符串<code>abcd</code>，第一次创建后，再次创建是，对象引用会指向第一次创建的内存位置。如果有一个字符串str4，其初值为”ab”，再对它进行操作str4 += “cd”，此时虽然str4的内容与str1相同，但是由于str4的初始值不同，在创建str4时重新分配了内存，所以第三个输出语句结果为false。最后一个输出语句结果也为false，说明当对str2进行修改时将创建一个新的对象，修改工作在新对象上完成，而原来引用的对象并没有发生任何改变，str1仍然引用原有对象，而str2引用新对象，str1与str2引用了两个完全不同的对象</p>
+</code></pre><p>可以看到，对于字符串<code>abcd</code>，第一次创建后，再次创建时，对象引用会指向第一次创建的内存位置。如果有一个字符串str4，其初值为”ab”，再对它进行操作str4 += “cd”，此时虽然str4的内容与str1相同，但是由于str4的初始值不同，在创建str4时重新分配了内存，所以第三个输出语句结果为false。最后一个输出语句结果也为false，说明当对str2进行修改时将创建一个新的对象，修改工作在新对象上完成，而原来引用的对象并没有发生任何改变，str1仍然引用原有对象，而str2引用新对象，str1与str2引用了两个完全不同的对象</p>
 
       
     </div>
