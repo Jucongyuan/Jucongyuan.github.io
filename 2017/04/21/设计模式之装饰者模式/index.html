@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://images.jucongyuan.com/decorate.png">
 <meta property="og:image" content="http://images.jucongyuan.com/decoratetwo.png">
 <meta property="og:image" content="http://images.jucongyuan.com/io.png">
-<meta property="og:updated_time" content="2017-04-21T06:19:18.000Z">
+<meta property="og:updated_time" content="2017-05-03T06:16:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之装饰器模式">
 <meta name="twitter:description" content="经典咖啡厅问题小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：">
@@ -328,7 +328,7 @@
         <h2 id="经典咖啡厅问题"><a href="#经典咖啡厅问题" class="headerlink" title="经典咖啡厅问题"></a>经典咖啡厅问题</h2><p>小明的公司又接到了新的项目，这次是要做程序的是一家咖啡厅，他们需要把他们的咖啡好好的管理起来，小明了解需求以后，很快就根据咖啡店的情况设计出了第一版咖啡厅程序：<br><img src="http://images.jucongyuan.com/decorate.png" alt="decorate"></p>
 <a id="more"></a>
 <p>很快，新的需求来了，由于顾客的增多，有许多客户对咖啡有特殊的要求，如加奶、加糖，巧克力风味的等等，加了不同料的咖啡价格是不一样的。小明很快就着手开始新建更多类，加奶焦糖玛奇朵，巧克力摩卡……但这时的他突然发现有问题：相同的咖啡，因为加料的不同出现了很多的配搭，会导致严重的类剧增。</p>
-<p>小明立即请教了主管，并提出了新的解决方案，给Coffee接口增加方法，如setMilk()、hasMilk()等方法来确保某一个咖啡是加了哪些其他调料的，但是一个问题直接就否定了这样设计：如果我要加双倍调料呢？而且如果出现了一种新的不能加任何调料的饮料时，就会违背<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">接口隔离原则</a>，小明陷入了很大的困难之中，这是主管让小明去了解一下装饰器模式，然后再做出新的设计，小明再了解之后，很快做出了新的设计：</p>
+<p>小明立即请教了主管，并提出了新的解决方案，给Coffee接口增加方法，如setMilk()、hasMilk()等方法来确保某一个咖啡是加了哪些其他调料的，但是一个问题直接就否定了这样设计：如果我要加双倍调料呢？而且如果出现了一种新的不能加任何调料的饮料时，就会违背<a href="http://jucongyuan.github.io/2016/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/" target="_blank" rel="external">接口隔离原则</a>，小明陷入了很大的困难之中，这时主管让小明去了解一下装饰器模式，然后再做出新的设计，小明再了解之后，很快做出了新的设计：</p>
 <p><img src="http://images.jucongyuan.com/decoratetwo.png" alt="decoratetwo"></p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>小明用的设计模式就叫装饰者模式：动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案。</p>
 <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
