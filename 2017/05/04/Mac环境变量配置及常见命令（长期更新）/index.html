@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc /etc/profile和/etc/paths为系统级别的环境变量，系统启动后就被加载，如果要修改，需要root权限。后面3个为用户级别的环境变量，读取顺序为从上到下，如果前者存在">
+<meta name="description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc">
 <meta name="keywords" content="Mac,环境变量,命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac环境变量配置及常见命令（长期更新）">
 <meta property="og:url" content="http://yoursite.com/2017/05/04/Mac环境变量配置及常见命令（长期更新）/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc /etc/profile和/etc/paths为系统级别的环境变量，系统启动后就被加载，如果要修改，需要root权限。后面3个为用户级别的环境变量，读取顺序为从上到下，如果前者存在">
-<meta property="og:updated_time" content="2017-05-04T05:58:38.000Z">
+<meta property="og:description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc">
+<meta property="og:updated_time" content="2017-05-04T09:52:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac环境变量配置及常见命令（长期更新）">
-<meta name="twitter:description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc /etc/profile和/etc/paths为系统级别的环境变量，系统启动后就被加载，如果要修改，需要root权限。后面3个为用户级别的环境变量，读取顺序为从上到下，如果前者存在">
+<meta name="twitter:description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc">
 
 
 
@@ -329,7 +329,8 @@
 ~/.bash_login
 ~/.profile
 ~/.bashrc
-</code></pre><p><code>/etc/profile</code>和<code>/etc/paths</code>为系统级别的环境变量，系统启动后就被加载，如果要修改，需要root权限。后面3个为用户级别的环境变量，读取顺序为从上到下，如果前者存在，后者就会被忽略。最后一个<code>~/.bashrc</code>特殊，它是在bash shell打开的时候加载的。</p>
+</code></pre><a id="more"></a>
+<p><code>/etc/profile</code>和<code>/etc/paths</code>为系统级别的环境变量，系统启动后就被加载，如果要修改，需要root权限。后面3个为用户级别的环境变量，读取顺序为从上到下，如果前者存在，后者就会被忽略。最后一个<code>~/.bashrc</code>特殊，它是在bash shell打开的时候加载的。</p>
 <p>一般情况下，我们再加环境变量时，选择修改<code>~/.bash_profile</code>，如在Mac中要使用<code>adb</code>命令，我们需要将<code>adb</code>命令所在路径配置到环境变量中，编辑（如果有该文件，直接编辑，如果没有，编辑完成后保存会新建）</p>
 <!-- -->
 <pre><code>vim ~/.bash_profile
