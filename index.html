@@ -251,6 +251,163 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/04/Mac环境变量配置及常见命令（长期更新）/" itemprop="url">
+                  Mac环境变量配置及常见命令（长期更新）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-04T11:10:33+08:00" content="2017-05-04">
+              2017-05-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/04/Mac环境变量配置及常见命令（长期更新）/" class="leancloud_visitors" data-flag-title="Mac环境变量配置及常见命令（长期更新）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="环境变量配置方法"><a href="#环境变量配置方法" class="headerlink" title="环境变量配置方法"></a>环境变量配置方法</h2><p>在Mac系统中，我们可以在以下文件中配置环境变量：</p>
+<!-- -->
+<pre><code>/etc/profile
+/etc/paths
+~/.bash_profile
+~/.bash_login
+~/.profile
+~/.bashrc
+</code></pre><p><code>/etc/profile</code>和<code>/etc/paths</code>为系统级别的环境变量，系统启动后就被加载，如果要修改，需要root权限。后面3个为用户级别的环境变量，读取顺序为从上到下，如果前者存在，后者就会被忽略。最后一个<code>~/.bashrc</code>特殊，它是在bash shell打开的时候加载的。</p>
+<p>一般情况下，我们再加环境变量时，选择修改<code>~/.bash_profile</code>，如在Mac中要使用<code>adb</code>命令，我们需要将<code>adb</code>命令所在路径配置到环境变量中，编辑（如果有该文件，直接编辑，如果没有，编辑完成后保存会新建）</p>
+<!-- -->
+<pre><code>vim ~/.bash_profile
+</code></pre><p>在该文件中新增一行：</p>
+<!-- -->
+<pre><code>export PATH=${PATH}:adb路径
+</code></pre><p>这里有一个技巧，不用手动输入路径，直接在Finder中找到adb文件，然后拖入到shell中即可。增加后保存</p>
+<h3 id="自定义文件管理环境变量"><a href="#自定义文件管理环境变量" class="headerlink" title="自定义文件管理环境变量"></a>自定义文件管理环境变量</h3><p>我们可以在<code>/etc/paths.d/</code>中新增一个文件，作为我们自定义的文件，再在该文件中输入命令的路径，就可以使用这个路径中的命令了，这中方式可以使我们方便管理我们的命令，而不都是把命令放到PATHS中</p>
+<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><!-- -->
+<pre><code>1.使环境变量文件立即生效
+source 文件名，如
+$ source ~/.bash_profile
+
+2.显示系统所有环境变量
+$ env 
+
+3.显示当月日历
+$ cal
+
+4.显示隐藏文件
+$ defaults write com.apple.finder AppleShowAllFiles -bool true
+$ killall Finder
+
+5.显示隐藏文件
+$ defaults write com.apple.finder AppleShowAllFiles -bool false
+$ killall Finder
+</code></pre><p>待更新……</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/24/Mac svnX首次信任证书操作过程/" itemprop="url">
                   Mac svnX首次信任证书操作过程备忘
                 </a>
@@ -1347,130 +1504,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/21/设计模式之建造者模式/" itemprop="url">
-                  设计模式之建造者模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-21T14:20:52+08:00" content="2017-04-21">
-              2017-04-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/04/21/设计模式之建造者模式/" class="leancloud_visitors" data-flag-title="设计模式之建造者模式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="游乐园也来了"><a href="#游乐园也来了" class="headerlink" title="游乐园也来了"></a>游乐园也来了</h2><p>游乐园会有什么需求找到小明他们公司呢？现在游乐园需要根据顾客的不同要求为他们量身定做不同的主题假期，是量身定做哦~顾客可以选择假期天数、活动类型、是否需要住宿、餐饮、交通、一定要玩的项目等等。。。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/21/设计模式之建造者模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1516,7 +1549,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1533,7 +1566,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
