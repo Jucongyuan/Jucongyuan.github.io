@@ -87,7 +87,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/20/Handler从使用到到溃/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="目的这个目的是我今天写这篇文章的目的，希望通过通俗易懂的语言将Handler这个东西给大家讲清楚，当然还包括和它关系很密切的Looper、Message和MessageQueue。">
-<meta property="og:updated_time" content="2017-04-20T09:59:18.000Z">
+<meta property="og:updated_time" content="2017-05-11T02:10:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Handler从使用到崩溃">
 <meta name="twitter:description" content="目的这个目的是我今天写这篇文章的目的，希望通过通俗易懂的语言将Handler这个东西给大家讲清楚，当然还包括和它关系很密切的Looper、Message和MessageQueue。">
@@ -472,7 +472,7 @@ private Looper(boolean quitAllowed) {
         }).start();
     }
 }
-</code></pre><p>在构Looper的造函数中，MessageQueue隆重登场了！在看MessageQueue之前，我们先小小总结一下，毕竟到现在信息量还是比较大了：</p>
+</code></pre><p>在Looper的构造函数中，MessageQueue隆重登场了！在看MessageQueue之前，我们先小小总结一下，毕竟到现在信息量还是比较大了：</p>
 <ol>
 <li>要在线程中使用Handler，该线程必须有一个Looper</li>
 <li>Looper的构造方法是私有的，我们在线程中通过调用Looper的prepare()方法为该线程生成一个Looper。主线程调用prepareMainLooper方法生成是为了我们方便通过Looper.getMainLooper()方法获取主线程的Looper</li>
@@ -678,7 +678,7 @@ public void dispatchMessage(Message msg) {
 <li>Handler发送消息时，调用Looper中MessageQueue的enqueueMessage方法来组织消息</li>
 <li>Looper通过loop方法不断的从MessageQueue中去消息，发送Message到Message持有的Handler中由handleMessage方法执行</li>
 </ol>
-<p>最后一个结论有点奇妙，我们通过Handler发消息就是为了让Handler中的另一而方法执行，这不是劳民伤财吗？不过大家想一下Handler的用法：<code>进程间通讯</code>。为什么进程间需要这样通讯，因为在Android中，非UI线程（非主线程）中我们不能更新UI，所以我们可以借助Handler来发送一些消息更新UI，常见的功能如：下载进度的更新……</p>
+<p>最后一个结论有点奇妙，我们通过Handler发消息就是为了让Handler中的另一而方法执行，这不是劳民伤财吗？不过大家想一下Handler的用法：<code>线程间通讯</code>。为什么线程间需要这样通讯，因为在Android中，非UI线程（非主线程）中我们不能更新UI，所以我们可以借助Handler来发送一些消息更新UI，常见的功能如：下载进度的更新……</p>
 <h2 id="大总结"><a href="#大总结" class="headerlink" title="大总结"></a>大总结</h2><p>这篇文章只是通过一步一步看源码来分析Handler、Looper、Message、MessageQueue和Thread之间的关系，其实他们的用法还很多很多，从他们不止一个的构造方法就可以看出来，但是我们要更好的使用它必须先了解它最简单的一面，然后再继续深入，看源码是非常重要的一种方式。</p>
 
       
