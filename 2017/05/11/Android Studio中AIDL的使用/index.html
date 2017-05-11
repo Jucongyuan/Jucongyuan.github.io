@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://images.jucongyuan.com/QQ20170511-214731@2x.png">
 <meta property="og:image" content="http://images.jucongyuan.com/Screenshot_1494510624.png">
 <meta property="og:image" content="http://images.jucongyuan.com/Screenshot_1494510635.png">
-<meta property="og:updated_time" content="2017-05-11T14:21:37.000Z">
+<meta property="og:updated_time" content="2017-05-11T15:36:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio中AIDL的使用">
 <meta name="twitter:description" content="什么是AIDLAIDL的全称为：Android Interface Definition Language，翻译过来就为安卓接口定义语言，对理解AIDL没什么实际意义，那么它到底是干什么的呢？简单来说，它是通过一种定义接口的方式，可以让我们快速的进行进程间通讯。关于进程，我想都应该明白它的含义，在Android中，可以直接理解为我们不同的程序，所以如果我们一个APP想要和另外一个APP进行通讯或者">
@@ -745,6 +745,7 @@ public class ServerService extends Service {
 <p><a href="https://github.com/Jucongyuan/AIDLServer" target="_blank" rel="external">AIDLServer</a></p>
 <p><a href="https://github.com/Jucongyuan/AIDLClient" target="_blank" rel="external">AIDLClient</a></p>
 </blockquote>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>AIDL的使用大致就是这些了，没有在更复杂的用法了，如果复杂也是用于项目后架构上的复杂，使用就这些内容了。不过刚也提到过，AIDL是一种定义语言，运行时没有任何意义，Android用它是为了让我更方便的使用进程间通讯，在后面，我们可以绕过AIDL直接使用Android中的类来实现一套自己的进程间通讯，不过再这之前还要了解更多Android中进程间通讯的设计和实现，在后面我们会逐步的介绍。</p>
 
       
     </div>
@@ -959,7 +960,7 @@ public class ServerService extends Service {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AIDL"><span class="nav-number">1.</span> <span class="nav-text">什么是AIDL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端Demo的功能介绍"><span class="nav-number">2.</span> <span class="nav-text">服务端Demo的功能介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端Demo的功能介绍"><span class="nav-number">3.</span> <span class="nav-text">客户端Demo的功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">3.1.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AIDL中传输自定义的对象"><span class="nav-number">4.</span> <span class="nav-text">AIDL中传输自定义的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-1"><span class="nav-number">4.1.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目源码"><span class="nav-number">6.</span> <span class="nav-text">项目源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AIDL"><span class="nav-number">1.</span> <span class="nav-text">什么是AIDL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端Demo的功能介绍"><span class="nav-number">2.</span> <span class="nav-text">服务端Demo的功能介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端Demo的功能介绍"><span class="nav-number">3.</span> <span class="nav-text">客户端Demo的功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">3.1.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AIDL中传输自定义的对象"><span class="nav-number">4.</span> <span class="nav-text">AIDL中传输自定义的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-1"><span class="nav-number">4.1.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目源码"><span class="nav-number">6.</span> <span class="nav-text">项目源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
         </section>
