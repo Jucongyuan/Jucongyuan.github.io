@@ -87,7 +87,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/04/Mac环境变量配置及常见命令（长期更新）/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
 <meta property="og:description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc">
-<meta property="og:updated_time" content="2017-05-04T09:52:08.000Z">
+<meta property="og:updated_time" content="2017-05-11T02:47:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac环境变量配置及常见命令（长期更新）">
 <meta name="twitter:description" content="环境变量配置方法在Mac系统中，我们可以在以下文件中配置环境变量：  /etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc">
@@ -357,6 +357,12 @@ $ killall Finder
 5.显示隐藏文件
 $ defaults write com.apple.finder AppleShowAllFiles -bool false
 $ killall Finder
+
+6.查找文件所在路径（xxx为文件名或者文件夹名，这种速度较慢）
+$ find / -name xxx
+
+7.查找文件所在路径（xxx为文件名或者文件夹名，这种速度比较快，但是需要先建立一个数据库，这个数据库的作用就是建立和存储文件的索引）
+$ locate xxx
 </code></pre><p>待更新……</p>
 
       
