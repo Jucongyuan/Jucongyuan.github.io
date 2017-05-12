@@ -251,6 +251,131 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/21/Java异常详解/" itemprop="url">
+                  Java异常详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-21T14:13:39+08:00" content="2017-04-21">
+              2017-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/21/Java异常详解/" class="leancloud_visitors" data-flag-title="Java异常详解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="异常和错误"><a href="#异常和错误" class="headerlink" title="异常和错误"></a>异常和错误</h2><p>首先，我们需要重塑对异常和错误的理解，在我们的程序中，不存在所谓的“异常”，只存在错误，错误会导致我们的程序在运行期无法继续运行，如除数为零、尝试打开不存在的文件、试图使用指向为空的对象引用……<br>如果是上述任意一个情形发生，那么我们的程序都将无法继续运行，当然这些错误都是可以通过编码避免，但如果某一个方法的功能就是实现除法的功能，这个方法无法控制不接受获取除数为零的意外，也无法处理当接收到除数为零时的情况，那么这个时候，你需要从当前环境中抛出一个异常，通知其他环境，这里发生了一个问题，我无法处理，我将它交给你处理（不然程序就中止了）。到这里，大家大概知道了Java中的异常和问题的关系了，<code>异常</code>是Java为了解决在出现<code>问题</code>时发出的一个通知，这个通知到达它该到达的地方，然后在这个地方得到解决，然后使程序继续向错误发生时的情况运行。</p>
+<h2 id="Java中的异常"><a href="#Java中的异常" class="headerlink" title="Java中的异常"></a>Java中的异常</h2><h3 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h3><div align="center"><br><img src="http://images.jucongyuan.com/Java%20exception%20class%20structure.png" alt="Java异常类结构图" align=center /><br><br>Java异常类结构图<br></div>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/21/Java异常详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/20/排序算法之交换排序/" itemprop="url">
                   排序算法之交换排序
                 </a>
@@ -1143,7 +1268,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1160,7 +1285,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

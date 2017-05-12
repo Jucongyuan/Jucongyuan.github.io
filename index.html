@@ -375,6 +375,136 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/11/Android Binder分析/" itemprop="url">
+                  Android Binder分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-11T11:14:54+08:00" content="2017-05-11">
+              2017-05-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/11/Android Binder分析/" class="leancloud_visitors" data-flag-title="Android Binder分析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="关于进程间通信-IPC"><a href="#关于进程间通信-IPC" class="headerlink" title="关于进程间通信(IPC)"></a>关于进程间通信(IPC)</h2><h3 id="为什么需要进程间通信"><a href="#为什么需要进程间通信" class="headerlink" title="为什么需要进程间通信"></a>为什么需要进程间通信</h3><p>前面我们使用了<a href="http://jucongyuan.github.io/2017/05/11/Android%20Studio%E4%B8%ADAIDL%E7%9A%84%E4%BD%BF%E7%94%A8/">AIDL</a>，知道了AIDL可以使我们快速的进行进程间通信，为什么我们需要进程间通信呢？最早的操作系统内存分配方式很简单，直接给每一个程序分配物理地址，这样就会出现很多问题：</p>
+<ol>
+<li>进程可以随意访问整个内存，安全性极低</li>
+<li>内存使用效率低，因为内存直接被分配，如果内存不足时，会释放，多进程交替的情况，会不断的装入装出</li>
+<li>随意分配导致程序运行的地址不确定</li>
+</ol>
+<p>为了解决这些问题，操作系统引入了虚拟地址以及一些列方式去解决，新的方式使用虚拟地址的方式，隔离了进程和实际的物理内存，通过虚拟地址和物理地址的映射让进程能够访问实际的内存，对于不同的进程，分配的虚拟地址不同，比如A程序的分配到的虚拟地址空间分布在0x00000000到0x00A00000，程序B为0x00C00000到0x07000000，彼此不重叠，所以对于A或者B只能访问到自己的那一块内存区域。这里提到的虚拟地址解决了早期操作系统上面的1和3问题，至于2怎么解决的大家可以去了解下。有了虚拟地址，进程间就隔离了，但是实际的情况中，我们还是需要一些进程间的通信，于是操作系统给我们提供了一些机制，可以让我们进行一些在操作系统控制下的进程间通信，所以我们必须知道在某一种操作系统中，它所提供的方式是什么，然后去使用它进行进程间通信。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/11/Android Binder分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/美国东部10日扫盲游/" itemprop="url">
                   美国东部10日扫盲游
                 </a>
@@ -1355,130 +1485,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/21/设计模式之迭代器模式/" itemprop="url">
-                  设计模式之迭代器模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-21T14:21:33+08:00" content="2017-04-21">
-              2017-04-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/04/21/设计模式之迭代器模式/" class="leancloud_visitors" data-flag-title="设计模式之迭代器模式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="披萨店和咖啡店合并了"><a href="#披萨店和咖啡店合并了" class="headerlink" title="披萨店和咖啡店合并了"></a>披萨店和咖啡店合并了</h2><p>主管告诉小明，披萨店和咖啡店合并了，小明说你怎么知道啊？因为他们在合并是遇到了问题，由于他们的菜单不一样，所以在服务员在使用时很麻烦，这不新店找到了小明他们帮助解决这个问题。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/21/设计模式之迭代器模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1524,7 +1530,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1541,7 +1547,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,设计模式,状态模式," />
+  <meta name="keywords" content="Binder,Android," />
 
 
 
@@ -80,21 +80,20 @@
 
 
 
-<meta name="description" content="自动贩卖机公司的需求小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。">
-<meta name="keywords" content="Java,设计模式,状态模式">
+<meta name="description" content="关于进程间通信(IPC)为什么需要进程间通信前面我们使用了AIDL，知道了AIDL可以使我们快速的进行进程间通信，为什么我们需要进程间通信呢？最早的操作系统内存分配方式很简单，直接给每一个程序分配物理地址，这样就会出现很多问题：  进程可以随意访问整个内存，安全性极低 内存使用效率低，因为内存直接被分配，如果内存不足时，会释放，多进程交替的情况，会不断的装入装出 随意分配导致程序运行的地址不确定">
+<meta name="keywords" content="Binder,Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之状态模式">
-<meta property="og:url" content="http://yoursite.com/2017/04/21/设计模式之状态模式/index.html">
+<meta property="og:title" content="Android Binder分析">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/Android Binder分析/index.html">
 <meta property="og:site_name" content="Jucongyuan's Blog">
-<meta property="og:description" content="自动贩卖机公司的需求小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。">
-<meta property="og:image" content="http://images.jucongyuan.com/Vending%20Machine.png">
-<meta property="og:image" content="http://images.jucongyuan.com/2012071613421365.png">
-<meta property="og:image" content="http://images.jucongyuan.com/2012070310013466.png">
-<meta property="og:updated_time" content="2017-04-21T06:18:51.000Z">
+<meta property="og:description" content="关于进程间通信(IPC)为什么需要进程间通信前面我们使用了AIDL，知道了AIDL可以使我们快速的进行进程间通信，为什么我们需要进程间通信呢？最早的操作系统内存分配方式很简单，直接给每一个程序分配物理地址，这样就会出现很多问题：  进程可以随意访问整个内存，安全性极低 内存使用效率低，因为内存直接被分配，如果内存不足时，会释放，多进程交替的情况，会不断的装入装出 随意分配导致程序运行的地址不确定">
+<meta property="og:image" content="http://images.jucongyuan.com/0_13110996490rZN.gif">
+<meta property="og:image" content="http://images.jucongyuan.com/0_1298798582y7c5.gif">
+<meta property="og:updated_time" content="2017-05-12T10:50:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之状态模式">
-<meta name="twitter:description" content="自动贩卖机公司的需求小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。">
-<meta name="twitter:image" content="http://images.jucongyuan.com/Vending%20Machine.png">
+<meta name="twitter:title" content="Android Binder分析">
+<meta name="twitter:description" content="关于进程间通信(IPC)为什么需要进程间通信前面我们使用了AIDL，知道了AIDL可以使我们快速的进行进程间通信，为什么我们需要进程间通信呢？最早的操作系统内存分配方式很简单，直接给每一个程序分配物理地址，这样就会出现很多问题：  进程可以随意访问整个内存，安全性极低 内存使用效率低，因为内存直接被分配，如果内存不足时，会释放，多进程交替的情况，会不断的装入装出 随意分配导致程序运行的地址不确定">
+<meta name="twitter:image" content="http://images.jucongyuan.com/0_13110996490rZN.gif">
 
 
 
@@ -112,7 +111,7 @@
   };
 </script>
 
-  <title> 设计模式之状态模式 | Jucongyuan's Blog </title>
+  <title> Android Binder分析 | Jucongyuan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +256,7 @@
             
             
               
-                设计模式之状态模式
+                Android Binder分析
               
             
           </h1>
@@ -269,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-21T14:18:51+08:00" content="2017-04-21">
-              2017-04-21
+            <time itemprop="dateCreated" datetime="2017-05-11T11:14:54+08:00" content="2017-05-11">
+              2017-05-11
             </time>
           </span>
 
@@ -283,8 +282,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -303,7 +302,7 @@
 
           
           
-             <span id="/2017/04/21/设计模式之状态模式/" class="leancloud_visitors" data-flag-title="设计模式之状态模式">
+             <span id="/2017/05/11/Android Binder分析/" class="leancloud_visitors" data-flag-title="Android Binder分析">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -325,238 +324,45 @@
       
 
       
-        <h2 id="自动贩卖机公司的需求"><a href="#自动贩卖机公司的需求" class="headerlink" title="自动贩卖机公司的需求"></a>自动贩卖机公司的需求</h2><p>小明的公司在他们当地越来越有名，有很多公司都找到了他们，最近又有一家制作自动贩卖机的公司找到了他们，他们公司是做自动贩卖机的，他们需要将他们的售卖过程用程序实现，所以他们找到了小明的公司。</p>
+        <h2 id="关于进程间通信-IPC"><a href="#关于进程间通信-IPC" class="headerlink" title="关于进程间通信(IPC)"></a>关于进程间通信(IPC)</h2><h3 id="为什么需要进程间通信"><a href="#为什么需要进程间通信" class="headerlink" title="为什么需要进程间通信"></a>为什么需要进程间通信</h3><p>前面我们使用了<a href="http://jucongyuan.github.io/2017/05/11/Android%20Studio%E4%B8%ADAIDL%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">AIDL</a>，知道了AIDL可以使我们快速的进行进程间通信，为什么我们需要进程间通信呢？最早的操作系统内存分配方式很简单，直接给每一个程序分配物理地址，这样就会出现很多问题：</p>
+<ol>
+<li>进程可以随意访问整个内存，安全性极低</li>
+<li>内存使用效率低，因为内存直接被分配，如果内存不足时，会释放，多进程交替的情况，会不断的装入装出</li>
+<li>随意分配导致程序运行的地址不确定</li>
+</ol>
+<p>为了解决这些问题，操作系统引入了虚拟地址以及一些列方式去解决，新的方式使用虚拟地址的方式，隔离了进程和实际的物理内存，通过虚拟地址和物理地址的映射让进程能够访问实际的内存，对于不同的进程，分配的虚拟地址不同，比如A程序的分配到的虚拟地址空间分布在0x00000000到0x00A00000，程序B为0x00C00000到0x07000000，彼此不重叠，所以对于A或者B只能访问到自己的那一块内存区域。这里提到的虚拟地址解决了早期操作系统上面的1和3问题，至于2怎么解决的大家可以去了解下。有了虚拟地址，进程间就隔离了，但是实际的情况中，我们还是需要一些进程间的通信，于是操作系统给我们提供了一些机制，可以让我们进行一些在操作系统控制下的进程间通信，所以我们必须知道在某一种操作系统中，它所提供的方式是什么，然后去使用它进行进程间通信。</p>
 <a id="more"></a>
-<p>自动贩卖机公司递交了一份关于贩卖机售卖过程的文档给小明他们：</p>
-<p><img src="http://images.jucongyuan.com/Vending%20Machine.png" alt="VendingMachine"></p>
-<p>小明拿到这张图一看，觉得整个需求和过程都非常清晰，椭圆表示售卖机不同的状态，横线上面的动作表示售卖机的动作。于是开始写代码了，很快完成了售卖机。</p>
-<!-- java -->
-<pre><code>public class VendingMachine {
-
-    final static int FREE = 0;
-    final static int HAS_MONEY= 1;
-    final static int HAS_GOODS = 2;
-    final static int SOLD = 3;
-    final static int HAS_CHANGE = 4;
-
-    int state = FREE;
-    double money = 0;
-    double change = 0;
-
-    public VendingMachine(int count) {
-    }
-
-    public void insertMoney(double money) {
-        if (state == FREE) {
-            state = HAS_MONEY;
-            System.out.println(&quot;你已经投入&quot; + money + &quot;元&quot;);
-        } else if (state == HAS_MONEY) {
-            System.out.println(&quot;你已经投入&quot; + (this.money + money) + &quot;元&quot;);
-        } else if (state == HAS_GOODS) {
-            System.out.println(&quot;不能再投入&quot;);
-        } else if (state == SOLD) {
-            System.out.println(&quot;不能再投入&quot;);
-        }else if (state == HAS_CHANGE) {
-            System.out.println(&quot;不能再投入&quot;);
-        }
-    }
-
-    public void selectGoods() {
-        if (state == FREE) {
-            System.out.println(&quot;你还没有投入钱&quot;);
-        } else if (state == HAS_MONEY) {
-            if(商品价格 &gt; money){
-                System.out.println(&quot;商品价格大于你投入的钱&quot;);
-            }else {
-                state = HAS_GOODS;
-                System.out.println(&quot;你已经选择商品&quot;);
-            }
-        } else if (state == HAS_GOODS) {
-            if(商品价格 &gt; money){
-                System.out.println(&quot;商品价格大于你投入的钱&quot;);
-            }else {
-                state = HAS_GOODS;
-                System.out.println(&quot;你已经选择商品&quot;);
-            }
-        } else if (state == SOLD) {
-            System.out.println(&quot;不能再选择&quot;);
-        }else if (state == HAS_CHANGE) {
-            System.out.println(&quot;不能再选择&quot;);
-        }
-    } 
-
-    public void clickConfirm() {
-        if (state == FREE) {
-            System.out.println(&quot;你还没有投入钱&quot;);
-        } else if (state == HAS_MONEY) {
-            System.out.println(&quot;你还没有选择商品&quot;);
-        } else if (state == HAS_GOODS) {
-            state = SOLD;
-            System.out.println(&quot;售出&quot;);
-        } else if (state == SOLD) {
-            System.out.println(&quot;已经售出&quot;);
-        }else if (state == HAS_CHANGE) {
-            System.out.println(&quot;已经售出&quot;);
-        }
-    }
-
-    public void shipment() {
-        if (state == SOLD) {
-            change = money - 商品价格;
-            if (change &gt; 0) {
-                state = HAS_CHANGE;
-            }else {
-                state = FREE;
-            }
-        }else  {
-            System.out.println(&quot;错误&quot;);
-        }
-    }
-
-    public void giveChange() {
-        if (state == FREE) {
-            System.out.println(&quot;你还没有投入钱&quot;);
-        } else if (state == HAS_MONEY) {
-            state = FREE;
-        } else if (state == HAS_GOODS) {
-            System.out.println(&quot;不能找零&quot;);
-        } else if (state == SOLD) {
-            System.out.println(&quot;没有零钱&quot;);
-        } else if (state == HAS_CHANGE) {
-            state = FREE;
-            System.out.println(&quot;找零&quot;);
-        }
-    }
-}
-</code></pre><p>代码很容易理解，在售卖机执行不同动作时，判断售卖机之前的状态，然后执行不同的动作，并且将售卖机更新为新的状态。小明很开心的把程序交给了主管，主管拿到项目并没有说什么，只是给小明说，你的程序没有问题，但是现在售卖机工厂增加了一个需求，在出货时随机（百分之一的概率）让当前购买用户可以中奖，小明这时候准备开始修改代码，但是发现，代码改动的非常大，不仅要加入新的状态，还要修改每个动作内的代码。主管发现了小明的犹豫说，我知道你已经发现了问题，你的代码对于之前的需求是没有问题的，但是之前说过，我们的程序是一定会变的，所以你的代码对于更新会出现很大的问题，违反了很多设计的原则，所以我们必须重构你的代码，而且是完全的重构，抛弃你现在的方式。我们先来分析一下售卖机厂的的需求：对于售卖机，有不同的状态，在不同的状态下发生不同动作时需要做不同的处理和更新，而且可能会加入新的状态和动作，所以状态对于售卖机是变化的部分，我们应该将它独立出来，那么针对这样的情况，我们使用状态模式就再适合不过了：</p>
-<p>首先，定义一个状态接口：</p>
-<!-- java -->
-<pre><code>public interface State {
-    public void insertMoney(double money);
-    public void selectGoods();
-    public void clickConfirm();
-    public void shipment();
-    public void giveChange();
-}
-</code></pre><p>修改售卖机的代码：</p>
-<!-- java -->
-<pre><code>public class VendingMachine {
-
-    State freeState;
-    State hasMoneyState;
-    State hasGoodsState;
-    State soldState;
-    State hasChangeState;
-
-    State status;
-
-    double money;
-    double change;
-
-    public VendingMachine() {
-        freeState = new FreeState(this);
-        hasMoneyState = new HasMoneyState(this);
-        hasGoodsState = new HasGoodsState(this);
-        soldState = new SoldState(this);
-        hasChangeState = new HasChangeState(this);
-        state = freeState;
-    }
-
-    public void insertMoney(double money) {
-        state.insertMoney(money);
-    }
-
-    public void selectGoods() {
-        state.selectGoods();
-    } 
-
-    public void clickConfirm() {
-        state.clickConfirm();
-    }
-
-    public void shipment() {
-        state.shipment();
-    }
-
-    public void giveChange() {
-        state.giveChange();
-    }
-}
-</code></pre><p>实现一个Free状态的实现类：</p>
-<!-- java -->
-<pre><code>public class FreeState implements State {
-
-    VendingMachine vendingMachine;
-
-    public FreeState(VendingMachine vendingMachine) {
-        this.vendingMachine = vendingMachine;
-    }
-
-    public void insertMoney(double money) {
-        vendingMachine.money += money;
-        vendingMachine.state = vendingMachine.hasMoneyState;
-        System.out.println(&quot;你已经投入&quot; + vendingMachine.money + &quot;元&quot;);
-    }
-
-    public void selectGoods() {
-        System.out.println(&quot;你还没有投入钱&quot;);
-    } 
-
-    public void clickConfirm() {
-        System.out.println(&quot;你还没有投入钱&quot;);
-    }
-
-    public void shipment() {
-        System.out.println(&quot;你还没有投入钱&quot;);
-    }
-
-    public void giveChange() {
-        System.out.println(&quot;你还没有投入钱&quot;);
-    }
-}
-</code></pre><p>实现已投入钱状态的实现类：</p>
-<!-- java -->
-<pre><code>public class HasMoneyState implements State {
-
-    VendingMachine vendingMachine;
-
-    public HasMoneyState(VendingMachine vendingMachine) {
-        this.vendingMachine = vendingMachine;
-    }
-
-    public void insertMoney(double money) {
-        vendingMachine.money += money;
-        System.out.println(&quot;你已经投入&quot; + vendingMachine.money + &quot;元&quot;);
-    }
-
-    public void selectGoods() {
-        vendingMachine.state = vendingMachine.hasGoodsState;
-        System.out.println(&quot;你已经选择商品&quot;);
-    } 
-
-    public void clickConfirm() {
-        System.out.println(&quot;你还没有选择商品&quot;);
-    }
-
-    public void shipment() {
-        System.out.println(&quot;你还没有选择商品&quot;);
-    }
-
-    public void giveChange() {
-        vendingMachine.state = vendingMachine. freeState;
-        System.out.println(&quot;已经将钱退出&quot;);
-    }
-}
-</code></pre><p>其他三种状态的实现相信大家已经很清楚了，在这里就不在赘述了。这样一来，我们的售卖机程序就非常清晰了，也利于我们的扩展或修改，如果要加入一个状态，只需要修改和这个状态相关的代码，而不会影响其他状态，这就是我们的状态模式。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类</p>
-<p><img src="http://images.jucongyuan.com/2012071613421365.png" alt="状态模式"></p>
-<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><ul>
-<li>上下文环境</li>
-<li>抽象状态</li>
-<li>具体状态</li>
-</ul>
-<h3 id="它与策略模式的区别"><a href="#它与策略模式的区别" class="headerlink" title="它与策略模式的区别"></a>它与策略模式的区别</h3><p>首相我们看看策略模式的类图：<br><img src="http://images.jucongyuan.com/2012070310013466.png" alt="策略模式"></p>
-<p>惊人的相似！那么，他们是不是同一种模式呢，根据以往的经验，一般这种情况的两种模式一定是有区别的，不然它们不应该被分别定义，对于策略模式和状态模式的区别又是怎样的呢？其实两种模式最大的区别就是它们各自的意图，策略模式的上下文会选择不同的策略以表示该类不同的表现，类的表现从初始化后已经决定。而状态模式会决定上下文的状态和在不同状态下的表现，你某个时刻的体现取决于当前的状态对象，而下一个状态取决于当前状态对当前动作的结果，状态模式中会体现动作和改变，而策略模式中只体现了动作，只是动作被封装成了其他类，由其他类管理起来了。当两者有共同的作用就是<code>解耦</code>，把类的可变部分由独立出来的类实现，不同的策略或者状态会体现出不同的动作。当然我们也发现，对于状态模式，不同的状态我们会实现不同状态接口，所以有多少状态，就会有多少的状态类，这样我们类的数量是必定会增加的，这是它的缺点。不过，如果我们类的状态过多，而且状态的切换非常复杂的话，那么我们的状态模式的优点是显而易见的。</p>
+<h3 id="常见的进程通信方式"><a href="#常见的进程通信方式" class="headerlink" title="常见的进程通信方式"></a>常见的进程通信方式</h3><p>操作系统中进程通讯的方式有很多，操作系统根据实际的需求去选择，这里举几个常见方式：</p>
+<h4 id="共享内存"><a href="#共享内存" class="headerlink" title="共享内存"></a>共享内存</h4><p>这里的共享内存和之前提到过最早的操作系统内存分配方式是不一样的，这种方式的每个进程还是访问自己的内存，但是某个进程可以共享一部分内存出来供其他进程访问。但是这种方式还是会有安全性问题，因为共享的那部分内存任何进程都可以访问，所以这种方式优点是效率高，缺点是安全性低、控制复杂。</p>
+<h4 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h4><p>管道通过采用储存转发的方式，即数据先从发送方缓存区拷贝到内核开辟的缓存区中，然后再从内核缓存区拷贝到接收方缓存区，至少有两次拷贝过程。所以开销比较大</p>
+<h4 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h4><p>这种方式是Client-Server的通信方式，它主要用在跨网络的进程间通信和本机上进程间的低速通信，它的效率和开销都非常大</p>
+<h2 id="Android系统采用哪一种通信方式"><a href="#Android系统采用哪一种通信方式" class="headerlink" title="Android系统采用哪一种通信方式"></a>Android系统采用哪一种通信方式</h2><p>除了上面提到的三种通信方式，还有一些其他的方式，那么Android系统是用的上面哪一种方式呢？以上都不是，因为他们有不同的缺点，这些缺点在Android这种资源有限的设备中是不能被接受的，所以Android系统自己实现了一套进程间通信方式：<code>Binder机制</code>，在正式开始介绍Binder前，还需要了解两个概念<code>内核空间</code>和<code>用户空间</code>。</p>
+<h2 id="内核空间-用户空间"><a href="#内核空间-用户空间" class="headerlink" title="内核空间/用户空间"></a>内核空间/用户空间</h2><p>Android最底层Linux Kernel，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限，它单独运行在内核空间，其他程序是不能调用和访问这一块空间的，普通的程序运行在用户空间。</p>
+<blockquote>
+<p>虽然从逻辑上抽离出用户空间和内核空间；但是不可避免的的是，总有那么一些用户空间需要访问内核的资源；比如应用程序访问文件，网络是很常见的事情，怎么办呢？</p>
+<p> Kernel space can be accessed by user processes only through the use of system calls.</p>
+<p> 用户空间访问内核空间的唯一方式就是系统调用；通过这个统一入口接口，所有的资源访问都是在内核的控制下执行，以免导致对用户程序对系统资源的越权访问，从而保障了系统的安全和稳定。用户软件良莠不齐，要是它们乱搞把系统玩坏了怎么办？因此对于某些特权操作必须交给安全可靠的内核来执行，当一个任务（进程）执行系统调用而陷入内核代码中执行时，我们就称进程处于内核运行态（或简称为内核态）此时处理器处于特权级最高的（0级）内核代码中执行。当进程在执行用户自己的代码时，则称其处于用户运行态（用户态）。即此时处理器在特权级最低的（3级）用户代码中运行。处理器在特权等级高的时候才能执行那些特权CPU指令。</p>
+</blockquote>
+<h2 id="内核模块"><a href="#内核模块" class="headerlink" title="内核模块"></a>内核模块</h2><blockquote>
+<p>通过系统调用，用户空间可以访问内核空间，那么如果一个用户空间想与另外一个用户空间进行通信怎么办呢？很自然想到的是让操作系统内核添加支持；传统的Linux通信机制，比如Socket，管道等都是内核支持的；但是Binder并不是Linux内核的一部分，它是怎么做到访问内核空间的呢？Linux的动态可加载内核模块（Loadable Kernel Module，LKM）机制解决了这个问题；模块是具有独立功能的程序，它可以被单独编译，但不能独立运行。它在运行时被链接到内核作为内核的一部分在内核空间运行。这样，Android系统可以通过添加一个内核模块运行在内核空间，用户进程之间的通过这个模块作为桥梁，就可以完成通信了。在Android系统中，这个运行在内核空间的，负责各个用户进程通过Binder通信的内核模块叫做Binder驱动；驱动程序一般指的是设备驱动程序（Device Driver），是一种可以使计算机和设备通信的特殊程序。相当于硬件的接口，操作系统只有通过这个接口，才能控制硬件设备的工作；驱动就是操作硬件的接口，为了支持Binder通信过程，Binder使用了一种“硬件”，因此这个模块被称之为驱动。</p>
+</blockquote>
+<h2 id="Binder通信模型"><a href="#Binder通信模型" class="headerlink" title="Binder通信模型"></a>Binder通信模型</h2><p>现在我们知道，Binder驱动运行在内核空间，一般的程序运行在用户空间，都属于不同的进程，那么Binder通信是怎么设计的呢？Binder采用的是Client-Server方式，如果我们两个程序需要通信，那么其中一个就为Client，另外一个为Server。就像我们<a href="http://jucongyuan.github.io/2017/05/11/Android%20Studio%E4%B8%ADAIDL%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">AIDL</a>这个例子，一个服务端，一个客户端，但是仅仅这两个端是不够的，就像我们需要联系另外一个人，可以通过电话，如果没有电话，我们就联系不上这个人（不考虑其他的联系方式），就更别说和他交流了。所以我们需要一个电话簿，需要时，我们查查电话簿找到我们要联系的人，拨通电话，开始交流。那么在Binder通信模型必然也存在一个“电话簿”，它就是<code>ServiceManager</code>，整个系统只有一个电话簿，不是每一个进程都有自己的，它运行在内核空间内，我们的Client可以通过问它找到Server。注意！用户空间进程和内核空间的ServiceManager要跨进程通信才能看到“电话簿”啊！问题来了，找ServiceManager电话号码的“电话簿”在哪里呢？还有另外一个“电话簿”？找到这另外一个“电话簿”还需要另外再一个“电话簿”？……这个问题就成了“先有鸡还是先有蛋”。不过确实存在这个问题，那么Android是怎么去解决的呢？其实解决方法很简单，<code>ServiceManager</code>的“电话号码”是固定的，其他的所有进程都知道这个号码，需要时拨通这个号码就可以找到<code>ServiceManager</code>了。</p>
+<h3 id="Binder驱动"><a href="#Binder驱动" class="headerlink" title="Binder驱动"></a>Binder驱动</h3><p>有了Client、Server和ServiceManager就可以通“电话”了吗？当然不是，还需要基站，而在这个模型中充当基站角色的就是我们<code>Binder驱动</code>，Server和ServiceManager通信、Client和Server通信都需要这个基站，Client、Server、ServiceManager和Binder驱动就是Binder通信模型四个重要的角色。</p>
+<h3 id="通信步骤"><a href="#通信步骤" class="headerlink" title="通信步骤"></a>通信步骤</h3><ol>
+<li>ServiceManager建立(建立通信录)；首先有一个进程向驱动提出申请为ServiceManager；驱动同意之后，ServiceManager进程负责管理Service（注意这里是Service而不是Server，因为如果通信过程反过来的话，那么原来的客户端Client也会成为服务端Server）不过这时候通信录还是空的，一个号码都没有。</li>
+<li>各个Server向ServiceManager注册(完善通信录)；每个Server端进程启动之后，向ServiceManager报告，我是zhangsan, 要找我请返回0x1234(这个地址没有实际意义，类比)；其他Server进程依次如此；这样ServiceManager就建立了一张表，对应着各个Server的名字和地址；就好比B与A见面了，说存个我的号码吧，以后找我拨打10086；</li>
+<li>Client想要与Server通信，首先询问ServiceManager；请告诉我如何联系zhangsan，ServiceManager收到后给他一个号码0x1234；Client收到之后，开心滴用这个号码拨通了Server的电话，于是就开始通信了。</li>
+</ol>
+<p><img src="http://images.jucongyuan.com/0_13110996490rZN.gif" alt=""></p>
+<h2 id="Binder机制跨进程原理"><a href="#Binder机制跨进程原理" class="headerlink" title="Binder机制跨进程原理"></a>Binder机制跨进程原理</h2><p>现在我们知道Binder通信的模型和以及他们各个角色是怎么配合的了，但是我们还不知道Binder驱动是怎么帮助我们完成通信的。这里只介绍原理，具体的分析留在后面。还是用这个<a href="http://jucongyuan.github.io/2017/05/11/Android%20Studio%E4%B8%ADAIDL%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">AIDL</a>例子来说明。上面的通信步骤我们知道，服务端将它的名字和地址告诉了ServiceManager，另外它还会告知ServiceManager它具备什么能力，客户端通过ServiceManager找到服务端说：我要服务端<code>展示它的某一个能力</code>，这里的能力就是某一个方法，例如例子中的<code>getStr()</code>方法。Binder驱动在这里面做了什么？它存储了所有服务端在那里注册的能力？其实不是，服务端向ServiceManager注册时，只是生成了一个引用，这个引用可以理解为指向服务端的一个引用，客户端可以通过ServiceManager得到这个引用，从而调用某个方法。不过要注意，这个引用并非服务端某个真实实现类的引用，ServiceManager和客户端持有的这个引用只是一个傀儡，相当于一个代理，这个傀儡可能和真实那个实现类一模一样，但是它不并不是在服务端那个真身。Client进程只不过是持有了Server端的代理；代理对象协助驱动完成了跨进程通信。</p>
+<p><img src="http://images.jucongyuan.com/0_1298798582y7c5.gif" alt=""></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Binder通讯的一些原理、过程和方式我们已经知道了，后面我们会介绍Client、Server、ServiceManager和Binder驱动，以及自己如何不用AIDL实现一个自己的进程间通讯。</p>
+<blockquote>
+<p>参考：</p>
+<p><a href="http://blog.csdn.net/do2jiang/article/details/4690967" target="_blank" rel="external">进程地址空间与虚拟存储空间的理解</a></p>
+<p><a href="http://weishu.me/2016/01/12/binder-index-for-newer/" target="_blank" rel="external">Binder学习指南</a></p>
+<p><a href="http://blog.csdn.net/universus/article/details/6211589" target="_blank" rel="external">Android Bander设计与实现 - 设计篇</a></p>
+</blockquote>
 
       
     </div>
@@ -598,11 +404,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
+            <a href="/tags/Binder/" rel="tag">#Binder</a>
           
-            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
-          
-            <a href="/tags/状态模式/" rel="tag">#状态模式</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -611,16 +415,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/21/设计模式之装饰者模式/" rel="next" title="设计模式之装饰器模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之装饰器模式
+              <a href="/2017/05/11/Android Studio中AIDL的使用/" rel="next" title="Android Studio中AIDL的使用">
+                <i class="fa fa-chevron-left"></i> Android Studio中AIDL的使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/21/设计模式之组合模式/" rel="prev" title="设计模式之组合模式">
-                设计模式之组合模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/09/美国东部10日扫盲游/" rel="prev" title="美国东部10日扫盲游">
+                美国东部10日扫盲游 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -775,7 +579,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动贩卖机公司的需求"><span class="nav-number">1.</span> <span class="nav-text">自动贩卖机公司的需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#角色"><span class="nav-number">2.1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#它与策略模式的区别"><span class="nav-number">2.2.</span> <span class="nav-text">它与策略模式的区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于进程间通信-IPC"><span class="nav-number">1.</span> <span class="nav-text">关于进程间通信(IPC)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要进程间通信"><span class="nav-number">1.1.</span> <span class="nav-text">为什么需要进程间通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的进程通信方式"><span class="nav-number">1.2.</span> <span class="nav-text">常见的进程通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共享内存"><span class="nav-number">1.2.1.</span> <span class="nav-text">共享内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管道"><span class="nav-number">1.2.2.</span> <span class="nav-text">管道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Socket"><span class="nav-number">1.2.3.</span> <span class="nav-text">Socket</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android系统采用哪一种通信方式"><span class="nav-number">2.</span> <span class="nav-text">Android系统采用哪一种通信方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核空间-用户空间"><span class="nav-number">3.</span> <span class="nav-text">内核空间/用户空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核模块"><span class="nav-number">4.</span> <span class="nav-text">内核模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binder通信模型"><span class="nav-number">5.</span> <span class="nav-text">Binder通信模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder驱动"><span class="nav-number">5.1.</span> <span class="nav-text">Binder驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信步骤"><span class="nav-number">5.2.</span> <span class="nav-text">通信步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binder机制跨进程原理"><span class="nav-number">6.</span> <span class="nav-text">Binder机制跨进程原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
         </section>
